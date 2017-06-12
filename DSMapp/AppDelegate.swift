@@ -12,6 +12,60 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var db : FMDatabase?
+    
+    func login(id: String,pw:String) -> Bool{
+        var temp = (false,false)
+        
+        getAPI(add: "/account/login/student", param: "id=\(id)&password=\(pw)", method: "POST", fun: {data, res, err in
+            if(err == nil){
+                if(res?.statusCode == 201){
+                    temp.0 = true
+                }
+            }
+            temp.1 = true
+        })
+        
+        while !temp.1{
+        }
+        
+        return temp.0
+    }
+    
+    func getAPI(add: String, param: String, method: String, fun: @escaping (Any?, HTTPURLResponse?, Error?)->Void){
+        
+        var request: URLRequest?
+        if(method == "POST"){
+            request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com/\(add)")!)
+            request!.httpBody = param.data(using: .utf8)
+        }else{
+            request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com/\(add)?\(param)")!)
+        }
+        
+        request!.httpMethod = method
+        
+        let task = URLSession.shared.dataTask(with: request!){
+            data, res, err in
+            
+            var tempData : Any? = nil
+            
+            if(data != nil){
+                print(String.init(data: data!, encoding: .utf8)!)
+                do{
+                    tempData = try JSONSerialization.jsonObject(with: data!, options: [])
+                }catch{
+                    print("data change error")
+                }
+            }else{
+                print("data is nil")
+            }
+            
+            fun(tempData, res as? HTTPURLResponse, err)
+        }
+        
+        task.resume()
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
