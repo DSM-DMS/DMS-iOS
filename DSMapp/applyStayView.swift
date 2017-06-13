@@ -20,6 +20,9 @@ class applyStayView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         switchArray = [friOut,satOut,satIn,stay]
+        applyButton.layer.shadowOffset = CGSize.init(width: 1, height: 1)
+        applyButton.layer.shadowOpacity = 0.3
+        applyButton.layer.shadowColor = UIColor.black.cgColor
         
         
     }
@@ -53,7 +56,39 @@ class applyStayView: UIViewController {
         
     }
     
+    func returnToHome(){
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        returnToHome()
+    }
+    
     @IBAction func apply(_ sender: Any) {
+        var check = (false,false)
+        for i in 0..<switchArray.count{
+            if switchArray[i].isOn{
+                ap.getAPI(add: "apply/stay", param: "value=\(i+1)", method: "PUT", fun: {
+                    data, res, err in
+                    if err == nil{
+                        if res?.statusCode == 200{
+                            check.0 = true
+                        }
+                    }
+                    check.1 = true
+                })
+                break
+            }
+        }
+        while !check.1{
+        }
+        
+        if check.0{
+            showToastForApply(message: "신청 성공")
+        }else{
+            showToastForApply(message: "신청 실패")
+        }
+        
     }
     
     @IBAction func valueChange(_ sender: Any) {

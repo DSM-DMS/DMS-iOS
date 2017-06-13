@@ -617,7 +617,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="잔류신청" id="Han-rc-Ckj">
-                        <barButtonItem key="leftBarButtonItem" title="신청화면" id="dyV-71-aAr"/>
+                        <barButtonItem key="leftBarButtonItem" title="신청화면" id="dyV-71-aAr">
+                            <connections>
+                                <action selector="back:" destination="zlC-Eb-JGf" id="nHR-cv-8hR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="applyButton" destination="mbr-R0-8s0" id="ANG-AF-YCR"/>

@@ -136,8 +136,6 @@ class mealView: UIViewController {
                 break
             }
         }
-        
-        
     }
     
     
@@ -151,7 +149,6 @@ class mealView: UIViewController {
             ap.db = FMDatabase.init(path: databasePath)
             
             if ap.db == nil{
-                NSLog("db create error")
                 return
             }
             
@@ -168,9 +165,8 @@ class mealView: UIViewController {
                 for i in 0..<30{
                     tempDataInsert(i)
                 }
-            }else{
-                NSLog((ap.db?.lastErrorMessage())!)
             }
+            
             firstCheck = true
         }else{
             ap.db = FMDatabase.init(path: databasePath)
@@ -178,6 +174,7 @@ class mealView: UIViewController {
                 if self.ap.db?.open() != nil{
                     let sql_query = "select * from login"
                     let result = self.ap.db?.executeQuery(sql_query, withArgumentsIn: nil)
+                    
                     if result != nil{
                         while (result?.next())! {
                             return self.ap.login(id: (result?.string(forColumn: "id"))!, pw: (result?.string(forColumn: "password"))!)
@@ -186,12 +183,20 @@ class mealView: UIViewController {
                 }
                 return false
             }
+            
             check = autoLogin()
-            let sql_query = "DELETE FROM meal where date = \"\((getDateData(date: Date() - TimeInterval(86400)))[1])\""
+            
+            var sql_query = "DELETE FROM meal where date = \"\((getDateData(date: Date() - TimeInterval(86400)))[4])\""
             if ap.db?.open() != nil{
                 ap.db?.executeUpdate(sql_query, withArgumentsIn: nil)
                 if !((ap.db?.hadError())!){
-                    tempDataInsert(29)
+                    sql_query = "select * from meal where date = \"\(getDateData(date: Date() + TimeInterval(86400 * 29))[4])\""
+                    let result = ap.db?.executeQuery(sql_query, withArgumentsIn: nil)
+                    if result != nil{
+                        if !(result?.next())!{
+                            tempDataInsert(29)
+                        }
+                    }
                 }
             }
         }
@@ -207,11 +212,9 @@ class mealView: UIViewController {
                     self.ap.db?.open()
                     let tempSaveData = self.changeDataForSave(data: data)
                     let sql_query = "INSERT into meal values (\"\(dateData[4])\",\"\(tempSaveData[0])\",\"\(tempSaveData[1])\",\"\(tempSaveData[2])\")"
+                    
                     self.ap.db?.executeUpdate(sql_query, withArgumentsIn: nil)
                     
-                    if(self.ap.db?.hadError())!{
-                        NSLog((self.ap.db?.lastErrorMessage())!)
-                    }
                 }
             }
         })
@@ -268,7 +271,6 @@ class mealView: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        UIView.animate(withDuration: TimeInterval(0.5), animations: setFirst)
         UIView.animate(withDuration: TimeInterval(0.5), animations: setFirst, completion: {
             bool in
             if !self.firstCheck{
@@ -368,7 +370,9 @@ class mealView: UIViewController {
             }
         }
         
-        tempDataInsert(0, date: date)
+        if (getDateData(date: date)[4] != getDateData(date: Date() - TimeInterval(86400))[4]) && (getDateData(date: date)[4] != getDateData(date: Date() + TimeInterval(86400 * 29))[4]){
+            tempDataInsert(0, date: date)
+        }
         
         setDataTextView("데이터를 로딩 중 입니다.", textView: dataArray[0])
         setDataTextView("이러힌 오류가 지속된다면\n먼저 네트워크 상태를 확인해 주시고", textView: dataArray[1])
@@ -398,7 +402,7 @@ class mealView: UIViewController {
                     break
                 }
 
-                //self.viewConstraint[count].constant = self.viewConstraint[count+1].constant
+                
                 i.center.x = self.viewArray[count+1].center.x
                 i.alpha = self.viewArray[count+1].alpha
                 
