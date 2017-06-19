@@ -22,7 +22,7 @@ class applyStayView: UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor.white
         switchArray = [friOut,satOut,satIn,stay]
         applyButton.layer.shadowOffset = CGSize.init(width: 1, height: 1)
-        applyButton.layer.shadowOpacity = 0.3
+        applyButton.layer.shadowOpacity = 0.1
         applyButton.layer.shadowColor = UIColor.black.cgColor
         
         
