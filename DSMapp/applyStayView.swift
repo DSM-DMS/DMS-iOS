@@ -19,6 +19,7 @@ class applyStayView: UIViewController {
     var switchArray = [UISwitch]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = UIColor.white
         switchArray = [friOut,satOut,satIn,stay]
         applyButton.layer.shadowOffset = CGSize.init(width: 1, height: 1)
         applyButton.layer.shadowOpacity = 0.3

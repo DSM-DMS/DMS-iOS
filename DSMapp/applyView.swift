@@ -32,6 +32,8 @@ class applyView: UIViewController {
     var textArray = [UILabel]()
     var openButtonArray = [UIButton]()
     
+    let KEY = ".s@!31VAsv!@312231"
+    
     var check = [false,false,false,false,false]
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,7 +84,7 @@ class applyView: UIViewController {
             }
         }
         
-        if openButtonArray[tempInt].title(for: UIControlState.normal) == "신청"{
+        if openButtonArray[tempInt].title(for: .normal) == "신청" && textArray[tempInt].text != "네트워크를 확인하세요."{
             switch tempInt {
             case 2:
                 var temp = (false,false)
@@ -108,10 +110,7 @@ class applyView: UIViewController {
             case 3:
                 return
             default:
-                if tempInt == 0{
-                    return
-                }
-                let storyboardIDArray = ["","applyStay"]
+                let storyboardIDArray = ["applyStudy","applyStay"]
                 let uvc = self.storyboard?.instantiateViewController(withIdentifier: storyboardIDArray[tempInt])
                 uvc?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
                 present(uvc!, animated: true, completion: nil)
@@ -152,7 +151,7 @@ class applyView: UIViewController {
     }
     
     let ap = UIApplication.shared.delegate as! AppDelegate
-    let urlArray = ["/apply/extension","/apply/stay","/apply/goingout",""]
+    let urlArray = ["apply/extension","apply/stay","apply/goingout",""]
     
     
     func getData(num: Int, label:UILabel){
@@ -174,7 +173,10 @@ class applyView: UIViewController {
                     getData = "신청되지 않았습니다"
                 }else if res?.statusCode == 200{
                     if num == 0{
-                        
+                        let temp = data as! [String:Any]
+                        self.ap.myName = temp["name"] as! String
+                        print(self.ap.myName)
+                        getData = "신청 : " + studyRoomNumber[(temp["class"] as! Int) - 1]
                     }
                     if num == 1{
                         getData = "신청 : " + stayString[(data as! [String : Int])["value"]! - 1]
@@ -183,7 +185,7 @@ class applyView: UIViewController {
                     getData = "로그인이 필요합니다."
                 }
             }else{
-                getData = "오류가 발생했습니다."
+                getData = "네트워크를 확인하세요."
             }
         })
         

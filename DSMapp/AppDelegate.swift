@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var db : FMDatabase?
     
+    var myName = ""
+    
     func login(id: String,pw:String) -> Bool{
         var temp = (false,false)
         
