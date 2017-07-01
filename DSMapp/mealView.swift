@@ -167,6 +167,7 @@ class mealView: UIViewController {
                 }
             }
             
+           
             firstCheck = true
         }else{
             ap.db = FMDatabase.init(path: databasePath)
