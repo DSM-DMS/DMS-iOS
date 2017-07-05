@@ -692,7 +692,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnZ-JP-XHd">
-                                                        <rect key="frame" x="42.333333333333343" y="188" width="60" height="20"/>
+                                                        <rect key="frame" x="42.666666666666664" y="188" width="60.000000000000021" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="6yj-Z6-BgU"/>
                                                             <constraint firstAttribute="width" constant="60" id="goM-W7-FK4"/>
@@ -734,7 +734,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgC-aG-OSD">
-                                                        <rect key="frame" x="42.333333333333343" y="188" width="60" height="20"/>
+                                                        <rect key="frame" x="42.666666666666657" y="188" width="60" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="UCl-kX-dFO"/>
                                                             <constraint firstAttribute="width" constant="60" id="Uzo-WR-S5U"/>
@@ -781,7 +781,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFZ-vP-MJd">
-                                                        <rect key="frame" x="42.333333333333343" y="188" width="60" height="20"/>
+                                                        <rect key="frame" x="42.666666666666664" y="188" width="60.000000000000021" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="AZO-Um-fbb"/>
                                                             <constraint firstAttribute="height" constant="20" id="qMF-ev-VIv"/>
@@ -823,7 +823,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXd-es-7ZW">
-                                                        <rect key="frame" x="42.333333333333343" y="188" width="60" height="20"/>
+                                                        <rect key="frame" x="42.666666666666657" y="188" width="60" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="6hd-Op-sd0"/>
                                                             <constraint firstAttribute="height" constant="20" id="UmC-Xj-2ID"/>

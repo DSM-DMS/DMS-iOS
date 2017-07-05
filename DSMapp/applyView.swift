@@ -166,28 +166,30 @@ class applyView: UIViewController {
             return
         }
         
-        ap.getAPI(add: urlArray[num], param: "", method: "GET", fun: {
-            data, res, error in
-            if error == nil{
-                if res?.statusCode == 204{
-                    getData = "신청되지 않았습니다"
-                }else if res?.statusCode == 200{
-                    if num == 0{
-                        let temp = data as! [String:Any]
-                        self.ap.myName = temp["name"] as! String
-                        print(self.ap.myName)
-                        getData = "신청 : " + studyRoomNumber[(temp["class"] as! Int) - 1]
+        if ap.isLogin{
+            ap.getAPI(add: urlArray[num], param: "", method: "GET", fun: {
+                data, res, error in
+                if error == nil{
+                    if res?.statusCode == 204{
+                        getData = "신청되지 않았습니다"
+                    }else if res?.statusCode == 200{
+                        if num == 0{
+                            let temp = data as! [String:Any]
+                            self.ap.myName = temp["name"] as! String
+                            print(self.ap.myName)
+                            getData = "신청 : " + studyRoomNumber[(temp["class"] as! Int) - 1]
+                        }
+                        if num == 1{
+                            getData = "신청 : " + stayString[(data as! [String : Int])["value"]! - 1]
+                        }
                     }
-                    if num == 1{
-                        getData = "신청 : " + stayString[(data as! [String : Int])["value"]! - 1]
-                    }
-                }else{
-                    getData = "로그인이 필요합니다."
                 }
-            }else{
-                getData = "네트워크를 확인하세요."
-            }
-        })
+            })
+        }else{
+            label.text = "로그인이 필요합니다."
+            return
+        }
+        
         
         while true{
             if !getData.isEmpty{
@@ -201,6 +203,13 @@ class applyView: UIViewController {
     func getDataForSwitch(){
         let switchArray = [OutSat,OutSun]
         var dataCheck = [false,false,false,false]
+        if !ap.isLogin{
+            for i in switchArray{
+                i?.isEnabled = false
+            }
+            return
+        }
+
         ap.getAPI(add: urlArray[2], param: "", method: "GET", fun: {
             data, res, error in
             if error == nil{

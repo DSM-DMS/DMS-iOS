@@ -13,12 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var db : FMDatabase?
-    
     var myName = ""
+    
+    var isLogin = false
     
     func login(id: String,pw:String) -> Bool{
         var temp = (false,false)
+        
+        if id.isEmpty || pw.isEmpty{
+            return false
+        }
         
         getAPI(add: "/account/login/student", param: "id=\(id)&password=\(pw)", method: "POST", fun: {data, res, err in
             if(err == nil){
@@ -32,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         while !temp.1{
         }
         
-        return temp.0
+        isLogin = temp.0
+        return isLogin
     }
     
     func getAPI(add: String, param: String, method: String, fun: @escaping (Any?, HTTPURLResponse?, Error?)->Void){

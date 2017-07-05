@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class loginView: UIViewController,UITextFieldDelegate{
 
@@ -52,14 +53,16 @@ class loginView: UIViewController,UITextFieldDelegate{
     }
     
     func saveLogin(){
-        if ap.db?.open() != nil{
-            let sql_query = "update login set id = '\(idTextFiled.text!)', password = '\(pwTextFiled.text!)' where key = 'user'"
-            
-            ap.db?.executeUpdate(sql_query, withArgumentsIn: nil)
-            
-        }
         
-        ap.db?.close()
+        let realm = try! Realm()
+        let deleteTemp = realm.objects(loginData.self).first
+        let saveTemp = loginData()
+        try! realm.write {
+            realm.delete(deleteTemp!)
+            saveTemp.id = idTextFiled.text!
+            saveTemp.pw = pwTextFiled.text!
+            realm.add(saveTemp)
+        }
     }
     
     @IBOutlet weak var stackView: UIStackView!

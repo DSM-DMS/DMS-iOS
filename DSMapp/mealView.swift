@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class mealView: UIViewController {
     
@@ -77,9 +78,6 @@ class mealView: UIViewController {
         
         viewConstraint = [self.view1Constraint,self.view2Constraint,self.view3Constraint,self.view4Constraint,self.view5Constraint]
         
-        firtstDataSet()
-        //dbset
-        
         
         fomatter.timeZone = NSTimeZone.default
         
@@ -88,6 +86,7 @@ class mealView: UIViewController {
             i.isSelectable = false
         }
         
+        dataSet()
         
         beforeButton.layer.shadowOffset = CGSize.init(width: 1, height: 1)
         beforeButton.layer.shadowOpacity = 1
@@ -138,107 +137,99 @@ class mealView: UIViewController {
         }
     }
     
+    func findMealData(date : String, dataRealm : Realm = try! Realm()) -> mealData?{
+        let tempMealData =
+            dataRealm.object(ofType: mealData.self, forPrimaryKey: date)
+        return tempMealData
+    }
     
-    func firtstDataSet(){
-        let filemgr = FileManager.default
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let docsDir = dirPaths[0]
-        let databasePath = docsDir + "/dsmappdatabase.db"
-        
-        if !filemgr.fileExists(atPath: databasePath){
-            ap.db = FMDatabase.init(path: databasePath)
-            
-            if ap.db == nil{
-                return
-            }
-            
-            if ap.db?.open() != nil{
-                var sql_statement = "CREATE TABLE if not exists meal(date text, blackfast text, lunch text, dinner text)"
-                ap.db?.executeStatements(sql_statement)
-                sql_statement = "CREATE TABLE if not exists login(key text, id text, password text)"
-                ap.db?.executeStatements(sql_statement)
-                let sql_query = "insert into login values('user','','')"
-                ap.db?.executeUpdate(sql_query, withArgumentsIn: nil)
-            }
-            
-            if !(ap.db?.hadError())!{
-                for i in 0..<30{
-                    tempDataInsert(i)
+    let realm = try! Realm()
+    
+    func dataSet(){
+
+        if !realm.isEmpty{
+            if let tempMealData = findMealData(date: (getDateData(date: Date() - TimeInterval(86400)))[4]){
+                try! realm.write {
+                    realm.delete(tempMealData)
                 }
             }
+            if findMealData(date: getDateData(date: Date() + TimeInterval(86400 * 29))[4]) == nil{
+                tempDataInsert(29)
+            }
             
-           
-            firstCheck = true
         }else{
-            ap.db = FMDatabase.init(path: databasePath)
-            func autoLogin() -> Bool{
-                if self.ap.db?.open() != nil{
-                    let sql_query = "select * from login"
-                    let result = self.ap.db?.executeQuery(sql_query, withArgumentsIn: nil)
-                    
-                    if result != nil{
-                        while (result?.next())! {
-                            return self.ap.login(id: (result?.string(forColumn: "id"))!, pw: (result?.string(forColumn: "password"))!)
-                        }
-                    }
-                }
-                return false
+            try! realm.write {
+                let tempLoginData = loginData()
+                realm.add(tempLoginData)
+                let tempData = mealData()
+                tempData.date = "initial"
+                realm.add(tempData)
             }
             
-            check = autoLogin()
-            
-            var sql_query = "DELETE FROM meal where date = \"\((getDateData(date: Date() - TimeInterval(86400)))[4])\""
-            if ap.db?.open() != nil{
-                ap.db?.executeUpdate(sql_query, withArgumentsIn: nil)
-                if !((ap.db?.hadError())!){
-                    sql_query = "select * from meal where date = \"\(getDateData(date: Date() + TimeInterval(86400 * 29))[4])\""
-                    let result = ap.db?.executeQuery(sql_query, withArgumentsIn: nil)
-                    if result != nil{
-                        if !(result?.next())!{
-                            tempDataInsert(29)
-                        }
-                    }
-                }
+            for i in 0..<30{
+                tempDataInsert(i)
             }
         }
-
+        
     }
     
     func tempDataInsert(_ num : Int , date : Date = Date()){
         let dateData = getDateData(date: date + TimeInterval(86400 * num))
-        ap.getAPI(add: "/school/meal", param: "year=\(dateData[0])&month=\(dateData[3])&day=\(dateData[2])", method: "GET", fun: {
+        ap.getAPI(add: "meal", param: "date=\(dateData[4])", method: "GET", fun: {
             data, res, err in
             if(err == nil){
                 if res?.statusCode == 200{
-                    self.ap.db?.open()
-                    let tempSaveData = self.changeDataForSave(data: data)
-                    let sql_query = "INSERT into meal values (\"\(dateData[4])\",\"\(tempSaveData[0])\",\"\(tempSaveData[1])\",\"\(tempSaveData[2])\")"
-                    
-                    self.ap.db?.executeUpdate(sql_query, withArgumentsIn: nil)
-                    
+                    if self.findMealData(date: dateData[4]) == nil{
+                        let realm = try! Realm()
+                        let tempSaveData = self.changeDataForSave(data: data)
+                        let tempMealData = mealData()
+                        tempMealData.breakfast = tempSaveData["breakfast"]!
+                        tempMealData.lunch = tempSaveData["lunch"]!
+                        tempMealData.dinner = tempSaveData["dinner"]!
+                        tempMealData.date = dateData[4]
+                        
+                        try! realm.write {
+                            realm.add(tempMealData)
+                        }
+                    }
                 }
             }
         })
     }
     
-    func changeDataForSave(data : Any?) -> [String]{
-        let temp = (data as! Dictionary<String, Any>)["Meals"] as! Array<Dictionary<String,Array<String>>>
-        var tempArray = [String]()
-        for i in temp{
-            var text = ""
-            for var j in i["Menu"]!{
-                if j.contains("amp;"){
-                    j.remove(at: j.characters.index(of: "a")!)
-                    j.remove(at: j.characters.index(of: "m")!)
-                    j.remove(at: j.characters.index(of: "p")!)
-                    j.remove(at: j.characters.index(of: ";")!)
-                }
-                text += j + " "
+    func changeDataForSave(data : Any?) -> [String : String]{
+        
+        func tempStrToArr(changeData : Data) -> Array<String>?{
+            do{
+                let useTemp = try JSONSerialization.jsonObject(with: changeData, options: [])
+                return useTemp as? Array<String>
+            }catch{
+                return nil
             }
-            tempArray.append(text)
         }
         
-        return tempArray
+        let temp = data as! Dictionary<String, String>
+        
+        var sendDic = ["breakfast":String(),"lunch":String(),"dinner":String()]
+        for i in temp{
+            if let j = tempStrToArr(changeData: (i.value).data(using: .utf8)!){
+                var tempStr = String()
+                for var k in j{
+                    if k.contains("amp;"){
+                        k.remove(at: k.characters.index(of: "a")!)
+                        k.remove(at: k.characters.index(of: "m")!)
+                        k.remove(at: k.characters.index(of: "p")!)
+                        k.remove(at: k.characters.index(of: ";")!)
+                    }
+                    
+                    tempStr += (k + " ")
+                }
+                sendDic[i.key] = tempStr
+            }
+        }
+        
+        
+        return sendDic
     }
     
     
@@ -270,12 +261,22 @@ class mealView: UIViewController {
     var firstCheck = false
     var check = false
     
+    
+    func autoLogin() -> Bool{
+        let userData = realm.objects(loginData.self).first
+        if userData != nil{
+            return ap.login(id: userData!.id, pw: userData!.pw)
+        }else{
+            return false
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         
         UIView.animate(withDuration: TimeInterval(0.5), animations: setFirst, completion: {
             bool in
             if !self.firstCheck{
-                if self.check{
+                if self.autoLogin(){
                     self.showToast(message: "자동 로그인 성공!")
                 }else{
                     self.showToast(message: "로그인이 필요합니다.")
@@ -358,17 +359,11 @@ class mealView: UIViewController {
             timeArray[i].text = (getDateData(date: date))[i]
         }
         
-        if (ap.db?.open() != nil){
-            let sql_query = "SELECT * from meal where date=\"\((getDateData(date: date))[4])\""
-            let result = ap.db?.executeQuery(sql_query, withArgumentsIn: nil)
-            if result != nil{
-                while (result?.next())!{
-                    setDataTextView((result?.string(forColumn: "blackfast"))!, textView: dataArray[0])
-                    setDataTextView((result?.string(forColumn: "lunch"))!, textView: dataArray[1])
-                    setDataTextView((result?.string(forColumn: "dinner"))!, textView: dataArray[2])
-                    return
-                }
-            }
+        if let temp = findMealData(date: (getDateData(date: date))[4]){
+            setDataTextView(temp.breakfast, textView: dataArray[0])
+            setDataTextView(temp.lunch, textView: dataArray[1])
+            setDataTextView(temp.dinner, textView: dataArray[2])
+            return
         }
         
         if (getDateData(date: date)[4] != getDateData(date: Date() - TimeInterval(86400))[4]) && (getDateData(date: date)[4] != getDateData(date: Date() + TimeInterval(86400 * 29))[4]){
@@ -377,7 +372,7 @@ class mealView: UIViewController {
         
         setDataTextView("데이터를 로딩 중 입니다.", textView: dataArray[0])
         setDataTextView("이러힌 오류가 지속된다면\n먼저 네트워크 상태를 확인해 주시고", textView: dataArray[1])
-        setDataTextView("DSMDMS 관계자에게 문의해주십시오.", textView: dataArray[2])
+        setDataTextView("DSM DMS 관계자에게 문의해주십시오.", textView: dataArray[2])
     }
     
     func setDataToView(){
