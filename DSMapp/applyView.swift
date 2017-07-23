@@ -37,13 +37,13 @@ class applyView: UIViewController {
     var check = [false,false,false,false,false]
     
     override func viewWillAppear(_ animated: Bool) {
+        print("check")
         var tempNum = 0
         for i in 0..<check.count{
             if check[i]{
                 tempNum = i
             }
         }
-        
         if tempNum == 2{
             getDataForSwitch()
         }else{
@@ -75,61 +75,56 @@ class applyView: UIViewController {
     }
 
     @IBAction func setUp_Down(_ sender: Any) {
-        var tempInt = Int()
+        var buttonNum = Int()
         
         for i in 0..<openButtonArray.count{
             if (sender as! UIButton) == openButtonArray[i]{
-                tempInt = i
+                buttonNum = i
                 break
             }
         }
         
-        if openButtonArray[tempInt].title(for: .normal) == "신청" && textArray[tempInt].text != "네트워크를 확인하세요."{
-            switch tempInt {
-            case 2:
-                var temp = (false,false)
-                ap.getAPI(add: "apply/goingout", param: "sat=\(OutSat.isOn)&sun=\(OutSun.isOn)", method: "PUT", fun: {
-                    data, res, err in
+        if openButtonArray[buttonNum].title(for: .normal) == "신청" && textArray[buttonNum].text != "네트워크를 확인하세요."{
+            switch buttonNum {
+                case 2:
+                    ap.getAPI(add: "apply/goingout", param: "sat=\(OutSat.isOn)&sun=\(OutSun.isOn)", method: "PUT", fun: {
+                        data, res, err in
+                        
+                        if (err == nil)&&(res?.statusCode == 200){
+                            DispatchQueue.main.async {
+                                self.showToast(message: "신청 성공")
+                            }
+                        }else{
+                            DispatchQueue.main.async {
+                                self.showToast(message: "신청 실패")
+                            }
+                        }
+                    })
+                
+                case 3:
+                    return
                     
-                    if (err == nil)&&(res?.statusCode == 200){
-                        temp.0 = true
-                    }
-                    
-                    temp.1 = true
-                })
-                
-                while !temp.1{
+                default:
+                    let storyboardIDArray = ["applyStudy","applyStay"]
+                    let uvc = self.storyboard?.instantiateViewController(withIdentifier: storyboardIDArray[buttonNum])
+                    uvc?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                    present(uvc!, animated: true, completion: nil)
                 }
-                
-                if temp.0{
-                    showToast(message: "신청 성공")
-                }else {
-                    showToast(message: "신청 실패")
-                }
-                
-            case 3:
                 return
-            default:
-                let storyboardIDArray = ["applyStudy","applyStay"]
-                let uvc = self.storyboard?.instantiateViewController(withIdentifier: storyboardIDArray[tempInt])
-                uvc?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-                present(uvc!, animated: true, completion: nil)
-            }
-            return
         }
         
-        if tempInt == 2{
+        if buttonNum == 2{
             getDataForSwitch()
         }else{
-            getData(num: tempInt, label: textArray[tempInt])
+            getData(num: buttonNum, label: textArray[buttonNum])
         }
         
         UIView.animate(withDuration: TimeInterval(0.25), animations: {
-            if (self.check[tempInt] == true)&&(self.check[tempInt+1] == false){
+            if (self.check[buttonNum] == true)&&(self.check[buttonNum + 1] == false){
                 return
             }
             
-            for i in 0...tempInt{
+            for i in 0...buttonNum{
                 self.openButtonArray[i].setTitle("열기", for: UIControlState.normal)
                 if !self.check[i]{
                     self.viewArray[i].center.y -= 135
@@ -137,7 +132,7 @@ class applyView: UIViewController {
                 }
             }
             
-            for i in tempInt+1..<4{
+            for i in buttonNum+1..<4{
                 self.openButtonArray[i].setTitle("열기", for: UIControlState.normal)
                 if self.check[i]{
                     self.viewArray[i].center.y += 135
@@ -155,12 +150,9 @@ class applyView: UIViewController {
     
     
     func getData(num: Int, label:UILabel){
-        
-        var getData = ""
         let studyRoomNumber = ["가온실","나온실","다온실","라온실","3층 독서실","4층 독서실","열린교실"]
         let stayString = ["금요귀가","토요귀가","토요귀사","잔류"]
 
-        
         if num == 3{
             label.text = "서비스 준비 중 입니다."
             return
@@ -171,16 +163,21 @@ class applyView: UIViewController {
                 data, res, error in
                 if error == nil{
                     if res?.statusCode == 204{
-                        getData = "신청되지 않았습니다"
+                        DispatchQueue.main.async {
+                            label.text = "신청되지 않았습니다"
+                        }
                     }else if res?.statusCode == 200{
                         if num == 0{
                             let temp = data as! [String:Any]
                             self.ap.myName = temp["name"] as! String
-                            print(self.ap.myName)
-                            getData = "신청 : " + studyRoomNumber[(temp["class"] as! Int) - 1]
+                            DispatchQueue.main.async {
+                                label.text = "신청 : " + studyRoomNumber[(temp["class"] as! Int) - 1]
+                            }
                         }
                         if num == 1{
-                            getData = "신청 : " + stayString[(data as! [String : Int])["value"]! - 1]
+                            DispatchQueue.main.async {
+                                label.text = "신청 : " + stayString[(data as! [String : Int])["value"]! - 1]
+                            }
                         }
                     }
                 }
@@ -189,20 +186,10 @@ class applyView: UIViewController {
             label.text = "로그인이 필요합니다."
             return
         }
-        
-        
-        while true{
-            if !getData.isEmpty{
-                break;
-            }
-        }
-        
-        label.text = getData;
     }
     
     func getDataForSwitch(){
         let switchArray = [OutSat,OutSun]
-        var dataCheck = [false,false,false,false]
         if !ap.isLogin{
             for i in switchArray{
                 i?.isEnabled = false
@@ -214,30 +201,23 @@ class applyView: UIViewController {
             data, res, error in
             if error == nil{
                 if res?.statusCode == 200{
-                    dataCheck[0] = true
                     let temp = data as! [String : Bool]
-                    dataCheck[1] = temp["sat"]!
-                    dataCheck[2] = temp["sun"]!
+                    DispatchQueue.main.async {
+                        for i in switchArray{
+                            i?.isEnabled = true
+                        }
+                        self.OutSat.setOn(temp["sat"]!, animated: true)
+                        self.OutSun.setOn(temp["sun"]!, animated: true)
+                    }
+                }else{
+                    DispatchQueue.main.async {
+                        for i in switchArray{
+                            i?.isEnabled = false
+                        }
+                    }
                 }
             }
-            
-            dataCheck[3] = true
         })
-        
-        while true {
-            if dataCheck[3] == true{
-                break;
-            }
-        }
-        
-        for i in switchArray{
-            i?.isEnabled = dataCheck[0]
-        }
-        
-        if dataCheck[0] == true{
-            OutSat.setOn(dataCheck[1], animated: true)
-            OutSun.setOn(dataCheck[2], animated: true)
-        }
     }
 
 }

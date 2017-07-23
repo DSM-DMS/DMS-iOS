@@ -17,10 +17,25 @@ class loginView: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var idLabel: UILabel!
     
+    @IBOutlet weak var loginViewHeight: NSLayoutConstraint!
+    
     let ap = UIApplication.shared.delegate as! AppDelegate
+    
+    var firstHeight = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let temp = view.frame.height
+        if temp < 667{
+            firstHeight = 65
+        }else if temp == 667{
+            firstHeight = 85
+        }else{
+            firstHeight = 110
+        }
+        
+        loginViewHeight.constant = CGFloat(firstHeight)
         
         select()
         autoSwitch.transform = CGAffineTransform.init(scaleX: 0.8, y: 0.8)
@@ -44,16 +59,19 @@ class loginView: UIViewController,UITextFieldDelegate{
             if autoSwitch.isOn{
                 saveLogin()
             }
-            showToast(message: "로그인 성공")
+            DispatchQueue.main.async {
+                self.showToast(message: "로그인 성공")
+            }
         }else{
-            showToast(message: "로그인 실패")
+            DispatchQueue.main.async {
+                self.showToast(message: "로그인 실패")
+            }
         }
         idTextFiled.text = ""
         pwTextFiled.text = ""
     }
     
     func saveLogin(){
-        
         let realm = try! Realm()
         let deleteTemp = realm.objects(loginData.self).first
         let saveTemp = loginData()
@@ -98,21 +116,18 @@ class loginView: UIViewController,UITextFieldDelegate{
         }
         
         if(stackView.frame.origin.y == 0){
-            stackView.frame.origin.y.add(-100)
+            stackView.frame.origin.y.add(-70)
         }
-        
     }
     
     func keyboardDown(notification: Notification){
         self.idLabel.textColor = UIColor.white
-        stackView.frame.origin.y.add(100)
+        stackView.frame.origin.y.add(70)
         self.idTextFiled.layer.borderColor = UIColor.white.cgColor
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    
     
 }

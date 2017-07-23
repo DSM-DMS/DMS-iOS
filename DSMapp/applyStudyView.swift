@@ -21,28 +21,25 @@ class applyStudyView: UIViewController {
     
     @IBAction func apply(_ sender: Any) {
         for i in 0..<roomName.count{
-            var tempState = 0
             if roomName[i] == roomChangeButton.title(for: .normal){
                 ap.getAPI(add: "/apply/extension", param: "class=\(i + 1)&seat=\(Int(curruntSelect)!)", method: "PUT",fun: {
                     data, res, err in
                     if err == nil{
-                        tempState = (res?.statusCode)!
+                        if res?.statusCode == 200{
+                            DispatchQueue.main.async {
+                                self.getData(i + 1)
+                            }
+                        }else{
+                            DispatchQueue.main.async {
+                                self.showToast(message: "신청 시간이 아닙니다.")
+                            }
+                        }
                     }else{
-                        tempState = -1
+                        DispatchQueue.main.async {
+                            self.showToast(message: "네트워크를 확인하십시오.")
+                        }
                     }
-                    print(tempState)
                 })
-                
-                while tempState == 0{}
-                if tempState == 200{
-                    curruntMap = getData(i + 1).1
-                    draw(curruntMap)
-                    showToast(message: "신청 성공")
-                }else if tempState == 204{
-                    showToast(message: "신청 시간이 아닙니다.")
-                }else{
-                    showToast(message: "네트워크를 확인하십시오.")
-                }
             }
         }
         
@@ -61,15 +58,12 @@ class applyStudyView: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        curruntMap = getData(1).1
-        draw(curruntMap)
+        getData(1)
     }
     
     func draw(_ map: [[Any]], beforeName: String = "-1"){
         let widthLenth = map[0].count
         let heigthLenth = map.count
-        
-        print(widthLenth,heigthLenth)
         
         let dataY = scrollView.frame.height / 2 - CGFloat.init(Float(heigthLenth) / 2 * 60.0)
         let dataX = scrollView.frame.width / 2 - CGFloat.init(Float(widthLenth) / 2 * 60.0)
@@ -156,8 +150,7 @@ class applyStudyView: UIViewController {
                 for temp in scrollView.subviews{
                     temp.removeFromSuperview()
                 }
-                curruntMap = self.getData(i + 1).1
-                self.draw(curruntMap)
+                self.getData(i + 1)
                 break
             }
         }
@@ -165,26 +158,22 @@ class applyStudyView: UIViewController {
         showToast(message: "자리 로딩 완료")
     }
     
-    func getData(_ num: Int) -> (String,[[Any]]){
-        var name = String()
-        var map = [[Any]]()
+    func getData(_ num: Int){
         ap.getAPI(add: "apply/extension/class", param: "class=\(num)&option=map", method: "GET", fun: {
             data, res, err in
             if err == nil{
                 if res?.statusCode == 200{
                     let temp1 = data as! [String : Any]
-                    name = temp1["name"] as! String
-                    map = temp1["map"] as! [[Any]]
+                    let map = temp1["map"] as! [[Any]]
+                    DispatchQueue.main.async {
+                        self.curruntMap = map
+                        self.draw(map)
+                        self.showToast(message: "신청 성공")
+                    }
                 }
             }
             
         })
-        
-        while map.isEmpty {
-            
-        }
-        
-        return (name,map)
     }
 
 }

@@ -86,8 +86,6 @@ class mealView: UIViewController {
             i.isSelectable = false
         }
         
-        dataSet()
-        
         beforeButton.layer.shadowOffset = CGSize.init(width: 1, height: 1)
         beforeButton.layer.shadowOpacity = 1
         beforeButton.layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
@@ -100,7 +98,6 @@ class mealView: UIViewController {
             i.layer.cornerRadius = 13
             i.layer.borderWidth = 0.3
             i.layer.shadowOffset = CGSize.init(width: 1, height: 1)
-            i.layer.shadowOpacity = 1
             i.layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
             i.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor
         }
@@ -123,7 +120,6 @@ class mealView: UIViewController {
                 if (getDateData(date: stanDate) == getDateData(date: Date())){
                     return
                 }
-                
                 move()
 
             case UISwipeGestureRecognizerDirection.left :
@@ -132,70 +128,12 @@ class mealView: UIViewController {
                 }
                 move(true)
             default:
-                break
+                return
             }
         }
-    }
-    
-    func findMealData(date : String, dataRealm : Realm = try! Realm()) -> mealData?{
-        let tempMealData =
-            dataRealm.object(ofType: mealData.self, forPrimaryKey: date)
-        return tempMealData
     }
     
     let realm = try! Realm()
-    
-    func dataSet(){
-
-        if !realm.isEmpty{
-            if let tempMealData = findMealData(date: (getDateData(date: Date() - TimeInterval(86400)))[4]){
-                try! realm.write {
-                    realm.delete(tempMealData)
-                }
-            }
-            if findMealData(date: getDateData(date: Date() + TimeInterval(86400 * 29))[4]) == nil{
-                tempDataInsert(29)
-            }
-            
-        }else{
-            try! realm.write {
-                let tempLoginData = loginData()
-                realm.add(tempLoginData)
-                let tempData = mealData()
-                tempData.date = "initial"
-                realm.add(tempData)
-            }
-            
-            for i in 0..<30{
-                tempDataInsert(i)
-            }
-        }
-        
-    }
-    
-    func tempDataInsert(_ num : Int , date : Date = Date()){
-        let dateData = getDateData(date: date + TimeInterval(86400 * num))
-        ap.getAPI(add: "meal", param: "date=\(dateData[4])", method: "GET", fun: {
-            data, res, err in
-            if(err == nil){
-                if res?.statusCode == 200{
-                    if self.findMealData(date: dateData[4]) == nil{
-                        let realm = try! Realm()
-                        let tempSaveData = self.changeDataForSave(data: data)
-                        let tempMealData = mealData()
-                        tempMealData.breakfast = tempSaveData["breakfast"]!
-                        tempMealData.lunch = tempSaveData["lunch"]!
-                        tempMealData.dinner = tempSaveData["dinner"]!
-                        tempMealData.date = dateData[4]
-                        
-                        try! realm.write {
-                            realm.add(tempMealData)
-                        }
-                    }
-                }
-            }
-        })
-    }
     
     func changeDataForSave(data : Any?) -> [String : String]{
         
@@ -227,7 +165,6 @@ class mealView: UIViewController {
                 sendDic[i.key] = tempStr
             }
         }
-        
         
         return sendDic
     }
@@ -359,25 +296,47 @@ class mealView: UIViewController {
             timeArray[i].text = (getDateData(date: date))[i]
         }
         
-        if let temp = findMealData(date: (getDateData(date: date))[4]){
-            setDataTextView(temp.breakfast, textView: dataArray[0])
-            setDataTextView(temp.lunch, textView: dataArray[1])
-            setDataTextView(temp.dinner, textView: dataArray[2])
-            return
-        }
+        ap.getAPI(add: "meal", param: "date=\(getDateData(date: date)[4])", method: "GET", fun: {
+            data, res, err in
+            if(err == nil){
+                if res?.statusCode == 200{
+                    let tempSaveData = self.changeDataForSave(data: data)
+                    DispatchQueue.main.async {
+                        setDataTextView(tempSaveData["breakfast"]!, textView: dataArray[0])
+                        setDataTextView(tempSaveData["lunch"]!, textView: dataArray[1])
+                        setDataTextView(tempSaveData["dinner"]!, textView: dataArray[2])
+                    }
+                }
+            }
+        })
         
-        if (getDateData(date: date)[4] != getDateData(date: Date() - TimeInterval(86400))[4]) && (getDateData(date: date)[4] != getDateData(date: Date() + TimeInterval(86400 * 29))[4]){
-            tempDataInsert(0, date: date)
+        if(dataArray[0].text.isEmpty){
+            setDataTextView("데이터를 로딩 중 입니다.", textView: dataArray[0])
+            setDataTextView("잠시만 기다려 주세요.", textView: dataArray[1])
+            setDataTextView("DSM DMS - iOS", textView: dataArray[2])
         }
-        
-        setDataTextView("데이터를 로딩 중 입니다.", textView: dataArray[0])
-        setDataTextView("이러힌 오류가 지속된다면\n먼저 네트워크 상태를 확인해 주시고", textView: dataArray[1])
-        setDataTextView("DSM DMS 관계자에게 문의해주십시오.", textView: dataArray[2])
     }
     
-    func setDataToView(){
+    func setDataToView(_ first : Bool = true, right : Bool = false){
+        if first{
+            self.setDateData(self.stanDate, timeArray: self.curruntDate, dataArray: self.curruntTextView)
+        }else{
+            for i in 0..<self.curruntDate.count{
+                if right{
+                    self.curruntDate[i].text = self.nextDate[i].text
+                }else{
+                    self.curruntDate[i].text = self.beforeDate[i].text
+                }
+            }
+            for i in 0..<self.curruntTextView.count{
+                if right{
+                    self.curruntTextView[i].text = self.nextTextView[i].text
+                }else{
+                    self.curruntTextView[i].text = self.beforeTextView[i].text
+                }
+            }
+        }
         self.setDateData(self.stanDate + TimeInterval(86400), timeArray: self.nextDate, dataArray: self.nextTextView)
-        self.setDateData(self.stanDate, timeArray: self.curruntDate, dataArray: self.curruntTextView)
         self.setDateData(self.stanDate - TimeInterval(86400), timeArray: self.beforeDate, dataArray: self.beforeTextView)
     }
     
@@ -398,7 +357,6 @@ class mealView: UIViewController {
                     break
                 }
 
-                
                 i.center.x = self.viewArray[count+1].center.x
                 i.alpha = self.viewArray[count+1].alpha
                 
@@ -415,7 +373,7 @@ class mealView: UIViewController {
             
         }, completion: {
             bool in
-            self.setDataToView()
+            self.setDataToView(false, right: right)
             self.setFirst()
         })
         

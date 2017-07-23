@@ -30,30 +30,24 @@ class applyStayView: UIViewController {
     
     let ap = UIApplication.shared.delegate as! AppDelegate
     override func viewWillAppear(_ animated: Bool) {
-        var curruntNum = 0
-        var check = false
         ap.getAPI(add: "/apply/stay", param: "", method: "GET", fun: {
             data, res, err in
             if err == nil{
                 if res?.statusCode == 200{
-                    curruntNum = (data as! [String:Int])["value"]!
+                    let curruntNum = (data as! [String:Int])["value"]!
+                    DispatchQueue.main.async {
+                        for i in 0..<self.switchArray.count{
+                            if i == curruntNum - 1 {
+                                self.switchArray[i].setOn(true, animated: true)
+                            }else{
+                                self.switchArray[i].setOn(false, animated: true)
+                            }
+                        }
+                    }
                 }
             }
             
-            check = true
         })
-        
-        while !check {
-            
-        }
-        
-        for i in 0..<switchArray.count{
-            if i == curruntNum - 1 {
-                switchArray[i].setOn(true, animated: true)
-            }else{
-                switchArray[i].setOn(false, animated: true)
-            }
-        }
         
     }
     
@@ -66,30 +60,24 @@ class applyStayView: UIViewController {
     }
     
     @IBAction func apply(_ sender: Any) {
-        var check = (false,false)
         for i in 0..<switchArray.count{
             if switchArray[i].isOn{
                 ap.getAPI(add: "apply/stay", param: "value=\(i+1)", method: "PUT", fun: {
                     data, res, err in
                     if err == nil{
                         if res?.statusCode == 200{
-                            check.0 = true
+                            DispatchQueue.main.async {
+                                self.showToast(message: "신청 성공", down: false)
+                            }
                         }
                     }
-                    check.1 = true
+                    DispatchQueue.main.async {
+                        self.showToast(message: "신청 실패", down: false)
+                    }
                 })
-                break
+                return
             }
         }
-        while !check.1{
-        }
-        
-        if check.0{
-            showToastForApply(message: "신청 성공")
-        }else{
-            showToastForApply(message: "신청 실패")
-        }
-        
     }
     
     @IBAction func valueChange(_ sender: Any) {
