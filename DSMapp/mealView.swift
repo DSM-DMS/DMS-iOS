@@ -133,7 +133,6 @@ class mealView: UIViewController {
         }
     }
     
-    let realm = try! Realm()
     
     func changeDataForSave(data : Any?) -> [String : String]{
         
@@ -195,16 +194,17 @@ class mealView: UIViewController {
         //초기세팅
     }
     
-    var firstCheck = false
-    var check = false
+    var first = true
     
-    
-    func autoLogin() -> Bool{
-        let userData = realm.objects(loginData.self).first
-        if userData != nil{
-            return ap.login(id: userData!.id, pw: userData!.pw)
+    func autoLogin(){
+        let realm = try! Realm()
+        let userData = realm.objects(LoginData.self).first
+        if userData == nil{
+            showToast(message: "로그인이 필요합니다.")
         }else{
-            return false
+            let cookie = HTTPCookie.init(properties: [HTTPCookiePropertyKey.domain:userData!.domain, HTTPCookiePropertyKey.name:userData!.name, HTTPCookiePropertyKey.value:userData!.value,HTTPCookiePropertyKey.path:userData!.path])
+            HTTPCookieStorage.shared.setCookie(cookie!)
+            showToast(message: "로그인 성공")
         }
     }
     
@@ -212,14 +212,11 @@ class mealView: UIViewController {
         
         UIView.animate(withDuration: TimeInterval(0.5), animations: setFirst, completion: {
             bool in
-            if !self.firstCheck{
-                if self.autoLogin(){
-                    self.showToast(message: "자동 로그인 성공!")
-                }else{
-                    self.showToast(message: "로그인이 필요합니다.")
-                }
+            if self.first{
+                self.autoLogin()
             }
-            self.firstCheck = true
+            self.
+            first = false
         })
         //애니매이션
     }

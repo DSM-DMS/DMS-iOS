@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,30 +16,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var myName = ""
-    
     var isLogin = false
     
-    func login(id: String,pw:String) -> Bool{
-        var temp = (false,false)
-        
-        if id.isEmpty || pw.isEmpty{
-            return false
+    
+    func saveCookie(_ cookie : HTTPCookie){
+        let realm = try! Realm()
+        try! realm.write {
+            let loginData = realm.create(LoginData.self)
+            loginData.name = cookie.name
+            loginData.value = cookie.value
+            loginData.path = cookie.path
+            loginData.domain = cookie.domain
+            realm.add(loginData)
         }
+    }
+    
+    func login(id: String,pw: String,save: Bool,viewCon: UIViewController){
         
         getAPI(add: "/account/login/student", param: "id=\(id)&password=\(pw)", method: "POST", fun: {data, res, err in
             if(err == nil){
                 if(res?.statusCode == 201){
-                    temp.0 = true
+                    
+                    if save{
+                        let temp = HTTPCookieStorage.shared.cookies(for: URL(string: "http://dsm2015.cafe24.com")!)!
+                        for i in temp{
+                            self.saveCookie(i)
+                            break
+                        }
+                    }
+                    
+                    self.isLogin = true
+                    DispatchQueue.main.async {
+                        viewCon.showToast(message: "로그인 성공")
+                    }
+                    
+                }else{
+                    self.isLogin = false
+                    DispatchQueue.main.async {
+                        viewCon.showToast(message: "로그인 실패")
+                    }
                 }
             }
-            temp.1 = true
         })
-        
-        while !temp.1{
-        }
-        
-        isLogin = temp.0
-        return isLogin
     }
     
     func getAPI(add: String, param: String, method: String, fun: @escaping (Any?, HTTPURLResponse?, Error?)->Void){
@@ -59,6 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if(data != nil){
                 print(String.init(data: data!, encoding: .utf8)!)
+                dump(res)
                 do{
                     tempData = try JSONSerialization.jsonObject(with: data!, options: [])
                 }catch{

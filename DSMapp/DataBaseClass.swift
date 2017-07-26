@@ -9,20 +9,9 @@
 import Foundation
 import RealmSwift
 
-class mealData : Object{
-    dynamic var breakfast = ""
-    dynamic var lunch = ""
-    dynamic var dinner = ""
-    
-    dynamic var date = ""
-    
-    override static func primaryKey() -> String?{
-        return "date"
-    }
-}
-
-class loginData : Object{
-    dynamic var id = ""
-    dynamic var pw = ""
-    
+class LoginData : Object{
+    dynamic var name = ""
+    dynamic var domain = ""
+    dynamic var value = ""
+    dynamic var path = ""
 }

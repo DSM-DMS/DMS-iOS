@@ -55,32 +55,9 @@ class loginView: UIViewController,UITextFieldDelegate{
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        if ap.login(id: idTextFiled.text!,pw:pwTextFiled.text!){
-            if autoSwitch.isOn{
-                saveLogin()
-            }
-            DispatchQueue.main.async {
-                self.showToast(message: "로그인 성공")
-            }
-        }else{
-            DispatchQueue.main.async {
-                self.showToast(message: "로그인 실패")
-            }
-        }
+        ap.login(id: idTextFiled.text!, pw: pwTextFiled.text!, save: autoSwitch.isOn, viewCon: self)
         idTextFiled.text = ""
         pwTextFiled.text = ""
-    }
-    
-    func saveLogin(){
-        let realm = try! Realm()
-        let deleteTemp = realm.objects(loginData.self).first
-        let saveTemp = loginData()
-        try! realm.write {
-            realm.delete(deleteTemp!)
-            saveTemp.id = idTextFiled.text!
-            saveTemp.pw = pwTextFiled.text!
-            realm.add(saveTemp)
-        }
     }
     
     @IBOutlet weak var stackView: UIStackView!
