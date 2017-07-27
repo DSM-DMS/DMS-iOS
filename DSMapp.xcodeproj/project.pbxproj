@@ -69,6 +69,18 @@
 		D0A587B71F0B940D009182BA /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D01FF3201F0B92CF0060651F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D0A587B81F0B940D009182BA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01FF3211F0B92CF0060651F /* RealmSwift.framework */; };
 		D0A587B91F0B940D009182BA /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D01FF3211F0B92CF0060651F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D0AA37F11F2A259A000F5203 /* myPageFish1.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AA37EB1F2A259A000F5203 /* myPageFish1.png */; };
+		D0AA37F21F2A259A000F5203 /* myPageFish1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AA37EC1F2A259A000F5203 /* myPageFish1@2x.png */; };
+		D0AA37F31F2A259A000F5203 /* myPageFish1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AA37ED1F2A259A000F5203 /* myPageFish1@3x.png */; };
+		D0AA37F41F2A259A000F5203 /* myPageFish2.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AA37EE1F2A259A000F5203 /* myPageFish2.png */; };
+		D0AA37F51F2A259A000F5203 /* myPageFish2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AA37EF1F2A259A000F5203 /* myPageFish2@2x.png */; };
+		D0AA37F61F2A259A000F5203 /* myPageFish2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AA37F01F2A259A000F5203 /* myPageFish2@3x.png */; };
+		D0AA37FA1F2A25A9000F5203 /* sailboat.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AA37F71F2A25A9000F5203 /* sailboat.png */; };
+		D0AA37FB1F2A25A9000F5203 /* sailboat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AA37F81F2A25A9000F5203 /* sailboat@2x.png */; };
+		D0AA37FC1F2A25A9000F5203 /* sailboat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AA37F91F2A25A9000F5203 /* sailboat@3x.png */; };
+		D0AA37FE1F2A31C4000F5203 /* myPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AA37FD1F2A31C4000F5203 /* myPageView.swift */; };
+		D0AA38001F2A320D000F5203 /* jumpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AA37FF1F2A320D000F5203 /* jumpCell.swift */; };
+		D0AA38021F2A322A000F5203 /* myViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AA38011F2A322A000F5203 /* myViewCell.swift */; };
 		D0C0CCAF1ECB44EB00013168 /* tabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C0CCAE1ECB44EB00013168 /* tabBarView.swift */; };
 		D0C0CCB11ECB47A700013168 /* mealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C0CCB01ECB47A700013168 /* mealView.swift */; };
 		D0D5DF061ECC06C5005EFBB5 /* LBShape.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D5DF031ECC06C5005EFBB5 /* LBShape.png */; };
@@ -181,6 +193,18 @@
 		D0538ADA1ECB007C00C47F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0538AED1ECB0A5700C47F86 /* loginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = loginView.swift; path = ../loginView.swift; sourceTree = "<group>"; };
 		D09CF9111EEFC40500A35D13 /* applyStudyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = applyStudyView.swift; sourceTree = "<group>"; };
+		D0AA37EB1F2A259A000F5203 /* myPageFish1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myPageFish1.png; path = "../../../../../Users/root1/Downloads/ios-asset 2/myPageFish1.png"; sourceTree = "<group>"; };
+		D0AA37EC1F2A259A000F5203 /* myPageFish1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "myPageFish1@2x.png"; path = "../../../../../Users/root1/Downloads/ios-asset 2/myPageFish1@2x.png"; sourceTree = "<group>"; };
+		D0AA37ED1F2A259A000F5203 /* myPageFish1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "myPageFish1@3x.png"; path = "../../../../../Users/root1/Downloads/ios-asset 2/myPageFish1@3x.png"; sourceTree = "<group>"; };
+		D0AA37EE1F2A259A000F5203 /* myPageFish2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myPageFish2.png; path = "../../../../../Users/root1/Downloads/ios-asset 2/myPageFish2.png"; sourceTree = "<group>"; };
+		D0AA37EF1F2A259A000F5203 /* myPageFish2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "myPageFish2@2x.png"; path = "../../../../../Users/root1/Downloads/ios-asset 2/myPageFish2@2x.png"; sourceTree = "<group>"; };
+		D0AA37F01F2A259A000F5203 /* myPageFish2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "myPageFish2@3x.png"; path = "../../../../../Users/root1/Downloads/ios-asset 2/myPageFish2@3x.png"; sourceTree = "<group>"; };
+		D0AA37F71F2A25A9000F5203 /* sailboat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sailboat.png; path = "../../../../../Users/root1/Downloads/ios-asset/sailboat.png"; sourceTree = "<group>"; };
+		D0AA37F81F2A25A9000F5203 /* sailboat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sailboat@2x.png"; path = "../../../../../Users/root1/Downloads/ios-asset/sailboat@2x.png"; sourceTree = "<group>"; };
+		D0AA37F91F2A25A9000F5203 /* sailboat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sailboat@3x.png"; path = "../../../../../Users/root1/Downloads/ios-asset/sailboat@3x.png"; sourceTree = "<group>"; };
+		D0AA37FD1F2A31C4000F5203 /* myPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myPageView.swift; sourceTree = "<group>"; };
+		D0AA37FF1F2A320D000F5203 /* jumpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jumpCell.swift; sourceTree = "<group>"; };
+		D0AA38011F2A322A000F5203 /* myViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myViewCell.swift; sourceTree = "<group>"; };
 		D0C0CCAE1ECB44EB00013168 /* tabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tabBarView.swift; path = ../tabBarView.swift; sourceTree = "<group>"; };
 		D0C0CCB01ECB47A700013168 /* mealView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mealView.swift; sourceTree = "<group>"; };
 		D0D5DF031ECC06C5005EFBB5 /* LBShape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LBShape.png; sourceTree = "<group>"; };
@@ -261,6 +285,7 @@
 				D0EC740E1EED7BC200A2E940 /* applyStayView.swift */,
 				D09CF9111EEFC40500A35D13 /* applyStudyView.swift */,
 				D005FEE91ED204AD00C8E65F /* noticeView.swift */,
+				D0AA37FD1F2A31C4000F5203 /* myPageView.swift */,
 				D0538AE51ECB046400C47F86 /* image */,
 				D0538AC31ECB007C00C47F86 /* AppDelegate.swift */,
 				D0538AC71ECB007C00C47F86 /* Main.storyboard */,
@@ -269,6 +294,8 @@
 				D0538ACF1ECB007C00C47F86 /* Info.plist */,
 				D04B87A91EEA48F900743AB9 /* ToastAdd.swift */,
 				D0204DC91F0CB9CC00C723F8 /* DataBaseClass.swift */,
+				D0AA37FF1F2A320D000F5203 /* jumpCell.swift */,
+				D0AA38011F2A322A000F5203 /* myViewCell.swift */,
 			);
 			path = DSMapp;
 			sourceTree = "<group>";
@@ -285,6 +312,7 @@
 		D0538AE51ECB046400C47F86 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D0AA37EA1F2A24FF000F5203 /* New Group */,
 				D0D5DF271ECC0896005EFBB5 /* tabBarIcon */,
 				D0538AE61ECB046D00C47F86 /* loginImage */,
 			);
@@ -302,6 +330,22 @@
 				D0D5DF051ECC06C5005EFBB5 /* LBShape@3x.png */,
 			);
 			name = loginImage;
+			sourceTree = "<group>";
+		};
+		D0AA37EA1F2A24FF000F5203 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				D0AA37F71F2A25A9000F5203 /* sailboat.png */,
+				D0AA37F81F2A25A9000F5203 /* sailboat@2x.png */,
+				D0AA37F91F2A25A9000F5203 /* sailboat@3x.png */,
+				D0AA37EB1F2A259A000F5203 /* myPageFish1.png */,
+				D0AA37EC1F2A259A000F5203 /* myPageFish1@2x.png */,
+				D0AA37ED1F2A259A000F5203 /* myPageFish1@3x.png */,
+				D0AA37EE1F2A259A000F5203 /* myPageFish2.png */,
+				D0AA37EF1F2A259A000F5203 /* myPageFish2@2x.png */,
+				D0AA37F01F2A259A000F5203 /* myPageFish2@3x.png */,
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		D0D5DF271ECC0896005EFBB5 /* tabBarIcon */ = {
@@ -462,6 +506,7 @@
 				D016C92E1EF7B0C400AAD1C1 /* seatNo@3x.png in Resources */,
 				D016C9341EF7B0C400AAD1C1 /* seatYes@3x.png in Resources */,
 				D016C92B1EF7B0C400AAD1C1 /* seahorse@3x.png in Resources */,
+				D0AA37F41F2A259A000F5203 /* myPageFish2.png in Resources */,
 				D016C9111EF7B0C400AAD1C1 /* applyStayBack.png in Resources */,
 				D016C9171EF7B0C400AAD1C1 /* fish.png in Resources */,
 				D016C9271EF7B0C400AAD1C1 /* notebook@2x.png in Resources */,
@@ -470,10 +515,13 @@
 				D0D5DF141ECC077E005EFBB5 /* dinner@3x.png in Resources */,
 				D016C9241EF7B0C400AAD1C1 /* mySeat@2x.png in Resources */,
 				D016C9131EF7B0C400AAD1C1 /* applyStayBack@3x.png in Resources */,
+				D0AA37F51F2A259A000F5203 /* myPageFish2@2x.png in Resources */,
 				D016C91C1EF7B0C400AAD1C1 /* fish2@3x.png in Resources */,
 				D016C9331EF7B0C400AAD1C1 /* seatYes@2x.png in Resources */,
 				D016C91A1EF7B0C400AAD1C1 /* fish2.png in Resources */,
+				D0AA37F11F2A259A000F5203 /* myPageFish1.png in Resources */,
 				D0D5DF0D1ECC0741005EFBB5 /* LBack@2x.png in Resources */,
+				D0AA37FA1F2A25A9000F5203 /* sailboat.png in Resources */,
 				D016C91F1EF7B0C400AAD1C1 /* help-web-button@3x.png in Resources */,
 				D016C92A1EF7B0C400AAD1C1 /* seahorse@2x.png in Resources */,
 				D016C9231EF7B0C400AAD1C1 /* mySeat.png in Resources */,
@@ -492,13 +540,16 @@
 				D016C9321EF7B0C400AAD1C1 /* seatYes.png in Resources */,
 				D016C91D1EF7B0C400AAD1C1 /* help-web-button.png in Resources */,
 				D0D5DF221ECC0893005EFBB5 /* user@2x.png in Resources */,
+				D0AA37F31F2A259A000F5203 /* myPageFish1@3x.png in Resources */,
 				D0D5DF241ECC0893005EFBB5 /* warning.png in Resources */,
 				D0D5DF1A1ECC0856005EFBB5 /* checked@3x.png in Resources */,
 				D016C91E1EF7B0C400AAD1C1 /* help-web-button@2x.png in Resources */,
+				D0AA37F21F2A259A000F5203 /* myPageFish1@2x.png in Resources */,
 				D0D5DF261ECC0893005EFBB5 /* warning@3x.png in Resources */,
 				D0538ACE1ECB007C00C47F86 /* LaunchScreen.storyboard in Resources */,
 				D016C9121EF7B0C400AAD1C1 /* applyStayBack@2x.png in Resources */,
 				D0538ACB1ECB007C00C47F86 /* Assets.xcassets in Resources */,
+				D0AA37FB1F2A25A9000F5203 /* sailboat@2x.png in Resources */,
 				D016C9181EF7B0C400AAD1C1 /* fish@2x.png in Resources */,
 				D0D5DF081ECC06C5005EFBB5 /* LBShape@3x.png in Resources */,
 				D016C92F1EF7B0C400AAD1C1 /* seatSelect.png in Resources */,
@@ -509,6 +560,7 @@
 				D016C9351EF7B0C400AAD1C1 /* tools.png in Resources */,
 				D016C9211EF7B0C400AAD1C1 /* megaphone@2x.png in Resources */,
 				D0D5DF211ECC0893005EFBB5 /* user.png in Resources */,
+				D0AA37F61F2A259A000F5203 /* myPageFish2@3x.png in Resources */,
 				D016C9281EF7B0C400AAD1C1 /* notebook@3x.png in Resources */,
 				D0D5DF071ECC06C5005EFBB5 /* LBShape@2x.png in Resources */,
 				D0538AC91ECB007C00C47F86 /* Main.storyboard in Resources */,
@@ -517,6 +569,7 @@
 				D016C9291EF7B0C400AAD1C1 /* seahorse.png in Resources */,
 				D016C9261EF7B0C400AAD1C1 /* notebook.png in Resources */,
 				D0D5DF0C1ECC0741005EFBB5 /* LBack.png in Resources */,
+				D0AA37FC1F2A25A9000F5203 /* sailboat@3x.png in Resources */,
 				D016C9201EF7B0C400AAD1C1 /* megaphone.png in Resources */,
 				D0D5DF191ECC0856005EFBB5 /* checked@2x.png in Resources */,
 				D016C9371EF7B0C400AAD1C1 /* tools@3x.png in Resources */,
@@ -557,7 +610,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0AA37FE1F2A31C4000F5203 /* myPageView.swift in Sources */,
 				D0538AEE1ECB0A5700C47F86 /* loginView.swift in Sources */,
+				D0AA38021F2A322A000F5203 /* myViewCell.swift in Sources */,
 				D0204DCA1F0CB9CC00C723F8 /* DataBaseClass.swift in Sources */,
 				D04B87AA1EEA48F900743AB9 /* ToastAdd.swift in Sources */,
 				D0EC740F1EED7BC200A2E940 /* applyStayView.swift in Sources */,
@@ -565,6 +620,7 @@
 				D0C0CCAF1ECB44EB00013168 /* tabBarView.swift in Sources */,
 				D09CF9121EEFC40500A35D13 /* applyStudyView.swift in Sources */,
 				D00DA2161EDD787600F08F5F /* applyView.swift in Sources */,
+				D0AA38001F2A320D000F5203 /* jumpCell.swift in Sources */,
 				D0C0CCB11ECB47A700013168 /* mealView.swift in Sources */,
 				D005FEEA1ED204AD00C8E65F /* noticeView.swift in Sources */,
 			);

@@ -204,6 +204,8 @@ class mealView: UIViewController {
         }else{
             let cookie = HTTPCookie.init(properties: [HTTPCookiePropertyKey.domain:userData!.domain, HTTPCookiePropertyKey.name:userData!.name, HTTPCookiePropertyKey.value:userData!.value,HTTPCookiePropertyKey.path:userData!.path])
             HTTPCookieStorage.shared.setCookie(cookie!)
+            dump(cookie)
+            ap.isLogin = true
             showToast(message: "로그인 성공")
         }
     }
@@ -215,8 +217,7 @@ class mealView: UIViewController {
             if self.first{
                 self.autoLogin()
             }
-            self.
-            first = false
+            self.first = false
         })
         //애니매이션
     }

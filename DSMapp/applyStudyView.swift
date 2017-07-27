@@ -154,7 +154,6 @@ class applyStudyView: UIViewController {
                 break
             }
         }
-        
         showToast(message: "자리 로딩 완료")
     }
     
@@ -168,7 +167,6 @@ class applyStudyView: UIViewController {
                     DispatchQueue.main.async {
                         self.curruntMap = map
                         self.draw(map)
-                        self.showToast(message: "신청 성공")
                     }
                 }
             }

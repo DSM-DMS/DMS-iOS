@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveCookie(_ cookie : HTTPCookie){
         let realm = try! Realm()
         try! realm.write {
+            realm.deleteAll()
             let loginData = realm.create(LoginData.self)
             loginData.name = cookie.name
             loginData.value = cookie.value
@@ -40,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if save{
                         let temp = HTTPCookieStorage.shared.cookies(for: URL(string: "http://dsm2015.cafe24.com")!)!
                         for i in temp{
+                            dump(i)
                             self.saveCookie(i)
                             break
                         }
