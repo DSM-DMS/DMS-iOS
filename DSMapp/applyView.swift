@@ -150,7 +150,7 @@ class applyView: UIViewController {
     
     
     func getData(num: Int, label:UILabel){
-        let studyRoomNumber = ["가온실","나온실","다온실","라온실","3층 독서실","4층 독서실","열린교실"]
+        let studyRoomString = ["가온실","나온실","다온실","라온실","3층 독서실","4층 독서실","열린교실"]
         let stayString = ["금요귀가","토요귀가","토요귀사","잔류"]
 
         if num == 3{
@@ -171,7 +171,7 @@ class applyView: UIViewController {
                             let temp = data as! [String:Any]
                             self.ap.myName = temp["name"] as! String
                             DispatchQueue.main.async {
-                                label.text = "신청 : " + studyRoomNumber[(temp["class"] as! Int) - 1]
+                                label.text = "신청 : " + studyRoomString[(temp["class"] as! Int) - 1]
                             }
                         }
                         if num == 1{
@@ -183,7 +183,7 @@ class applyView: UIViewController {
                 }
             })
         }else{
-            label.text = "로그인이 필요합니다."
+            label.text = "로그인이 필요합니다"
             return
         }
     }
