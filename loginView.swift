@@ -86,6 +86,7 @@ class loginView: UIViewController,UITextFieldDelegate{
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardDown(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    
     func keyboardShow(notification: Notification){
         self.idLabel.textColor = UIColor.init(red: 167/255, green: 201/255, blue: 218/255, alpha: 1)
         if(self.idTextFiled.layer.borderColor == UIColor.white.cgColor){

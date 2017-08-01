@@ -8,17 +8,19 @@
 
 import UIKit
 
-class myViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+class myViewCell{
+    
+    let cell = UITableViewCell()
+    
+    init(text : String) {
+        let label = UILabel.init(frame: CGRect.init(x: 35, y: 15, width: 150, height: 25))
+        label.text = text
+        label.font = UIFont.init(name: "System", size: 18)
+        cell.accessoryType = .disclosureIndicator
+        cell.addSubview(label)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func getCell() -> UITableViewCell{
+        return cell
     }
-
 }
