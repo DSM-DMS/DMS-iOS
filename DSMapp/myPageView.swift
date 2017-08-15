@@ -83,9 +83,6 @@ class myPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         return 6
     }
     
-    
-    
-    
     func initGetData(){
         ap.getAPI(add: "apply/extension", param: "", method: "GET", fun: {
             data, res, err in

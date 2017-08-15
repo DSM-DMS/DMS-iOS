@@ -105,9 +105,8 @@ class applyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
         }
         
         changeContentCount(index)
-        let currentContentView = applyAfterContent();
+        let currentContentView = self.storyboard?.instantiateViewController(withIdentifier: "contentViewController") as! applyAfterContent
         currentContentView.contentIndex = index
-        currentContentView.changeBack()
         
         return currentContentView
     }
