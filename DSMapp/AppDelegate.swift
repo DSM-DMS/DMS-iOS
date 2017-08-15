@@ -15,8 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var myName = ""
+    var userName = ""
+    
     var isLogin = false
+    
     
     
     func saveCookie(_ cookie : HTTPCookie){

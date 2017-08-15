@@ -169,7 +169,7 @@ class applyView: UIViewController {
                     }else if res?.statusCode == 200{
                         if num == 0{
                             let temp = data as! [String:Any]
-                            self.ap.myName = temp["name"] as! String
+                            self.ap.userName = temp["name"] as! String
                             DispatchQueue.main.async {
                                 label.text = "신청 : " + studyRoomString[(temp["class"] as! Int) - 1]
                             }

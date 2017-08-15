@@ -99,8 +99,8 @@ class applyStudyView: UIViewController {
             button.setBackgroundImage(UIImage.init(named: "seatNo.png"), for: .normal)
             button.setTitle("\(seatNum)", for: .normal)
         }else if let seatName = (name as? String){
-            print(ap.myName)
-            if seatName == ap.myName{
+            print(ap.userName)
+            if seatName == ap.userName{
                 button.setBackgroundImage(UIImage.init(named: "mySeat.png"), for: .normal)
                 return button
             }
