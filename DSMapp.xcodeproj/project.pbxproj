@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		D005FEEA1ED204AD00C8E65F /* noticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D005FEE91ED204AD00C8E65F /* noticeView.swift */; };
 		D00DA2161EDD787600F08F5F /* applyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00DA2151EDD787600F08F5F /* applyView.swift */; };
+		D00F66971F4488D400BF26D5 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F66961F4488D400BF26D5 /* NotificationCenter.framework */; };
+		D00F669A1F4488D400BF26D5 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F66991F4488D400BF26D5 /* TodayViewController.swift */; };
+		D00F669D1F4488D400BF26D5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00F669B1F4488D400BF26D5 /* MainInterface.storyboard */; };
+		D00F66A11F4488D400BF26D5 /* DSMExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D00F66951F4488D400BF26D5 /* DSMExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D0204DCA1F0CB9CC00C723F8 /* DataBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0204DC91F0CB9CC00C723F8 /* DataBaseClass.swift */; };
 		D03CB5451F42DA7D002B1F08 /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03CB5431F42DA7D002B1F08 /* loginView.swift */; };
 		D03CB5461F42DA7D002B1F08 /* tabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03CB5441F42DA7D002B1F08 /* tabBarView.swift */; };
@@ -109,6 +113,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D00F669F1F4488D400BF26D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0538AB81ECB007C00C47F86 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D00F66941F4488D400BF26D5;
+			remoteInfo = DSMExtension;
+		};
 		D0538AD51ECB007C00C47F86 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D0538AB81ECB007C00C47F86 /* Project object */;
@@ -119,6 +130,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		D00F66A51F4488D400BF26D5 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D00F66A11F4488D400BF26D5 /* DSMExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0A587BA1F0B940D009182BA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,6 +158,11 @@
 /* Begin PBXFileReference section */
 		D005FEE91ED204AD00C8E65F /* noticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = noticeView.swift; sourceTree = "<group>"; };
 		D00DA2151EDD787600F08F5F /* applyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = applyView.swift; sourceTree = "<group>"; };
+		D00F66951F4488D400BF26D5 /* DSMExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DSMExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D00F66961F4488D400BF26D5 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D00F66991F4488D400BF26D5 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D00F669C1F4488D400BF26D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D00F669E1F4488D400BF26D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D01FF3201F0B92CF0060651F /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = DSMapp/Realm.framework; sourceTree = "<group>"; };
 		D01FF3211F0B92CF0060651F /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = DSMapp/RealmSwift.framework; sourceTree = "<group>"; };
 		D0204DC91F0CB9CC00C723F8 /* DataBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseClass.swift; sourceTree = "<group>"; };
@@ -238,6 +265,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D00F66921F4488D400BF26D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D00F66971F4488D400BF26D5 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0538ABD1ECB007C00C47F86 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,11 +292,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D00F66981F4488D400BF26D5 /* DSMExtension */ = {
+			isa = PBXGroup;
+			children = (
+				D00F66991F4488D400BF26D5 /* TodayViewController.swift */,
+				D00F669B1F4488D400BF26D5 /* MainInterface.storyboard */,
+				D00F669E1F4488D400BF26D5 /* Info.plist */,
+			);
+			path = DSMExtension;
+			sourceTree = "<group>";
+		};
 		D04C10201ED17C4900C5AE5B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				D01FF3201F0B92CF0060651F /* Realm.framework */,
 				D01FF3211F0B92CF0060651F /* RealmSwift.framework */,
+				D00F66961F4488D400BF26D5 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -271,6 +317,7 @@
 			children = (
 				D0538AC21ECB007C00C47F86 /* DSMapp */,
 				D0538AD71ECB007C00C47F86 /* DSMappTests */,
+				D00F66981F4488D400BF26D5 /* DSMExtension */,
 				D0538AC11ECB007C00C47F86 /* Products */,
 				D04C10201ED17C4900C5AE5B /* Frameworks */,
 			);
@@ -281,6 +328,7 @@
 			children = (
 				D0538AC01ECB007C00C47F86 /* DSMapp.app */,
 				D0538AD41ECB007C00C47F86 /* DSMappTests.xctest */,
+				D00F66951F4488D400BF26D5 /* DSMExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -487,6 +535,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D00F66941F4488D400BF26D5 /* DSMExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D00F66A41F4488D400BF26D5 /* Build configuration list for PBXNativeTarget "DSMExtension" */;
+			buildPhases = (
+				D00F66911F4488D400BF26D5 /* Sources */,
+				D00F66921F4488D400BF26D5 /* Frameworks */,
+				D00F66931F4488D400BF26D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DSMExtension;
+			productName = DSMExtension;
+			productReference = D00F66951F4488D400BF26D5 /* DSMExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D0538ABF1ECB007C00C47F86 /* DSMapp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0538ADD1ECB007C00C47F86 /* Build configuration list for PBXNativeTarget "DSMapp" */;
@@ -496,10 +561,12 @@
 				D0538ABE1ECB007C00C47F86 /* Resources */,
 				D0CD248B1F0B2F0C00999369 /* ShellScript */,
 				D0A587BA1F0B940D009182BA /* Embed Frameworks */,
+				D00F66A51F4488D400BF26D5 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D00F66A01F4488D400BF26D5 /* PBXTargetDependency */,
 			);
 			name = DSMapp;
 			productName = DSMapp;
@@ -534,6 +601,11 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "이병찬";
 				TargetAttributes = {
+					D00F66941F4488D400BF26D5 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = W3868KR87Z;
+						ProvisioningStyle = Automatic;
+					};
 					D0538ABF1ECB007C00C47F86 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = W3868KR87Z;
@@ -563,11 +635,20 @@
 			targets = (
 				D0538ABF1ECB007C00C47F86 /* DSMapp */,
 				D0538AD31ECB007C00C47F86 /* DSMappTests */,
+				D00F66941F4488D400BF26D5 /* DSMExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D00F66931F4488D400BF26D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D00F669D1F4488D400BF26D5 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0538ABE1ECB007C00C47F86 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -680,6 +761,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D00F66911F4488D400BF26D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D00F669A1F4488D400BF26D5 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0538ABC1ECB007C00C47F86 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -713,6 +802,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D00F66A01F4488D400BF26D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D00F66941F4488D400BF26D5 /* DSMExtension */;
+			targetProxy = D00F669F1F4488D400BF26D5 /* PBXContainerItemProxy */;
+		};
 		D0538AD61ECB007C00C47F86 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D0538ABF1ECB007C00C47F86 /* DSMapp */;
@@ -721,6 +815,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D00F669B1F4488D400BF26D5 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D00F669C1F4488D400BF26D5 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		D0538AC71ECB007C00C47F86 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -740,6 +842,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D00F66A21F4488D400BF26D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = W3868KR87Z;
+				INFOPLIST_FILE = DSMExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp.DSMExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D00F66A31F4488D400BF26D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = W3868KR87Z;
+				INFOPLIST_FILE = DSMExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp.DSMExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		D0538ADB1ECB007C00C47F86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -838,6 +966,7 @@
 		D0538ADE1ECB007C00C47F86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = W3868KR87Z;
@@ -863,6 +992,7 @@
 		D0538ADF1ECB007C00C47F86 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = W3868KR87Z;
@@ -917,6 +1047,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D00F66A41F4488D400BF26D5 /* Build configuration list for PBXNativeTarget "DSMExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D00F66A21F4488D400BF26D5 /* Debug */,
+				D00F66A31F4488D400BF26D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D0538ABB1ECB007C00C47F86 /* Build configuration list for PBXProject "DSMapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
