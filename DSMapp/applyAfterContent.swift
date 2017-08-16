@@ -11,9 +11,11 @@ import UIKit
 class applyAfterContent: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var contentIndex = 0
+    var data = [String]()
+    var name = String()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -24,7 +26,7 @@ class applyAfterContent: UIViewController, UITableViewDataSource, UITableViewDel
         let cell = UITableViewCell()
         cell.selectionStyle = .none
         let name = UILabel.init(frame: CGRect.init(x: 10, y: 10, width: 200, height: 30))
-        name.text = "hello world"
+        name.text = data[indexPath.row]
         cell.addSubview(name)
         return cell
     }
@@ -32,27 +34,22 @@ class applyAfterContent: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerTableView: UITableView!
     
-
-    let colorArray = [UIColor.red,UIColor.black,UIColor.blue,UIColor.brown]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         answerTableView.separatorStyle = .none
         answerTableView.dataSource = self
         answerTableView.delegate = self
+        
+        questionLabel.text = name
     }
     
-    var beforeIndexPath : IndexPath?
+    var checkIndexPath : IndexPath?
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if beforeIndexPath != nil{
-            tableView.cellForRow(at: beforeIndexPath!)?.accessoryType = .none
+        if checkIndexPath != nil{
+            tableView.cellForRow(at: checkIndexPath!)?.accessoryType = .none
         }
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        beforeIndexPath = indexPath
-    }
-    
-    func changeBack(){
-        view.backgroundColor = colorArray[contentIndex]
+        checkIndexPath = indexPath
     }
 }
