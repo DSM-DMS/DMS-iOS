@@ -337,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				D0FAF1AE1F30183600093E19 /* image */,
+				D0538AC71ECB007C00C47F86 /* Main.storyboard */,
 				D0FAF2531F3043D900093E19 /* signUpView.swift */,
 				D03CB5431F42DA7D002B1F08 /* loginView.swift */,
 				D03CB5441F42DA7D002B1F08 /* tabBarView.swift */,
@@ -347,7 +348,6 @@
 				D005FEE91ED204AD00C8E65F /* noticeView.swift */,
 				D0AA37FD1F2A31C4000F5203 /* myPageView.swift */,
 				D0538AC31ECB007C00C47F86 /* AppDelegate.swift */,
-				D0538AC71ECB007C00C47F86 /* Main.storyboard */,
 				D0538ACA1ECB007C00C47F86 /* Assets.xcassets */,
 				D0538ACC1ECB007C00C47F86 /* LaunchScreen.storyboard */,
 				D0538ACF1ECB007C00C47F86 /* Info.plist */,
@@ -1054,6 +1054,7 @@
 				D00F66A31F4488D400BF26D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0538ABB1ECB007C00C47F86 /* Build configuration list for PBXProject "DSMapp" */ = {
 			isa = XCConfigurationList;

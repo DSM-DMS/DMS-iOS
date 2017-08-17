@@ -13,29 +13,50 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        initData()
         setDateData()
     }
     
     func initData(){
-        
+        fommater.dateFormat = "H-m"
+        let currentDateTime = fommater.string(from: currentDate).components(separatedBy: "-")
+        if let currentHour = Int(currentDateTime[0]){
+            if currentHour < 13 && currentHour >= 8 {
+                if let currentMini = Int(currentDateTime[1]){
+                    if currentMini > 10 && currentHour == 8{
+                        currentMealTime += 1
+                    }
+                }
+            }else if currentHour < 19{
+                currentMealTime += 2
+            }else{
+                currentDate += TimeInterval(86400)
+            }
+        }
     }
     
     func setDateData(){
-        let fommater = DateFormatter()
-        fommater.dateFormat = "yyyy-MM-dd"
-        getData(fommater.string(from: currentDate))
         fommater.dateFormat = "M월 dd일"
         dateLabel.text = fommater.string(from: currentDate)
         mealTimeLabel.text = mealTimeTextArr[currentMealTime]
+        if currentMealTime == 0{
+            fommater.dateFormat = "yyyy-MM-dd"
+            getData(fommater.string(from: currentDate))
+        }else{
+            mealDataText.text = data?[mealTimeKeyArr[currentMealTime]]!
+        }
     }
     
+    let fommater = DateFormatter()
     var currentDate = Date()
     var currentMealTime = 0
     
+    var data : [String : String]?
+    
     let mealTimeTextArr = ["아침", "점심", "저녁"]
+    let mealTimeKeyArr = ["breakfast","lunch","dinner"]
     
     func getData(_ date : String){
-        let mealTimeKeyArr = ["breakfast","lunch","dinner"]
         var request = URLRequest.init(url: URL(string : "http://dsm2015.cafe24.com/meal?date="+date)!)
         request.httpMethod = "GET"
         
@@ -44,9 +65,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             if err == nil{
                 do{
                     let tempData = try JSONSerialization.jsonObject(with: data!, options: [])
-                    let tempData2 = self.changeDataForSave(data: tempData)
+                    self.data = self.changeDataForSave(data: tempData)
                     DispatchQueue.main.async {
-                        self.mealDataText.text = tempData2[mealTimeKeyArr[self.currentMealTime]]!
+                        self.mealDataText.text = self.data?[self.mealTimeKeyArr[self.currentMealTime]]!
                     }
                 }catch{
                     print("data change error")
