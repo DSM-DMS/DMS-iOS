@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Xc1-gb-O37">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XB5-XX-mEZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -2232,7 +2232,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ewM-sR-uZ6">
             <objects>
-                <navigationController storyboardIdentifier="applyStay" automaticallyAdjustsScrollViewInsets="NO" id="Qjt-f3-ykJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="applyStay" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qjt-f3-ykJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="s6m-g4-50C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2379,7 +2379,7 @@
         <!--Navigation Controller-->
         <scene sceneID="yen-AJ-dk4">
             <objects>
-                <navigationController storyboardIdentifier="applyStudy" automaticallyAdjustsScrollViewInsets="NO" id="sim-9w-Sfk" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="applyStudy" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sim-9w-Sfk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oBj-wh-Sls">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2397,7 +2397,7 @@
         <!--Navigation Controller-->
         <scene sceneID="9x2-4s-1PJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xc1-gb-O37" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="applyAfterStudy" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xc1-gb-O37" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fE8-3x-ckI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

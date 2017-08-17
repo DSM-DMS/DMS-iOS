@@ -100,12 +100,9 @@ class applyView: UIViewController {
                             }
                         }
                     })
-                
-                case 3:
-                    return
-                    
                 default:
-                    let storyboardIDArray = ["applyStudy","applyStay"]
+                    let storyboardIDArray = ["applyStudy","applyStay","","applyAfterStudy"]
+                    print(buttonNum)
                     let uvc = self.storyboard?.instantiateViewController(withIdentifier: storyboardIDArray[buttonNum])
                     uvc?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
                     present(uvc!, animated: true, completion: nil)

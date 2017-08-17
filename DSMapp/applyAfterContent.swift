@@ -25,7 +25,7 @@ class applyAfterContent: UIViewController, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
-        let name = UILabel.init(frame: CGRect.init(x: 10, y: 10, width: 200, height: 30))
+        let name = UILabel.init(frame: CGRect.init(x: 30, y: 15, width: 200, height: 30))
         name.text = data[indexPath.row]
         cell.addSubview(name)
         return cell
