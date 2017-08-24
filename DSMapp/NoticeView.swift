@@ -8,7 +8,7 @@
 
 import UIKit
 
-class noticeView: UIViewController {
+class NoticeView: UIViewController {
 
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
@@ -19,6 +19,10 @@ class noticeView: UIViewController {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
+    
+    var buttonArr = [UIButton]()
+    
+    let ap = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var stackView: UIStackView!
     override func viewDidLoad() {
@@ -43,14 +47,27 @@ class noticeView: UIViewController {
             i?.layer.cornerRadius = 10
         }
         
-        for i in [button1,button2,button3,button4]{
-            i?.layer.shadowColor = UIColor.black.withAlphaComponent(0.5).cgColor
-            i?.layer.shadowOffset = CGSize.init(width: 1, height: 1)
-            i?.layer.shadowOpacity = 0.3
+        buttonArr = [button1,button2,button3,button4]
+        
+        for i in buttonArr{
+            i.addTarget(self, action: #selector(nextListView(_:)), for: .touchUpInside)
+            i.layer.shadowColor = UIColor.black.withAlphaComponent(0.5).cgColor
+            i.layer.shadowOffset = CGSize.init(width: 1, height: 1)
+            i.layer.shadowOpacity = 0.3
         }
         
 
         
+    }
+    
+    func nextListView(_ button : UIButton){
+        let noticeTitleArr = ["기숙사 규정","공지사항","자주하는 질문","시설 고장 신고"]
+        for i in 0..<buttonArr.count{
+            if button == buttonArr[i]{
+                ap.noticeTitle = noticeTitleArr[i];
+                present((self.storyboard?.instantiateViewController(withIdentifier: "noticeListView"))!, animated: true, completion: nil)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

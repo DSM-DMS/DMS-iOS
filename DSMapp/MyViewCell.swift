@@ -8,7 +8,7 @@
 
 import UIKit
 
-class myViewCell{
+class MyViewCell{
     
     let cell = UITableViewCell()
     

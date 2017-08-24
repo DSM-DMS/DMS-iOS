@@ -13,7 +13,7 @@
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="loginView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="BYZ-38-t0r" customClass="LoginView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -162,7 +162,7 @@
         <!--신청-->
         <scene sceneID="DHz-0p-oc0">
             <objects>
-                <viewController id="uTO-es-pRW" customClass="applyView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uTO-es-pRW" customClass="ApplyView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PKh-Y1-H70"/>
                         <viewControllerLayoutGuide type="bottom" id="dm7-bD-xmt"/>
@@ -524,7 +524,7 @@
         <!--잔류신청-->
         <scene sceneID="yKV-aW-If1">
             <objects>
-                <viewController id="zlC-Eb-JGf" customClass="applyStayView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zlC-Eb-JGf" customClass="ApplyStayView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SUE-cV-KvI"/>
                         <viewControllerLayoutGuide type="bottom" id="0gt-Ay-KkK"/>
@@ -654,7 +654,7 @@
         <!--방과후신청-->
         <scene sceneID="4dB-e6-afu">
             <objects>
-                <viewController id="fe3-3n-L3p" customClass="applyAfterStudy" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fe3-3n-L3p" customClass="ApplyAfterStudy" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z6u-RJ-AnC"/>
                         <viewControllerLayoutGuide type="bottom" id="aAG-39-Vbh"/>
@@ -737,12 +737,12 @@
                 <pageViewController storyboardIdentifier="pageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="HW5-DF-WXI" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N9I-3K-vPI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6516" y="1100.5997001499252"/>
+            <point key="canvasLocation" x="6406" y="1101"/>
         </scene>
         <!--Apply After Content-->
         <scene sceneID="zae-tn-kAb">
             <objects>
-                <viewController storyboardIdentifier="contentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gDb-Pi-AcR" customClass="applyAfterContent" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="contentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gDb-Pi-AcR" customClass="ApplyAfterContent" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ide-cV-kCz"/>
                         <viewControllerLayoutGuide type="bottom" id="TO3-cQ-CXo"/>
@@ -804,7 +804,7 @@
         <!--공지-->
         <scene sceneID="cnL-12-Ehi">
             <objects>
-                <viewController id="3Xk-85-VLW" customClass="noticeView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Xk-85-VLW" customClass="NoticeView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HUe-k2-NSc"/>
                         <viewControllerLayoutGuide type="bottom" id="Tu3-8L-QNy"/>
@@ -1023,7 +1023,7 @@
         <!--식사-->
         <scene sceneID="XGX-GV-Hth">
             <objects>
-                <viewController id="rxX-NC-evI" customClass="mealView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rxX-NC-evI" customClass="MealView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="agl-Qc-d0t"/>
                         <viewControllerLayoutGuide type="bottom" id="hbr-FQ-Xpz"/>
@@ -1860,7 +1860,7 @@
         <!--내 정보-->
         <scene sceneID="dkc-0b-8Hp">
             <objects>
-                <viewController id="vKF-zK-bJf" customClass="myPageView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vKF-zK-bJf" customClass="MyPageView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Ml-eF-kFn"/>
                         <viewControllerLayoutGuide type="bottom" id="uqV-Wj-FmJ"/>
@@ -1906,7 +1906,7 @@
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="85"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lFq-W3-xdR">
-                                                <rect key="frame" x="78.5" y="13" width="32" height="58.5"/>
+                                                <rect key="frame" x="78" y="13" width="32" height="58.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLv-Mb-cAR">
                                                         <rect key="frame" x="0.0" y="0.0" width="32" height="30"/>
@@ -2036,7 +2036,7 @@
         <!--Sign Up View-->
         <scene sceneID="JhV-UQ-kYA">
             <objects>
-                <viewController id="kY0-hk-9fM" customClass="signUpView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kY0-hk-9fM" customClass="SignUpView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oc0-Cz-eUn"/>
                         <viewControllerLayoutGuide type="bottom" id="BVh-hg-5ed"/>
@@ -2211,7 +2211,7 @@
         <!--Tab Bar View-->
         <scene sceneID="VSC-mr-Kbj">
             <objects>
-                <tabBarController id="XB5-XX-mEZ" customClass="tabBarView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="XB5-XX-mEZ" customClass="TabBarView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="hEt-pZ-Vyz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2250,7 +2250,7 @@
         <!--연장신청-->
         <scene sceneID="s97-G1-3JA">
             <objects>
-                <viewController id="DJB-Vd-pl7" customClass="applyStudyView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DJB-Vd-pl7" customClass="ApplyStudyView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BEh-33-0O5"/>
                         <viewControllerLayoutGuide type="bottom" id="bc7-0k-Yf7"/>
@@ -2376,6 +2376,165 @@
             </objects>
             <point key="canvasLocation" x="3747.826086956522" y="2921.739130434783"/>
         </scene>
+        <!--Notice List View-->
+        <scene sceneID="cRJ-Ng-Lyf">
+            <objects>
+                <viewController storyboardIdentifier="noticeListView" id="3nI-rs-XsF" customClass="NoticeListView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Me-2I-PI3"/>
+                        <viewControllerLayoutGuide type="bottom" id="I8M-d6-gYj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hgr-kL-n3V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Re-0p-4kN">
+                                <rect key="frame" x="0.0" y="64" width="375" height="533"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="80" id="fir-an-lBA" customClass="NoticeListCell" customModule="DSMapp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fir-an-lBA" id="Agk-5A-LnO">
+                                            <rect key="frame" x="0.0" y="0.0" width="308" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPA-Gk-rTp">
+                                                    <rect key="frame" x="28" y="16" width="35" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnP-yE-Fo4">
+                                                    <rect key="frame" x="28" y="44" width="37.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3LI-of-MCt">
+                                                    <rect key="frame" x="71" y="20" width="45" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="iRb-qO-Uoe"/>
+                                                        <constraint firstAttribute="width" constant="45" id="qQE-L8-3YU"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SnP-yE-Fo4" firstAttribute="top" secondItem="VPA-Gk-rTp" secondAttribute="bottom" constant="4" id="1hT-ld-F8h"/>
+                                                <constraint firstItem="3LI-of-MCt" firstAttribute="leading" secondItem="VPA-Gk-rTp" secondAttribute="trailing" constant="8" id="2eN-2v-htE"/>
+                                                <constraint firstItem="3LI-of-MCt" firstAttribute="top" secondItem="Agk-5A-LnO" secondAttribute="topMargin" constant="12" id="PB9-Sh-jTt"/>
+                                                <constraint firstItem="VPA-Gk-rTp" firstAttribute="top" secondItem="Agk-5A-LnO" secondAttribute="topMargin" constant="8" id="RD2-Df-Qb7"/>
+                                                <constraint firstItem="VPA-Gk-rTp" firstAttribute="leading" secondItem="Agk-5A-LnO" secondAttribute="leadingMargin" constant="20" id="dec-wm-5WN"/>
+                                                <constraint firstItem="SnP-yE-Fo4" firstAttribute="leading" secondItem="Agk-5A-LnO" secondAttribute="leadingMargin" constant="20" id="jYt-5o-UEb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="newImageView" destination="3LI-of-MCt" id="mfq-pI-eB0"/>
+                                            <outlet property="titleLabel" destination="VPA-Gk-rTp" id="YaY-QB-xp3"/>
+                                            <outlet property="writerLabel" destination="SnP-yE-Fo4" id="SEg-bk-TNL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="90N-Qg-0PI">
+                                <rect key="frame" x="0.0" y="597" width="375" height="70"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="Eln-U8-Fvh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="90N-Qg-0PI" secondAttribute="trailing" id="70o-Sm-9hc"/>
+                            <constraint firstAttribute="trailing" secondItem="6Re-0p-4kN" secondAttribute="trailing" id="M8C-7Z-mOS"/>
+                            <constraint firstItem="I8M-d6-gYj" firstAttribute="top" secondItem="90N-Qg-0PI" secondAttribute="bottom" id="QMO-LR-ZIN"/>
+                            <constraint firstItem="6Re-0p-4kN" firstAttribute="top" secondItem="7Me-2I-PI3" secondAttribute="bottom" id="Z95-8O-xNG"/>
+                            <constraint firstItem="90N-Qg-0PI" firstAttribute="leading" secondItem="hgr-kL-n3V" secondAttribute="leading" id="c5a-VI-Rxo"/>
+                            <constraint firstItem="6Re-0p-4kN" firstAttribute="leading" secondItem="hgr-kL-n3V" secondAttribute="leading" id="dXB-qE-WYt"/>
+                            <constraint firstItem="90N-Qg-0PI" firstAttribute="top" secondItem="6Re-0p-4kN" secondAttribute="bottom" id="eVL-22-xv8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fFw-YO-59v">
+                        <barButtonItem key="leftBarButtonItem" title="게시판" id="fT3-rs-VGR"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bottomView" destination="90N-Qg-0PI" id="htM-NA-2SA"/>
+                        <outlet property="tableView" destination="6Re-0p-4kN" id="rGT-Zj-WOZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SRu-5b-otQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5680.8000000000002" y="2178.2608695652175"/>
+        </scene>
+        <!--제목-->
+        <scene sceneID="hdQ-b6-87E">
+            <objects>
+                <viewController id="6a3-ie-25X" customClass="NoticeDetailView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zsg-fI-leQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="pnw-BU-nsw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jw8-Rn-V88">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ds2-fO-OXj">
+                                <rect key="frame" x="16" y="80" width="343" height="571"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ao4-hb-AqA">
+                                        <rect key="frame" x="24" y="24" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="3Hn-SZ-dE0"/>
+                                            <constraint firstAttribute="width" constant="35" id="Izj-SX-PcS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scB-1r-vLo">
+                                        <rect key="frame" x="75" y="35" width="35" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QiC-mM-bNM">
+                                        <rect key="frame" x="16" y="75" width="311" height="464"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </webView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="scB-1r-vLo" firstAttribute="leading" secondItem="ao4-hb-AqA" secondAttribute="trailing" constant="16" id="18i-lC-vtd"/>
+                                    <constraint firstAttribute="trailing" secondItem="QiC-mM-bNM" secondAttribute="trailing" constant="16" id="27Q-h6-tpi"/>
+                                    <constraint firstItem="ao4-hb-AqA" firstAttribute="top" secondItem="Ds2-fO-OXj" secondAttribute="top" constant="24" id="4Pq-5I-mcu"/>
+                                    <constraint firstAttribute="bottom" secondItem="QiC-mM-bNM" secondAttribute="bottom" constant="32" id="8JU-kI-xXx"/>
+                                    <constraint firstItem="QiC-mM-bNM" firstAttribute="top" secondItem="scB-1r-vLo" secondAttribute="bottom" constant="16" id="Gx2-zF-BVP"/>
+                                    <constraint firstItem="scB-1r-vLo" firstAttribute="top" secondItem="Ds2-fO-OXj" secondAttribute="top" constant="35" id="KMY-z1-rLo"/>
+                                    <constraint firstItem="QiC-mM-bNM" firstAttribute="leading" secondItem="Ds2-fO-OXj" secondAttribute="leading" constant="16" id="R1o-lv-Jpv"/>
+                                    <constraint firstItem="ao4-hb-AqA" firstAttribute="leading" secondItem="Ds2-fO-OXj" secondAttribute="leading" constant="24" id="UC5-NC-Usb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pnw-BU-nsw" firstAttribute="top" secondItem="Ds2-fO-OXj" secondAttribute="bottom" constant="16" id="TXe-hi-k3I"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ds2-fO-OXj" secondAttribute="trailing" id="WLp-fw-ggq"/>
+                            <constraint firstItem="Ds2-fO-OXj" firstAttribute="top" secondItem="Zsg-fI-leQ" secondAttribute="bottom" constant="16" id="XHa-tA-KT7"/>
+                            <constraint firstItem="Ds2-fO-OXj" firstAttribute="leading" secondItem="Jw8-Rn-V88" secondAttribute="leadingMargin" id="jM9-o8-V2s"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="제목" id="rUu-oe-JZV">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="KVD-98-LPE"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contentView" destination="Ds2-fO-OXj" id="eyg-kT-UkT"/>
+                        <outlet property="contentWebView" destination="QiC-mM-bNM" id="t8I-fq-7mO"/>
+                        <outlet property="imageView" destination="ao4-hb-AqA" id="wzW-8L-huA"/>
+                        <outlet property="titleLabel" destination="scB-1r-vLo" id="j2M-dq-gN3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hna-kI-oiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7908" y="2177.3613193403298"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="yen-AJ-dk4">
             <objects>
@@ -2411,6 +2570,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVO-Kr-z8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4741.6000000000004" y="1100.5997001499252"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6y7-SL-gPi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Ez-aR-sm7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bUF-OP-L9A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3nI-rs-XsF" kind="relationship" relationship="rootViewController" id="4LU-TA-633"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DkY-tP-0iH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4741.6000000000004" y="2178.2608695652175"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="C1u-dv-hiu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xZ4-hg-qeS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0sM-zv-FiL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6a3-ie-25X" kind="relationship" relationship="rootViewController" id="13H-6P-eGj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ac5-v9-FxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6968.8000000000002" y="2177.3613193403298"/>
         </scene>
     </scenes>
     <resources>

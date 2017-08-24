@@ -8,7 +8,7 @@
 
 import UIKit
 
-class applyAfterContent: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class ApplyAfterContent: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var contentIndex = 0
     var data = [String]()

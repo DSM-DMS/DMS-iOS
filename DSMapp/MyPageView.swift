@@ -8,7 +8,7 @@
 
 import UIKit
 
-class myPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class MyPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var studyText: UILabel!
     
@@ -56,6 +56,21 @@ class myPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 5:
+            if ap.isLogin{
+                ap.isLogin = false
+            }else{
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "login")
+                present(vc!, animated: true, completion: nil)
+            }
+        default:
+            print("")
+            
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row % 3 == 0{
             let jumpCell = UITableViewCell()
@@ -68,10 +83,10 @@ class myPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
             }else{
                 text = signText.0
             }
-            let showCell = myViewCell(text: text)
+            let showCell = MyViewCell(text: text)
             return showCell.getCell()
         }else{
-            let showCell = myViewCell(text: tableArr[indexPath.row])
+            let showCell = MyViewCell(text: tableArr[indexPath.row])
             return showCell.getCell()
         }
     }
@@ -98,6 +113,10 @@ class myPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
                         self.studyText.text = "로그인 필요"
                     }
                 }
+            }else{
+                DispatchQueue.main.async {
+                    self.studyText.text = "네트워크 오류"
+                }
             }
         })
         
@@ -112,8 +131,12 @@ class myPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
                         print(temp)
                         self.stayText.text = self.stayString[(data as! [String : Int])["value"]! - 1]
                     }else{
-                        self.studyText.text = "로그인 필요"
+                        self.stayText.text = "로그인 필요"
                     }
+                }
+            }else{
+                DispatchQueue.main.async {
+                    self.stayText.text = "네트워크 오류"
                 }
             }
         })
@@ -127,7 +150,12 @@ class myPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
                         self.positivePointText.text = "\(temp["merit"]!)"
                         self.negativePointText.text = "\(temp["demerit"]!)"
                     }
+                    return
                 }
+            }
+            DispatchQueue.main.async {
+                self.positivePointText.text = "오류"
+                self.negativePointText.text = "오류"
             }
         })
 

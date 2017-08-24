@@ -8,7 +8,7 @@
 
 import UIKit
 
-class applyView: UIViewController {
+class ApplyView: UIViewController {
 
     @IBOutlet weak var viewStudy: UIView!
     @IBOutlet weak var viewStay: UIView!

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class loginView: UIViewController,UITextFieldDelegate{
+class LoginView: UIViewController,UITextFieldDelegate{
 
     @IBOutlet weak var idTextFiled: UITextField!
     @IBOutlet weak var pwTextFiled: UITextField!

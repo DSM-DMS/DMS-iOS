@@ -8,7 +8,7 @@
 
 import UIKit
 
-class tabBarView: UITabBarController {
+class TabBarView: UITabBarController {
 
     override func viewDidLoad() {
         tabBar.barTintColor = UIColor.init(red: 167/255, green: 201/255, blue: 218/255, alpha: 1)

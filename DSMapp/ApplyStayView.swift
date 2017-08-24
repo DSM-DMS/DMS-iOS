@@ -8,7 +8,8 @@
 
 import UIKit
 
-class applyStayView: UIViewController {
+class 
+ApplyStayView: UIViewController {
 
     @IBOutlet weak var applyButton: UIButton!
     @IBOutlet weak var friOut: UISwitch!
@@ -24,8 +25,6 @@ class applyStayView: UIViewController {
         applyButton.layer.shadowOffset = CGSize.init(width: 1, height: 1)
         applyButton.layer.shadowOpacity = 0.1
         applyButton.layer.shadowColor = UIColor.black.cgColor
-        
-        
     }
     
     let ap = UIApplication.shared.delegate as! AppDelegate

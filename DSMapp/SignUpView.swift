@@ -8,7 +8,7 @@
 
 import UIKit
 
-class signUpView: UIViewController, UITextFieldDelegate {
+class SignUpView: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var passwordWarningText: UILabel!
@@ -39,11 +39,6 @@ class signUpView: UIViewController, UITextFieldDelegate {
         passwordWarningText.isHidden = true
         passwordWarningImage.isHidden = true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     let ap = UIApplication.shared.delegate as! AppDelegate
     
@@ -54,7 +49,6 @@ class signUpView: UIViewController, UITextFieldDelegate {
                 editTextHeight.constant.add(CGFloat(20 * i))
                 if textField.text!.isEmpty{
                     showToast(message: "값을 입력하세요", down: false)
-                    lineArray[i].backgroundColor = UIColor.red
                     return
                 }
                 break
@@ -67,7 +61,7 @@ class signUpView: UIViewController, UITextFieldDelegate {
                 DispatchQueue.main.async {
                     if err == nil{
                         if res?.statusCode == 201{
-                            
+                            self.idLine.backgroundColor = UIColor.init(red: 32/255, green: 149/255, blue: 134/255, alpha: 1)
                         }else{
                             self.idLine.backgroundColor = UIColor.red
                             textField.text = ""

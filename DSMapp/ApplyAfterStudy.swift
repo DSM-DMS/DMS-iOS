@@ -9,7 +9,7 @@
 import UIKit
 
 
-class applyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
+class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
     
     @IBOutlet weak var finishDateLabel: UILabel!
     @IBOutlet weak var sendButton: UIButton!
@@ -117,7 +117,7 @@ class applyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
     }
 
     
-    func getContentVieWControllerAtIndex(index : Int, data : [String : [String]]) -> applyAfterContent? {
+    func getContentVieWControllerAtIndex(index : Int, data : [String : [String]]) -> ApplyAfterContent? {
         
         if index >= tempData.count || index < 0{
             return nil
@@ -131,7 +131,7 @@ class applyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
         
         changeContentCount(index)
         
-        let currentContentView = self.storyboard?.instantiateViewController(withIdentifier: "contentViewController") as! applyAfterContent
+        let currentContentView = self.storyboard?.instantiateViewController(withIdentifier: "contentViewController") as! ApplyAfterContent
         currentContentView.name = data.keys.first!
         currentContentView.data = data.values.first!
         

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class mealView: UIViewController {
+class MealView: UIViewController {
     
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
@@ -103,10 +103,10 @@ class mealView: UIViewController {
         }
         //그림자 세팅
         
-        let swipeLeft = UISwipeGestureRecognizer.init(target: self, action: #selector(mealView.respondToSwipeGesture(_:)))
+        let swipeLeft = UISwipeGestureRecognizer.init(target: self, action: #selector(MealView.respondToSwipeGesture(_:)))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeLeft)
-        let swipeRight = UISwipeGestureRecognizer.init(target: self, action: #selector(mealView.respondToSwipeGesture(_:)))
+        let swipeRight = UISwipeGestureRecognizer.init(target: self, action: #selector(MealView.respondToSwipeGesture(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)
         //제스쳐 세팅

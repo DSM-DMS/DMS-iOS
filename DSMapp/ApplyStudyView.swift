@@ -8,7 +8,7 @@
 
 import UIKit
 
-class applyStudyView: UIViewController {
+class ApplyStudyView: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -54,7 +54,6 @@ class applyStudyView: UIViewController {
         
         scrollView.layer.cornerRadius = 10
         scrollView.backgroundColor = UIColor.init(red: 241/255, green: 249/255, blue: 252/255, alpha: 1)
-        super.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {

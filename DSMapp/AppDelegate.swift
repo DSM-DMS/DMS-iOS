@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var isLogin = false
     
+    var noticeTitle = ""
+    
     
     
     func saveCookie(_ cookie : HTTPCookie){
