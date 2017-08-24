@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var isLogin = false
     
-    var noticeTitle = ""
+    var noticeTitle = "공지사항"
     
     
     

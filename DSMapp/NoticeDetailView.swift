@@ -10,24 +10,42 @@ import UIKit
 
 class NoticeDetailView: UIViewController {
 
-    
+    @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var contentWebView: UIWebView!
     @IBOutlet weak var contentView: UIView!
     
-    var imageMap : [String : UIImage]?
+    var imageMap = [String : UIImage]()
     
     let ap = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageMap?["기숙사 규정"] = UIImage.init(named: "ruleIcon")
-        imageMap?["공지사항"] = UIImage.init(named: "notificationIcon")
-        imageMap?["자주하는 질문"] = UIImage.init(named: "questionIcon")
-        imageView.image = imageMap?[ap.noticeTitle] 
+        backButton.title = ap.noticeTitle
+        imageMap["기숙사 규정"] = UIImage.init(named: "ruleIcon")
+        imageMap["공지사항"] = UIImage.init(named: "notificationIcon")
+        imageMap["자주하는 질문"] = UIImage.init(named: "questionIcon")
+        imageView.image = imageMap[ap.noticeTitle]
         
+        let view1 = UIView.init(frame: CGRect.init(x: -4, y: contentWebView.frame.maxY - contentWebView.frame.height, width: 8, height: contentWebView.frame.height))
+        view1.backgroundColor = UIColor.init(red: 178/255, green: 212/255, blue: 230/255, alpha: 1)
+        view1.layer.cornerRadius = 4
+        
+        contentView.layer.cornerRadius = 10
+        contentView.layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
+        contentView.layer.shadowOffset = CGSize.init(width: 1, height: 1)
+        contentView.layer.shadowOpacity = 1
+        contentView.layer.shadowRadius = 5
+        contentView.addSubview(view1)
+        
+        contentWebView.loadRequest(URLRequest.init(url: URL.init(string: "http://www.naver.com")!))
     }
+    
+    @IBAction func back(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

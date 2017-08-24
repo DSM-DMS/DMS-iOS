@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NoticeView: UIViewController {
+class NoticeView: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
@@ -60,19 +60,59 @@ class NoticeView: UIViewController {
         
     }
     
+    func setFacilityView(){
+        contentView = self.storyboard?.instantiateViewController(withIdentifier: "facilityViewController") as! FacilityView
+        contentView.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        contentView.contentTextView.delegate = self
+        contentView.sendButton.addTarget(self, action: #selector(send(_:)), for: .touchUpInside)
+        contentView.backButton.addTarget(self, action: #selector(back(_:)), for: .touchUpInside)
+        self.view.addSubview(contentView.view)
+    }
+    
+    var contentView = FacilityView()
+    
+    func send(_ button : UIButton){
+        back(button);
+    }
+    
+    func back(_ button : UIButton){
+        contentView.view.removeFromSuperview()
+    }
+    
     func nextListView(_ button : UIButton){
         let noticeTitleArr = ["기숙사 규정","공지사항","자주하는 질문","시설 고장 신고"]
         for i in 0..<buttonArr.count{
             if button == buttonArr[i]{
                 ap.noticeTitle = noticeTitleArr[i];
+                if i == 3{
+                    setFacilityView()
+                    return
+                }
                 present((self.storyboard?.instantiateViewController(withIdentifier: "noticeListView"))!, animated: true, completion: nil)
+                return
             }
         }
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "정보를 입력하십시오"{
+            textView.text = ""
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == ""{
+            textView.text = "정보를 입력하십시오"
+        }
     }
 
 }

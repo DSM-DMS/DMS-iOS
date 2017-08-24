@@ -10,10 +10,17 @@ import UIKit
 
 class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let ap = UIApplication.shared.delegate as! AppDelegate
+    
+    @IBAction func back(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = ap.noticeTitle
         tableView.delegate = self
         tableView.dataSource = self
 
