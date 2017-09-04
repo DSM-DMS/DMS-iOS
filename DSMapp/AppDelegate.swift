@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var noticeTitle = "공지사항"
     
+    var noticeDataArr = [NoticeData]()
+    
     
     
     func saveCookie(_ cookie : HTTPCookie){
@@ -66,14 +68,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
     
-    func getAPI(add: String, param: String, method: String, fun: @escaping (Any?, HTTPURLResponse?, Error?)->Void){
+    func getAPI(add: String, param: String, method: String, fun: @escaping (Any?, HTTPURLResponse?, Error?)->Void, port : String = ""){
         
         var request: URLRequest?
         if(method == "POST"){
-            request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com/\(add)")!)
+            request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com/\(port)\(add)")!)
             request!.httpBody = param.data(using: .utf8)
         }else{
-            request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com/\(add)?\(param)")!)
+            request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com\(port)/\(add)?\(param)")!)
         }
         
         request!.httpMethod = method
@@ -84,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var tempData : Any? = nil
             
             if(data != nil){
-                print(String.init(data: data!, encoding: .utf8)!)
+                print("data is !!!", String.init(data: data!, encoding: .utf8)!)
                 dump(res)
                 do{
                     tempData = try JSONSerialization.jsonObject(with: data!, options: [])

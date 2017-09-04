@@ -16,6 +16,9 @@ class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
+    let urlStr = ["rule","notice,","faq"]
+    let titleStr = ["기숙사 규정","공지사항","자주하는 질문"]
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomView: UIView!
     override func viewDidLoad() {
@@ -23,8 +26,38 @@ class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSour
         navigationItem.title = ap.noticeTitle
         tableView.delegate = self
         tableView.dataSource = self
+        var tempNum = 0
+        
+        for i in 0..<titleStr.count{
+            if ap.noticeTitle == titleStr[i]{
+                tempNum = i
+                break;
+            }
+        }
 
-        // Do any additional setup after loading the view.
+        ap.getAPI(add: "post/list/\(urlStr[tempNum])", param: "", method: "GET", fun: {
+            data, res, err in
+            if err == nil{
+                if res?.statusCode == 200{
+                    var noticeDataArr = [NoticeData]()
+                    let temp = data as! [String : Any]
+                    let num_of_post = temp["num_of_post"]! as! Int
+                    var temNoticeDataArr = temp["result"]! as! [[String : Any]]
+                    for i in 0..<num_of_post{
+                        let tempNoticeData = temNoticeDataArr[i]
+                        let no = tempNoticeData["no"] as! Int
+                        let title = tempNoticeData["title"] as! String
+                        let content = tempNoticeData["content"] as! String
+                        noticeDataArr.append(NoticeData.init(content: content, title: title, no: no))
+                        print(<#T##items: Any...##Any#>)
+                    }
+                    DispatchQueue.main.async {
+                        self.ap.noticeDataArr = noticeDataArr
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        })
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -42,7 +75,13 @@ class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5;
+        return ap.noticeDataArr.count
     }
     
+}
+
+struct NoticeData {
+    var content = ""
+    var title = ""
+    var no = 0
 }

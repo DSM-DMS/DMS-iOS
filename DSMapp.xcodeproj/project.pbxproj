@@ -32,6 +32,11 @@
 		D0A9B2B51F4E552000AE2F3A /* NoticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A9B2B41F4E552000AE2F3A /* NoticeListView.swift */; };
 		D0A9B2B71F4E5F1E00AE2F3A /* NoticeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A9B2B61F4E5F1E00AE2F3A /* NoticeListCell.swift */; };
 		D0A9B2B91F4E60BA00AE2F3A /* NoticeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A9B2B81F4E60BA00AE2F3A /* NoticeDetailView.swift */; };
+		D0A9B2C01F4EA88200AE2F3A /* newBadgeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0A9B2BD1F4EA88200AE2F3A /* newBadgeIcon.png */; };
+		D0A9B2C41F4EAA4000AE2F3A /* noticeListDetailBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D0A9B2C11F4EAA4000AE2F3A /* noticeListDetailBackground.png */; };
+		D0A9B2C51F4EAA4000AE2F3A /* noticeListDetailBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0A9B2C21F4EAA4000AE2F3A /* noticeListDetailBackground@2x.png */; };
+		D0A9B2C61F4EAA4000AE2F3A /* noticeListDetailBackground@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0A9B2C31F4EAA4000AE2F3A /* noticeListDetailBackground@3x.png */; };
+		D0A9B2C81F4EAE5500AE2F3A /* FacilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A9B2C71F4EAE5500AE2F3A /* FacilityView.swift */; };
 		D0AA37FE1F2A31C4000F5203 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AA37FD1F2A31C4000F5203 /* MyPageView.swift */; };
 		D0AA38021F2A322A000F5203 /* MyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AA38011F2A322A000F5203 /* MyViewCell.swift */; };
 		D0C0CCB11ECB47A700013168 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C0CCB01ECB47A700013168 /* MealView.swift */; };
@@ -187,6 +192,11 @@
 		D0A9B2B41F4E552000AE2F3A /* NoticeListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeListView.swift; sourceTree = "<group>"; };
 		D0A9B2B61F4E5F1E00AE2F3A /* NoticeListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeListCell.swift; sourceTree = "<group>"; };
 		D0A9B2B81F4E60BA00AE2F3A /* NoticeDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeDetailView.swift; sourceTree = "<group>"; };
+		D0A9B2BD1F4EA88200AE2F3A /* newBadgeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newBadgeIcon.png; sourceTree = "<group>"; };
+		D0A9B2C11F4EAA4000AE2F3A /* noticeListDetailBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noticeListDetailBackground.png; sourceTree = "<group>"; };
+		D0A9B2C21F4EAA4000AE2F3A /* noticeListDetailBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noticeListDetailBackground@2x.png"; sourceTree = "<group>"; };
+		D0A9B2C31F4EAA4000AE2F3A /* noticeListDetailBackground@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noticeListDetailBackground@3x.png"; sourceTree = "<group>"; };
+		D0A9B2C71F4EAE5500AE2F3A /* FacilityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityView.swift; sourceTree = "<group>"; };
 		D0AA37FD1F2A31C4000F5203 /* MyPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		D0AA38011F2A322A000F5203 /* MyViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewCell.swift; sourceTree = "<group>"; };
 		D0C0CCB01ECB47A700013168 /* MealView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
@@ -365,6 +375,7 @@
 				D0538ACF1ECB007C00C47F86 /* Info.plist */,
 				D04B87A91EEA48F900743AB9 /* ToastAdd.swift */,
 				D0204DC91F0CB9CC00C723F8 /* DataBaseClass.swift */,
+				D0A9B2C71F4EAE5500AE2F3A /* FacilityView.swift */,
 			);
 			path = DSMapp;
 			sourceTree = "<group>";
@@ -511,6 +522,10 @@
 		D0FAF22A1F30191600093E19 /* notice */ = {
 			isa = PBXGroup;
 			children = (
+				D0A9B2C11F4EAA4000AE2F3A /* noticeListDetailBackground.png */,
+				D0A9B2C21F4EAA4000AE2F3A /* noticeListDetailBackground@2x.png */,
+				D0A9B2C31F4EAA4000AE2F3A /* noticeListDetailBackground@3x.png */,
+				D0A9B2BD1F4EA88200AE2F3A /* newBadgeIcon.png */,
 				D0FAF22B1F30192100093E19 /* facilityIcon.png */,
 				D0FAF22C1F30192100093E19 /* facilityIcon@2x.png */,
 				D0FAF22D1F30192100093E19 /* facilityIcon@3x.png */,
@@ -679,6 +694,7 @@
 				D0FAF1D41F30188600093E19 /* signInBackground@3x.png in Resources */,
 				D0FAF1FF1F3018C500093E19 /* fish@3x.png in Resources */,
 				D0FAF1E51F30189600093E19 /* signUpIcon@2x.png in Resources */,
+				D0A9B2C01F4EA88200AE2F3A /* newBadgeIcon.png in Resources */,
 				D0FAF2011F3018C500093E19 /* fish2@2x.png in Resources */,
 				D0FAF2381F30192100093E19 /* facilityIcon@2x.png in Resources */,
 				D0FAF23E1F30192100093E19 /* questionIcon@2x.png in Resources */,
@@ -726,9 +742,12 @@
 				D0FAF1CB1F30186900093E19 /* buttonShape@2x.png in Resources */,
 				D0FAF2231F30190B00093E19 /* seatNo@3x.png in Resources */,
 				D0FAF1C41F30185E00093E19 /* noticeIcon@3x.png in Resources */,
+				D0A9B2C41F4EAA4000AE2F3A /* noticeListDetailBackground.png in Resources */,
 				D0FAF1ED1F3018AB00093E19 /* applyBackground@3x.png in Resources */,
+				D0A9B2C61F4EAA4000AE2F3A /* noticeListDetailBackground@3x.png in Resources */,
 				D0FAF2031F3018C500093E19 /* seahorse.png in Resources */,
 				D0FAF1EC1F3018AB00093E19 /* applyBackground@2x.png in Resources */,
+				D0A9B2C51F4EAA4000AE2F3A /* noticeListDetailBackground@2x.png in Resources */,
 				D0FAF1E61F30189600093E19 /* signUpIcon@3x.png in Resources */,
 				D0FAF23B1F30192100093E19 /* notificationIcon@2x.png in Resources */,
 				D0FAF2411F30192100093E19 /* ruleIcon@2x.png in Resources */,
@@ -795,6 +814,7 @@
 				D0FAF2541F3043D900093E19 /* SignUpView.swift in Sources */,
 				D0A9B2B91F4E60BA00AE2F3A /* NoticeDetailView.swift in Sources */,
 				D09CF9121EEFC40500A35D13 /* ApplyStudyView.swift in Sources */,
+				D0A9B2C81F4EAE5500AE2F3A /* FacilityView.swift in Sources */,
 				D03CB54A1F42E577002B1F08 /* ApplyAfterContent.swift in Sources */,
 				D0A9B2B71F4E5F1E00AE2F3A /* NoticeListCell.swift in Sources */,
 				D00DA2161EDD787600F08F5F /* ApplyView.swift in Sources */,

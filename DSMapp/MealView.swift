@@ -294,8 +294,9 @@ class MealView: UIViewController {
             timeArray[i].text = (getDateData(date: date))[i]
         }
         
-        ap.getAPI(add: "meal", param: "date=\(getDateData(date: date)[4])", method: "GET", fun: {
+        ap.getAPI(add: "meal", param: "year=\(getDateData(date: date)[0])&month=\(getDateData(date: date)[3])&day=\(getDateData(date: date)[2])", method: "GET", fun: {
             data, res, err in
+        
             if(err == nil){
                 if res?.statusCode == 200{
                     let tempSaveData = self.changeDataForSave(data: data)
@@ -306,7 +307,7 @@ class MealView: UIViewController {
                     }
                 }
             }
-        })
+        }, port: ":81")
         
         if(dataArray[0].text.isEmpty){
             setDataTextView("데이터를 로딩 중 입니다.", textView: dataArray[0])
