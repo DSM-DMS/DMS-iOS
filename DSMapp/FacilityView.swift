@@ -35,4 +35,26 @@ class FacilityView: UIViewController, UITextViewDelegate{
         
         // Do any additional setup after loading the view.
     }
+    
+    func getData() -> [String]{
+        if !(isEmpty(titleTextField) || isEmpty(roomNumberTextField)){
+            if !(getTextViewData().isEmpty){
+                return [titleTextField.text!, roomNumberTextField.text!, contentTextView.text]
+            }
+        }
+        
+        return [String]()
+    }
+    
+    func isEmpty(_ textField : UITextField) -> Bool{
+        return (textField.text?.isEmpty)!
+    }
+    
+    func getTextViewData() -> String{
+        if(contentTextView.text == "정보를 입력하십시오"){
+            return "";
+        }else{
+            return contentTextView.text
+        }
+    }
 }

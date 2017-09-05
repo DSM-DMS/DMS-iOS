@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class NoticeDetailView: UIViewController {
 
     @IBOutlet weak var backButton: UIBarButtonItem!
@@ -29,6 +30,7 @@ class NoticeDetailView: UIViewController {
         imageView.image = imageMap[ap.noticeTitle]
         
         let view1 = UIView.init(frame: CGRect.init(x: -4, y: contentWebView.frame.maxY - contentWebView.frame.height, width: 8, height: contentWebView.frame.height))
+        print(464, contentWebView.frame.height)
         view1.backgroundColor = UIColor.init(red: 178/255, green: 212/255, blue: 230/255, alpha: 1)
         view1.layer.cornerRadius = 4
         
@@ -39,7 +41,11 @@ class NoticeDetailView: UIViewController {
         contentView.layer.shadowRadius = 5
         contentView.addSubview(view1)
         
-        contentWebView.loadRequest(URLRequest.init(url: URL.init(string: "http://www.naver.com")!))
+        titleLabel.text = ap.noticeData.title
+        
+        contentWebView.loadHTMLString(ap.noticeData.content, baseURL: nil)
+        
+        //contentWebView.loadRequest(URLRequest.init(url: URL.init(string: "http://www.naver.com")!))
     }
     
     @IBAction func back(_ sender: Any) {

@@ -40,8 +40,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         dateLabel.text = fommater.string(from: currentDate)
         mealTimeLabel.text = mealTimeTextArr[currentMealTime]
         if currentMealTime == 0{
-            fommater.dateFormat = "yyyy-MM-dd"
-            getData(fommater.string(from: currentDate))
+            fommater.dateFormat = "yyyy"
+            let year = fommater.string(from: currentDate)
+            fommater.dateFormat = "MM"
+            let month = fommater.string(from: currentDate)
+            fommater.dateFormat = "dd"
+            let day = fommater.string(from: currentDate)
+            getData(year, month: month, day: day)
         }else{
             mealDataText.text = data?[mealTimeKeyArr[currentMealTime]]!
         }
@@ -56,8 +61,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     let mealTimeTextArr = ["아침", "점심", "저녁"]
     let mealTimeKeyArr = ["breakfast","lunch","dinner"]
     
-    func getData(_ date : String){
-        var request = URLRequest.init(url: URL(string : "http://dsm2015.cafe24.com/meal?date="+date)!)
+    func getData(_ year : String, month : String, day : String){
+        var request = URLRequest.init(url: URL(string : "http://dsm2015.cafe24.com:81/meal?year=\(year)&month=\(month)&day=\(day)")!)
         request.httpMethod = "GET"
         
         let task = URLSession.shared.dataTask(with: request){

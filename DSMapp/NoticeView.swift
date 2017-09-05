@@ -72,7 +72,24 @@ class NoticeView: UIViewController, UITextViewDelegate {
     var contentView = FacilityView()
     
     func send(_ button : UIButton){
-        back(button);
+        let tempDataArr = contentView.getData()
+        if (tempDataArr.count != 0){
+            ap.getAPI(add: "post/report", param: "title=\(tempDataArr[0])&room=\(contentView.roomNumberTextField.text!)&content=\(contentView.contentTextView.text)", method: "POST", fun: {
+                data, res, err in
+                if res?.statusCode == 201{
+                    DispatchQueue.main.async {
+                        self.showToast(message: "신고 성공")
+                        self.back(button);
+                    }
+                }else{
+                    DispatchQueue.main.async {
+                        self.showToast(message: "신고 실패")
+                    }
+                }
+            });
+        }else{
+            showToast(message: "값을 입력하십시오")
+        }
     }
     
     func back(_ button : UIButton){

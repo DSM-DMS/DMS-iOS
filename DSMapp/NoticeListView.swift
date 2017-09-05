@@ -21,6 +21,7 @@ class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = ap.noticeTitle
@@ -28,12 +29,18 @@ class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         var tempNum = 0
         
+        
         for i in 0..<titleStr.count{
             if ap.noticeTitle == titleStr[i]{
                 tempNum = i
                 break;
             }
         }
+        
+        ap.noticeDataArr = [NoticeData]()
+        
+        let imageView = UIImageView.init(frame: CGRect.init(x: 16, y: 0, width: 70, height: 70))
+        imageView.image = UIImage.init(named: <#T##String#>);
 
         ap.getAPI(add: "post/list/\(urlStr[tempNum])", param: "", method: "GET", fun: {
             data, res, err in
@@ -49,7 +56,7 @@ class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSour
                         let title = tempNoticeData["title"] as! String
                         let content = tempNoticeData["content"] as! String
                         noticeDataArr.append(NoticeData.init(content: content, title: title, no: no))
-                        print(<#T##items: Any...##Any#>)
+                        print(no, title, content)
                     }
                     DispatchQueue.main.async {
                         self.ap.noticeDataArr = noticeDataArr
@@ -61,7 +68,9 @@ class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        ap.noticeData = ap.noticeDataArr[indexPath.row]
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "NoticeDetailView")
+        present(vc!, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -70,7 +79,8 @@ class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noticeListCell", for: indexPath) as! NoticeListCell
-        
+        cell.titleLabel.text = ap.noticeDataArr[indexPath.row].title
+        //cell.writerLabel.text = "\(ap.noticeDataArr[indexPath.row].no)"
         return cell
     }
     

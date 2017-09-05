@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var noticeTitle = "공지사항"
     
     var noticeDataArr = [NoticeData]()
+    var noticeData = NoticeData()
     
     
     
@@ -68,11 +69,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
     
-    func getAPI(add: String, param: String, method: String, fun: @escaping (Any?, HTTPURLResponse?, Error?)->Void, port : String = ""){
+    func getAPI(add: String, param: String, method: String, port : String = "", fun: @escaping (Any?, HTTPURLResponse?, Error?) -> Void){
         
         var request: URLRequest?
         if(method == "POST"){
-            request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com/\(port)\(add)")!)
+            request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com\(port)/\(add)")!)
             request!.httpBody = param.data(using: .utf8)
         }else{
             request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com\(port)/\(add)?\(param)")!)
