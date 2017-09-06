@@ -16,6 +16,11 @@ class LoginView: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var autoSwitch: UISwitch!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var idLabel: UILabel!
+    @IBAction func SignUp(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignUpView")
+        vc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        present(vc!, animated: true, completion: nil)
+    }
     
     @IBOutlet weak var loginViewHeight: NSLayoutConstraint!
     
@@ -25,6 +30,8 @@ class LoginView: UIViewController,UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setBackGesture()
         
         let temp = view.frame.height
         if temp < 667{

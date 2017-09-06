@@ -26,43 +26,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
-    func saveCookie(_ cookie : HTTPCookie){
+    func saveData(_ id : String, pw : String){
         let realm = try! Realm()
         try! realm.write {
             realm.deleteAll()
             let loginData = realm.create(LoginData.self)
-            loginData.name = cookie.name
-            loginData.value = cookie.value
-            loginData.path = cookie.path
-            loginData.domain = cookie.domain
+            loginData.id = id
+            loginData.password = pw
             realm.add(loginData)
         }
     }
     
-    func login(id: String,pw: String,save: Bool,viewCon: UIViewController){
-        
-        getAPI(add: "/account/login/student", param: "id=\(id)&password=\(pw)", method: "POST", fun: {data, res, err in
+    func login(id: String,pw: String,save: Bool,viewCon: UIViewController, msgShow : Bool = true){
+        getAPI(add: "/account/login/student", param: "id=\(id)&password=\(pw)", method: "POST", fun: {
+            data, res, err in
             if(err == nil){
                 if(res?.statusCode == 201){
-                    
                     if save{
-                        let temp = HTTPCookieStorage.shared.cookies(for: URL(string: "http://dsm2015.cafe24.com")!)!
-                        for i in temp{
-                            dump(i)
-                            self.saveCookie(i)
-                            break
+                        self.saveData(id, pw: pw)
+                    }
+                    self.isLogin = true
+                    if msgShow{
+                        DispatchQueue.main.async {
+                            viewCon.showToast(message: "로그인 성공")
                         }
                     }
-                    
-                    self.isLogin = true
-                    DispatchQueue.main.async {
-                        viewCon.showToast(message: "로그인 성공")
-                    }
-                    
                 }else{
                     self.isLogin = false
-                    DispatchQueue.main.async {
-                        viewCon.showToast(message: "로그인 실패")
+                    if msgShow{
+                        DispatchQueue.main.async {
+                            viewCon.showToast(message: "로그인 실패")
+                        }
                     }
                 }
             }

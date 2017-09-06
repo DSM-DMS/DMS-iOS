@@ -76,6 +76,13 @@ class NoticeView: UIViewController, UITextViewDelegate {
         if (tempDataArr.count != 0){
             ap.getAPI(add: "post/report", param: "title=\(tempDataArr[0])&room=\(contentView.roomNumberTextField.text!)&content=\(contentView.contentTextView.text)", method: "POST", fun: {
                 data, res, err in
+                if err != nil{
+                    DispatchQueue.main.async {
+                        self.showToast(message: "네트워크 오류")
+                        self.back(button)
+                        return
+                    }
+                }
                 if res?.statusCode == 201{
                     DispatchQueue.main.async {
                         self.showToast(message: "신고 성공")

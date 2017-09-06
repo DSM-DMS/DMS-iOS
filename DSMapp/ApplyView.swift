@@ -37,18 +37,19 @@ class ApplyView: UIViewController {
     var check = [false,false,false,false,false]
     
     override func viewWillAppear(_ animated: Bool) {
-        print("check")
         var tempNum = 0
         for i in 0..<check.count{
             if check[i]{
                 tempNum = i
             }
         }
+        
         if tempNum == 2{
             getDataForSwitch()
         }else{
             getData(num: tempNum, label: textArray[tempNum])
         }
+        
     }
     
     override func viewDidLoad() {
@@ -83,6 +84,7 @@ class ApplyView: UIViewController {
                 break
             }
         }
+            
         
         if openButtonArray[buttonNum].title(for: .normal) == "신청" && textArray[buttonNum].text != "네트워크를 확인하세요."{
             switch buttonNum {
@@ -90,13 +92,17 @@ class ApplyView: UIViewController {
                     ap.getAPI(add: "apply/goingout", param: "sat=\(OutSat.isOn)&sun=\(OutSun.isOn)", method: "PUT", fun: {
                         data, res, err in
                         
-                        if (err == nil)&&(res?.statusCode == 200){
+                        if (err == nil) && (res?.statusCode == 200){
                             DispatchQueue.main.async {
                                 self.showToast(message: "신청 성공")
                             }
-                        }else{
+                        }else if(err == nil){
                             DispatchQueue.main.async {
                                 self.showToast(message: "신청 실패")
+                            }
+                        }else{
+                            DispatchQueue.main.async {
+                                self.showToast(message: "네트워크를 확인하세요")
                             }
                         }
                     })
@@ -106,8 +112,8 @@ class ApplyView: UIViewController {
                     let uvc = self.storyboard?.instantiateViewController(withIdentifier: storyboardIDArray[buttonNum])
                     uvc?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
                     present(uvc!, animated: true, completion: nil)
-                }
-                return
+            }
+            return
         }
         
         if buttonNum == 2{
@@ -155,44 +161,39 @@ class ApplyView: UIViewController {
             return
         }
         
-        if ap.isLogin{
-            ap.getAPI(add: urlArray[num], param: "", method: "GET", fun: {
-                data, res, error in
-                if error == nil{
-                    if res?.statusCode == 204{
+        ap.getAPI(add: urlArray[num], param: "", method: "GET", fun: {
+            data, res, error in
+            if error == nil{
+                if res?.statusCode == 204{
+                    DispatchQueue.main.async {
+                        label.text = "신청되지 않았습니다"
+                    }
+                }else if res?.statusCode == 200{
+                    if num == 0{
+                        let temp = data as! [String:Any]
+                        self.ap.userName = temp["name"] as! String
                         DispatchQueue.main.async {
-                            label.text = "신청되지 않았습니다"
-                        }
-                    }else if res?.statusCode == 200{
-                        if num == 0{
-                            let temp = data as! [String:Any]
-                            self.ap.userName = temp["name"] as! String
-                            DispatchQueue.main.async {
-                                label.text = "신청 : " + studyRoomString[(temp["class"] as! Int) - 1]
-                            }
-                        }
-                        if num == 1{
-                            DispatchQueue.main.async {
-                                label.text = "신청 : " + stayString[(data as! [String : Int])["value"]! - 1]
-                            }
+                            label.text = "신청 : " + studyRoomString[(temp["class"] as! Int) - 1]
                         }
                     }
+                    if num == 1{
+                        DispatchQueue.main.async {
+                            label.text = "신청 : " + stayString[(data as! [String : Int])["value"]! - 1]
+                        }
+                    }
+                }else{
+                    label.text = "로그인이 필요합니다"
                 }
-            })
-        }else{
-            label.text = "로그인이 필요합니다"
-            return
-        }
+            }else{
+                DispatchQueue.main.async {
+                    label.text = "네트워크를 확인하세요."
+                }
+            }
+        })
     }
     
     func getDataForSwitch(){
         let switchArray = [OutSat,OutSun]
-        if !ap.isLogin{
-            for i in switchArray{
-                i?.isEnabled = false
-            }
-            return
-        }
 
         ap.getAPI(add: urlArray[2], param: "", method: "GET", fun: {
             data, res, error in
@@ -206,11 +207,11 @@ class ApplyView: UIViewController {
                         self.OutSat.setOn(temp["sat"]!, animated: true)
                         self.OutSun.setOn(temp["sun"]!, animated: true)
                     }
-                }else{
-                    DispatchQueue.main.async {
-                        for i in switchArray{
-                            i?.isEnabled = false
-                        }
+                }
+            }else{
+                DispatchQueue.main.async {
+                    for i in switchArray{
+                        i?.isEnabled = false
                     }
                 }
             }

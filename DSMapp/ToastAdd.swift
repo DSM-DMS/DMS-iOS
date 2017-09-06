@@ -7,7 +7,7 @@
 //
 import UIKit
 
-extension UIViewController {
+extension UIViewController : UIGestureRecognizerDelegate {
     
     func showToast(message : String, down: Bool = true) {
         var ySize = CGFloat(100)
@@ -31,4 +31,17 @@ extension UIViewController {
             toastLabel.removeFromSuperview()
         })
     }
+    
+    func setBackGesture(){
+        let swipeLeft = UISwipeGestureRecognizer.init(target: self, action: #selector(respondToSwipeGesture(_:)))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeLeft)
+    }
+    
+    func respondToSwipeGesture(_ gesture: UIGestureRecognizer){
+        if (gesture as! UISwipeGestureRecognizer).direction == UISwipeGestureRecognizerDirection.right{
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
+    }
+    
 }

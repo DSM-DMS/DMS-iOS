@@ -21,6 +21,9 @@ class SignUpView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordLine: UIView!
     @IBOutlet weak var passwordAgainLine: UIView!
     @IBOutlet weak var passwordAgainText: UITextField!
+    @IBAction func back(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
     
     @IBOutlet weak var editTextHeight: NSLayoutConstraint!
     
@@ -29,6 +32,8 @@ class SignUpView: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setBackGesture()
         
         textArray = [idText,codeText,passwordText,passwordAgainText]
         lineArray = [idLine,codeLine,passwordLine,passwordAgainLine]

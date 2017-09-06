@@ -20,7 +20,6 @@ ApplyStayView: UIViewController {
     var switchArray = [UISwitch]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = UIColor.white
         switchArray = [friOut,satOut,satIn,stay]
         applyButton.layer.shadowOffset = CGSize.init(width: 1, height: 1)
         applyButton.layer.shadowOpacity = 0.1
@@ -64,7 +63,7 @@ ApplyStayView: UIViewController {
                 ap.getAPI(add: "apply/stay", param: "value=\(i+1)", method: "PUT", fun: {
                     data, res, err in
                     if err == nil{
-                        if res?.statusCode == 200{
+                        if (res?.statusCode)! == 200{
                             DispatchQueue.main.async {
                                 self.showToast(message: "신청 성공", down: false)
                             }

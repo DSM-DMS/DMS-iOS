@@ -10,8 +10,6 @@ import Foundation
 import RealmSwift
 
 class LoginData : Object{
-    dynamic var name = ""
-    dynamic var domain = ""
-    dynamic var value = ""
-    dynamic var path = ""
+    dynamic var id = ""
+    dynamic var password = ""
 }

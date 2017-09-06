@@ -48,7 +48,6 @@ class ApplyStudyView: UIViewController {
     @IBOutlet weak var applyButton: UIButton!
     
     override func viewDidLoad() {
-        navigationController?.navigationBar.barTintColor = UIColor.white
         applyButton.layer.shadowOffset =  CGSize.init(width: 2, height: 2)
         applyButton.layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
         

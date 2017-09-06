@@ -127,7 +127,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="kY0-hk-9fM" kind="show" id="mOJ-Ir-zOV"/>
+                                    <action selector="SignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hr3-bg-ofe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -258,7 +258,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8g-DB-xVr">
                                         <rect key="frame" x="0.0" y="210" width="375" height="210"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fish2.png" translatesAutoresizingMaskIntoConstraints="NO" id="xmu-yq-nZJ">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whale.png" translatesAutoresizingMaskIntoConstraints="NO" id="xmu-yq-nZJ">
                                                 <rect key="frame" x="275" y="66" width="85" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="85" id="kBJ-ZK-LqT"/>
@@ -327,10 +327,10 @@
                                         <rect key="frame" x="0.0" y="270" width="375" height="210"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seahorse.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hqj-Zn-GaD">
-                                                <rect key="frame" x="295" y="66" width="65" height="80"/>
+                                                <rect key="frame" x="305" y="66" width="55" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="QYw-du-0r6"/>
-                                                    <constraint firstAttribute="width" constant="65" id="mNg-QE-KxP"/>
+                                                    <constraint firstAttribute="width" constant="55" id="mNg-QE-KxP"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외출신청" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fa-BA-Dz2">
@@ -353,13 +353,13 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8m-iq-C8G">
-                                                <rect key="frame" x="15" y="70" width="260" height="115"/>
+                                                <rect key="frame" x="15" y="70" width="270" height="115"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applyTextBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="N3N-C9-bdL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="260" height="115"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="270" height="115"/>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vrn-hq-opl">
-                                                        <rect key="frame" x="69" y="16.5" width="123.5" height="82"/>
+                                                        <rect key="frame" x="74" y="16.5" width="123.5" height="82"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ZgK-6m-JY4">
                                                                 <rect key="frame" x="0.0" y="0.0" width="123.5" height="31"/>
@@ -421,7 +421,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dis-EU-kjp">
                                         <rect key="frame" x="0.0" y="330" width="375" height="210"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whale.png" translatesAutoresizingMaskIntoConstraints="NO" id="m9Y-bn-c8l">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fish2.png" translatesAutoresizingMaskIntoConstraints="NO" id="m9Y-bn-c8l">
                                                 <rect key="frame" x="275" y="66" width="85" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="7S6-dw-jC3"/>
@@ -2033,10 +2033,10 @@
             </objects>
             <point key="canvasLocation" x="1976" y="562"/>
         </scene>
-        <!--Sign Up View-->
+        <!--회원가입-->
         <scene sceneID="JhV-UQ-kYA">
             <objects>
-                <viewController id="kY0-hk-9fM" customClass="SignUpView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpView" id="kY0-hk-9fM" customClass="SignUpView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oc0-Cz-eUn"/>
                         <viewControllerLayoutGuide type="bottom" id="BVh-hg-5ed"/>
@@ -2046,7 +2046,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signUpBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="lcb-7A-Sjo">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-vk-Rib">
                                 <rect key="frame" x="36" y="319.5" width="303" height="168"/>
@@ -2189,6 +2189,13 @@
                             <constraint firstAttribute="trailing" secondItem="lcb-7A-Sjo" secondAttribute="trailing" id="yv5-MP-OSt"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="회원가입" id="VId-Wf-Bnp">
+                        <barButtonItem key="leftBarButtonItem" title="로그인" id="peQ-WB-g8K">
+                            <connections>
+                                <action selector="back:" destination="kY0-hk-9fM" id="RqK-KC-ecv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="button" destination="BWr-NR-eIo" id="ElW-qo-5ND"/>
                         <outlet property="codeLine" destination="idz-42-ovO" id="ylh-0v-XfH"/>
@@ -2206,7 +2213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V0l-5m-ZAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4220.289855072464" y="317.93478260869568"/>
+            <point key="canvasLocation" x="5159.1999999999998" y="317.09145427286359"/>
         </scene>
         <!--Tab Bar View-->
         <scene sceneID="VSC-mr-Kbj">
@@ -2229,10 +2236,10 @@
             </objects>
             <point key="canvasLocation" x="186" y="1023"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Top View-->
         <scene sceneID="ewM-sR-uZ6">
             <objects>
-                <navigationController storyboardIdentifier="applyStay" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qjt-f3-ykJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="applyStay" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qjt-f3-ykJ" customClass="TopView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="s6m-g4-50C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2499,14 +2506,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="90N-Qg-0PI">
-                                <rect key="frame" x="0.0" y="597" width="375" height="70"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="611" width="375" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="Eln-U8-Fvh"/>
+                                    <constraint firstAttribute="height" constant="56" id="Eln-U8-Fvh"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hu4-DS-YuU">
-                                <rect key="frame" x="0.0" y="64" width="375" height="533"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="80" id="Lnc-bt-3xD" customClass="NoticeListCell" customModule="DSMapp" customModuleProvider="target">
@@ -2645,10 +2651,10 @@
             </objects>
             <point key="canvasLocation" x="7908" y="2177.3613193403298"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Top View-->
         <scene sceneID="yen-AJ-dk4">
             <objects>
-                <navigationController storyboardIdentifier="applyStudy" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sim-9w-Sfk" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="applyStudy" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sim-9w-Sfk" customClass="TopView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oBj-wh-Sls">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2663,10 +2669,10 @@
             </objects>
             <point key="canvasLocation" x="2840.579710144928" y="2921.739130434783"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Top View-->
         <scene sceneID="9x2-4s-1PJ">
             <objects>
-                <navigationController storyboardIdentifier="applyAfterStudy" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xc1-gb-O37" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="applyAfterStudy" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xc1-gb-O37" customClass="TopView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fE8-3x-ckI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2681,10 +2687,10 @@
             </objects>
             <point key="canvasLocation" x="4741.6000000000004" y="1100.5997001499252"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Top View-->
         <scene sceneID="6y7-SL-gPi">
             <objects>
-                <navigationController storyboardIdentifier="noticeListView" automaticallyAdjustsScrollViewInsets="NO" id="4Ez-aR-sm7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="noticeListView" automaticallyAdjustsScrollViewInsets="NO" id="4Ez-aR-sm7" customClass="TopView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bUF-OP-L9A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2699,10 +2705,10 @@
             </objects>
             <point key="canvasLocation" x="4741.6000000000004" y="2178.2608695652175"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Top View-->
         <scene sceneID="C1u-dv-hiu">
             <objects>
-                <navigationController storyboardIdentifier="NoticeDetailView" automaticallyAdjustsScrollViewInsets="NO" id="xZ4-hg-qeS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NoticeDetailView" automaticallyAdjustsScrollViewInsets="NO" id="xZ4-hg-qeS" customClass="TopView" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0sM-zv-FiL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

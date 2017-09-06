@@ -113,7 +113,7 @@ class MealView: UIViewController {
         
     }
 
-    func respondToSwipeGesture(_ gesture: UIGestureRecognizer){
+    override func respondToSwipeGesture(_ gesture: UIGestureRecognizer){
         if let swipeGesture = gesture as? UISwipeGestureRecognizer{
             switch swipeGesture.direction{
             case UISwipeGestureRecognizerDirection.right :
@@ -196,22 +196,17 @@ class MealView: UIViewController {
     
     var first = true
     
-    func autoLogin(){
+    func autoLogin(_ msgShow : Bool = true){
         let realm = try! Realm()
         let userData = realm.objects(LoginData.self).first
         if userData == nil{
             showToast(message: "로그인이 필요합니다.")
         }else{
-            let cookie = HTTPCookie.init(properties: [HTTPCookiePropertyKey.domain:userData!.domain, HTTPCookiePropertyKey.name:userData!.name, HTTPCookiePropertyKey.value:userData!.value,HTTPCookiePropertyKey.path:userData!.path])
-            HTTPCookieStorage.shared.setCookie(cookie!)
-            dump(cookie)
-            ap.isLogin = true
-            showToast(message: "로그인 성공")
+            ap.login(id: userData!.id, pw: userData!.password, save: true, viewCon: self, msgShow: msgShow)
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         UIView.animate(withDuration: TimeInterval(0.5), animations: setFirst, completion: {
             bool in
             if self.first{
@@ -219,14 +214,12 @@ class MealView: UIViewController {
             }
             self.first = false
         })
-        //애니매이션
     }
     
     @IBAction func before(_ sender: Any) {
         if (getDateData(date: stanDate) == getDateData(date: Date())){
             return
         }
-            
         move()
     }
     
@@ -296,7 +289,6 @@ class MealView: UIViewController {
         
         ap.getAPI(add: "meal", param: "year=\(getDateData(date: date)[0])&month=\(getDateData(date: date)[3])&day=\(getDateData(date: date)[2])", method: "GET", port: ":81", fun: {
             data, res, err in
-        
             if(err == nil){
                 if res?.statusCode == 200{
                     let tempSaveData = self.changeDataForSave(data: data)
@@ -305,6 +297,13 @@ class MealView: UIViewController {
                         setDataTextView(tempSaveData["lunch"]!, textView: dataArray[1])
                         setDataTextView(tempSaveData["dinner"]!, textView: dataArray[2])
                     }
+                }
+                self.autoLogin(false)
+            }else{
+                DispatchQueue.main.async {
+                    setDataTextView("데이터를 불러오지 못했습니다.", textView: dataArray[0])
+                    setDataTextView("모바일 네트워크를 확인해주세요", textView: dataArray[1])
+                    setDataTextView("DSM DMS - iOS", textView: dataArray[2])
                 }
             }
         })

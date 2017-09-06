@@ -58,16 +58,15 @@ class MyPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-        case 5:
-            if ap.isLogin{
-                ap.isLogin = false
-            }else{
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "login")
-                present(vc!, animated: true, completion: nil)
-            }
-        default:
-            print("")
-            
+            case 5:
+                if ap.isLogin{
+                    ap.isLogin = false
+                }else{
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "login")
+                    present(vc!, animated: true, completion: nil)
+                }
+            default:
+                print("")
         }
     }
     

@@ -13,6 +13,16 @@
 		D00F669A1F4488D400BF26D5 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F66991F4488D400BF26D5 /* TodayViewController.swift */; };
 		D00F669D1F4488D400BF26D5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00F669B1F4488D400BF26D5 /* MainInterface.storyboard */; };
 		D00F66A11F4488D400BF26D5 /* DSMExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D00F66951F4488D400BF26D5 /* DSMExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D019F9761F5E6DFE00DE1BBB /* monster3.png in Resources */ = {isa = PBXBuildFile; fileRef = D019F9701F5E6DFE00DE1BBB /* monster3.png */; };
+		D019F9771F5E6DFE00DE1BBB /* monster3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D019F9711F5E6DFE00DE1BBB /* monster3@2x.png */; };
+		D019F9781F5E6DFE00DE1BBB /* monster3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D019F9721F5E6DFE00DE1BBB /* monster3@3x.png */; };
+		D019F9791F5E6DFE00DE1BBB /* monster1.png in Resources */ = {isa = PBXBuildFile; fileRef = D019F9731F5E6DFE00DE1BBB /* monster1.png */; };
+		D019F97A1F5E6DFE00DE1BBB /* monster1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D019F9741F5E6DFE00DE1BBB /* monster1@2x.png */; };
+		D019F97B1F5E6DFE00DE1BBB /* monster1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D019F9751F5E6DFE00DE1BBB /* monster1@3x.png */; };
+		D019F97F1F5E6E9900DE1BBB /* monster2.png in Resources */ = {isa = PBXBuildFile; fileRef = D019F97C1F5E6E9900DE1BBB /* monster2.png */; };
+		D019F9801F5E6E9900DE1BBB /* monster2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D019F97D1F5E6E9900DE1BBB /* monster2@2x.png */; };
+		D019F9811F5E6E9900DE1BBB /* monster2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D019F97E1F5E6E9900DE1BBB /* monster2@3x.png */; };
+		D019F9831F5E76D100DE1BBB /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D019F9821F5E76D100DE1BBB /* TopView.swift */; };
 		D0204DCA1F0CB9CC00C723F8 /* DataBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0204DC91F0CB9CC00C723F8 /* DataBaseClass.swift */; };
 		D03CB5451F42DA7D002B1F08 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03CB5431F42DA7D002B1F08 /* LoginView.swift */; };
 		D03CB5461F42DA7D002B1F08 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03CB5441F42DA7D002B1F08 /* TabBarView.swift */; };
@@ -171,6 +181,16 @@
 		D00F66991F4488D400BF26D5 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		D00F669C1F4488D400BF26D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		D00F669E1F4488D400BF26D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D019F9701F5E6DFE00DE1BBB /* monster3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monster3.png; sourceTree = "<group>"; };
+		D019F9711F5E6DFE00DE1BBB /* monster3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monster3@2x.png"; sourceTree = "<group>"; };
+		D019F9721F5E6DFE00DE1BBB /* monster3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monster3@3x.png"; sourceTree = "<group>"; };
+		D019F9731F5E6DFE00DE1BBB /* monster1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monster1.png; sourceTree = "<group>"; };
+		D019F9741F5E6DFE00DE1BBB /* monster1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monster1@2x.png"; sourceTree = "<group>"; };
+		D019F9751F5E6DFE00DE1BBB /* monster1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monster1@3x.png"; sourceTree = "<group>"; };
+		D019F97C1F5E6E9900DE1BBB /* monster2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monster2.png; sourceTree = "<group>"; };
+		D019F97D1F5E6E9900DE1BBB /* monster2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monster2@2x.png"; sourceTree = "<group>"; };
+		D019F97E1F5E6E9900DE1BBB /* monster2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monster2@3x.png"; sourceTree = "<group>"; };
+		D019F9821F5E76D100DE1BBB /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		D01FF3201F0B92CF0060651F /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = DSMapp/Realm.framework; sourceTree = "<group>"; };
 		D01FF3211F0B92CF0060651F /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = DSMapp/RealmSwift.framework; sourceTree = "<group>"; };
 		D0204DC91F0CB9CC00C723F8 /* DataBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseClass.swift; sourceTree = "<group>"; };
@@ -318,6 +338,22 @@
 			path = DSMExtension;
 			sourceTree = "<group>";
 		};
+		D019F96F1F5E6DAF00DE1BBB /* monster */ = {
+			isa = PBXGroup;
+			children = (
+				D019F97C1F5E6E9900DE1BBB /* monster2.png */,
+				D019F97D1F5E6E9900DE1BBB /* monster2@2x.png */,
+				D019F97E1F5E6E9900DE1BBB /* monster2@3x.png */,
+				D019F9701F5E6DFE00DE1BBB /* monster3.png */,
+				D019F9711F5E6DFE00DE1BBB /* monster3@2x.png */,
+				D019F9721F5E6DFE00DE1BBB /* monster3@3x.png */,
+				D019F9731F5E6DFE00DE1BBB /* monster1.png */,
+				D019F9741F5E6DFE00DE1BBB /* monster1@2x.png */,
+				D019F9751F5E6DFE00DE1BBB /* monster1@3x.png */,
+			);
+			name = monster;
+			sourceTree = "<group>";
+		};
 		D04C10201ED17C4900C5AE5B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,9 +368,9 @@
 			isa = PBXGroup;
 			children = (
 				D0538AC21ECB007C00C47F86 /* DSMapp */,
-				D0538AD71ECB007C00C47F86 /* DSMappTests */,
 				D00F66981F4488D400BF26D5 /* DSMExtension */,
 				D0538AC11ECB007C00C47F86 /* Products */,
+				D0538AD71ECB007C00C47F86 /* DSMappTests */,
 				D04C10201ED17C4900C5AE5B /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -376,6 +412,7 @@
 				D04B87A91EEA48F900743AB9 /* ToastAdd.swift */,
 				D0204DC91F0CB9CC00C723F8 /* DataBaseClass.swift */,
 				D0A9B2C71F4EAE5500AE2F3A /* FacilityView.swift */,
+				D019F9821F5E76D100DE1BBB /* TopView.swift */,
 			);
 			path = DSMapp;
 			sourceTree = "<group>";
@@ -387,7 +424,7 @@
 				D0538ADA1ECB007C00C47F86 /* Info.plist */,
 			);
 			path = DSMappTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		D0FAF1AE1F30183600093E19 /* image */ = {
 			isa = PBXGroup;
@@ -522,6 +559,7 @@
 		D0FAF22A1F30191600093E19 /* notice */ = {
 			isa = PBXGroup;
 			children = (
+				D019F96F1F5E6DAF00DE1BBB /* monster */,
 				D0A9B2C11F4EAA4000AE2F3A /* noticeListDetailBackground.png */,
 				D0A9B2C21F4EAA4000AE2F3A /* noticeListDetailBackground@2x.png */,
 				D0A9B2C31F4EAA4000AE2F3A /* noticeListDetailBackground@3x.png */,
@@ -685,12 +723,15 @@
 				D0FAF1DF1F30189600093E19 /* passwordError@2x.png in Resources */,
 				D0FAF24E1F30194200093E19 /* myPageFish1@2x.png in Resources */,
 				D0538ACE1ECB007C00C47F86 /* LaunchScreen.storyboard in Resources */,
+				D019F9771F5E6DFE00DE1BBB /* monster3@2x.png in Resources */,
 				D0538ACB1ECB007C00C47F86 /* Assets.xcassets in Resources */,
 				D0FAF1EB1F3018AB00093E19 /* applyBackground.png in Resources */,
 				D0FAF1D31F30188600093E19 /* signInBackground@2x.png in Resources */,
 				D0FAF24D1F30194200093E19 /* myPageFish1.png in Resources */,
 				D0FAF1E01F30189600093E19 /* passwordError@3x.png in Resources */,
+				D019F9781F5E6DFE00DE1BBB /* monster3@3x.png in Resources */,
 				D0FAF2221F30190B00093E19 /* seatNo@2x.png in Resources */,
+				D019F9791F5E6DFE00DE1BBB /* monster1.png in Resources */,
 				D0FAF1D41F30188600093E19 /* signInBackground@3x.png in Resources */,
 				D0FAF1FF1F3018C500093E19 /* fish@3x.png in Resources */,
 				D0FAF1E51F30189600093E19 /* signUpIcon@2x.png in Resources */,
@@ -705,7 +746,9 @@
 				D0FAF2281F30190B00093E19 /* seatYes@2x.png in Resources */,
 				D0FAF2391F30192100093E19 /* facilityIcon@3x.png in Resources */,
 				D0FAF23A1F30192100093E19 /* notificationIcon.png in Resources */,
+				D019F9761F5E6DFE00DE1BBB /* monster3.png in Resources */,
 				D0FAF20F1F3018F700093E19 /* applyStayBackground@3x.png in Resources */,
+				D019F9801F5E6E9900DE1BBB /* monster2@2x.png in Resources */,
 				D0FAF2291F30190B00093E19 /* seatYes@3x.png in Resources */,
 				D0FAF1CC1F30186900093E19 /* buttonShape@3x.png in Resources */,
 				D0FAF23C1F30192100093E19 /* notificationIcon@3x.png in Resources */,
@@ -715,6 +758,7 @@
 				D0FAF1C61F30185E00093E19 /* userIcon@3x.png in Resources */,
 				D0FAF2101F3018F700093E19 /* applyStayBackgroundground.png in Resources */,
 				D0FAF23D1F30192100093E19 /* questionIcon.png in Resources */,
+				D019F97B1F5E6DFE00DE1BBB /* monster1@3x.png in Resources */,
 				D0FAF1DE1F30189600093E19 /* passwordError.png in Resources */,
 				D0FAF2081F3018C500093E19 /* whale@3x.png in Resources */,
 				D0FAF23F1F30192100093E19 /* questionIcon@3x.png in Resources */,
@@ -724,9 +768,11 @@
 				D0538AC91ECB007C00C47F86 /* Main.storyboard in Resources */,
 				D0FAF2241F30190B00093E19 /* seatSelect.png in Resources */,
 				D0FAF1E11F30189600093E19 /* signUpBackground.png in Resources */,
+				D019F97F1F5E6E9900DE1BBB /* monster2.png in Resources */,
 				D0FAF24F1F30194200093E19 /* myPageFish1@3x.png in Resources */,
 				D0FAF2051F3018C500093E19 /* seahorse@3x.png in Resources */,
 				D0FAF1C01F30185E00093E19 /* mealIcon@2x.png in Resources */,
+				D019F97A1F5E6DFE00DE1BBB /* monster1@2x.png in Resources */,
 				D0FAF2371F30192100093E19 /* facilityIcon.png in Resources */,
 				D0FAF2511F30194200093E19 /* myPageFish2@2x.png in Resources */,
 				D0FAF1CA1F30186900093E19 /* buttonShape.png in Resources */,
@@ -745,6 +791,7 @@
 				D0A9B2C41F4EAA4000AE2F3A /* noticeListDetailBackground.png in Resources */,
 				D0FAF1ED1F3018AB00093E19 /* applyBackground@3x.png in Resources */,
 				D0A9B2C61F4EAA4000AE2F3A /* noticeListDetailBackground@3x.png in Resources */,
+				D019F9811F5E6E9900DE1BBB /* monster2@3x.png in Resources */,
 				D0FAF2031F3018C500093E19 /* seahorse.png in Resources */,
 				D0FAF1EC1F3018AB00093E19 /* applyBackground@2x.png in Resources */,
 				D0A9B2C51F4EAA4000AE2F3A /* noticeListDetailBackground@2x.png in Resources */,
@@ -807,6 +854,7 @@
 				D03CB5481F42DDB9002B1F08 /* ApplyAfterStudy.swift in Sources */,
 				D0204DCA1F0CB9CC00C723F8 /* DataBaseClass.swift in Sources */,
 				D04B87AA1EEA48F900743AB9 /* ToastAdd.swift in Sources */,
+				D019F9831F5E76D100DE1BBB /* TopView.swift in Sources */,
 				D0EC740F1EED7BC200A2E940 /* ApplyStayView.swift in Sources */,
 				D0538AC41ECB007C00C47F86 /* AppDelegate.swift in Sources */,
 				D0A9B2B51F4E552000AE2F3A /* NoticeListView.swift in Sources */,
@@ -998,7 +1046,7 @@
 		D0538ADE1ECB007C00C47F86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = W3868KR87Z;
@@ -1024,7 +1072,7 @@
 		D0538ADF1ECB007C00C47F86 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = W3868KR87Z;

@@ -22,6 +22,10 @@ class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomView: UIView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = ap.noticeTitle
@@ -29,6 +33,7 @@ class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         var tempNum = 0
         
+        let locNumArr = [32, bottomView.frame.width / 2 + 10, bottomView.frame.width - 70 - 32]
         
         for i in 0..<titleStr.count{
             if ap.noticeTitle == titleStr[i]{
@@ -39,8 +44,9 @@ class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         ap.noticeDataArr = [NoticeData]()
         
-        let imageView = UIImageView.init(frame: CGRect.init(x: 16, y: 0, width: 70, height: 70))
-        imageView.image = UIImage.init(named: <#T##String#>);
+        let imageView = UIImageView.init(frame: CGRect.init(x: locNumArr[tempNum], y: 0, width: 70, height: 56))
+        imageView.image = UIImage.init(named: "monster\(tempNum + 1)");
+        bottomView.addSubview(imageView);
 
         ap.getAPI(add: "post/list/\(urlStr[tempNum])", param: "", method: "GET", fun: {
             data, res, err in
@@ -80,7 +86,6 @@ class NoticeListView: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noticeListCell", for: indexPath) as! NoticeListCell
         cell.titleLabel.text = ap.noticeDataArr[indexPath.row].title
-        //cell.writerLabel.text = "\(ap.noticeDataArr[indexPath.row].no)"
         return cell
     }
     
