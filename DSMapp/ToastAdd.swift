@@ -44,4 +44,8 @@ extension UIViewController : UIGestureRecognizerDelegate {
         }
     }
     
+    func getDarkBlueColor() -> UIColor{
+        return UIColor.init(red: 86/255, green: 141/255, blue: 168/255, alpha: 1)
+    }
+    
 }

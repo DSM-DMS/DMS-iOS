@@ -12,33 +12,20 @@ import UIKit
 class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
     
     @IBOutlet weak var finishDateLabel: UILabel!
-    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var contentCountView: UIView!
     
-    
-    @IBAction func sendData(_ sender: Any) {
-        if currentIndex == tempData.count-1{
-            //제출해야지
-        }else{
-            currentIndex += 1
-            setPageViewController()
-        }
-    }
-    
-    @IBAction func BackBtn(_ sender: Any) {
+    @IBAction func backBtn(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func moreInfo(_ sender: Any) {
-        let alert = UIAlertController.init(title: "상세정보", message: nil, preferredStyle: .alert)
-        alert.message = "안녕하세요 소라입니다 이곳에 듣고 싶은 텍스트를 입력해주세요 아시겠습니까? 넵 알겠습니다.!!!! 뭔소린지 잘 모르시겠어도 그냥 네하고 들으세요 아시겠습니까? 넵 겠습니다. 그렇다면 게임 스타트"
-        alert.addAction(UIAlertAction.init(title: "확인", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
+    @IBAction func send(_ sender: Any) {
+        
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if currentIndex <= tempData.count{
+        print(currentIndex)
+        if currentIndex >= tempData.count - 1{
             return nil
         }
         currentIndex += 1
@@ -46,6 +33,7 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        print(currentIndex)
         
         if(currentIndex == 0){
             return nil
@@ -64,11 +52,18 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = UIColor.white
         pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "pageViewController") as! UIPageViewController
-        pageViewController.view.frame = CGRect.init(x: 0, y: 0, width: self.contentView.frame.width, height: self.contentView.frame.height)
+        pageViewController.view.frame = CGRect.init(x: 4, y: 0, width: self.contentView.frame.width - 8, height: self.contentView.frame.height)
         pageViewController.dataSource = self
         setPageViewController()
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOpacity = 0.5
+        contentView.layer.shadowRadius = 3
+        contentView.layer.shadowOffset = CGSize.init(width: 1, height: 1)
+        contentView.layer.cornerRadius = 4
+        let designView = UIView.init(frame: CGRect.init(x: contentView.frame.minX - 4, y: contentView.frame.minY + 16, width: 4, height: 52))
+        designView.backgroundColor = getDarkBlueColor()
+        self.view.addSubview(designView)
         self.contentView.addSubview(pageViewController.view)
         setCountContentView()
     }
@@ -79,11 +74,11 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
     
     func setCountContentView(){
         var currentX = contentCountView.frame.width / 2
-        currentX -= CGFloat(12.5 * Double((tempData.count - 1)) + 10)
+        currentX -= CGFloat(12 * Double((tempData.count - 1)) + 8)
         for i in 0..<tempData.count {
             let check = (i == 0)
             contentCountView.addSubview(getCircleView(currentX, select: check))
-            currentX += 25
+            currentX += 24
         }
     }
     
@@ -94,24 +89,24 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
             return
         }
         
-        countViews[selectNum].backgroundColor = UIColor.init(red: 68/255, green: 138/255, blue: 1, alpha: 1)
+        (countViews[selectNum] as! UIImageView).image = UIImage.init(named: "selectCountCircle")
         
         if(selectNum - 1 > -1){
-            countViews[selectNum - 1].backgroundColor = UIColor.init(red: 187/255, green: 222/255, blue: 251/255, alpha: 1)
+            (countViews[selectNum - 1] as! UIImageView).image = UIImage.init(named: "unSelectCountCircle")
         }
         if(selectNum + 1 < countViews.count){
-            countViews[selectNum + 1].backgroundColor = UIColor.init(red: 187/255, green: 222/255, blue: 251/255, alpha: 1)
+            (countViews[selectNum + 1] as! UIImageView).image = UIImage.init(named: "unSelectCountCircle")
         }
     }
     
     
     func getCircleView(_ x : CGFloat, select : Bool) -> UIView{
-        let tempView = UIView.init(frame: CGRect.init(x: x, y: 5, width: 20, height: 20))
+        let tempView = UIImageView.init(frame: CGRect.init(x: x, y: 5, width: 16, height: 16))
         tempView.layer.cornerRadius = 10
         if select{
-            tempView.backgroundColor = UIColor.init(red: 68/255, green: 138/255, blue: 1, alpha: 1)
+            tempView.image = UIImage.init(named: "selectCountCircle")
         }else{
-            tempView.backgroundColor = UIColor.init(red: 187/255, green: 222/255, blue: 251/255, alpha: 1)
+            tempView.image = UIImage.init(named: "unselectCountCircle")
         }
         return tempView
     }
@@ -124,9 +119,9 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
         }
         
         if(index == tempData.count-1){
-            sendButton.setTitle("제출하기", for: .normal)
+            //sendButton.setTitle("제출하기", for: .normal)
         }else{
-            sendButton.setTitle("다음 문항", for: .normal)
+            //sendButton.setTitle("다음 문항", for: .normal)
         }
         
         changeContentCount(index)

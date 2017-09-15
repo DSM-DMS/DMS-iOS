@@ -23,6 +23,12 @@
 		D019F9801F5E6E9900DE1BBB /* monster2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D019F97D1F5E6E9900DE1BBB /* monster2@2x.png */; };
 		D019F9811F5E6E9900DE1BBB /* monster2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D019F97E1F5E6E9900DE1BBB /* monster2@3x.png */; };
 		D019F9831F5E76D100DE1BBB /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D019F9821F5E76D100DE1BBB /* TopView.swift */; };
+		D0202E3A1F6BAEF400A0D208 /* whaleAfterSchool.png in Resources */ = {isa = PBXBuildFile; fileRef = D0202E391F6BAEF400A0D208 /* whaleAfterSchool.png */; };
+		D0202E3C1F6BAEF900A0D208 /* selectCountCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = D0202E3B1F6BAEF900A0D208 /* selectCountCircle.png */; };
+		D0202E3E1F6BAEFF00A0D208 /* unSelectCountCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = D0202E3D1F6BAEFF00A0D208 /* unSelectCountCircle.png */; };
+		D0202E401F6BB13900A0D208 /* ApplyAfterSchoolInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0202E3F1F6BB13900A0D208 /* ApplyAfterSchoolInfo.swift */; };
+		D0202E431F6BDA7000A0D208 /* bubblesBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D0202E411F6BDA7000A0D208 /* bubblesBackground.png */; };
+		D0202E441F6BDA7000A0D208 /* fishBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D0202E421F6BDA7000A0D208 /* fishBackground.png */; };
 		D0204DCA1F0CB9CC00C723F8 /* DataBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0204DC91F0CB9CC00C723F8 /* DataBaseClass.swift */; };
 		D03CB5451F42DA7D002B1F08 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03CB5431F42DA7D002B1F08 /* LoginView.swift */; };
 		D03CB5461F42DA7D002B1F08 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03CB5441F42DA7D002B1F08 /* TabBarView.swift */; };
@@ -42,7 +48,6 @@
 		D0A9B2B51F4E552000AE2F3A /* NoticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A9B2B41F4E552000AE2F3A /* NoticeListView.swift */; };
 		D0A9B2B71F4E5F1E00AE2F3A /* NoticeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A9B2B61F4E5F1E00AE2F3A /* NoticeListCell.swift */; };
 		D0A9B2B91F4E60BA00AE2F3A /* NoticeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A9B2B81F4E60BA00AE2F3A /* NoticeDetailView.swift */; };
-		D0A9B2C01F4EA88200AE2F3A /* newBadgeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0A9B2BD1F4EA88200AE2F3A /* newBadgeIcon.png */; };
 		D0A9B2C41F4EAA4000AE2F3A /* noticeListDetailBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D0A9B2C11F4EAA4000AE2F3A /* noticeListDetailBackground.png */; };
 		D0A9B2C51F4EAA4000AE2F3A /* noticeListDetailBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0A9B2C21F4EAA4000AE2F3A /* noticeListDetailBackground@2x.png */; };
 		D0A9B2C61F4EAA4000AE2F3A /* noticeListDetailBackground@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0A9B2C31F4EAA4000AE2F3A /* noticeListDetailBackground@3x.png */; };
@@ -193,6 +198,12 @@
 		D019F9821F5E76D100DE1BBB /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		D01FF3201F0B92CF0060651F /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = DSMapp/Realm.framework; sourceTree = "<group>"; };
 		D01FF3211F0B92CF0060651F /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = DSMapp/RealmSwift.framework; sourceTree = "<group>"; };
+		D0202E391F6BAEF400A0D208 /* whaleAfterSchool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whaleAfterSchool.png; path = image/applyAfter/whaleAfterSchool.png; sourceTree = "<group>"; };
+		D0202E3B1F6BAEF900A0D208 /* selectCountCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selectCountCircle.png; path = image/applyAfter/selectCountCircle.png; sourceTree = "<group>"; };
+		D0202E3D1F6BAEFF00A0D208 /* unSelectCountCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unSelectCountCircle.png; path = image/applyAfter/unSelectCountCircle.png; sourceTree = "<group>"; };
+		D0202E3F1F6BB13900A0D208 /* ApplyAfterSchoolInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyAfterSchoolInfo.swift; sourceTree = "<group>"; };
+		D0202E411F6BDA7000A0D208 /* bubblesBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubblesBackground.png; path = image/applyAfter/bubblesBackground.png; sourceTree = "<group>"; };
+		D0202E421F6BDA7000A0D208 /* fishBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fishBackground.png; path = image/applyAfter/fishBackground.png; sourceTree = "<group>"; };
 		D0204DC91F0CB9CC00C723F8 /* DataBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseClass.swift; sourceTree = "<group>"; };
 		D03CB5431F42DA7D002B1F08 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D03CB5441F42DA7D002B1F08 /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -212,7 +223,6 @@
 		D0A9B2B41F4E552000AE2F3A /* NoticeListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeListView.swift; sourceTree = "<group>"; };
 		D0A9B2B61F4E5F1E00AE2F3A /* NoticeListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeListCell.swift; sourceTree = "<group>"; };
 		D0A9B2B81F4E60BA00AE2F3A /* NoticeDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeDetailView.swift; sourceTree = "<group>"; };
-		D0A9B2BD1F4EA88200AE2F3A /* newBadgeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newBadgeIcon.png; sourceTree = "<group>"; };
 		D0A9B2C11F4EAA4000AE2F3A /* noticeListDetailBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noticeListDetailBackground.png; sourceTree = "<group>"; };
 		D0A9B2C21F4EAA4000AE2F3A /* noticeListDetailBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noticeListDetailBackground@2x.png"; sourceTree = "<group>"; };
 		D0A9B2C31F4EAA4000AE2F3A /* noticeListDetailBackground@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noticeListDetailBackground@3x.png"; sourceTree = "<group>"; };
@@ -354,6 +364,18 @@
 			name = monster;
 			sourceTree = "<group>";
 		};
+		D0202E381F6BAEC100A0D208 /* applyAfterSchool */ = {
+			isa = PBXGroup;
+			children = (
+				D0202E411F6BDA7000A0D208 /* bubblesBackground.png */,
+				D0202E421F6BDA7000A0D208 /* fishBackground.png */,
+				D0202E3B1F6BAEF900A0D208 /* selectCountCircle.png */,
+				D0202E3D1F6BAEFF00A0D208 /* unSelectCountCircle.png */,
+				D0202E391F6BAEF400A0D208 /* whaleAfterSchool.png */,
+			);
+			name = applyAfterSchool;
+			sourceTree = "<group>";
+		};
 		D04C10201ED17C4900C5AE5B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +426,7 @@
 				D0AA37FD1F2A31C4000F5203 /* MyPageView.swift */,
 				D0538AC31ECB007C00C47F86 /* AppDelegate.swift */,
 				D03CB5471F42DDB9002B1F08 /* ApplyAfterStudy.swift */,
+				D0202E3F1F6BB13900A0D208 /* ApplyAfterSchoolInfo.swift */,
 				D03CB5491F42E577002B1F08 /* ApplyAfterContent.swift */,
 				D0AA38011F2A322A000F5203 /* MyViewCell.swift */,
 				D0538ACA1ECB007C00C47F86 /* Assets.xcassets */,
@@ -429,6 +452,7 @@
 		D0FAF1AE1F30183600093E19 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D0202E381F6BAEC100A0D208 /* applyAfterSchool */,
 				D0FAF2441F30193300093E19 /* myPage */,
 				D0FAF22A1F30191600093E19 /* notice */,
 				D0FAF2111F3018FB00093E19 /* applyStudy */,
@@ -563,7 +587,6 @@
 				D0A9B2C11F4EAA4000AE2F3A /* noticeListDetailBackground.png */,
 				D0A9B2C21F4EAA4000AE2F3A /* noticeListDetailBackground@2x.png */,
 				D0A9B2C31F4EAA4000AE2F3A /* noticeListDetailBackground@3x.png */,
-				D0A9B2BD1F4EA88200AE2F3A /* newBadgeIcon.png */,
 				D0FAF22B1F30192100093E19 /* facilityIcon.png */,
 				D0FAF22C1F30192100093E19 /* facilityIcon@2x.png */,
 				D0FAF22D1F30192100093E19 /* facilityIcon@3x.png */,
@@ -718,6 +741,7 @@
 				D0FAF1EF1F3018B100093E19 /* applyTextBox.png in Resources */,
 				D0FAF1E41F30189600093E19 /* signUpIcon.png in Resources */,
 				D0FAF20E1F3018F700093E19 /* applyStayBackground@2x.png in Resources */,
+				D0202E3E1F6BAEFF00A0D208 /* unSelectCountCircle.png in Resources */,
 				D0FAF1BD1F30185E00093E19 /* applyIcon@2x.png in Resources */,
 				D0FAF1C31F30185E00093E19 /* noticeIcon@2x.png in Resources */,
 				D0FAF1DF1F30189600093E19 /* passwordError@2x.png in Resources */,
@@ -729,19 +753,20 @@
 				D0FAF1D31F30188600093E19 /* signInBackground@2x.png in Resources */,
 				D0FAF24D1F30194200093E19 /* myPageFish1.png in Resources */,
 				D0FAF1E01F30189600093E19 /* passwordError@3x.png in Resources */,
+				D0202E441F6BDA7000A0D208 /* fishBackground.png in Resources */,
 				D019F9781F5E6DFE00DE1BBB /* monster3@3x.png in Resources */,
 				D0FAF2221F30190B00093E19 /* seatNo@2x.png in Resources */,
 				D019F9791F5E6DFE00DE1BBB /* monster1.png in Resources */,
 				D0FAF1D41F30188600093E19 /* signInBackground@3x.png in Resources */,
 				D0FAF1FF1F3018C500093E19 /* fish@3x.png in Resources */,
 				D0FAF1E51F30189600093E19 /* signUpIcon@2x.png in Resources */,
-				D0A9B2C01F4EA88200AE2F3A /* newBadgeIcon.png in Resources */,
 				D0FAF2011F3018C500093E19 /* fish2@2x.png in Resources */,
 				D0FAF2381F30192100093E19 /* facilityIcon@2x.png in Resources */,
 				D0FAF23E1F30192100093E19 /* questionIcon@2x.png in Resources */,
 				D0FAF21F1F30190B00093E19 /* mySeat@2x.png in Resources */,
 				D0FAF1C11F30185E00093E19 /* mealIcon@3x.png in Resources */,
 				D0FAF2001F3018C500093E19 /* fish2.png in Resources */,
+				D0202E3C1F6BAEF900A0D208 /* selectCountCircle.png in Resources */,
 				D0FAF2061F3018C500093E19 /* whale.png in Resources */,
 				D0FAF2281F30190B00093E19 /* seatYes@2x.png in Resources */,
 				D0FAF2391F30192100093E19 /* facilityIcon@3x.png in Resources */,
@@ -750,6 +775,7 @@
 				D0FAF20F1F3018F700093E19 /* applyStayBackground@3x.png in Resources */,
 				D019F9801F5E6E9900DE1BBB /* monster2@2x.png in Resources */,
 				D0FAF2291F30190B00093E19 /* seatYes@3x.png in Resources */,
+				D0202E3A1F6BAEF400A0D208 /* whaleAfterSchool.png in Resources */,
 				D0FAF1CC1F30186900093E19 /* buttonShape@3x.png in Resources */,
 				D0FAF23C1F30192100093E19 /* notificationIcon@3x.png in Resources */,
 				D0FAF1E21F30189600093E19 /* signUpBackground@2x.png in Resources */,
@@ -757,6 +783,7 @@
 				D0FAF2261F30190B00093E19 /* seatSelect@3x.png in Resources */,
 				D0FAF1C61F30185E00093E19 /* userIcon@3x.png in Resources */,
 				D0FAF2101F3018F700093E19 /* applyStayBackgroundground.png in Resources */,
+				D0202E431F6BDA7000A0D208 /* bubblesBackground.png in Resources */,
 				D0FAF23D1F30192100093E19 /* questionIcon.png in Resources */,
 				D019F97B1F5E6DFE00DE1BBB /* monster1@3x.png in Resources */,
 				D0FAF1DE1F30189600093E19 /* passwordError.png in Resources */,
@@ -867,6 +894,7 @@
 				D0A9B2B71F4E5F1E00AE2F3A /* NoticeListCell.swift in Sources */,
 				D00DA2161EDD787600F08F5F /* ApplyView.swift in Sources */,
 				D0C0CCB11ECB47A700013168 /* MealView.swift in Sources */,
+				D0202E401F6BB13900A0D208 /* ApplyAfterSchoolInfo.swift in Sources */,
 				D005FEEA1ED204AD00C8E65F /* NoticeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

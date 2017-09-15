@@ -18,7 +18,7 @@ class LoginView: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var idLabel: UILabel!
     @IBAction func SignUp(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignUpView")
-        vc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        vc?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         present(vc!, animated: true, completion: nil)
     }
     

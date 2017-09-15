@@ -10,6 +10,8 @@ import UIKit
 
 class ApplyAfterContent: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     var contentIndex = 0
     var data = [String]()
     var name = String()
@@ -19,28 +21,26 @@ class ApplyAfterContent: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 40
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.selectionStyle = .none
-        let name = UILabel.init(frame: CGRect.init(x: 30, y: 15, width: 200, height: 30))
+        let name = UILabel.init(frame: CGRect.init(x: 30, y: 5, width: 200, height: 30))
         name.text = data[indexPath.row]
         cell.addSubview(name)
         return cell
     }
     
-    @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var answerTableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        answerTableView.separatorStyle = .none
-        answerTableView.dataSource = self
-        answerTableView.delegate = self
-        
-        questionLabel.text = name
+        dateLabel.text = name
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.selectRow(at: checkIndexPath, animated: true, scrollPosition: .none)
     }
     
     var checkIndexPath : IndexPath?
@@ -49,6 +49,7 @@ class ApplyAfterContent: UIViewController, UITableViewDataSource, UITableViewDel
         if checkIndexPath != nil{
             tableView.cellForRow(at: checkIndexPath!)?.accessoryType = .none
         }
+        
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         checkIndexPath = indexPath
     }
