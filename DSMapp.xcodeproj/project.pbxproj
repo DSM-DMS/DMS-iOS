@@ -40,6 +40,7 @@
 		D0538ACB1ECB007C00C47F86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0538ACA1ECB007C00C47F86 /* Assets.xcassets */; };
 		D0538ACE1ECB007C00C47F86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0538ACC1ECB007C00C47F86 /* LaunchScreen.storyboard */; };
 		D0538AD91ECB007C00C47F86 /* DSMappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0538AD81ECB007C00C47F86 /* DSMappTests.swift */; };
+		D09B9B9E1F6F71F20094C34A /* AskInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B9B9D1F6F71F20094C34A /* AskInfoView.swift */; };
 		D09CF9121EEFC40500A35D13 /* ApplyStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09CF9111EEFC40500A35D13 /* ApplyStudyView.swift */; };
 		D0A587B61F0B940D009182BA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01FF3201F0B92CF0060651F /* Realm.framework */; };
 		D0A587B71F0B940D009182BA /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D01FF3201F0B92CF0060651F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -219,6 +220,7 @@
 		D0538AD41ECB007C00C47F86 /* DSMappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSMappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0538AD81ECB007C00C47F86 /* DSMappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSMappTests.swift; sourceTree = "<group>"; };
 		D0538ADA1ECB007C00C47F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D09B9B9D1F6F71F20094C34A /* AskInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskInfoView.swift; sourceTree = "<group>"; };
 		D09CF9111EEFC40500A35D13 /* ApplyStudyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyStudyView.swift; sourceTree = "<group>"; };
 		D0A9B2B41F4E552000AE2F3A /* NoticeListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeListView.swift; sourceTree = "<group>"; };
 		D0A9B2B61F4E5F1E00AE2F3A /* NoticeListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeListCell.swift; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 				D0204DC91F0CB9CC00C723F8 /* DataBaseClass.swift */,
 				D0A9B2C71F4EAE5500AE2F3A /* FacilityView.swift */,
 				D019F9821F5E76D100DE1BBB /* TopView.swift */,
+				D09B9B9D1F6F71F20094C34A /* AskInfoView.swift */,
 			);
 			path = DSMapp;
 			sourceTree = "<group>";
@@ -891,6 +894,7 @@
 				D09CF9121EEFC40500A35D13 /* ApplyStudyView.swift in Sources */,
 				D0A9B2C81F4EAE5500AE2F3A /* FacilityView.swift in Sources */,
 				D03CB54A1F42E577002B1F08 /* ApplyAfterContent.swift in Sources */,
+				D09B9B9E1F6F71F20094C34A /* AskInfoView.swift in Sources */,
 				D0A9B2B71F4E5F1E00AE2F3A /* NoticeListCell.swift in Sources */,
 				D00DA2161EDD787600F08F5F /* ApplyView.swift in Sources */,
 				D0C0CCB11ECB47A700013168 /* MealView.swift in Sources */,

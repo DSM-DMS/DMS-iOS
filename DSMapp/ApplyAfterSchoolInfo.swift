@@ -31,9 +31,11 @@ class ApplyAfterSchoolInfo: UIViewController {
     }
     
     func goNext(_ sender : UIButton){
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "applyAfterStudy")
-        vc?.modalTransitionStyle = .crossDissolve
-        present(vc!, animated: true, completion: nil)
+        self.dismiss(animated: false, completion: {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "applyAfterStudyContent")
+            vc?.modalTransitionStyle = .crossDissolve
+            self.present(vc!, animated: true, completion: nil)
+        })
     }
 
 }
