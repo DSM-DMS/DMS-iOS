@@ -45,6 +45,7 @@ class MyPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
         initGetData()
     }
     
@@ -56,17 +57,45 @@ class MyPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    func goNextView(_ id:String){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: id)
+        vc?.modalTransitionStyle = .crossDissolve
+        present(vc!, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
+            case 1:
+                break
+            //설문조사
+            case 2:
+                break
+            //개발자 소개
+            case 4:
+                goNextView("ChangePasswordView")
+                break
+            //비밀번호 변경
             case 5:
                 if ap.isLogin{
-                    ap.isLogin = false
+                    ap.getAPI(add: "account/logout/student", param: "", method: "POST", fun: {
+                        data, res, err in
+                        if err == nil{
+                            if (res?.statusCode)! == 201{
+                                self.ap.logout()
+                                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                    self.initGetData()
+                                }
+                            }
+                        }
+                    })
                 }else{
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "login")
-                    present(vc!, animated: true, completion: nil)
+                    self.goNextView("LoginView")
                 }
-            default:
-                print("")
+                break
+            //로그인 로그아웃
+            default :
+                print("hello world")
         }
     }
     
@@ -90,7 +119,7 @@ class MyPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    let tableArr = ["","작성한 질문 목록", "시설물 고장 신고","","비밀번호 변경", ""]
+    let tableArr = ["","설문 조사", "개발자 소개","","비밀번호 변경", ""]
     let signText = ("로그인", "로그아웃")
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

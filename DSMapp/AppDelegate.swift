@@ -24,7 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var noticeDataArr = [NoticeData]()
     var noticeData = NoticeData()
     
-    
+    func logout(){
+        isLogin = false
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
     
     func saveData(_ id : String, pw : String){
         let realm = try! Realm()
@@ -73,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com\(port)/\(add)?\(param)")!)
         }
         
-        request!.httpMethod = method
+        request?.httpMethod = method
         
         let task = URLSession.shared.dataTask(with: request!){
             data, res, err in

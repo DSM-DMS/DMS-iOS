@@ -15,8 +15,12 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var contentCountView: UIView!
     
+    @IBOutlet weak var sendItem: UIBarButtonItem!
+    
     @IBAction func backBtn(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: {
+            
+        })
     }
     
     @IBAction func send(_ sender: Any) {
@@ -116,12 +120,6 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
         
         if index >= tempData.count || index < 0{
             return nil
-        }
-        
-        if(index == tempData.count-1){
-            //sendButton.setTitle("제출하기", for: .normal)
-        }else{
-            //sendButton.setTitle("다음 문항", for: .normal)
         }
         
         changeContentCount(index)
