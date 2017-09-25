@@ -26,10 +26,11 @@ class NoticeView: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var stackView: UIStackView!
     override func viewDidLoad() {
-        var temp = view.frame.height
-        if temp < 667{
+        var temp = view.frame.width
+        print(temp)
+        if temp < 375{
             temp = 1
-        }else if temp == 667{
+        }else if temp == 375{
             temp = 1.1
         }else{
             temp = 1.2

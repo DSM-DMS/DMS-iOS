@@ -348,24 +348,23 @@ class MealView: UIViewController {
             stanDate = stanDate - TimeInterval(86400)
         }
         
-        UIView.animate(withDuration: TimeInterval(0.25), animations: {
+        UIView.animate(withDuration: TimeInterval(0.35), animations: {
             var count = 0
             for i in self.viewArray{
+                
                 if(count>3){
                     break
                 }
-
-                i.center.x = self.viewArray[count+1].center.x
-                i.alpha = self.viewArray[count+1].alpha
+                
+                self.viewArray[count].center.x = self.viewArray[count + 1].center.x
+                self.viewArray[count].alpha = self.viewArray[count + 1].alpha
                 
                 if(count == 1){
                     i.backgroundColor = UIColor.white
-                    i.transform = CGAffineTransform.init(a: 1, b: 0, c: 0, d: 1, tx: 0, ty: 0)
-                    
                 }else{
                     i.backgroundColor = UIColor.lightGray
-                    i.transform = CGAffineTransform.init(a: 0.8, b: 0, c: 0, d: 0.8, tx: 0, ty: 0)
                 }
+                
                 count = count + 1
             }
             

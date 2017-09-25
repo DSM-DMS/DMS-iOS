@@ -52,7 +52,15 @@ class ApplyView: UIViewController {
         
     }
     
+    @IBOutlet weak var viewHeight: NSLayoutConstraint!
+    
     override func viewDidLoad() {
+        print(view.frame.height)
+        if  view.frame.height > 800{
+            viewHeight.constant = -70
+        }else{
+            viewHeight.constant = -100
+        }
         viewStudy.backgroundColor = UIColor.init(red: 167/255, green: 201/255, blue: 218/255, alpha: 1)
         viewStay.backgroundColor = UIColor.init(red: 137/255, green: 185/255, blue: 209/255, alpha: 1)
         viewOut.backgroundColor = UIColor.init(red: 117/255, green: 177/255, blue: 208/255, alpha: 1)
@@ -182,7 +190,9 @@ class ApplyView: UIViewController {
                         }
                     }
                 }else{
-                    label.text = "로그인이 필요합니다"
+                    DispatchQueue.main.async {
+                        label.text = "로그인이 필요합니다"
+                    }
                 }
             }else{
                 DispatchQueue.main.async {

@@ -32,17 +32,19 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
         if currentIndex >= tempData.count - 1{
             return nil
         }
+        
         currentIndex += 1
+        
         return getContentVieWControllerAtIndex(index: currentIndex, data: tempData[currentIndex])
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        print(currentIndex)
-        
         if(currentIndex == 0){
             return nil
         }
+        
         currentIndex -= 1
+        
         return getContentVieWControllerAtIndex(index: currentIndex, data: tempData[currentIndex])
     }
     
@@ -56,7 +58,7 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "pageViewController") as! UIPageViewController
+        pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "afterSchoolPageViewController") as! UIPageViewController
         pageViewController.view.frame = CGRect.init(x: 4, y: 0, width: self.contentView.frame.width - 8, height: self.contentView.frame.height)
         pageViewController.dataSource = self
         setPageViewController()

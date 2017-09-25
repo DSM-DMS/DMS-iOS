@@ -12,7 +12,7 @@ extension UIViewController : UIGestureRecognizerDelegate {
     func showToast(message : String, down: Bool = true) {
         var ySize = CGFloat(100)
         if down{
-            ySize = self.view.frame.size.height - 100
+            ySize = self.view.frame.size.height - 125
         }
         
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: ySize, width: 160, height: 35))

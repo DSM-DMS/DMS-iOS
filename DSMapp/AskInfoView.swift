@@ -8,36 +8,59 @@
 
 import UIKit
 
-class AskInfoView: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 8
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        let titleLabel = UILabel.init(frame: CGRect.init(x: 16, y: 14, width: cell.frame.width, height: 24))
-        let subLabel = UILabel.init(frame: CGRect.init(x: 16, y: 38, width: cell.frame.width, height: 18))
-        
-        titleLabel.font = UIFont.systemFont(ofSize: 20)
-        subLabel.font = UIFont.systemFont(ofSize: 16)
-        
-        titleLabel.text = "hello world"
-        subLabel.text = "nice to meet you"
-        
-        cell.addSubview(titleLabel)
-        cell.addSubview(subLabel)
-
-        return cell
+class AskInfoView: UIViewController, UIPageViewControllerDataSource {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        return getContentViewControllerAtIndex(index: 1, isEdit: true)
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        return getContentViewControllerAtIndex(index: 1, isEdit: false)
     }
+    
+
+    @IBOutlet var contentView: UIView!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var bottomView: UIView!
+    
+    var pageViewController : UIPageViewController!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "askInfoPageViewController") as! UIPageViewController
+        pageViewController.view.frame = CGRect.init(x: 4, y: 0, width: self.contentView.frame.width - 8, height: self.contentView.frame.height)
+        pageViewController.dataSource = self
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOpacity = 0.5
+        contentView.layer.shadowRadius = 3
+        contentView.layer.shadowOffset = CGSize.init(width: 1, height: 1)
+        contentView.layer.cornerRadius = 4
+        setPageViewController()
+        contentView.addSubview(pageViewController.view)
+    }
+    
+    func setPageViewController(){
+    pageViewController.setViewControllers([getContentViewControllerAtIndex(index: 0, isEdit: true)!], direction: .forward, animated: true, completion: nil)
+    }
+    
+    func getContentViewControllerAtIndex(index : Int, isEdit : Bool) -> UIViewController?{
+        
+        
+        let currenContentView = self.storyboard?
+            .instantiateViewController(withIdentifier: isEdit ? "AskInfoContentEditView" : "AskInfoContentSelectView")
+//        if isEdit{
+//            (currenContentView as! AskInfoContentEditView)
+//        }else{
+//            (currenContentView as! AskInfoContentSelectView)
+//        }
+        
+        return currenContentView
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
+    
 
 }
