@@ -14,32 +14,28 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         initData()
-        setDateData()
+        setDateData(true)
     }
     
     func initData(){
-        fommater.dateFormat = "H-m"
-        let currentDateTime = fommater.string(from: currentDate).components(separatedBy: "-")
-        if let currentHour = Int(currentDateTime[0]){
-            if currentHour < 13 && currentHour >= 8 {
-                if let currentMini = Int(currentDateTime[1]){
-                    if currentMini > 10 && currentHour == 8{
-                        currentMealTime += 1
-                    }
-                }
-            }else if currentHour < 19{
-                currentMealTime += 2
-            }else{
+        fommater.dateFormat = "H"
+        let currentHourTime = fommater.string(from: currentDate)
+        if let currentHour = Int(currentHourTime){
+            if currentHour < 9 && currentHour >= 18 {
                 currentDate += TimeInterval(86400)
+            }else if currentHour < 13{
+                currentMealTime += 1
+            }else{
+                currentMealTime += 2
             }
         }
     }
     
-    func setDateData(){
+    func setDateData(_ isFirst : Bool = false){
         fommater.dateFormat = "M월 dd일"
         dateLabel.text = fommater.string(from: currentDate)
         mealTimeLabel.text = mealTimeTextArr[currentMealTime]
-        if currentMealTime == 0{
+        if currentMealTime == 0 || isFirst{
             fommater.dateFormat = "yyyy"
             let year = fommater.string(from: currentDate)
             fommater.dateFormat = "MM"
@@ -64,6 +60,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func getData(_ year : String, month : String, day : String){
         var request = URLRequest.init(url: URL(string : "http://dsm2015.cafe24.com:81/meal?year=\(year)&month=\(month)&day=\(day)")!)
         request.httpMethod = "GET"
+        
+        print(request)
         
         let task = URLSession.shared.dataTask(with: request){
             data, res, err in
@@ -119,12 +117,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         
         return sendDic
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBOutlet weak var mealTimeLabel: UILabel!

@@ -12,6 +12,7 @@ class ApplyAfterContent: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
     var contentIndex = 0
     var data = [String]()
     var name = String()
@@ -29,6 +30,7 @@ class ApplyAfterContent: UIViewController, UITableViewDataSource, UITableViewDel
         let name = UILabel.init(frame: CGRect.init(x: 30, y: 5, width: 200, height: 30))
         name.text = data[indexPath.row]
         cell.addSubview(name)
+        cell.accessoryType = .checkmark
         return cell
     }
     
@@ -40,7 +42,7 @@ class ApplyAfterContent: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.selectRow(at: checkIndexPath, animated: true, scrollPosition: .none)
+        
     }
     
     var checkIndexPath : IndexPath?

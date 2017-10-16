@@ -18,9 +18,7 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
     @IBOutlet weak var sendItem: UIBarButtonItem!
     
     @IBAction func backBtn(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true, completion: {
-            
-        })
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func send(_ sender: Any) {
@@ -35,7 +33,7 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
         
         currentIndex += 1
         
-        return getContentVieWControllerAtIndex(index: currentIndex, data: tempData[currentIndex])
+        return getContentViewControllerAtIndex(index: currentIndex, data: tempData[currentIndex])
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -45,23 +43,44 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
         
         currentIndex -= 1
         
-        return getContentVieWControllerAtIndex(index: currentIndex, data: tempData[currentIndex])
+        return getContentViewControllerAtIndex(index: currentIndex, data: tempData[currentIndex])
     }
     
     var currentIndex = 0
     
     var pageViewController : UIPageViewController!
     
-    let tempData = [["월요일" : ["배드민턴","피구","농구","발야구"]],
-                    ["화요일" : ["요가","댄스","헬스","C언어"]],
-                    ["토요일" : ["자전거","배구","축구","자습"]]]
+    let tempData = [["월요일" : ["데이터를 로딩 중 입니다."]],
+                    ["화요일" : ["데이터를 로딩 중 입니다."]],
+                    ["토요일" : ["데이터를 로딩 중 입니다."]]]
+    
+    func loadData(){
+        ap.getAPI(add: "/afterschool/item/list", param: "", method: "GET", fun:
+        {
+            data, res, err in
+            if data != nil{
+                
+            }
+            
+        })
+    }
+    
+    let ap = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadData()
+        
         pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "afterSchoolPageViewController") as! UIPageViewController
+        
         pageViewController.view.frame = CGRect.init(x: 4, y: 0, width: self.contentView.frame.width - 8, height: self.contentView.frame.height)
         pageViewController.dataSource = self
+
+        
+        setCountContentView()
         setPageViewController()
+        
         contentView.layer.shadowColor = UIColor.black.cgColor
         contentView.layer.shadowOpacity = 0.5
         contentView.layer.shadowRadius = 3
@@ -71,11 +90,11 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
         designView.backgroundColor = getDarkBlueColor()
         self.view.addSubview(designView)
         self.contentView.addSubview(pageViewController.view)
-        setCountContentView()
     }
     
     func setPageViewController(){
-        pageViewController.setViewControllers([getContentVieWControllerAtIndex(index: currentIndex, data: tempData[currentIndex])!], direction: .forward, animated: true, completion: nil)
+        pageViewController
+            .setViewControllers([getContentViewControllerAtIndex(index: currentIndex, data: tempData[currentIndex])!], direction: .forward, animated: true, completion: nil)
     }
     
     func setCountContentView(){
@@ -91,15 +110,12 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
     func changeContentCount(_ selectNum : Int){
         let countViews = contentCountView.subviews
         
-        if countViews.count == 0{
-            return
-        }
-        
         (countViews[selectNum] as! UIImageView).image = UIImage.init(named: "selectCountCircle")
         
         if(selectNum - 1 > -1){
             (countViews[selectNum - 1] as! UIImageView).image = UIImage.init(named: "unSelectCountCircle")
         }
+        
         if(selectNum + 1 < countViews.count){
             (countViews[selectNum + 1] as! UIImageView).image = UIImage.init(named: "unSelectCountCircle")
         }
@@ -116,9 +132,11 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
         }
         return tempView
     }
+    
+    var contentViewArr : [UIViewController?] = [nil, nil, nil]
 
     
-    func getContentVieWControllerAtIndex(index : Int, data : [String : [String]]) -> ApplyAfterContent? {
+    func getContentViewControllerAtIndex(index : Int, data : [String : [String]]) -> UIViewController? {
         
         if index >= tempData.count || index < 0{
             return nil
@@ -126,11 +144,17 @@ class ApplyAfterStudy: UIViewController, UIPageViewControllerDataSource  {
         
         changeContentCount(index)
         
-        let currentContentView = self.storyboard?.instantiateViewController(withIdentifier: "contentViewController") as! ApplyAfterContent
-        currentContentView.name = data.keys.first!
-        currentContentView.data = data.values.first!
-        
-        return currentContentView
+        if let contentView = contentViewArr[index]{
+            return contentView
+        }else{
+            let currentContentView = self.storyboard?.instantiateViewController(withIdentifier: "contentViewController") as! ApplyAfterContent
+            currentContentView.name = data.keys.first!
+            currentContentView.data = data.values.first!
+            
+            contentViewArr[index] = currentContentView
+            
+            return currentContentView
+        }
     }
 
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,18 +23,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아침" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEL-gw-jJc">
-                                <rect key="frame" x="24" y="6" width="35" height="24"/>
+                                <rect key="frame" x="20" y="8" width="35" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="데이터를 로딩 중 입니다." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b2h-Ov-6HM">
-                                <rect key="frame" x="16" y="32" width="288" height="64"/>
+                                <rect key="frame" x="16" y="34" width="288" height="62"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9월 3일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRv-oK-0eG">
-                                <rect key="frame" x="63" y="12" width="43.5" height="16"/>
+                                <rect key="frame" x="63" y="14" width="43.5" height="16"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -64,11 +64,11 @@
                             <constraint firstItem="b2h-Ov-6HM" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="QVy-55-DGz"/>
                             <constraint firstItem="VhF-4y-nXJ" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="2" id="TUN-x6-5XF"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="b2h-Ov-6HM" secondAttribute="bottom" constant="4" id="Y8x-l9-SQd"/>
-                            <constraint firstItem="dEL-gw-jJc" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="8" id="aBK-Af-VDO"/>
+                            <constraint firstItem="dEL-gw-jJc" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="4" id="aBK-Af-VDO"/>
                             <constraint firstItem="VhF-4y-nXJ" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" constant="2" id="cCt-44-EEJ"/>
                             <constraint firstItem="b2h-Ov-6HM" firstAttribute="top" secondItem="gRv-oK-0eG" secondAttribute="bottom" constant="4" id="crX-fu-YJJ"/>
-                            <constraint firstItem="gRv-oK-0eG" firstAttribute="leading" secondItem="dEL-gw-jJc" secondAttribute="trailing" constant="4" id="h1b-ya-ra9"/>
-                            <constraint firstItem="dEL-gw-jJc" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="6" id="lKm-L1-h9b"/>
+                            <constraint firstItem="gRv-oK-0eG" firstAttribute="leading" secondItem="dEL-gw-jJc" secondAttribute="trailing" constant="8" id="h1b-ya-ra9"/>
+                            <constraint firstItem="dEL-gw-jJc" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="lKm-L1-h9b"/>
                             <constraint firstItem="b2h-Ov-6HM" firstAttribute="top" secondItem="dEL-gw-jJc" secondAttribute="bottom" constant="2" id="srB-yw-sTu"/>
                         </constraints>
                     </view>

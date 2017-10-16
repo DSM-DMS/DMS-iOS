@@ -35,6 +35,7 @@ class AskInfoView: UIViewController, UIPageViewControllerDataSource {
         contentView.layer.shadowRadius = 3
         contentView.layer.shadowOffset = CGSize.init(width: 1, height: 1)
         contentView.layer.cornerRadius = 4
+        
         setPageViewController()
         contentView.addSubview(pageViewController.view)
     }
@@ -48,11 +49,6 @@ class AskInfoView: UIViewController, UIPageViewControllerDataSource {
         
         let currenContentView = self.storyboard?
             .instantiateViewController(withIdentifier: isEdit ? "AskInfoContentEditView" : "AskInfoContentSelectView")
-//        if isEdit{
-//            (currenContentView as! AskInfoContentEditView)
-//        }else{
-//            (currenContentView as! AskInfoContentSelectView)
-//        }
         
         return currenContentView
     }

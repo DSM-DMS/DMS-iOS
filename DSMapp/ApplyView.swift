@@ -95,7 +95,8 @@ class ApplyView: UIViewController {
             
         
         if openButtonArray[buttonNum].title(for: .normal) == "신청" && textArray[buttonNum].text != "네트워크를 확인하세요."{
-            switch buttonNum {
+            if ap.isLogin{
+                switch buttonNum {
                 case 2:
                     ap.getAPI(add: "apply/goingout", param: "sat=\(OutSat.isOn)&sun=\(OutSun.isOn)", method: "PUT", fun: {
                         data, res, err in
@@ -116,10 +117,12 @@ class ApplyView: UIViewController {
                     })
                 default:
                     let storyboardIDArray = ["applyStudy","applyStay","","applyAfterStudy"]
-                    print(buttonNum)
                     let uvc = self.storyboard?.instantiateViewController(withIdentifier: storyboardIDArray[buttonNum])
                     uvc?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
                     present(uvc!, animated: true, completion: nil)
+                }
+            }else{
+                showToast(message: "로그인이 필요합니다.")
             }
             return
         }
@@ -179,7 +182,7 @@ class ApplyView: UIViewController {
                 }else if res?.statusCode == 200{
                     if num == 0{
                         let temp = data as! [String:Any]
-                        self.ap.userName = temp["name"] as! String
+                        //self.ap.userName = temp["name"] as! String
                         DispatchQueue.main.async {
                             label.text = "신청 : " + studyRoomString[(temp["class"] as! Int) - 1]
                         }

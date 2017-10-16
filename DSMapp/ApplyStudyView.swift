@@ -97,11 +97,6 @@ class ApplyStudyView: UIViewController {
             button.setBackgroundImage(UIImage.init(named: "seatNo.png"), for: .normal)
             button.setTitle("\(seatNum)", for: .normal)
         }else if let seatName = (name as? String){
-            print(ap.userName)
-            if seatName == ap.userName{
-                button.setBackgroundImage(UIImage.init(named: "mySeat.png"), for: .normal)
-                return button
-            }
             button.setBackgroundImage(UIImage.init(named: "seatYes.png"), for: .normal)
             button.setTitle(seatName, for: .normal)
         }
@@ -120,10 +115,10 @@ class ApplyStudyView: UIViewController {
     }
     
     
-    let roomName = ["가온실","나온실","다온실","라온실","3층 독서실","4층 독서실","열린교실"]
+    let roomName = ["가온실","나온실","다온실","라온실","3층 독서실","4층 독서실","열린교실","연장 취소"]
     
     @IBAction func roomChange(_ sender: Any) {
-        let alert = UIAlertController.init(title: "연장실 변경", message: "방을 선택하세요" , preferredStyle: .actionSheet)
+        let alert = UIAlertController.init(title: "연장실 변경", message: "", preferredStyle: .actionSheet)
         for i in roomName{
             alert.addAction(UIAlertAction.init(title: i, style: .default, handler: alertClicked(_:)))
         }
@@ -142,6 +137,20 @@ class ApplyStudyView: UIViewController {
     @IBOutlet weak var roomChangeButton: UIButton!
     
     func alertClicked(_ sender: UIAlertAction){
+        if sender.title == self.roomName[7]{
+            ap.getAPI(add: "/apply/extension", param: "", method: "DELETE", fun: {
+                data, res, err in
+                DispatchQueue.main.async {
+                    if(res?.statusCode == 200){
+                        self.showToast(message: "연장 취소가 성공했습니다.")
+                    }else{
+                        self.showToast(message: "연장 취소에 실패하였습니다.")
+                    }
+                }
+            })
+            return
+        }
+        
         for i in 0..<self.roomName.count{
             if self.roomName[i] == sender.title{
                 roomChangeButton.setTitle(sender.title, for: .normal)
@@ -152,12 +161,14 @@ class ApplyStudyView: UIViewController {
                 break
             }
         }
+        
         showToast(message: "자리 로딩 완료")
     }
     
     func getData(_ num: Int){
         ap.getAPI(add: "apply/extension/class", param: "class=\(num)&option=map", method: "GET", fun: {
             data, res, err in
+            print(data, res, err)
             if err == nil{
                 if res?.statusCode == 200{
                     let temp1 = data as! [String : Any]

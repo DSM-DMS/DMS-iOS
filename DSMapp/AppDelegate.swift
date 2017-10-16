@@ -15,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var userName = ""
-    
     var isLogin = false
     
     var noticeTitle = "공지사항"
@@ -44,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func login(id: String,pw: String,save: Bool,viewCon: UIViewController, msgShow : Bool = true){
-        getAPI(add: "/account/login/student", param: "id=\(id)&password=\(pw)", method: "POST", fun: {
+        getAPI(add: "account/login/student", param: "id=\(id)&password=\(pw)", method: "POST", fun: {
             data, res, err in
             if(err == nil){
                 if(res?.statusCode == 201){
@@ -55,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if msgShow{
                         DispatchQueue.main.async {
                             viewCon.showToast(message: "로그인 성공")
+                            viewCon.dismiss(animated: true, completion: nil)
                         }
                     }
                 }else{
@@ -72,11 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func getAPI(add: String, param: String, method: String, port : String = "", fun: @escaping (Any?, HTTPURLResponse?, Error?) -> Void){
         
         var request: URLRequest?
-        if(method == "POST"){
+        if(method == "GET" || method == "PUT"){
+            request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com\(port)/\(add)?\(param)")!)
+        }else{
             request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com\(port)/\(add)")!)
             request!.httpBody = param.data(using: .utf8)
-        }else{
-            request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com\(port)/\(add)?\(param)")!)
         }
         
         request?.httpMethod = method
@@ -88,7 +87,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if(data != nil){
                 print("data is !!!", String.init(data: data!, encoding: .utf8)!)
-                dump(res)
                 do{
                     tempData = try JSONSerialization.jsonObject(with: data!, options: [])
                 }catch{

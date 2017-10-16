@@ -57,7 +57,7 @@ class SignUpView: UIViewController, UITextFieldDelegate {
             return
         }
         
-        ap.getAPI(add: "/account/register/student", param: "uid=\(codeText.text!)&id=\(idText.text!)&password=\(passwordText.text!)", method: "POST", fun: {
+        ap.getAPI(add: "account/register/student", param: "uid=\(codeText.text!)&id=\(idText.text!)&password=\(passwordText.text!)", method: "POST", fun: {
             data, res, err in
             DispatchQueue.main.async {
                 if err == nil{

@@ -66,14 +66,13 @@ class MyPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
             case 1:
-                break
+                goNextView("AskInfoView")
             //설문조사
             case 2:
                 break
             //개발자 소개
             case 4:
                 goNextView("ChangePasswordView")
-                break
             //비밀번호 변경
             case 5:
                 if ap.isLogin{
@@ -92,7 +91,7 @@ class MyPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 }else{
                     self.goNextView("LoginView")
                 }
-                break
+
             //로그인 로그아웃
             default :
                 print("hello world")
@@ -135,8 +134,9 @@ class MyPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
                         self.studyText.text = "신청없음"
                     }else if res?.statusCode == 200{
                         let temp = data as! [String:Any]
-                        print(temp)
-                        self.stayText.text = self.studyRoomString[(temp["class"] as! Int) - 1]
+                        var showStr = self.studyRoomString[(temp["class"] as! Int) - 1]
+                        showStr += " - \(temp["seat"] as! Int)"
+                        self.studyText.text = showStr
                     }else{
                         self.studyText.text = "로그인 필요"
                     }
@@ -153,7 +153,7 @@ class MyPageView: UIViewController, UITableViewDelegate, UITableViewDataSource{
             if err == nil{
                 DispatchQueue.main.async {
                     if res?.statusCode == 204{
-                        self.studyText.text = "신청없음"
+                        self.stayText.text = "신청없음"
                     }else if res?.statusCode == 200{
                         let temp = data as! [String:Any]
                         print(temp)

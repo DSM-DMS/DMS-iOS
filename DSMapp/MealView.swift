@@ -287,7 +287,7 @@ class MealView: UIViewController {
             timeArray[i].text = (getDateData(date: date))[i]
         }
         
-        ap.getAPI(add: "meal", param: "year=\(getDateData(date: date)[0])&month=\(getDateData(date: date)[3])&day=\(getDateData(date: date)[2])", method: "GET", port: ":81", fun: {
+        ap.getAPI(add: "meal", param: "year=\(getDateData(date: date)[0])&month=\(getDateData(date: date)[3])&day=\(getDateData(date: date)[2])", method: "GET", fun: {
             data, res, err in
             if(err == nil){
                 if res?.statusCode == 200{
@@ -348,7 +348,7 @@ class MealView: UIViewController {
             stanDate = stanDate - TimeInterval(86400)
         }
         
-        UIView.animate(withDuration: TimeInterval(0.35), animations: {
+        UIView.animate(withDuration: TimeInterval(0.25), animations: {
             var count = 0
             for i in self.viewArray{
                 
