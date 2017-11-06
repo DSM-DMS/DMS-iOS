@@ -2728,14 +2728,6 @@
             </objects>
             <point key="canvasLocation" x="12134" y="832"/>
         </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="Srj-Hr-koi">
-            <objects>
-                <viewControllerPlaceholder id="4th-B1-YTk" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PVi-Yh-AaQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2154" y="390"/>
-        </scene>
         <!--Top View-->
         <scene sceneID="yen-AJ-dk4">
             <objects>

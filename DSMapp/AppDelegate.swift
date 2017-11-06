@@ -7,101 +7,11 @@
 //
 
 import UIKit
-import Realm
-import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    var isLogin = false
-    
-    var noticeTitle = "공지사항"
-    
-    var noticeDataArr = [NoticeData]()
-    var noticeData = NoticeData()
-    
-    func logout(){
-        isLogin = false
-        let realm = try! Realm()
-        try! realm.write {
-            realm.deleteAll()
-        }
-    }
-    
-    func saveData(_ id : String, pw : String){
-        let realm = try! Realm()
-        try! realm.write {
-            realm.deleteAll()
-            let loginData = realm.create(LoginData.self)
-            loginData.id = id
-            loginData.password = pw
-            realm.add(loginData)
-        }
-    }
-    
-    func login(id: String,pw: String,save: Bool,viewCon: UIViewController, msgShow : Bool = true){
-        getAPI(add: "account/login/student", param: "id=\(id)&password=\(pw)", method: "POST", fun: {
-            data, res, err in
-            if(err == nil){
-                if(res?.statusCode == 201){
-                    if save{
-                        self.saveData(id, pw: pw)
-                    }
-                    self.isLogin = true
-                    if msgShow{
-                        DispatchQueue.main.async {
-                            viewCon.showToast(message: "로그인 성공")
-                            viewCon.dismiss(animated: true, completion: nil)
-                        }
-                    }
-                }else{
-                    self.isLogin = false
-                    if msgShow{
-                        DispatchQueue.main.async {
-                            viewCon.showToast(message: "로그인 실패")
-                        }
-                    }
-                }
-            }
-        })
-    }
-    
-    func getAPI(add: String, param: String, method: String, port : String = "", fun: @escaping (Any?, HTTPURLResponse?, Error?) -> Void){
-        
-        var request: URLRequest?
-        if(method == "GET" || method == "PUT"){
-            request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com\(port)/\(add)?\(param)")!)
-        }else{
-            request = URLRequest.init(url: URL.init(string: "http://dsm2015.cafe24.com\(port)/\(add)")!)
-            request!.httpBody = param.data(using: .utf8)
-        }
-        
-        request?.httpMethod = method
-        
-        let task = URLSession.shared.dataTask(with: request!){
-            data, res, err in
-            
-            var tempData : Any? = nil
-            
-            if(data != nil){
-                print("data is !!!", String.init(data: data!, encoding: .utf8)!)
-                do{
-                    tempData = try JSONSerialization.jsonObject(with: data!, options: [])
-                }catch{
-                    print("data change error")
-                }
-            }else{
-                print("data is nil")
-            }
-            
-            fun(tempData, res as? HTTPURLResponse, err)
-        }
-        
-        task.resume()
-    }
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
