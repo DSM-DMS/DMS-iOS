@@ -7,25 +7,36 @@ import Foundation
 import UIKit
 
 extension UIViewController{
+    
+    func getClassName(_ num: Int) -> String{
+        let classNameArr = ["가온실", "나온실", "다온실", "라온실", "3층 독서실", "4층 독서실", "열린교실"]
+        return classNameArr[num - 1]
+    }
+    
+    func getStayStateName(_ num: Int) -> String{
+        let stayStateNameArr = ["금요귀가", "토요귀가", "토요귀사", "잔류"]
+        return stayStateNameArr[num - 1]
+    }
 
     func showToast(msg: String){
-
-        let toast = UILabel(frame: CGRect(x: 25, y: view.frame.size.height - 128, width: view.frame.size.width - 50, height: 35))
-        toast.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        let toast = UILabel(frame: CGRect(x: 32, y: 32, width: view.frame.size.width - 64, height: 42))
+        toast.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        toast.textColor = UIColor.white
         toast.text = msg
-        toast.layer.cornerRadius = 16
+        toast.textAlignment = .center
+        toast.layer.cornerRadius = 8
         toast.clipsToBounds = true
         view.addSubview(toast)
 
-        UIView.animate(withDuration: 2.0, delay: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 2.0, delay: 0.3, options: .curveEaseOut, animations: {
             toast.alpha = 0.0
         }, completion: { _ in
             toast.removeFromSuperview()
         })
-
+        
     }
-
-    func connect(add: String, method: String, params: [String:String], fun: @escaping(Data?, Int?) -> Void){
+    
+    func connector(add: String, method: String, params: [String:String], fun: @escaping(Data?, Int) -> Void){
         let url = "http://dsm2015.cafe24.com:3000"
 
         var paramStr = ""
@@ -33,7 +44,9 @@ extension UIViewController{
             paramStr += "\(param.key)=\(param.value)"
             paramStr += "&"
         }
-        paramStr.removeFirst()
+        if !paramStr.isEmpty{
+            paramStr.removeLast()
+        }
 
         var request: URLRequest? = nil
         if method == "GET" || method == "PUT"{
@@ -49,14 +62,21 @@ extension UIViewController{
 
             let httpRes = res as? HTTPURLResponse
 
-            print(data)
-            print(httpRes)
-
-            fun(data, httpRes?.statusCode)
+            DispatchQueue.main.async {
+                if httpRes == nil{
+                    self.showToast(msg: "네트워크 오류!")
+                }else{
+                    fun(data, httpRes!.statusCode)
+                }
+            }
 
         }
         
         task.resume()
+    }
+    
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 
 }

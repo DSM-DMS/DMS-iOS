@@ -8,8 +8,14 @@ import UIKit
 
 class ApplyStudyVC: UIViewController  {
 
+    @IBOutlet weak var contentView: BackViewShape!
+    
     override func viewDidLoad() {
-
+        contentView.backgroundColor = Color.CO6.getColor()
     }
-
+    
+    @IBAction func timeChange(_ sender: UISegmentedControl) {
+        
+    }
+    
 }

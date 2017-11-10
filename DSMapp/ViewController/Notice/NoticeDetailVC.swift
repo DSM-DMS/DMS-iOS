@@ -8,8 +8,12 @@ import UIKit
 
 class NoticeDetailVC: UIViewController {
 
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var sideView: BackViewShape!
+    
     override func viewDidLoad() {
-
+        webView.loadRequest(URLRequest.init(url: URL(string: "http://www.naver.com")!))
+        sideView.backgroundColor = Color.MINT.getColor()
     }
 
 }
