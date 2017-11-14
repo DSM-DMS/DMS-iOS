@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0900"
+   LastUpgradeVersion = "0910"
    wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D00F66941F4488D400BF26D5"
-               BuildableName = "DSMExtension.appex"
-               BlueprintName = "DSMExtension"
+               BlueprintIdentifier = "D04348E81FBAC6D400F2AC62"
+               BuildableName = "MealExtension.appex"
+               BlueprintName = "MealExtension"
                ReferencedContainer = "container:DSMapp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,9 +48,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D00F66941F4488D400BF26D5"
-            BuildableName = "DSMExtension.appex"
-            BlueprintName = "DSMExtension"
+            BlueprintIdentifier = "D04348E81FBAC6D400F2AC62"
+            BuildableName = "MealExtension.appex"
+            BlueprintName = "MealExtension"
             ReferencedContainer = "container:DSMapp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

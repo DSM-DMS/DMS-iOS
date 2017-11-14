@@ -17,10 +17,6 @@
 		67A9B95B2FA470A391ADC2DF /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9BFDF0B136A3683FF8180 /* ChangePasswordVC.swift */; };
 		67A9BBDA668F5A650BE32026 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9BC288625308187D3D71B /* Shape.swift */; };
 		67A9BEBCA15977CE6828FAD4 /* ApplyStayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9BA98F66BDABF1DE88F1E /* ApplyStayVC.swift */; };
-		D00F66971F4488D400BF26D5 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F66961F4488D400BF26D5 /* NotificationCenter.framework */; };
-		D00F669A1F4488D400BF26D5 /* TodayMealVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F66991F4488D400BF26D5 /* TodayMealVC.swift */; };
-		D00F669D1F4488D400BF26D5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00F669B1F4488D400BF26D5 /* MainInterface.storyboard */; };
-		D00F66A11F4488D400BF26D5 /* DSMExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D00F66951F4488D400BF26D5 /* DSMExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D018EBC81FB9404000C923C7 /* SurveyBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EBC71FB9404000C923C7 /* SurveyBaseVC.swift */; };
 		D018EBCA1FB9405A00C923C7 /* SurveyObVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EBC91FB9405A00C923C7 /* SurveyObVC.swift */; };
 		D018EBCC1FB9406D00C923C7 /* SurveyNObVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EBCB1FB9406D00C923C7 /* SurveyNObVC.swift */; };
@@ -33,6 +29,10 @@
 		D04348DC1FBA779E00F2AC62 /* surveyIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D04348D91FBA779B00F2AC62 /* surveyIcon@3x.png */; };
 		D04348DD1FBA779E00F2AC62 /* surveyIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D04348DA1FBA779C00F2AC62 /* surveyIcon.png */; };
 		D04348DE1FBA779E00F2AC62 /* surveyIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D04348DB1FBA779D00F2AC62 /* surveyIcon@2x.png */; };
+		D04348EA1FBAC6D400F2AC62 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F66961F4488D400BF26D5 /* NotificationCenter.framework */; };
+		D04348ED1FBAC6D400F2AC62 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04348EC1FBAC6D400F2AC62 /* TodayViewController.swift */; };
+		D04348F01FBAC6D400F2AC62 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D04348EE1FBAC6D400F2AC62 /* MainInterface.storyboard */; };
+		D04348F41FBAC6D400F2AC62 /* MealExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D04348E91FBAC6D400F2AC62 /* MealExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D0473CFC1FB1F951002E3FE4 /* Apply.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0473CFB1FB1F951002E3FE4 /* Apply.storyboard */; };
 		D0473CFE1FB1FD43002E3FE4 /* ApplyMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0473CFD1FB1FD43002E3FE4 /* ApplyMainVC.swift */; };
 		D0473D031FB2BF1E002E3FE4 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0473D021FB2BF1E002E3FE4 /* MyPage.storyboard */; };
@@ -137,12 +137,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D00F669F1F4488D400BF26D5 /* PBXContainerItemProxy */ = {
+		D04348F21FBAC6D400F2AC62 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D0538AB81ECB007C00C47F86 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D00F66941F4488D400BF26D5;
-			remoteInfo = DSMExtension;
+			remoteGlobalIDString = D04348E81FBAC6D400F2AC62;
+			remoteInfo = MealExtension;
 		};
 		D0538AD51ECB007C00C47F86 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -160,7 +160,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D00F66A11F4488D400BF26D5 /* DSMExtension.appex in Embed App Extensions */,
+				D04348F41FBAC6D400F2AC62 /* MealExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,11 +188,7 @@
 		67A9BE519339742B7CABFF3E /* NoticeListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeListVC.swift; sourceTree = "<group>"; };
 		67A9BED3BCBD25404EC42567 /* NoticeMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeMainVC.swift; sourceTree = "<group>"; };
 		67A9BFDF0B136A3683FF8180 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
-		D00F66951F4488D400BF26D5 /* DSMExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DSMExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00F66961F4488D400BF26D5 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		D00F66991F4488D400BF26D5 /* TodayMealVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMealVC.swift; sourceTree = "<group>"; };
-		D00F669C1F4488D400BF26D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		D00F669E1F4488D400BF26D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D018EBC71FB9404000C923C7 /* SurveyBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyBaseVC.swift; sourceTree = "<group>"; };
 		D018EBC91FB9405A00C923C7 /* SurveyObVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyObVC.swift; sourceTree = "<group>"; };
 		D018EBCB1FB9406D00C923C7 /* SurveyNObVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyNObVC.swift; sourceTree = "<group>"; };
@@ -205,6 +201,10 @@
 		D04348D91FBA779B00F2AC62 /* surveyIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surveyIcon@3x.png"; sourceTree = "<group>"; };
 		D04348DA1FBA779C00F2AC62 /* surveyIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surveyIcon.png; sourceTree = "<group>"; };
 		D04348DB1FBA779D00F2AC62 /* surveyIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surveyIcon@2x.png"; sourceTree = "<group>"; };
+		D04348E91FBAC6D400F2AC62 /* MealExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MealExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D04348EC1FBAC6D400F2AC62 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D04348EF1FBAC6D400F2AC62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D04348F11FBAC6D400F2AC62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0473CFB1FB1F951002E3FE4 /* Apply.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Apply.storyboard; sourceTree = "<group>"; };
 		D0473CFD1FB1FD43002E3FE4 /* ApplyMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyMainVC.swift; sourceTree = "<group>"; };
 		D0473D021FB2BF1E002E3FE4 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
@@ -313,11 +313,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D00F66921F4488D400BF26D5 /* Frameworks */ = {
+		D04348E61FBAC6D400F2AC62 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D00F66971F4488D400BF26D5 /* NotificationCenter.framework in Frameworks */,
+				D04348EA1FBAC6D400F2AC62 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,14 +406,14 @@
 			path = Notice;
 			sourceTree = "<group>";
 		};
-		D00F66981F4488D400BF26D5 /* DSMExtension */ = {
+		D04348EB1FBAC6D400F2AC62 /* MealExtension */ = {
 			isa = PBXGroup;
 			children = (
-				D00F66991F4488D400BF26D5 /* TodayMealVC.swift */,
-				D00F669B1F4488D400BF26D5 /* MainInterface.storyboard */,
-				D00F669E1F4488D400BF26D5 /* Info.plist */,
+				D04348EC1FBAC6D400F2AC62 /* TodayViewController.swift */,
+				D04348EE1FBAC6D400F2AC62 /* MainInterface.storyboard */,
+				D04348F11FBAC6D400F2AC62 /* Info.plist */,
 			);
-			path = DSMExtension;
+			path = MealExtension;
 			sourceTree = "<group>";
 		};
 		D0473D041FB33CD8002E3FE4 /* MyPage */ = {
@@ -459,7 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				D0538AC21ECB007C00C47F86 /* DSMapp */,
-				D00F66981F4488D400BF26D5 /* DSMExtension */,
+				D04348EB1FBAC6D400F2AC62 /* MealExtension */,
 				D0538AC11ECB007C00C47F86 /* Products */,
 				D0538AD71ECB007C00C47F86 /* DSMappTests */,
 				D04C10201ED17C4900C5AE5B /* Frameworks */,
@@ -471,7 +471,7 @@
 			children = (
 				D0538AC01ECB007C00C47F86 /* DSMapp.app */,
 				D0538AD41ECB007C00C47F86 /* DSMappTests.xctest */,
-				D00F66951F4488D400BF26D5 /* DSMExtension.appex */,
+				D04348E91FBAC6D400F2AC62 /* MealExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -647,21 +647,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D00F66941F4488D400BF26D5 /* DSMExtension */ = {
+		D04348E81FBAC6D400F2AC62 /* MealExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D00F66A41F4488D400BF26D5 /* Build configuration list for PBXNativeTarget "DSMExtension" */;
+			buildConfigurationList = D04348F51FBAC6D400F2AC62 /* Build configuration list for PBXNativeTarget "MealExtension" */;
 			buildPhases = (
-				D00F66911F4488D400BF26D5 /* Sources */,
-				D00F66921F4488D400BF26D5 /* Frameworks */,
-				D00F66931F4488D400BF26D5 /* Resources */,
+				D04348E51FBAC6D400F2AC62 /* Sources */,
+				D04348E61FBAC6D400F2AC62 /* Frameworks */,
+				D04348E71FBAC6D400F2AC62 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = DSMExtension;
-			productName = DSMExtension;
-			productReference = D00F66951F4488D400BF26D5 /* DSMExtension.appex */;
+			name = MealExtension;
+			productName = MealExtension;
+			productReference = D04348E91FBAC6D400F2AC62 /* MealExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		D0538ABF1ECB007C00C47F86 /* DSMapp */ = {
@@ -678,7 +678,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D00F66A01F4488D400BF26D5 /* PBXTargetDependency */,
+				D04348F31FBAC6D400F2AC62 /* PBXTargetDependency */,
 			);
 			name = DSMapp;
 			productName = DSMapp;
@@ -709,14 +709,13 @@
 		D0538AB81ECB007C00C47F86 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "이병찬";
 				TargetAttributes = {
-					D00F66941F4488D400BF26D5 = {
-						CreatedOnToolsVersion = 8.3.3;
+					D04348E81FBAC6D400F2AC62 = {
+						CreatedOnToolsVersion = 9.1;
 						DevelopmentTeam = W3868KR87Z;
-						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					D0538ABF1ECB007C00C47F86 = {
@@ -749,17 +748,17 @@
 			targets = (
 				D0538ABF1ECB007C00C47F86 /* DSMapp */,
 				D0538AD31ECB007C00C47F86 /* DSMappTests */,
-				D00F66941F4488D400BF26D5 /* DSMExtension */,
+				D04348E81FBAC6D400F2AC62 /* MealExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D00F66931F4488D400BF26D5 /* Resources */ = {
+		D04348E71FBAC6D400F2AC62 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D00F669D1F4488D400BF26D5 /* MainInterface.storyboard in Resources */,
+				D04348F01FBAC6D400F2AC62 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -889,11 +888,11 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D00F66911F4488D400BF26D5 /* Sources */ = {
+		D04348E51FBAC6D400F2AC62 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D00F669A1F4488D400BF26D5 /* TodayMealVC.swift in Sources */,
+				D04348ED1FBAC6D400F2AC62 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,10 +943,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D00F66A01F4488D400BF26D5 /* PBXTargetDependency */ = {
+		D04348F31FBAC6D400F2AC62 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D00F66941F4488D400BF26D5 /* DSMExtension */;
-			targetProxy = D00F669F1F4488D400BF26D5 /* PBXContainerItemProxy */;
+			target = D04348E81FBAC6D400F2AC62 /* MealExtension */;
+			targetProxy = D04348F21FBAC6D400F2AC62 /* PBXContainerItemProxy */;
 		};
 		D0538AD61ECB007C00C47F86 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -957,10 +956,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D00F669B1F4488D400BF26D5 /* MainInterface.storyboard */ = {
+		D04348EE1FBAC6D400F2AC62 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D00F669C1F4488D400BF26D5 /* Base */,
+				D04348EF1FBAC6D400F2AC62 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -984,31 +983,43 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D00F66A21F4488D400BF26D5 /* Debug */ = {
+		D04348F61FBAC6D400F2AC62 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W3868KR87Z;
-				INFOPLIST_FILE = DSMExtension/Info.plist;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MealExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp.DSMExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp.MealExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		D00F66A31F4488D400BF26D5 /* Release */ = {
+		D04348F71FBAC6D400F2AC62 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W3868KR87Z;
-				INFOPLIST_FILE = DSMExtension/Info.plist;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MealExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp.DSMExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp.MealExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1125,9 +1136,10 @@
 		D0538ADE1ECB007C00C47F86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = W3868KR87Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1135,7 +1147,7 @@
 					"$(PROJECT_DIR)/DSMapp",
 				);
 				INFOPLIST_FILE = DSMapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1145,16 +1157,17 @@
 				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		D0538ADF1ECB007C00C47F86 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = W3868KR87Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1162,7 +1175,7 @@
 					"$(PROJECT_DIR)/DSMapp",
 				);
 				INFOPLIST_FILE = DSMapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1171,7 +1184,7 @@
 				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1210,11 +1223,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D00F66A41F4488D400BF26D5 /* Build configuration list for PBXNativeTarget "DSMExtension" */ = {
+		D04348F51FBAC6D400F2AC62 /* Build configuration list for PBXNativeTarget "MealExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D00F66A21F4488D400BF26D5 /* Debug */,
-				D00F66A31F4488D400BF26D5 /* Release */,
+				D04348F61FBAC6D400F2AC62 /* Debug */,
+				D04348F71FBAC6D400F2AC62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

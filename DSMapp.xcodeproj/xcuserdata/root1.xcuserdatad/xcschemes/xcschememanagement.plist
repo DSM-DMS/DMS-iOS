@@ -4,15 +4,19 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>DSMExtension.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 		<key>DSMapp.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
+		</dict>
+		<key>MealExtension.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -20,17 +24,22 @@
 		<key>D00F66941F4488D400BF26D5</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
+		</dict>
+		<key>D04348E81FBAC6D400F2AC62</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 		<key>D0538ABF1ECB007C00C47F86</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 		<key>D0538AD31ECB007C00C47F86</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 	</dict>
 </dict>
