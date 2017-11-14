@@ -19,13 +19,14 @@ extension UIViewController{
     }
 
     func showToast(msg: String){
-        let toast = UILabel(frame: CGRect(x: 32, y: 32, width: view.frame.size.width - 64, height: 42))
+        let toast = UILabel(frame: CGRect(x: 32, y: 128, width: view.frame.size.width - 64, height: 42))
         toast.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         toast.textColor = UIColor.white
         toast.text = msg
         toast.textAlignment = .center
         toast.layer.cornerRadius = 8
         toast.clipsToBounds = true
+        toast.autoresizingMask = [.flexibleTopMargin, .flexibleHeight, .flexibleWidth]
         view.addSubview(toast)
 
         UIView.animate(withDuration: 2.0, delay: 0.3, options: .curveEaseOut, animations: {
@@ -34,6 +35,11 @@ extension UIViewController{
             toast.removeFromSuperview()
         })
         
+    }
+    
+    func goNextViewController(_ id: String){
+        let vc = storyboard?.instantiateViewController(withIdentifier: id)
+        present(vc!, animated: true, completion: nil)
     }
     
     func connector(add: String, method: String, params: [String:String], fun: @escaping(Data?, Int) -> Void){
@@ -55,6 +61,11 @@ extension UIViewController{
             request = URLRequest(url: URL(string: url + add)!)
             request?.httpBody = paramStr.data(using: .utf8)
         }
+        
+        if let token = getToken(){
+            request?.addValue("JWT \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
         request?.httpMethod = method
 
         let task = URLSession.shared.dataTask(with: request!){
@@ -78,7 +89,26 @@ extension UIViewController{
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-
+    
+    func saveToken(_ token: String){
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(token, forKey: "token")
+    }
+    
+    func removeToken(){
+        let userDefaults = UserDefaults.standard
+        userDefaults.removeObject(forKey: "token")
+    }
+    
+    func getToken() -> String?{
+        let userDefaults = UserDefaults.standard
+        return userDefaults.string(forKey: "token")
+    }
+    
+    func back(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 enum Color{

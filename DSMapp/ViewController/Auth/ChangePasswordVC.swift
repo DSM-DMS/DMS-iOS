@@ -9,7 +9,11 @@ import UIKit
 class ChangePasswordVC: UIViewController{
 
     override func viewDidLoad() {
-
+        
     }
-
+    
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

@@ -34,6 +34,7 @@
                         <segue destination="Jwx-hp-3yt" kind="relationship" relationship="viewControllers" id="Vrb-21-p8s"/>
                         <segue destination="hnN-pW-YLh" kind="relationship" relationship="viewControllers" id="qjk-fq-itD"/>
                         <segue destination="DPJ-rE-hlm" kind="relationship" relationship="viewControllers" id="D7p-uM-l4R"/>
+                        <segue destination="cdj-ls-fHW" kind="relationship" relationship="viewControllers" id="mu3-c1-FO1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJe-Sx-26Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -69,6 +70,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZP-Ng-aKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992" y="725"/>
+        </scene>
+        <!--Auth-->
+        <scene sceneID="8L1-Vl-16o">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Auth" id="cdj-ls-fHW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="5Xw-bD-JOx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oUw-wM-gPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="957" y="861"/>
         </scene>
         <!--Ask Info Content Edit View-->
         <scene sceneID="bp1-Te-NIs">

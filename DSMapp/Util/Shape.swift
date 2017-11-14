@@ -56,7 +56,7 @@ class NavigationShape: UINavigationController {
         navigationBar.barTintColor = Color.CO6.getColor()
         navigationBar.backItem?.titleView?.tintColor = UIColor.white
     }
-    
+
 }
 
 class BackApplyContentView: UIView{
@@ -75,6 +75,17 @@ class TabShape: UITabBarController {
         tabBar.barTintColor = Color.CO4.getColor()
         tabBar.tintColor = UIColor.white
         tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.7)
+    }
+    
+}
+
+class NavigationItempShape: UINavigationItem{
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        
+        
     }
     
 }

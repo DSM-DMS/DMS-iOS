@@ -18,10 +18,21 @@
 		67A9BBDA668F5A650BE32026 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9BC288625308187D3D71B /* Shape.swift */; };
 		67A9BEBCA15977CE6828FAD4 /* ApplyStayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9BA98F66BDABF1DE88F1E /* ApplyStayVC.swift */; };
 		D00F66971F4488D400BF26D5 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F66961F4488D400BF26D5 /* NotificationCenter.framework */; };
-		D00F669A1F4488D400BF26D5 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F66991F4488D400BF26D5 /* TodayViewController.swift */; };
+		D00F669A1F4488D400BF26D5 /* TodayMealVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F66991F4488D400BF26D5 /* TodayMealVC.swift */; };
 		D00F669D1F4488D400BF26D5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00F669B1F4488D400BF26D5 /* MainInterface.storyboard */; };
 		D00F66A11F4488D400BF26D5 /* DSMExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D00F66951F4488D400BF26D5 /* DSMExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D018EBC81FB9404000C923C7 /* SurveyBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EBC71FB9404000C923C7 /* SurveyBaseVC.swift */; };
+		D018EBCA1FB9405A00C923C7 /* SurveyObVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EBC91FB9405A00C923C7 /* SurveyObVC.swift */; };
+		D018EBCC1FB9406D00C923C7 /* SurveyNObVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EBCB1FB9406D00C923C7 /* SurveyNObVC.swift */; };
+		D018EBCE1FB9591E00C923C7 /* SurveyContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EBCD1FB9591E00C923C7 /* SurveyContentVC.swift */; };
 		D02B64151FB0A80F0065AC2D /* MealContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02B64141FB0A80F0065AC2D /* MealContentVC.swift */; };
+		D0341A0B1FB6DDFC00B50CE2 /* SurveyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0341A0A1FB6DDFC00B50CE2 /* SurveyListModel.swift */; };
+		D0341A0D1FB70C1A00B50CE2 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0341A0C1FB70C1A00B50CE2 /* AuthModel.swift */; };
+		D0341A0F1FB740C900B50CE2 /* NoticeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0341A0E1FB740C900B50CE2 /* NoticeListModel.swift */; };
+		D04348D21FB9D7C600F2AC62 /* NoticeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04348D11FB9D7C600F2AC62 /* NoticeDetailModel.swift */; };
+		D04348DC1FBA779E00F2AC62 /* surveyIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D04348D91FBA779B00F2AC62 /* surveyIcon@3x.png */; };
+		D04348DD1FBA779E00F2AC62 /* surveyIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D04348DA1FBA779C00F2AC62 /* surveyIcon.png */; };
+		D04348DE1FBA779E00F2AC62 /* surveyIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D04348DB1FBA779D00F2AC62 /* surveyIcon@2x.png */; };
 		D0473CFC1FB1F951002E3FE4 /* Apply.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0473CFB1FB1F951002E3FE4 /* Apply.storyboard */; };
 		D0473CFE1FB1FD43002E3FE4 /* ApplyMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0473CFD1FB1FD43002E3FE4 /* ApplyMainVC.swift */; };
 		D0473D031FB2BF1E002E3FE4 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0473D021FB2BF1E002E3FE4 /* MyPage.storyboard */; };
@@ -36,6 +47,7 @@
 		D0538ACB1ECB007C00C47F86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0538ACA1ECB007C00C47F86 /* Assets.xcassets */; };
 		D0538ACE1ECB007C00C47F86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0538ACC1ECB007C00C47F86 /* LaunchScreen.storyboard */; };
 		D0538AD91ECB007C00C47F86 /* DSMappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0538AD81ECB007C00C47F86 /* DSMappTests.swift */; };
+		D07CFF631FB6CD6A00CB0717 /* SurveyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07CFF621FB6CD6A00CB0717 /* SurveyListVC.swift */; };
 		D09F32451F793B13006A936C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D06BBF811F79016900DD17DA /* Main.storyboard */; };
 		D0D985D01FB1813300CE9FD4 /* noticeListDetailBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D985C01FB1812900CE9FD4 /* noticeListDetailBackground.png */; };
 		D0D985D11FB1813300CE9FD4 /* signInBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D985C11FB1812900CE9FD4 /* signInBackground@2x.png */; };
@@ -119,6 +131,8 @@
 		D0D986651FB1821D00CE9FD4 /* mealIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D986591FB1821C00CE9FD4 /* mealIcon@3x.png */; };
 		D0D986661FB1821D00CE9FD4 /* mealIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D9865A1FB1821D00CE9FD4 /* mealIcon.png */; };
 		D0D986671FB1821D00CE9FD4 /* applyIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D9865B1FB1821D00CE9FD4 /* applyIcon@2x.png */; };
+		D0DF858E1FB8853B0065B2C6 /* StayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DF858D1FB8853B0065B2C6 /* StayModel.swift */; };
+		D0DF85901FB8866D0065B2C6 /* SurveyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DF858F1FB8866D0065B2C6 /* SurveyModel.swift */; };
 		D0EFAF8C1FB1BF4B0064D329 /* FacilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EFAF8B1FB1BF4B0064D329 /* FacilityVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -176,10 +190,21 @@
 		67A9BFDF0B136A3683FF8180 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		D00F66951F4488D400BF26D5 /* DSMExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DSMExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00F66961F4488D400BF26D5 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		D00F66991F4488D400BF26D5 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D00F66991F4488D400BF26D5 /* TodayMealVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMealVC.swift; sourceTree = "<group>"; };
 		D00F669C1F4488D400BF26D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		D00F669E1F4488D400BF26D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D018EBC71FB9404000C923C7 /* SurveyBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyBaseVC.swift; sourceTree = "<group>"; };
+		D018EBC91FB9405A00C923C7 /* SurveyObVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyObVC.swift; sourceTree = "<group>"; };
+		D018EBCB1FB9406D00C923C7 /* SurveyNObVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyNObVC.swift; sourceTree = "<group>"; };
+		D018EBCD1FB9591E00C923C7 /* SurveyContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyContentVC.swift; sourceTree = "<group>"; };
 		D02B64141FB0A80F0065AC2D /* MealContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealContentVC.swift; sourceTree = "<group>"; };
+		D0341A0A1FB6DDFC00B50CE2 /* SurveyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListModel.swift; sourceTree = "<group>"; };
+		D0341A0C1FB70C1A00B50CE2 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		D0341A0E1FB740C900B50CE2 /* NoticeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeListModel.swift; sourceTree = "<group>"; };
+		D04348D11FB9D7C600F2AC62 /* NoticeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailModel.swift; sourceTree = "<group>"; };
+		D04348D91FBA779B00F2AC62 /* surveyIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surveyIcon@3x.png"; sourceTree = "<group>"; };
+		D04348DA1FBA779C00F2AC62 /* surveyIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surveyIcon.png; sourceTree = "<group>"; };
+		D04348DB1FBA779D00F2AC62 /* surveyIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surveyIcon@2x.png"; sourceTree = "<group>"; };
 		D0473CFB1FB1F951002E3FE4 /* Apply.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Apply.storyboard; sourceTree = "<group>"; };
 		D0473CFD1FB1FD43002E3FE4 /* ApplyMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyMainVC.swift; sourceTree = "<group>"; };
 		D0473D021FB2BF1E002E3FE4 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
@@ -199,6 +224,7 @@
 		D0538AD81ECB007C00C47F86 /* DSMappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSMappTests.swift; sourceTree = "<group>"; };
 		D0538ADA1ECB007C00C47F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D06BBF821F79016900DD17DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D07CFF621FB6CD6A00CB0717 /* SurveyListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListVC.swift; sourceTree = "<group>"; };
 		D0D985C01FB1812900CE9FD4 /* noticeListDetailBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noticeListDetailBackground.png; sourceTree = "<group>"; };
 		D0D985C11FB1812900CE9FD4 /* signInBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signInBackground@2x.png"; sourceTree = "<group>"; };
 		D0D985C21FB1812A00CE9FD4 /* signUpBackground@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signUpBackground@3x.png"; sourceTree = "<group>"; };
@@ -281,6 +307,8 @@
 		D0D986591FB1821C00CE9FD4 /* mealIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mealIcon@3x.png"; sourceTree = "<group>"; };
 		D0D9865A1FB1821D00CE9FD4 /* mealIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mealIcon.png; sourceTree = "<group>"; };
 		D0D9865B1FB1821D00CE9FD4 /* applyIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "applyIcon@2x.png"; sourceTree = "<group>"; };
+		D0DF858D1FB8853B0065B2C6 /* StayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StayModel.swift; sourceTree = "<group>"; };
+		D0DF858F1FB8866D0065B2C6 /* SurveyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyModel.swift; sourceTree = "<group>"; };
 		D0EFAF8B1FB1BF4B0064D329 /* FacilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -315,6 +343,12 @@
 			children = (
 				D0473D071FB34D48002E3FE4 /* MyPageModel.swift */,
 				D0473D091FB34EEA002E3FE4 /* MealModel.swift */,
+				D0341A0A1FB6DDFC00B50CE2 /* SurveyListModel.swift */,
+				D0341A0C1FB70C1A00B50CE2 /* AuthModel.swift */,
+				D0341A0E1FB740C900B50CE2 /* NoticeListModel.swift */,
+				D0DF858D1FB8853B0065B2C6 /* StayModel.swift */,
+				D0DF858F1FB8866D0065B2C6 /* SurveyModel.swift */,
+				D04348D11FB9D7C600F2AC62 /* NoticeDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -348,22 +382,15 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		67A9BBF2C39652F092C6885C /* AskInfo */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AskInfo;
-			sourceTree = "<group>";
-		};
 		67A9BE739B71CF4E6D0404C3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D07CFF611FB6CD4400CB0717 /* Survey */,
 				D0473D041FB33CD8002E3FE4 /* MyPage */,
 				D04D8A411FB03A4A004DA5FD /* Meal */,
 				67A9BB0862F9A6BF4E695F6B /* Auth */,
 				67A9B898EEE7547FEE93E07B /* Apply */,
 				67A9BF29051B84BF5B824B84 /* Notice */,
-				67A9BBF2C39652F092C6885C /* AskInfo */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -382,7 +409,7 @@
 		D00F66981F4488D400BF26D5 /* DSMExtension */ = {
 			isa = PBXGroup;
 			children = (
-				D00F66991F4488D400BF26D5 /* TodayViewController.swift */,
+				D00F66991F4488D400BF26D5 /* TodayMealVC.swift */,
 				D00F669B1F4488D400BF26D5 /* MainInterface.storyboard */,
 				D00F669E1F4488D400BF26D5 /* Info.plist */,
 			);
@@ -473,6 +500,18 @@
 			path = DSMappTests;
 			sourceTree = SOURCE_ROOT;
 		};
+		D07CFF611FB6CD4400CB0717 /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				D07CFF621FB6CD6A00CB0717 /* SurveyListVC.swift */,
+				D018EBC71FB9404000C923C7 /* SurveyBaseVC.swift */,
+				D018EBC91FB9405A00C923C7 /* SurveyObVC.swift */,
+				D018EBCB1FB9406D00C923C7 /* SurveyNObVC.swift */,
+				D018EBCD1FB9591E00C923C7 /* SurveyContentVC.swift */,
+			);
+			path = Survey;
+			sourceTree = "<group>";
+		};
 		D0D985BE1FB180D500CE9FD4 /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +550,9 @@
 		D0D985E01FB1815E00CE9FD4 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				D04348DA1FBA779C00F2AC62 /* surveyIcon.png */,
+				D04348DB1FBA779D00F2AC62 /* surveyIcon@2x.png */,
+				D04348D91FBA779B00F2AC62 /* surveyIcon@3x.png */,
 				D0D985E11FB1816E00CE9FD4 /* applyOutIcon.png */,
 				D0D985F51FB1817F00CE9FD4 /* applyOutIcon@2x.png */,
 				D0D985EA1FB1817500CE9FD4 /* applyOutIcon@3x.png */,
@@ -674,17 +716,19 @@
 					D00F66941F4488D400BF26D5 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = W3868KR87Z;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					D0538ABF1ECB007C00C47F86 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = W3868KR87Z;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					D0538AD31ECB007C00C47F86 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = W3868KR87Z;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D0538ABF1ECB007C00C47F86;
 					};
@@ -763,12 +807,14 @@
 				D0D986341FB181E200CE9FD4 /* ruleIcon@3x.png in Resources */,
 				D0D985D21FB1813300CE9FD4 /* signUpBackground@3x.png in Resources */,
 				D0D985D01FB1813300CE9FD4 /* noticeListDetailBackground.png in Resources */,
+				D04348DD1FBA779E00F2AC62 /* surveyIcon.png in Resources */,
 				D0D985DD1FB1813300CE9FD4 /* myPageBackground.png in Resources */,
 				D04D8A401FB03694004DA5FD /* Auth.storyboard in Resources */,
 				D0538ACE1ECB007C00C47F86 /* LaunchScreen.storyboard in Resources */,
 				D0D985FE1FB1817F00CE9FD4 /* myStayIcon@2x.png in Resources */,
 				D0D985FA1FB1817F00CE9FD4 /* applyStudyIcon.png in Resources */,
 				D0D9860A1FB1817F00CE9FD4 /* applyOutIcon@2x.png in Resources */,
+				D04348DC1FBA779E00F2AC62 /* surveyIcon@3x.png in Resources */,
 				D0D986051FB1817F00CE9FD4 /* signUpIcon@2x.png in Resources */,
 				D0D986651FB1821D00CE9FD4 /* mealIcon@3x.png in Resources */,
 				D0D986331FB181E200CE9FD4 /* questionIcon@3x.png in Resources */,
@@ -801,6 +847,7 @@
 				D0D986271FB181E200CE9FD4 /* monster2@3x.png in Resources */,
 				D0D985D51FB1813300CE9FD4 /* signUpBackground@2x.png in Resources */,
 				D0D985FD1FB1817F00CE9FD4 /* changePasswordIcon@2x.png in Resources */,
+				D04348DE1FBA779E00F2AC62 /* surveyIcon@2x.png in Resources */,
 				D0D985D81FB1813300CE9FD4 /* applyBackground@2x.png in Resources */,
 				D0D9864B1FB1820400CE9FD4 /* seatSelect@2x.png in Resources */,
 				D0D986001FB1817F00CE9FD4 /* applyStudyIcon@2x.png in Resources */,
@@ -846,7 +893,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D00F669A1F4488D400BF26D5 /* TodayViewController.swift in Sources */,
+				D00F669A1F4488D400BF26D5 /* TodayMealVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -856,22 +903,33 @@
 			files = (
 				D0473CFE1FB1FD43002E3FE4 /* ApplyMainVC.swift in Sources */,
 				D0538AC41ECB007C00C47F86 /* AppDelegate.swift in Sources */,
+				D0341A0D1FB70C1A00B50CE2 /* AuthModel.swift in Sources */,
 				67A9B137FA18D4D6299E5CE0 /* Base.swift in Sources */,
 				67A9BBDA668F5A650BE32026 /* Shape.swift in Sources */,
 				67A9B95B2FA470A391ADC2DF /* ChangePasswordVC.swift in Sources */,
 				D0473D061FB33CF0002E3FE4 /* MyPageVC.swift in Sources */,
+				D018EBCC1FB9406D00C923C7 /* SurveyNObVC.swift in Sources */,
 				67A9B175B8C1550CA4040278 /* SignInVC.swift in Sources */,
 				67A9B5B875AFD0C769CB229E /* SignUpVC.swift in Sources */,
 				67A9B57F5DB6364E16D00137 /* ApplyStudyVC.swift in Sources */,
 				67A9BEBCA15977CE6828FAD4 /* ApplyStayVC.swift in Sources */,
 				D04D8A431FB03A67004DA5FD /* MealVC.swift in Sources */,
+				D07CFF631FB6CD6A00CB0717 /* SurveyListVC.swift in Sources */,
+				D018EBCE1FB9591E00C923C7 /* SurveyContentVC.swift in Sources */,
 				67A9B0350C4802CBF0550340 /* NoticeMainVC.swift in Sources */,
 				D0EFAF8C1FB1BF4B0064D329 /* FacilityVC.swift in Sources */,
+				D018EBCA1FB9405A00C923C7 /* SurveyObVC.swift in Sources */,
 				D0473D081FB34D48002E3FE4 /* MyPageModel.swift in Sources */,
+				D0341A0B1FB6DDFC00B50CE2 /* SurveyListModel.swift in Sources */,
+				D0341A0F1FB740C900B50CE2 /* NoticeListModel.swift in Sources */,
 				D02B64151FB0A80F0065AC2D /* MealContentVC.swift in Sources */,
+				D04348D21FB9D7C600F2AC62 /* NoticeDetailModel.swift in Sources */,
+				D0DF85901FB8866D0065B2C6 /* SurveyModel.swift in Sources */,
+				D0DF858E1FB8853B0065B2C6 /* StayModel.swift in Sources */,
 				67A9B7AA5DFA7F3D0D3210AA /* NoticeListVC.swift in Sources */,
 				D0473D0A1FB34EEA002E3FE4 /* MealModel.swift in Sources */,
 				67A9B8511B9CDDE734B7418B /* NoticeDetailVC.swift in Sources */,
+				D018EBC81FB9404000C923C7 /* SurveyBaseVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,7 +993,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp.DSMExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -948,7 +1007,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp.DSMExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1083,7 +1143,8 @@
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_REFLECTION_METADATA_LEVEL = none;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1108,7 +1169,8 @@
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_REFLECTION_METADATA_LEVEL = none;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1123,7 +1185,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMappTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSMapp.app/DSMapp";
 			};
 			name = Debug;
@@ -1138,7 +1201,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMappTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSMapp.app/DSMapp";
 			};
 			name = Release;

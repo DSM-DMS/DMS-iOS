@@ -59,12 +59,16 @@ class ApplyMainVC: UIViewController{
         loadData()
     }
     
-    func addAction(_ button: UIButton){
+    @objc func addAction(_ button: UIButton){
         let id = getIdToButton(button)
 
         UIView.animate(withDuration: 0.3, animations: {
             if id == self.currentUpId{
-                
+                if id == 2{
+                    self.applyOut()
+                }else{
+                    self.goApplyView(id)
+                }
             }else{
                 if self.currentUpId > -1{
                     self.heightArr[self.currentUpId].constant -= 123
@@ -77,6 +81,30 @@ class ApplyMainVC: UIViewController{
         })
         
         currentUpId = id
+    }
+    
+    func goApplyView(_ idNum: Int){
+        if getToken() != nil{
+            let vcIdArr = ["ApplyStudyView", "ApplyStayView", "", "SurveyView"]
+            goNextViewController(vcIdArr[idNum])
+        }else{
+            showToast(msg: "로그인을 하세요.")
+        }
+    }
+    
+    func applyOut(){
+        if getToken() != nil{
+            connector(add: "/goingout", method: "POST", params: ["sat":"\(applyOutSatSwitch.isOn)", "sun":"\(applyOutSunSwitch.isOn)"], fun: {
+                _, code in
+                if code == 201{
+                    self.showToast(msg: "신청 성공")
+                }else{
+                    self.showToast(msg: "신청 실패 : \(code)")
+                }
+            })
+        }else{
+            showToast(msg: "로그인을 하세요.")
+        }
     }
     
     func getIdToButton(_ button: UIButton) -> Int{
@@ -97,7 +125,7 @@ class ApplyMainVC: UIViewController{
                 let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
                 
                 if decoderData.extension_class == nil{
-                    self.applyStudyLabel.text = "신청하지 않습니다."
+                    self.applyStudyLabel.text = "신청이 없습니다."
                 }else{
                     self.applyStudyLabel.text = "신청: \(self.getClassName(decoderData.extension_class!))-\(decoderData.extension_seat!)"
                 }
@@ -105,17 +133,13 @@ class ApplyMainVC: UIViewController{
                 self.applyOutSatSwitch.setOn(decoderData.goingout_sat, animated: true)
                 self.applyOutSunSwitch.setOn(decoderData.goingout_sun, animated: true)
                 
-            case 204:
+            case 204, 401:
                 self.showToast(msg: "로그인이 필요합니다.")
             default:
-                self.showToast(msg: "오류가 발생했습니다. : \(code)")
+                self.showToast(msg: "오류 : \(code)")
             }
             
         })
-    }
-    
-    func goApply(){
-        
     }
 
 }

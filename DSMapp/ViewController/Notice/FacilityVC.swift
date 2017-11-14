@@ -30,7 +30,7 @@ class FacilityVC: UIViewController {
         
     }
     
-    func addAction(_ button: UIButton){
+    @objc func addAction(_ button: UIButton){
         if button == sendButton{
             
         }

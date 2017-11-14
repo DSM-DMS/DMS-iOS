@@ -48,7 +48,7 @@ class MealContentVC: UIViewController {
                 self.lunchTextView.text = "급식이 없습니다."
                 self.dinnerTextView.text = "급식이 없습니다."
             default:
-                self.showToast(msg: "오류가 발생했습니다. : \(code)")
+                self.showToast(msg: "오류 : \(code)")
             }
         })
     }

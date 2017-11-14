@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8e953071-affa-4b68-97e2-582620838e67" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DSMapp/Model/AuthModel.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DSMapp/Model/NoticeListModel.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DSMapp/Model/SurveyListModel.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DSMapp/ViewController/Survey/SurveyListVC.swift" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CryptoSwift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/ApplyAfterContent.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/ApplyAfterSchoolInfo.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/ApplyAfterStudy.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/ApplyStayView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/ApplyStudyView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/ApplyView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/AskInfoContentEditView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/AskInfoContentSelectView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/AskInfoListView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/AskInfoView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/ChangePasswordView.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/ChangePasswordView.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/ChangePasswordView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/DataBaseClass.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/FacilityView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/LoginView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/MealView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/MyPageView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/MyViewCell.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/NoticeDetailView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/NoticeListCell.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/NoticeListView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/NoticeView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/037462DA-2B17-3719-B98A-A9955E075483.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/38D1A3DD-A88A-3EE8-B6AF-8E07BB211C14.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/436D6D91-37F3-36A3-BA32-C050CD242A6E.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/71446CEB-63FF-371E-8626-02BD52006A68.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/72F7EB4A-EEB5-3A76-88DE-9C0A723E029B.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/77A5BD95-815B-3D9E-9FAA-E979ACE54E4A.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/86171215-462F-3029-916A-A9906BE8B4AE.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/8D1DFFAC-A254-3707-840F-B7F10855286A.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/8D466972-81A5-3E1A-97F5-8E9B1D7C11B2.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/95632C45-B974-3239-9DEF-33BC37790282.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/970DC27F-7977-306E-91B8-B22DB446101D.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/9752CA20-183D-384C-ACEE-A5E861BE63E9.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/B0EA263E-A881-386A-B4BC-4323260ABDC6.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/B34424AE-788B-3F3A-B859-95476312CEAD.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/C4ED9568-DE0E-3DD8-AE61-DC4292730096.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/E61D07C8-BE2F-3677-971C-6DBFBD5EA4F6.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/NSError+RLMSync.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMArray.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMCollection.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMConstants.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMMigration.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMObject.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMObjectBase.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMObjectBase_Dynamic.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMObjectSchema.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMPlatform.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMProperty.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMRealm.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMRealmConfiguration+Sync.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMRealmConfiguration.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMRealm_Dynamic.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMResults.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSchema.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSyncConfiguration.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSyncCredentials.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSyncManager.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSyncPermission.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSyncPermissionChange.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSyncPermissionOffer.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSyncPermissionOfferResponse.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSyncPermissionResults.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSyncPermissionValue.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSyncSession.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSyncUser.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMSyncUtil.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/RLMThreadSafeReference.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Headers/Realm.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Modules/module.modulemap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMAccessor.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMArray_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMListBase.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMMigration_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMObjectSchema_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMObjectStore.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMObject_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMOptionalBase.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMProperty_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMRealmConfiguration_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMRealm_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMResults_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMSchema_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMSyncConfiguration_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMSyncPermissionChange_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMSyncPermissionOfferResponse_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMSyncPermissionOffer_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMSyncPermission_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/PrivateHeaders/RLMSyncUtil_Private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/Realm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/Realm.framework/strip-frameworks.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/037462DA-2B17-3719-B98A-A9955E075483.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/30A778CF-281E-305D-A932-62B6D13F8186.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/38D1A3DD-A88A-3EE8-B6AF-8E07BB211C14.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/436D6D91-37F3-36A3-BA32-C050CD242A6E.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/71446CEB-63FF-371E-8626-02BD52006A68.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/72F7EB4A-EEB5-3A76-88DE-9C0A723E029B.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/77A5BD95-815B-3D9E-9FAA-E979ACE54E4A.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/86171215-462F-3029-916A-A9906BE8B4AE.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/8D1DFFAC-A254-3707-840F-B7F10855286A.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/8D466972-81A5-3E1A-97F5-8E9B1D7C11B2.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/95632C45-B974-3239-9DEF-33BC37790282.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/970DC27F-7977-306E-91B8-B22DB446101D.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/9752CA20-183D-384C-ACEE-A5E861BE63E9.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/B0EA263E-A881-386A-B4BC-4323260ABDC6.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/B34424AE-788B-3F3A-B859-95476312CEAD.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/B47C0A71-1305-3EA7-98D2-B66CFB779312.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/C4ED9568-DE0E-3DD8-AE61-DC4292730096.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/DC3DDB42-1BAE-3EC9-B3AE-F7A8196970DF.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/E1290E5F-A0EF-3CD5-AE0E-76C4B69FE696.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/E61D07C8-BE2F-3677-971C-6DBFBD5EA4F6.bcsymbolmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/Headers/RealmSwift-Swift.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/Modules/RealmSwift.swiftmodule/arm.swiftdoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/Modules/RealmSwift.swiftmodule/arm.swiftmodule" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/Modules/RealmSwift.swiftmodule/arm64.swiftdoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/Modules/RealmSwift.swiftmodule/arm64.swiftmodule" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/Modules/RealmSwift.swiftmodule/i386.swiftdoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/Modules/RealmSwift.swiftmodule/i386.swiftmodule" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/Modules/RealmSwift.swiftmodule/x86_64.swiftdoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/Modules/RealmSwift.swiftmodule/x86_64.swiftmodule" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/Modules/module.modulemap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/RealmSwift.framework/RealmSwift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/SignUpView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/ic_whale.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/ic_whale@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/ic_whale@3x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/image/notice/facilityIcon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/image/notice/facilityIcon@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/image/notice/facilityIcon@3x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/image/notice/notificationIcon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/image/notice/notificationIcon@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/image/notice/notificationIcon@3x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/image/notice/questionIcon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/image/notice/questionIcon@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/image/notice/questionIcon@3x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/image/notice/ruleIcon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/image/notice/ruleIcon@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/image/notice/ruleIcon@3x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/jumpCell.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/monster1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/monster1@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/monster1@3x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/monster2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/monster2@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/monster2@3x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/monster3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/monster3@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/monster3@3x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/noticeListDetailBackground.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/noticeListDetailBackground@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DSMapp/noticeListDetailBackground@3x.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/DSMapp.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/Model/MyPageModel.swift" afterPath="$PROJECT_DIR$/DSMapp/Model/MyPageModel.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/StoryBoard/Apply.storyboard" afterPath="$PROJECT_DIR$/DSMapp/StoryBoard/Apply.storyboard" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/StoryBoard/Auth.storyboard" afterPath="$PROJECT_DIR$/DSMapp/StoryBoard/Auth.storyboard" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/StoryBoard/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/DSMapp/StoryBoard/Base.lproj/Main.storyboard" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/StoryBoard/Meal.storyboard" afterPath="$PROJECT_DIR$/DSMapp/StoryBoard/Meal.storyboard" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/StoryBoard/Notice.storyboard" afterPath="$PROJECT_DIR$/DSMapp/StoryBoard/Notice.storyboard" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/Util/Base.swift" afterPath="$PROJECT_DIR$/DSMapp/Util/Base.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/Util/Shape.swift" afterPath="$PROJECT_DIR$/DSMapp/Util/Shape.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyMainVC.swift" afterPath="$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyMainVC.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStayVC.swift" afterPath="$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStayVC.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStudyVC.swift" afterPath="$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStudyVC.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/ViewController/Auth/ChangePasswordVC.swift" afterPath="$PROJECT_DIR$/DSMapp/ViewController/Auth/ChangePasswordVC.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/ViewController/Auth/SignInVC.swift" afterPath="$PROJECT_DIR$/DSMapp/ViewController/Auth/SignInVC.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/ViewController/Auth/SignUpVC.swift" afterPath="$PROJECT_DIR$/DSMapp/ViewController/Auth/SignUpVC.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/ViewController/Meal/MealContentVC.swift" afterPath="$PROJECT_DIR$/DSMapp/ViewController/Meal/MealContentVC.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/ViewController/Meal/MealVC.swift" afterPath="$PROJECT_DIR$/DSMapp/ViewController/Meal/MealVC.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/ViewController/MyPage/MyPageVC.swift" afterPath="$PROJECT_DIR$/DSMapp/ViewController/MyPage/MyPageVC.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeDetailVC.swift" afterPath="$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeDetailVC.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeListVC.swift" afterPath="$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeListVC.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeMainVC.swift" afterPath="$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeMainVC.swift" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_B1A3611E-BE48-4C97-876C-4D8FD7AAF579" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="SignInVC.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/SignInVC.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="969">
+              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+              <folding>
+                <element signature="e#90#107#0" expanded="true" />
+                <marker date="1510398829554" expanded="true" signature="154:1498" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignUpVC.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/SignUpVC.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChangePasswordVC.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/ChangePasswordVC.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding>
+                <marker date="1510398829506" expanded="true" signature="162:217" ph="{...}" />
+                <marker date="1510398829506" expanded="true" signature="197:199" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplyStudyVC.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStudyVC.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding>
+                <element signature="e#90#107#0" expanded="true" />
+                <marker date="1510398987208" expanded="true" signature="160:775" ph="{...}" />
+                <marker date="1510398987208" expanded="true" signature="466:473" ph="{...}" />
+                <marker date="1510398987208" expanded="true" signature="511:686" ph="{...}" />
+                <marker date="1510398987208" expanded="true" signature="752:768" ph="{...}" />
+                <marker date="1510398987208" expanded="true" signature="845:1094" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplyStayVC.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStayVC.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <marker date="1510398987215" expanded="true" signature="159:1729" ph="{...}" />
+                <marker date="1510398987215" expanded="true" signature="514:593" ph="{...}" />
+                <marker date="1510398987215" expanded="true" signature="640:1173" ph="{...}" />
+                <marker date="1510398987215" expanded="true" signature="1230:1722" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NoticeMainVC.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeMainVC.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding>
+                <element signature="e#90#107#0" expanded="true" />
+                <marker date="1510410573987" expanded="true" signature="1116:1132" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NoticeListVC.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeListVC.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+              <folding>
+                <marker date="1510410929183" expanded="true" signature="159:1701" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NoticeDetailVC.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeDetailVC.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <marker date="1510398829499" expanded="true" signature="161:359" ph="{...}" />
+                <marker date="1510398829499" expanded="true" signature="292:356" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SurveyListVC.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Survey/SurveyListVC.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1216">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+              <folding>
+                <marker date="1510398987301" expanded="true" signature="181:188" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UIKit.UITableViewCell.swift" pinned="false" current-in-tab="true">
+        <entry file="mock:///UIKit.UITableViewCell.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="879">
+              <caret line="218" column="0" lean-forward="false" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/DSMapp/SignUpView.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/Util/Base/Base.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/Util/Shape.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/AppDelegate.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/ViewController/SignInViewController.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/ViewController/SignUpViewController.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/ViewController/SignInVC.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/ViewController/SignUpVC.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/ViewController/ChangePasswordVC.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStudyVC.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStayVC.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyOutVC.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeMainVC.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeListVC.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeDetailVC.swift" />
+        <option value="$PROJECT_DIR$/DSMapp/ViewController/Survey/SurveyListVC.swift" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="960" />
+    <option name="height" value="1093" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Cidr.FilesView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="DSMapp" type="1d218c8b:XcodeProjectNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="DSMapp" type="1d218c8b:XcodeProjectNode" />
+              <item name="DSMapp" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="DSMapp" type="1d218c8b:XcodeProjectNode" />
+              <item name="DSMapp" type="fcab9f18:XcodeViewNode" />
+              <item name="ViewController" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="DSMapp" type="1d218c8b:XcodeProjectNode" />
+              <item name="DSMapp" type="fcab9f18:XcodeViewNode" />
+              <item name="ViewController" type="fcab9f18:XcodeViewNode" />
+              <item name="Apply" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="DSMapp" type="1d218c8b:XcodeProjectNode" />
+              <item name="DSMapp" type="fcab9f18:XcodeViewNode" />
+              <item name="ViewController" type="fcab9f18:XcodeViewNode" />
+              <item name="Auth" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="DSMapp" type="1d218c8b:XcodeProjectNode" />
+              <item name="DSMapp" type="fcab9f18:XcodeViewNode" />
+              <item name="ViewController" type="fcab9f18:XcodeViewNode" />
+              <item name="Notice" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="DSMapp" type="1d218c8b:XcodeProjectNode" />
+              <item name="DSMapp" type="fcab9f18:XcodeViewNode" />
+              <item name="ViewController" type="fcab9f18:XcodeViewNode" />
+              <item name="Survey" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="DSMapp" type="1d218c8b:XcodeProjectNode" />
+              <item name="DSMapp" type="fcab9f18:XcodeViewNode" />
+              <item name="Assets.xcassets" type="fcab9f18:XcodeViewNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
+    <property name="OBJC.PRESERVED_TARGET_SELECTION" value="DSMapp" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/DSMapp/ViewController/Notice" />
+      <recent name="$PROJECT_DIR$/DSMapp/ViewController/Apply" />
+      <recent name="$PROJECT_DIR$/DSMapp/ViewController" />
+      <recent name="$PROJECT_DIR$/DSMapp" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.DSMapp">
+    <configuration name="DSMExtension" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DSMapp" TARGET_NAME="DSMExtension" CONFIG_NAME="Debug" SCHEME_NAME="DSMExtension" RUN_TARGET_PROJECT_NAME="DSMapp" RUN_TARGET_NAME="DSMapp" MAKE_ACTIVE="TRUE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+    </configuration>
+    <configuration name="DSMapp" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DSMapp" TARGET_NAME="DSMapp" CONFIG_NAME="Debug" SCHEME_NAME="DSMapp" RUN_TARGET_PROJECT_NAME="DSMapp" RUN_TARGET_NAME="DSMapp" MAKE_ACTIVE="TRUE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.DSMapp" />
+      <item index="1" class="java.lang.String" itemvalue="Application.DSMExtension" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8e953071-affa-4b68-97e2-582620838e67" name="Default" comment="" />
+      <created>1509726032879</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1509726032879</updated>
+      <workItem from="1509726035329" duration="3414000" />
+      <workItem from="1509935019771" duration="1049000" />
+      <workItem from="1509938666971" duration="672000" />
+      <workItem from="1510016731441" duration="740000" />
+      <workItem from="1510384027604" duration="653000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="6528000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="22" width="960" height="1093" extended-state="0" />
+    <layout>
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30416667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/SignUpVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/ChangePasswordVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <marker date="1510398829506" expanded="true" signature="162:217" ph="{...}" />
+            <marker date="1510398829506" expanded="true" signature="197:199" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStudyVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#90#107#0" expanded="true" />
+            <marker date="1510398987208" expanded="true" signature="160:775" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="466:473" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="511:686" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="752:768" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="845:1094" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStayVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1510398987215" expanded="true" signature="159:1729" ph="{...}" />
+            <marker date="1510398987215" expanded="true" signature="514:593" ph="{...}" />
+            <marker date="1510398987215" expanded="true" signature="640:1173" ph="{...}" />
+            <marker date="1510398987215" expanded="true" signature="1230:1722" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeMainVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#90#107#0" expanded="true" />
+            <marker date="1510410573987" expanded="true" signature="1116:1132" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeListVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1510410929183" expanded="true" signature="159:1701" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeDetailVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1510398829499" expanded="true" signature="161:359" ph="{...}" />
+            <marker date="1510398829499" expanded="true" signature="292:356" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/AppDelegate.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/SignUpVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/ChangePasswordVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <marker date="1510398829506" expanded="true" signature="162:217" ph="{...}" />
+            <marker date="1510398829506" expanded="true" signature="197:199" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStudyVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#90#107#0" expanded="true" />
+            <marker date="1510398987208" expanded="true" signature="160:775" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="466:473" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="511:686" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="752:768" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="845:1094" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStayVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1510398987215" expanded="true" signature="159:1729" ph="{...}" />
+            <marker date="1510398987215" expanded="true" signature="514:593" ph="{...}" />
+            <marker date="1510398987215" expanded="true" signature="640:1173" ph="{...}" />
+            <marker date="1510398987215" expanded="true" signature="1230:1722" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyOutVC.swift" />
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeMainVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#90#107#0" expanded="true" />
+            <marker date="1510410573987" expanded="true" signature="1116:1132" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeListVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1510410929183" expanded="true" signature="159:1701" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeDetailVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1510398829499" expanded="true" signature="161:359" ph="{...}" />
+            <marker date="1510398829499" expanded="true" signature="292:356" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStudyVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#90#107#0" expanded="true" />
+            <marker date="1510398987208" expanded="true" signature="160:775" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="466:473" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="511:686" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="752:768" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="845:1094" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/AppDelegate.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/SignInVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding>
+            <element signature="e#90#107#0" expanded="true" />
+            <marker date="1510398829554" expanded="true" signature="154:1498" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/SignUpVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/ChangePasswordVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <marker date="1510398829506" expanded="true" signature="162:217" ph="{...}" />
+            <marker date="1510398829506" expanded="true" signature="197:199" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStayVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1510398987215" expanded="true" signature="159:1729" ph="{...}" />
+            <marker date="1510398987215" expanded="true" signature="514:593" ph="{...}" />
+            <marker date="1510398987215" expanded="true" signature="640:1173" ph="{...}" />
+            <marker date="1510398987215" expanded="true" signature="1230:1722" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyOutVC.swift" />
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeMainVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#90#107#0" expanded="true" />
+            <marker date="1510410573987" expanded="true" signature="1116:1132" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeListVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1510410929183" expanded="true" signature="159:1701" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeDetailVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1510398829499" expanded="true" signature="161:359" ph="{...}" />
+            <marker date="1510398829499" expanded="true" signature="292:356" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ApplyView.swift" />
+    <entry file="file://$PROJECT_DIR$/DSMapp/AppDelegate.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/Util/Base.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/Util/Shape.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ToastAdd.swift" />
+    <entry file="file://$PROJECT_DIR$/DSMapp/SignUpView.swift" />
+    <entry file="file://$PROJECT_DIR$/DSMapp/MyPageView.swift" />
+    <entry file="file://$PROJECT_DIR$/DSMapp/NoticeDetailView.swift" />
+    <entry file="file://$PROJECT_DIR$/DSMapp/ApplyView.swift" />
+    <entry file="file://$PROJECT_DIR$/DSMapp/UseColor.swift" />
+    <entry file="file://$PROJECT_DIR$/DSMapp/TopView.swift" />
+    <entry file="file://$PROJECT_DIR$/DSMapp/Util/Base.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/Util/Shape.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/MealView.swift" />
+    <entry file="file://$PROJECT_DIR$/DSMapp/AppDelegate.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/SignUpVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/ChangePasswordVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <marker date="1510398829506" expanded="true" signature="162:217" ph="{...}" />
+            <marker date="1510398829506" expanded="true" signature="197:199" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStudyVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#90#107#0" expanded="true" />
+            <marker date="1510398987208" expanded="true" signature="160:775" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="466:473" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="511:686" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="752:768" ph="{...}" />
+            <marker date="1510398987208" expanded="true" signature="845:1094" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyStayVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1510398987215" expanded="true" signature="159:1729" ph="{...}" />
+            <marker date="1510398987215" expanded="true" signature="514:593" ph="{...}" />
+            <marker date="1510398987215" expanded="true" signature="640:1173" ph="{...}" />
+            <marker date="1510398987215" expanded="true" signature="1230:1722" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Apply/ApplyOutVC.swift" />
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeMainVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#90#107#0" expanded="true" />
+            <marker date="1510410573987" expanded="true" signature="1116:1132" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeListVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding>
+            <marker date="1510410929183" expanded="true" signature="159:1701" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Auth/SignInVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding>
+            <element signature="e#90#107#0" expanded="true" />
+            <marker date="1510398829554" expanded="true" signature="154:1498" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Notice/NoticeDetailVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <marker date="1510398829499" expanded="true" signature="161:359" ph="{...}" />
+            <marker date="1510398829499" expanded="true" signature="292:356" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSMapp/ViewController/Survey/SurveyListVC.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1216">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <marker date="1510398987301" expanded="true" signature="181:188" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -9,11 +9,34 @@ import UIKit
 class NoticeDetailVC: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
-    @IBOutlet weak var sideView: BackViewShape!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
+    
+    var id = 0
+    var url = ""
+    
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
-        webView.loadRequest(URLRequest.init(url: URL(string: "http://www.naver.com")!))
-        sideView.backgroundColor = Color.MINT.getColor()
+        let imageIdArr = ["ruleIcon","notificationIcon", "questionIcon"]
+        logoImageView.image = UIImage.init(named: imageIdArr[id])
+        
+        bind()
+    }
+    
+    func bind(){
+        connector(add: url, method: "GET", params: [:], fun: {
+            data, code in
+            if code == 200{
+                let setData = try! JSONDecoder().decode(NoticeDetailModel.self, from: data!)
+                self.titleLabel.text = setData.title
+                self.webView.loadHTMLString(setData.content, baseURL: nil)
+            }else{
+                self.showToast(msg: "오류 : \(code)")
+            }
+        })
     }
 
 }

@@ -13,20 +13,29 @@ class NoticeMainVC: UIViewController {
     @IBOutlet weak var notice3Button: UIButton!
     @IBOutlet weak var notice4Button: UIButton!
     
+    var buttonArr = [UIButton]()
+    
     override func viewDidLoad() {
         view.backgroundColor = Color.CO6.getColor()
-        addAction(notice1Button)
-        addAction(notice2Button)
-        addAction(notice3Button)
-        addAction(notice4Button)
+        buttonArr = [notice1Button, notice2Button, notice3Button, notice4Button]
+        
+        for i in buttonArr{
+            i.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
+        }
     }
     
-    func onClick(_ button: UIButton){
+    @objc func onClick(_ button: UIButton){
         if notice4Button == button{
             getFacilityViewController()
         }else{
-            let noticeListView = storyboard?.instantiateViewController(withIdentifier: "NoticeListView") as! NoticeListVC
-            present(noticeListView, animated: true, completion: nil)
+            for i in 0..<buttonArr.count - 1{
+                if buttonArr[i] == button{
+                    let listView = self.storyboard?.instantiateViewController(withIdentifier: "NoticeListView") as! NoticeListVC
+                    listView.id = i
+                    present(listView, animated: true, completion: nil)
+                    return
+                }
+            }
         }
     }
     
