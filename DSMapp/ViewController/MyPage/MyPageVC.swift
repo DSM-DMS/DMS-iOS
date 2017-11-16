@@ -23,6 +23,7 @@ class MyPageVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         tableView.reloadData()
         
         connector(add: "/mypage", method: "GET", params: [:], fun: {
@@ -32,10 +33,10 @@ class MyPageVC: UIViewController {
             case 200:
                 let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
                 self.stayStateLabel.text = "\(self.getStayStateName(decoderData.stay_value))"
-                if decoderData.extension_class == nil{
+                if decoderData.extension_11_class == nil{
                     self.studyStateLabel.text = "신청없음"
                 }else{
-                    self.studyStateLabel.text = "\(self.getClassName(decoderData.extension_class!))-\(decoderData.extension_seat!)"
+                    self.studyStateLabel.text = "\(self.getClassName(decoderData.extension_11_class!))-\(decoderData.extension_11_seat!)"
                 }
             case 204, 401:
                 self.showToast(msg: "로그인이 필요합니다.")
@@ -86,7 +87,7 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
             return
         }
         
-        //tableView.reloadData()
+        tableView.reloadData()
     }
     
     func goNextViewToAuth(_ id: String){

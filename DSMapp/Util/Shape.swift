@@ -15,7 +15,7 @@ class ButtonShape: UIButton {
     
     func setShape(){
         layer.cornerRadius = 16
-        layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
+        layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
         layer.shadowOpacity = 1
         layer.shadowOffset = CGSize.init(width: 1, height: 1)
         backgroundColor = Color.MINT.getColor()
@@ -74,7 +74,7 @@ class TabShape: UITabBarController {
     override func viewDidLoad() {
         tabBar.barTintColor = Color.CO4.getColor()
         tabBar.tintColor = UIColor.white
-        tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.7)
+        tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.4)
     }
     
 }

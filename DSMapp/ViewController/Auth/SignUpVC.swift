@@ -33,7 +33,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate{
                 _, code in
                 switch code{
                 case 201:
-                    self.showToast(msg: "회원가입 성공")
+                    self.back()
                 default:
                     self.showToast(msg: "오류 : \(code)")
                 }

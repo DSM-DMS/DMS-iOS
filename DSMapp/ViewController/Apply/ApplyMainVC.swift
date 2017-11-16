@@ -124,10 +124,10 @@ class ApplyMainVC: UIViewController{
             case 200:
                 let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
                 
-                if decoderData.extension_class == nil{
+                if decoderData.extension_11_class == nil{
                     self.applyStudyLabel.text = "신청이 없습니다."
                 }else{
-                    self.applyStudyLabel.text = "신청: \(self.getClassName(decoderData.extension_class!))-\(decoderData.extension_seat!)"
+                    self.applyStudyLabel.text = "신청: \(self.getClassName(decoderData.extension_11_class!))-\(decoderData.extension_11_seat!)"
                 }
                 self.applyStayLabel.text = "신청: \(self.getStayStateName(decoderData.stay_value))"
                 self.applyOutSatSwitch.setOn(decoderData.goingout_sat, animated: true)
