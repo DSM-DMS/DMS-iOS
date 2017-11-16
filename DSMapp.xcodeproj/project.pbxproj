@@ -47,6 +47,7 @@
 		D0538ACB1ECB007C00C47F86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0538ACA1ECB007C00C47F86 /* Assets.xcassets */; };
 		D0538ACE1ECB007C00C47F86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0538ACC1ECB007C00C47F86 /* LaunchScreen.storyboard */; };
 		D0538AD91ECB007C00C47F86 /* DSMappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0538AD81ECB007C00C47F86 /* DSMappTests.swift */; };
+		D05EE5F51FBD104D00C32211 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EE5F41FBD104D00C32211 /* MealModel.swift */; };
 		D07CFF631FB6CD6A00CB0717 /* SurveyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07CFF621FB6CD6A00CB0717 /* SurveyListVC.swift */; };
 		D09F32451F793B13006A936C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D06BBF811F79016900DD17DA /* Main.storyboard */; };
 		D0D985D01FB1813300CE9FD4 /* noticeListDetailBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D985C01FB1812900CE9FD4 /* noticeListDetailBackground.png */; };
@@ -223,6 +224,7 @@
 		D0538AD41ECB007C00C47F86 /* DSMappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSMappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0538AD81ECB007C00C47F86 /* DSMappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSMappTests.swift; sourceTree = "<group>"; };
 		D0538ADA1ECB007C00C47F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D05EE5F41FBD104D00C32211 /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
 		D06BBF821F79016900DD17DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D07CFF621FB6CD6A00CB0717 /* SurveyListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListVC.swift; sourceTree = "<group>"; };
 		D0D985C01FB1812900CE9FD4 /* noticeListDetailBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noticeListDetailBackground.png; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 				D04348EC1FBAC6D400F2AC62 /* TodayViewController.swift */,
 				D04348EE1FBAC6D400F2AC62 /* MainInterface.storyboard */,
 				D04348F11FBAC6D400F2AC62 /* Info.plist */,
+				D05EE5F41FBD104D00C32211 /* MealModel.swift */,
 			);
 			path = MealExtension;
 			sourceTree = "<group>";
@@ -516,7 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				D0D9864F1FB1820900CE9FD4 /* TabBar */,
-				D0D986361FB181EF00CE9FD4 /* ApplyStay */,
+				D0D986361FB181EF00CE9FD4 /* ApplyStudy */,
 				D0D9860B1FB181C900CE9FD4 /* Notice */,
 				D0D985E01FB1815E00CE9FD4 /* Icon */,
 				D0D985BF1FB1810E00CE9FD4 /* Background */,
@@ -606,7 +609,7 @@
 			path = Notice;
 			sourceTree = "<group>";
 		};
-		D0D986361FB181EF00CE9FD4 /* ApplyStay */ = {
+		D0D986361FB181EF00CE9FD4 /* ApplyStudy */ = {
 			isa = PBXGroup;
 			children = (
 				D0D9863A1FB181FC00CE9FD4 /* mySeat.png */,
@@ -622,7 +625,7 @@
 				D0D9863D1FB181FE00CE9FD4 /* seatYes@2x.png */,
 				D0D986401FB1820000CE9FD4 /* seatYes@3x.png */,
 			);
-			path = ApplyStay;
+			path = ApplyStudy;
 			sourceTree = "<group>";
 		};
 		D0D9864F1FB1820900CE9FD4 /* TabBar */ = {
@@ -892,6 +895,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D05EE5F51FBD104D00C32211 /* MealModel.swift in Sources */,
 				D04348ED1FBAC6D400F2AC62 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
