@@ -354,12 +354,8 @@
                                     <action selector="timeChange:" destination="zKV-cw-IYt" eventType="valueChanged" id="9Ef-Mx-dbm"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssZ-4l-f6b" customClass="BackViewShape" customModule="DSMapp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="116" width="288" height="348"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="md8-AK-gd3" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
-                                <rect key="frame" x="32" y="518" width="256" height="35"/>
+                                <rect key="frame" x="64" y="517" width="192" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="1pd-W3-V3L"/>
                                 </constraints>
@@ -369,24 +365,26 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vw9-xX-9IW">
-                                <rect key="frame" x="140.5" y="472" width="39" height="30"/>
+                                <rect key="frame" x="140.5" y="475" width="39" height="30"/>
                                 <state key="normal" title="가온실"/>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMk-HD-NbS">
+                                <rect key="frame" x="8" y="108" width="304" height="359"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yiT-VO-6sc" firstAttribute="top" secondItem="IHe-uS-xlZ" secondAttribute="top" constant="8" id="2L1-vI-HA2"/>
-                            <constraint firstItem="yiT-VO-6sc" firstAttribute="centerX" secondItem="w8Z-y0-VRB" secondAttribute="centerX" id="FCu-qZ-7FU"/>
-                            <constraint firstItem="md8-AK-gd3" firstAttribute="top" secondItem="Vw9-xX-9IW" secondAttribute="bottom" constant="16" id="K62-XE-HFW"/>
-                            <constraint firstItem="md8-AK-gd3" firstAttribute="centerX" secondItem="w8Z-y0-VRB" secondAttribute="centerX" id="Nnx-cb-9DA"/>
-                            <constraint firstItem="ssZ-4l-f6b" firstAttribute="leading" secondItem="IHe-uS-xlZ" secondAttribute="leading" constant="16" id="RWL-0c-4xQ"/>
-                            <constraint firstItem="IHe-uS-xlZ" firstAttribute="trailing" secondItem="ssZ-4l-f6b" secondAttribute="trailing" constant="16" id="S8I-CR-8vI"/>
-                            <constraint firstItem="md8-AK-gd3" firstAttribute="leading" secondItem="IHe-uS-xlZ" secondAttribute="leading" constant="32" id="Wfa-jb-Zv1"/>
-                            <constraint firstItem="Vw9-xX-9IW" firstAttribute="top" secondItem="ssZ-4l-f6b" secondAttribute="bottom" constant="8" id="aRC-9K-HZC"/>
-                            <constraint firstItem="ssZ-4l-f6b" firstAttribute="top" secondItem="yiT-VO-6sc" secondAttribute="bottom" constant="16" id="dBh-rU-pyO"/>
-                            <constraint firstItem="IHe-uS-xlZ" firstAttribute="trailing" secondItem="md8-AK-gd3" secondAttribute="trailing" constant="32" id="hki-rE-7Hg"/>
-                            <constraint firstItem="Vw9-xX-9IW" firstAttribute="centerX" secondItem="w8Z-y0-VRB" secondAttribute="centerX" id="jFF-yK-AOw"/>
-                            <constraint firstItem="IHe-uS-xlZ" firstAttribute="bottom" secondItem="md8-AK-gd3" secondAttribute="bottom" constant="15" id="vio-C9-rBc"/>
+                            <constraint firstItem="Vw9-xX-9IW" firstAttribute="centerX" secondItem="w8Z-y0-VRB" secondAttribute="centerX" id="DD5-ZV-mkz"/>
+                            <constraint firstItem="IMk-HD-NbS" firstAttribute="leading" secondItem="IHe-uS-xlZ" secondAttribute="leading" constant="8" id="Nkc-mH-Z8B"/>
+                            <constraint firstItem="yiT-VO-6sc" firstAttribute="top" secondItem="IHe-uS-xlZ" secondAttribute="top" constant="8" id="O8M-IG-HS2"/>
+                            <constraint firstItem="md8-AK-gd3" firstAttribute="leading" secondItem="IHe-uS-xlZ" secondAttribute="leading" constant="64" id="V4w-L7-5Yf"/>
+                            <constraint firstItem="IHe-uS-xlZ" firstAttribute="trailing" secondItem="IMk-HD-NbS" secondAttribute="trailing" constant="8" id="Wni-QT-Xen"/>
+                            <constraint firstItem="md8-AK-gd3" firstAttribute="top" secondItem="Vw9-xX-9IW" secondAttribute="bottom" constant="12" id="XTz-Lp-19Y"/>
+                            <constraint firstItem="IMk-HD-NbS" firstAttribute="top" secondItem="yiT-VO-6sc" secondAttribute="bottom" constant="8" id="eFJ-Oh-iOh"/>
+                            <constraint firstItem="yiT-VO-6sc" firstAttribute="centerX" secondItem="w8Z-y0-VRB" secondAttribute="centerX" id="jbJ-Zu-Vth"/>
+                            <constraint firstItem="Vw9-xX-9IW" firstAttribute="top" secondItem="IMk-HD-NbS" secondAttribute="bottom" constant="8" id="mJu-EZ-Gkj"/>
+                            <constraint firstItem="IHe-uS-xlZ" firstAttribute="bottom" secondItem="md8-AK-gd3" secondAttribute="bottom" constant="16" id="qLv-LL-aas"/>
+                            <constraint firstItem="IHe-uS-xlZ" firstAttribute="trailing" secondItem="md8-AK-gd3" secondAttribute="trailing" constant="64" id="uPl-5k-EJ8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IHe-uS-xlZ"/>
                     </view>
@@ -398,8 +396,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backScrollView" destination="IMk-HD-NbS" id="wat-C9-Njc"/>
                         <outlet property="changeRoomButton" destination="Vw9-xX-9IW" id="yvY-Q6-pbI"/>
-                        <outlet property="contentView" destination="ssZ-4l-f6b" id="qTF-qE-igm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOs-uc-RGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
