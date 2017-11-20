@@ -32,11 +32,19 @@ class MyPageVC: UIViewController {
             case 200:
                 let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
                 self.stayStateLabel.text = "\(self.getStayStateName(decoderData.stay_value))"
-                if decoderData.extension_class == nil{
-                    self.studyStateLabel.text = "신청없음"
+                
+                if decoderData.extension_11_class != nil{
+                    
                 }else{
-                    self.studyStateLabel.text = "\(self.getClassName(decoderData.extension_class!))-\(decoderData.extension_seat!)"
+                    
                 }
+                
+                if decoderData.extension_12_class != nil{
+                    
+                }else{
+                    
+                }
+                
             case 204, 401:
                 self.showToast(msg: "로그인이 필요합니다.")
                 self.stayStateLabel.text = "오류"
