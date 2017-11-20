@@ -78,7 +78,7 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
             present(alert, animated: true, completion: nil)
             
         case 5:
-            let alert = UIAlertController.init(title: "멋지게 준비중입니다.", message: "조금만 기다리시면 아름답게 선보이겠습니다.", preferredStyle: .alert)
+            let alert = UIAlertController.init(title: "멋지게 준비중입니다.", message: "조금만 기다려주세요", preferredStyle: .alert)
             alert.addAction(UIAlertAction.init(title: "확인", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
             

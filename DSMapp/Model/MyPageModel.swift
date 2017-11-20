@@ -12,8 +12,10 @@ struct MyPageModel: Codable{
     
     var stay_value: Int
     var name: String
-    var extension_class: Int?
-    var extension_seat: Int?
+    var extension_11_class: Int?
+    var extension_11_seat: Int?
+    var extension_12_class: Int?
+    var extension_12_seat: Int?
     var number: Int
     var goingout_sat: Bool
     var goingout_sun: Bool

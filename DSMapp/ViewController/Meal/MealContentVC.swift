@@ -26,11 +26,12 @@ class MealContentVC: UIViewController {
     
     func setDateText(){
         let fomatter = DateFormatter()
+        fomatter.locale = Locale.init(identifier: "ko_KR")
         fomatter.dateFormat = "YYYY"
         yearLabel.text = fomatter.string(from: date!)
         fomatter.dateFormat = "M월 d일"
         weekLabel.text = fomatter.string(from: date!)
-        fomatter.dateFormat = "E"
+        fomatter.dateFormat = "EEEE"
         dayLabel.text = fomatter.string(from: date!)
     }
     

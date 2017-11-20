@@ -18,7 +18,7 @@ extension UIViewController{
         return stayStateNameArr[num - 1]
     }
 
-    func showToast(msg: String){
+    func showToast(msg: String, fun: (() -> Void)? = nil){
         let toast = UILabel(frame: CGRect(x: 32, y: 128, width: view.frame.size.width - 64, height: 42))
         toast.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         toast.textColor = UIColor.white
@@ -33,6 +33,7 @@ extension UIViewController{
             toast.alpha = 0.0
         }, completion: { _ in
             toast.removeFromSuperview()
+            fun?()
         })
         
     }
