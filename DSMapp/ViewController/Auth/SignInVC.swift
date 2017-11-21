@@ -26,9 +26,9 @@ class SignInVC: UIViewController{
         connector(add: "/auth/student", method: "POST", params: ["id" : idTextField.text!, "pw" : pwTextField.text!], fun: {
             data, code in
             if code == 201{
-                self.showToast(msg: "로그인 성공", fun: self.back)
                 let tokenClass = try! JSONDecoder().decode(AuthModel.self, from: data!)
                 self.saveToken(tokenClass.access_token)
+                self.showToast(msg: "로그인 성공", fun: self.back)
             }else{
                 self.showToast(msg: "로그인 실패")
             }

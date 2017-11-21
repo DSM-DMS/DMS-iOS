@@ -22,10 +22,26 @@ class ApplyStudyVC: UIViewController  {
         back()
     }
     
+    
     let roomNameArr = ["가온실", "나온실", "다온실", "라온실", "3층 독서실", "4층 독서실", "열린교실"]
     
     @IBAction func apply(_ sender: Any) {
-        
+        if selectedSeat > 0{
+            print(selectedTime, selectedClass, selectedSeat)
+            connector(add: "/extension/\(selectedTime)", method: "POST", params: ["class" : "\(selectedClass)", "seat" : "\(selectedSeat)"], fun: {
+                _, code in
+                switch code{
+                case 201:
+                    self.showToast(msg: "신청 성공")
+                case 204:
+                    self.showToast(msg: "신청 시간이 아닙니다")
+                default:
+                    self.showToast(msg: "오류 : \(code)")
+                }
+            })
+        }else{
+            showToast(msg: "자리를 선택하세요")
+        }
     }
     
     override func viewDidLoad() {
@@ -82,7 +98,6 @@ extension ApplyStudyVC{
             switch code{
             case 200:
                 self.showToast(msg: "로드 성공")
-                print(String.init(data: data!, encoding: .utf8))
                 self.bindData(try! JSONSerialization.jsonObject(with: data!, options: []) as! [[Any]])
             default:
                 self.showToast(msg: "오류 : \(code)")

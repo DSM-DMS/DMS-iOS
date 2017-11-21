@@ -20,6 +20,7 @@ class MyPageVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        studyStateLabel.numberOfLines = 2
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,17 +34,7 @@ class MyPageVC: UIViewController {
                 let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
                 self.stayStateLabel.text = "\(self.getStayStateName(decoderData.stay_value))"
                 
-                if decoderData.extension_11_class != nil{
-                    
-                }else{
-                    
-                }
-                
-                if decoderData.extension_12_class != nil{
-                    
-                }else{
-                    
-                }
+                self.studyStateLabel.text = decoderData.getStudyState()
                 
             case 204, 401:
                 self.showToast(msg: "로그인이 필요합니다.")
@@ -79,8 +70,22 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
             let alert = UIAlertController.init(title: "버그신고", message: "", preferredStyle: .alert)
             alert.addTextField(configurationHandler: nil)
             alert.addAction(UIAlertAction.init(title: "전송", style: .default, handler: {
-                alert in
-                
+                _ in
+                let textField = alert.textFields![0]
+                let fomatter = DateFormatter()
+                fomatter.dateFormat = "YYYY_MM_dd_h_m_s"
+                if textField.text!.isEmpty{
+                    self.showToast(msg: "버그를 입력하세요")
+                }else{
+                    self.connector(add: "bug-report", method: "POST", params: ["title" : "\(fomatter.string(from: Date()))", "content" : textField.text!], fun: {
+                        _, code in
+                        if code == 201{
+                            self.showToast(msg: "신고 성공")
+                        }else{
+                            self.showToast(msg: "오류 : \(code)")
+                        }
+                    })
+                }
             }))
             alert.addAction(UIAlertAction.init(title: "취소", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
@@ -94,7 +99,7 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
             return
         }
         
-        //tableView.reloadData()
+        tableView.reloadData()
     }
     
     func goNextViewToAuth(_ id: String){

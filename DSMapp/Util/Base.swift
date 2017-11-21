@@ -29,8 +29,8 @@ extension UIViewController{
         toast.autoresizingMask = [.flexibleTopMargin, .flexibleHeight, .flexibleWidth]
         view.addSubview(toast)
 
-        UIView.animate(withDuration: 2.0, delay: 0.3, options: .curveEaseOut, animations: {
-            toast.alpha = 0.0
+        UIView.animate(withDuration: 0.4, delay: 0.3, options: .curveEaseOut, animations: {
+            toast.alpha = 0.5
         }, completion: { _ in
             toast.removeFromSuperview()
             fun?()

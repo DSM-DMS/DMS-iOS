@@ -124,6 +124,7 @@ class ApplyMainVC: UIViewController{
             case 200:
                 let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
                 
+                self.applyStudyLabel.text = decoderData.getStudyState()
                 self.applyStayLabel.text = "신청: \(self.getStayStateName(decoderData.stay_value))"
                 self.applyOutSatSwitch.setOn(decoderData.goingout_sat, animated: true)
                 self.applyOutSunSwitch.setOn(decoderData.goingout_sun, animated: true)
@@ -137,8 +138,4 @@ class ApplyMainVC: UIViewController{
         })
     }
 
-}
-
-extension ApplyMainVC{
-    
 }
