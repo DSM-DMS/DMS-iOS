@@ -77,7 +77,7 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
                 if textField.text!.isEmpty{
                     self.showToast(msg: "버그를 입력하세요")
                 }else{
-                    self.connector(add: "bug-report", method: "POST", params: ["title" : "\(fomatter.string(from: Date()))", "content" : textField.text!], fun: {
+                    self.connector(add: "/bug-report", method: "POST", params: ["title" : "\(fomatter.string(from: Date()))", "content" : textField.text!], fun: {
                         _, code in
                         if code == 201{
                             self.showToast(msg: "신고 성공")
@@ -87,7 +87,9 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
                     })
                 }
             }))
+            
             alert.addAction(UIAlertAction.init(title: "취소", style: .cancel, handler: nil))
+            
             present(alert, animated: true, completion: nil)
             
         case 5:

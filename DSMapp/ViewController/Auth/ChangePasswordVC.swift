@@ -8,6 +8,9 @@ import UIKit
 
 class ChangePasswordVC: UIViewController{
 
+    @IBOutlet weak var curPwTextField: UITextField!
+    @IBOutlet weak var newPwTextField: UIImageView!
+    
     override func viewDidLoad() {
         
     }
@@ -15,5 +18,7 @@ class ChangePasswordVC: UIViewController{
     @IBAction func back(_ sender: Any) {
         back()
     }
+    
+    
     
 }

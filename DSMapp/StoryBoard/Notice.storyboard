@@ -459,7 +459,9 @@
                     <connections>
                         <outlet property="cancelButton" destination="tXd-a7-eQS" id="432-gc-0ip"/>
                         <outlet property="contentTextView" destination="OUz-gq-7T7" id="Bc9-QK-FAD"/>
+                        <outlet property="roomNumTextField" destination="b7l-f5-9pM" id="SHD-yh-PhP"/>
                         <outlet property="sendButton" destination="vcb-ry-T8T" id="LN5-G8-PV8"/>
+                        <outlet property="titleTextField" destination="euf-ax-r3N" id="xjO-fv-aXQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSt-bd-bcl" userLabel="First Responder" sceneMemberID="firstResponder"/>

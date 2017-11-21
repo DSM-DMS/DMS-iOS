@@ -24,7 +24,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     var curTime = 0
     
     override func viewDidLoad() {
-        curTime = 1
+        setCurTime()
         getData()
     }
     
@@ -37,6 +37,19 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         curTime += 1
         print(curTime)
         setData()
+    }
+    
+    func setCurTime(){
+        let fomatter = DateFormatter()
+        fomatter.dateFormat = "h"
+        let curIntTime = Int(fomatter.string(from: Date()))!
+        if curIntTime > 9 && curIntTime <= 13{
+            curTime = 2
+        }else if curIntTime > 13 && curIntTime <= 19{
+            curTime = 3
+        }else{
+            curTime = 1
+        }
     }
     
     func setData(){

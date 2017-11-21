@@ -47,7 +47,10 @@ class SignUpVC: UIViewController, UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        editBoxHeight.constant += 60
+        UIView.animate(withDuration: 0.2, animations: {
+            self.editBoxHeight.constant += 60
+            self.view.layoutIfNeeded()
+        })
         
         if textField == idTextField{
             connector(add: "/verify/id", method: "POST", params: ["id" : idTextField.text!], fun: {
@@ -64,7 +67,10 @@ class SignUpVC: UIViewController, UITextFieldDelegate{
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        editBoxHeight.constant -= 60
+        UIView.animate(withDuration: 0.2, animations: {
+            self.editBoxHeight.constant -= 60
+            self.view.layoutIfNeeded()
+        })
     }
     
     

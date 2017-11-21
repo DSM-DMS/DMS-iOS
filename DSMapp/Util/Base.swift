@@ -69,12 +69,17 @@ extension UIViewController{
         
         request?.httpMethod = method
 
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         let task = URLSession.shared.dataTask(with: request!){
             data, res, err in
 
             let httpRes = res as? HTTPURLResponse
 
             DispatchQueue.main.async {
+                
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                
                 if httpRes == nil{
                     self.showToast(msg: "네트워크 오류!")
                 }else{
