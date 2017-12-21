@@ -53,13 +53,13 @@
                                                             <constraint firstItem="bab-9U-I0B" firstAttribute="centerX" secondItem="fN9-1z-iUP" secondAttribute="centerX" id="z9n-9f-9n3"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKN-Lp-Xtq" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKN-Lp-Xtq" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
                                                         <rect key="frame" x="40.666666666666657" y="272.66666666666669" width="82" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="82" id="BGa-dp-l31"/>
                                                             <constraint firstAttribute="height" constant="30" id="xnD-io-Nfm"/>
                                                         </constraints>
-                                                        <state key="normal" title="&gt;"/>
+                                                        <state key="normal" image="noticeMainIcon.png"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -96,13 +96,13 @@
                                                             <constraint firstItem="pVm-7j-T8z" firstAttribute="centerX" secondItem="r9k-6n-ix5" secondAttribute="centerX" id="cVi-CY-BTT"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWy-h8-6wx" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWy-h8-6wx" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
                                                         <rect key="frame" x="40.666666666666657" y="272.33333333333331" width="82" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="82" id="Njl-6G-WBn"/>
                                                             <constraint firstAttribute="height" constant="30" id="xhg-2m-gh2"/>
                                                         </constraints>
-                                                        <state key="normal" title="&gt;"/>
+                                                        <state key="normal" image="noticeMainIcon.png"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -144,13 +144,13 @@
                                                             <constraint firstItem="Np3-Ri-Efi" firstAttribute="centerY" secondItem="xBN-sr-hso" secondAttribute="centerY" id="k4Y-q7-bwv"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avs-t8-F2w" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avs-t8-F2w" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
                                                         <rect key="frame" x="40.666666666666686" y="272.66666666666669" width="82" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="IrK-Nb-WK2"/>
                                                             <constraint firstAttribute="width" constant="82" id="t4W-vs-KEl"/>
                                                         </constraints>
-                                                        <state key="normal" title="&gt;"/>
+                                                        <state key="normal" image="noticeMainIcon.png"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -187,13 +187,13 @@
                                                             <constraint firstAttribute="bottom" secondItem="cqV-Xc-S29" secondAttribute="bottom" constant="22" id="TUv-cO-asN"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEy-Pb-pkU" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEy-Pb-pkU" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
                                                         <rect key="frame" x="40.666666666666686" y="272.33333333333331" width="82" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="82" id="KB6-aP-bey"/>
                                                             <constraint firstAttribute="height" constant="30" id="RLo-Gw-G03"/>
                                                         </constraints>
-                                                        <state key="normal" title="&gt;"/>
+                                                        <state key="normal" image="noticeMainIcon.png"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -561,6 +561,7 @@
         <image name="monster1.png" width="60" height="48"/>
         <image name="noticeIcon.png" width="22" height="22"/>
         <image name="noticeListDetailBackground.png" width="375" height="667"/>
+        <image name="noticeMainIcon.png" width="24" height="24"/>
         <image name="notificationIcon.png" width="46" height="42"/>
         <image name="questionIcon.png" width="46" height="46"/>
         <image name="ruleIcon.png" width="43" height="43"/>
