@@ -51,6 +51,7 @@ extension UIViewController{
             paramStr += "\(param.key)=\(param.value)"
             paramStr += "&"
         }
+        
         if !paramStr.isEmpty{
             paramStr.removeLast()
         }
@@ -79,6 +80,8 @@ extension UIViewController{
             DispatchQueue.main.async {
                 
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                
+                print(err)
                 
                 if httpRes == nil{
                     self.showToast(msg: "네트워크 오류!")

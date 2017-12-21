@@ -40,6 +40,7 @@ class MealContentVC: UIViewController {
             data, code in
             switch code{
             case 200:
+                print(String.init(data: data!, encoding: .utf8))
                 let decodeData = try! JSONDecoder().decode(MealModel.self, from: data!)
                 self.blackTextView.text = self.getArrAsStr(arr: decodeData.breakfast)
                 self.lunchTextView.text = self.getArrAsStr(arr: decodeData.lunch)

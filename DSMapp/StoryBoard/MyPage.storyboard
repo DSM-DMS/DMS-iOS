@@ -43,8 +43,8 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연장상태" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5K-cb-Ibv">
-                                                                <rect key="frame" x="22" y="108" width="48.5" height="21.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <rect key="frame" x="18.5" y="108" width="55.5" height="21.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -233,7 +233,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="myPageBackground.png" width="1125" height="867"/>
+        <image name="myPageBackground.png" width="1125" height="660"/>
         <image name="myStayIcon.png" width="100" height="100"/>
         <image name="myStudyIcon.png" width="100" height="100"/>
         <image name="userIcon.png" width="23" height="23"/>

@@ -33,6 +33,7 @@ class ApplyStudyVC: UIViewController  {
                 switch code{
                 case 201:
                     self.showToast(msg: "신청 성공")
+                    self.getMap()
                 case 204:
                     self.showToast(msg: "신청 시간이 아닙니다")
                 default:
@@ -40,12 +41,13 @@ class ApplyStudyVC: UIViewController  {
                 }
             })
         }else{
+            
             showToast(msg: "자리를 선택하세요")
         }
     }
     
     override func viewDidLoad() {
-        backScrollView.backgroundColor = Color.CO6.getColor().withAlphaComponent(0.5)
+        backScrollView.backgroundColor = Color.CO6.getColor()
         backScrollView.layer.cornerRadius = 8
         changeRoomButton.addTarget(self, action:
             #selector(changeRoom(_:)), for: .touchUpInside)
@@ -97,7 +99,6 @@ extension ApplyStudyVC{
             data, code in
             switch code{
             case 200:
-                self.showToast(msg: "로드 성공")
                 self.bindData(try! JSONSerialization.jsonObject(with: data!, options: []) as! [[Any]])
             default:
                 self.showToast(msg: "오류 : \(code)")

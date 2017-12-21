@@ -43,9 +43,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let fomatter = DateFormatter()
         fomatter.dateFormat = "h"
         let curIntTime = Int(fomatter.string(from: Date()))!
-        if curIntTime > 9 && curIntTime <= 13{
+        if curIntTime > 8 && curIntTime <= 12{
             curTime = 2
-        }else if curIntTime > 13 && curIntTime <= 19{
+        }else if curIntTime > 12 && curIntTime <= 18{
             curTime = 3
         }else{
             curTime = 1

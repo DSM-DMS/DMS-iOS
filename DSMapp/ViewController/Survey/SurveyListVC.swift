@@ -25,6 +25,7 @@ class SurveyListVC: UITableViewController {
             "GET", params: [:], fun: {
                 data, code in
                 if code == 200{
+                    print(String.init(data: data!, encoding: .utf8))
                     self.usingData = try! JSONDecoder().decode(Array<SurveyListModel>.self, from: data!)
                     print("\(self.usingData.count)")
                     self.tableView.reloadData()

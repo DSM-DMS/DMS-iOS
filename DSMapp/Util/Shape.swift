@@ -53,7 +53,7 @@ class BackViewShape: UIView{
 class NavigationShape: UINavigationController {
     
     override func viewDidLoad() {
-        navigationBar.barTintColor = Color.CO6.getColor()
+        navigationBar.barTintColor = Color.CO5.getColor()
         navigationBar.backItem?.titleView?.tintColor = UIColor.white
     }
 

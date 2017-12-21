@@ -42,7 +42,7 @@ class ApplyMainVC: UIViewController{
         barArr = [applyStudyBar, applyStayBar, applyOutBar, surveyBar]
         heightArr = [applyStudyHeight, applyStayHeight, applyOutHeight, surveyHeight]
         
-        applyStudyBar.backgroundColor = Color.CO5.getColor()
+        applyStudyBar.backgroundColor = Color.CO4.getColor()
         applyStayBar.backgroundColor = Color.CO3.getColor()
         applyOutBar.backgroundColor = Color.CO2.getColor()
         surveyBar.backgroundColor = Color.CO1.getColor()
@@ -125,7 +125,7 @@ class ApplyMainVC: UIViewController{
                 let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
                 
                 self.applyStudyLabel.text = decoderData.getStudyState()
-                self.applyStayLabel.text = "신청: \(self.getStayStateName(decoderData.stay_value))"
+                self.applyStayLabel.text = "신청 : \(self.getStayStateName(decoderData.stay_value))"
                 self.applyOutSatSwitch.setOn(decoderData.goingout_sat, animated: true)
                 self.applyOutSunSwitch.setOn(decoderData.goingout_sun, animated: true)
                 

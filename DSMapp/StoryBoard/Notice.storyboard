@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c9u-Cr-Hxv">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c9u-Cr-Hxv">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,30 +16,30 @@
             <objects>
                 <viewController id="c9u-Cr-Hxv" customClass="NoticeMainVC" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x9Z-Kk-HYX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="MhD-wz-Qrq">
-                                <rect key="frame" x="16" y="52" width="343" height="534"/>
+                                <rect key="frame" x="16" y="76" width="343" height="621"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Pb4-vE-dQg">
-                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="534"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="621"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-12" translatesAutoresizingMaskIntoConstraints="NO" id="Sh6-mR-Dqb">
-                                                <rect key="frame" x="0.0" y="0.0" width="163.5" height="259"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="302.66666666666669"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fN9-1z-iUP" customClass="BackViewShape" customModule="DSMapp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="241"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="284.66666666666669"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ruleIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="bab-9U-I0B">
-                                                                <rect key="frame" x="58" y="97" width="48" height="48"/>
+                                                                <rect key="frame" x="58" y="118.66666666666666" width="48" height="48"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="48" id="MDC-7d-mjG"/>
                                                                     <constraint firstAttribute="height" constant="48" id="jrg-09-rvA"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기숙사 규정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suA-18-xNd">
-                                                                <rect key="frame" x="43" y="199" width="78" height="20.5"/>
+                                                                <rect key="frame" x="43" y="242.66666666666669" width="78" height="20.333333333333314"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKN-Lp-Xtq" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
-                                                        <rect key="frame" x="41" y="229" width="82" height="30"/>
+                                                        <rect key="frame" x="40.666666666666657" y="272.66666666666669" width="82" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="82" id="BGa-dp-l31"/>
                                                             <constraint firstAttribute="height" constant="30" id="xnD-io-Nfm"/>
@@ -69,20 +69,20 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-12" translatesAutoresizingMaskIntoConstraints="NO" id="dhg-re-XFb">
-                                                <rect key="frame" x="0.0" y="275" width="163.5" height="259"/>
+                                                <rect key="frame" x="0.0" y="318.66666666666674" width="163.66666666666666" height="302.33333333333326"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9k-6n-ix5" customClass="BackViewShape" customModule="DSMapp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="241"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="284.33333333333331"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="NmW-wi-l6u">
-                                                                <rect key="frame" x="58" y="97" width="48" height="48"/>
+                                                                <rect key="frame" x="58" y="118.66666666666669" width="48" height="48"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="48" id="CAh-d4-Asx"/>
                                                                     <constraint firstAttribute="height" constant="48" id="FfY-86-F5B"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자주 하는 질문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVm-7j-T8z">
-                                                                <rect key="frame" x="33" y="198.5" width="97.5" height="20.5"/>
+                                                                <rect key="frame" x="32.999999999999993" y="241.99999999999994" width="97.333333333333314" height="20.333333333333314"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -97,7 +97,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWy-h8-6wx" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
-                                                        <rect key="frame" x="41" y="229" width="82" height="30"/>
+                                                        <rect key="frame" x="40.666666666666657" y="272.33333333333331" width="82" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="82" id="Njl-6G-WBn"/>
                                                             <constraint firstAttribute="height" constant="30" id="xhg-2m-gh2"/>
@@ -114,23 +114,23 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rKI-jA-6Km">
-                                        <rect key="frame" x="179.5" y="0.0" width="163.5" height="534"/>
+                                        <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="621"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-12" translatesAutoresizingMaskIntoConstraints="NO" id="Tqi-Sj-H8k">
-                                                <rect key="frame" x="0.0" y="0.0" width="163.5" height="259"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="163.33333333333334" height="302.66666666666669"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBN-sr-hso" customClass="BackViewShape" customModule="DSMapp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="241"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="163.33333333333334" height="284.66666666666669"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Np3-Ri-Efi">
-                                                                <rect key="frame" x="58" y="97" width="48" height="48"/>
+                                                                <rect key="frame" x="58" y="118.66666666666666" width="48" height="48"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="48" id="WKL-iO-m06"/>
                                                                     <constraint firstAttribute="height" constant="48" id="cj3-Qg-zFC"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지사항" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWB-21-Wkc">
-                                                                <rect key="frame" x="53" y="198.5" width="59" height="20.5"/>
+                                                                <rect key="frame" x="53" y="242.33333333333331" width="59" height="20.333333333333314"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -145,7 +145,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avs-t8-F2w" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
-                                                        <rect key="frame" x="41" y="229" width="82" height="30"/>
+                                                        <rect key="frame" x="40.666666666666686" y="272.66666666666669" width="82" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="IrK-Nb-WK2"/>
                                                             <constraint firstAttribute="width" constant="82" id="t4W-vs-KEl"/>
@@ -160,20 +160,20 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-12" translatesAutoresizingMaskIntoConstraints="NO" id="zXn-kz-QZe">
-                                                <rect key="frame" x="0.0" y="275" width="163.5" height="259"/>
+                                                <rect key="frame" x="0.0" y="318.66666666666674" width="163.33333333333334" height="302.33333333333326"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvc-eZ-AB5" customClass="BackViewShape" customModule="DSMapp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="241"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="163.33333333333334" height="284.33333333333331"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facilityIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="vvQ-lz-LQd">
-                                                                <rect key="frame" x="58" y="97" width="48" height="48"/>
+                                                                <rect key="frame" x="58" y="118.66666666666669" width="48" height="48"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="48" id="5nI-dy-iGW"/>
                                                                     <constraint firstAttribute="height" constant="48" id="7cR-yJ-tVH"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시설 고장 신고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqV-Xc-S29">
-                                                                <rect key="frame" x="33.5" y="199" width="97.5" height="20.5"/>
+                                                                <rect key="frame" x="33.333333333333336" y="242.66666666666669" width="97.333333333333314" height="20.333333333333314"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -188,7 +188,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEy-Pb-pkU" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
-                                                        <rect key="frame" x="41" y="229" width="82" height="30"/>
+                                                        <rect key="frame" x="40.666666666666686" y="272.33333333333331" width="82" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="82" id="KB6-aP-bey"/>
                                                             <constraint firstAttribute="height" constant="30" id="RLo-Gw-G03"/>
@@ -234,11 +234,11 @@
             <objects>
                 <viewController storyboardIdentifier="NoticeListView" id="GOA-9f-G1W" customClass="NoticeListVC" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3d9-Tp-C4l">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leo-lH-cD6">
-                                <rect key="frame" x="0.0" y="563" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="669" width="375" height="60"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monster1.png" translatesAutoresizingMaskIntoConstraints="NO" id="aLG-2W-0NV">
                                         <rect key="frame" x="8" y="4" width="72" height="56"/>
@@ -251,7 +251,7 @@
                                         <rect key="frame" x="104" y="8" width="247" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZb-gM-pyo">
-                                                <rect key="frame" x="101.5" y="12" width="44" height="21"/>
+                                                <rect key="frame" x="101.66666666666666" y="12" width="44" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -276,14 +276,14 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qBh-Ff-AzL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="499"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="581"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="NoticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoticeListCell" rowHeight="80" id="rxD-82-flJ" customClass="NoticeListCell" customModule="DSMapp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rxD-82-flJ" id="ctT-F2-Xho">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xMd-Rs-RKg">
@@ -317,9 +317,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcH-0n-bl8">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.85882352939999995" green="0.91764705879999997" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcH-0n-bl8">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="뒤로" id="lOn-Vq-byo">
                                         <connections>
@@ -327,9 +326,10 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.85882352939999995" green="0.91764705879999997" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.85882352941176465" green="0.91764705882352937" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qBh-Ff-AzL" firstAttribute="leading" secondItem="idI-D1-ww5" secondAttribute="leading" id="1jJ-xc-sSp"/>
                             <constraint firstItem="KcH-0n-bl8" firstAttribute="leading" secondItem="3d9-Tp-C4l" secondAttribute="leading" id="38D-Ey-UKa"/>
@@ -363,11 +363,11 @@
             <objects>
                 <viewController storyboardIdentifier="FacilityView" id="de3-yf-7vD" customClass="FacilityVC" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bzd-Rc-qGD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IN5-3z-0em" customClass="BackViewShape" customModule="DSMapp" customModuleProvider="target">
-                                <rect key="frame" x="32" y="52" width="311" height="533"/>
+                                <rect key="frame" x="32" y="76" width="311" height="620"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bK4-Lm-V6y">
                                         <rect key="frame" x="16" y="16" width="127" height="42"/>
@@ -401,19 +401,19 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고장 내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fo1-Lz-x5Y">
-                                        <rect key="frame" x="24" y="150" width="63.5" height="20.5"/>
+                                        <rect key="frame" x="24.000000000000004" y="150" width="63.333333333333343" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OUz-gq-7T7">
-                                        <rect key="frame" x="16" y="178.5" width="279" height="292.5"/>
+                                        <rect key="frame" x="16" y="178.33333333333334" width="279" height="379.66666666666663"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="96" translatesAutoresizingMaskIntoConstraints="NO" id="iIJ-1u-9So">
-                                        <rect key="frame" x="77.5" y="487" width="156" height="30"/>
+                                        <rect key="frame" x="77.666666666666686" y="574" width="156" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXd-a7-eQS">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -473,14 +473,14 @@
             <objects>
                 <viewController storyboardIdentifier="NoticeDetailView" id="t0I-l6-VVo" customClass="NoticeDetailVC" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SFw-q5-oMe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noticeListDetailBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="FVZ-d6-IBG">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Znc-BR-02K">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.91764705879999997" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <barButtonItem title="뒤로" id="gWW-1y-2gB">
@@ -491,7 +491,7 @@
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2D2-38-2ZF" customClass="BackViewShape" customModule="DSMapp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="80" width="343" height="571"/>
+                                <rect key="frame" x="16" y="104" width="343" height="658"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="1i4-xd-2JE">
                                         <rect key="frame" x="16" y="16" width="311" height="32"/>
@@ -512,7 +512,7 @@
                                         </subviews>
                                     </stackView>
                                     <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDk-3d-hvK">
-                                        <rect key="frame" x="16" y="64" width="311" height="491"/>
+                                        <rect key="frame" x="16" y="64" width="311" height="578"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </webView>
                                 </subviews>
@@ -559,7 +559,7 @@
     <resources>
         <image name="facilityIcon.png" width="46" height="46"/>
         <image name="monster1.png" width="60" height="48"/>
-        <image name="noticeIcon.png" width="23" height="23"/>
+        <image name="noticeIcon.png" width="22" height="22"/>
         <image name="noticeListDetailBackground.png" width="375" height="667"/>
         <image name="notificationIcon.png" width="46" height="42"/>
         <image name="questionIcon.png" width="46" height="46"/>

@@ -72,12 +72,10 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
             alert.addAction(UIAlertAction.init(title: "전송", style: .default, handler: {
                 _ in
                 let textField = alert.textFields![0]
-                let fomatter = DateFormatter()
-                fomatter.dateFormat = "YYYY_MM_dd_h_m_s"
                 if textField.text!.isEmpty{
                     self.showToast(msg: "버그를 입력하세요")
                 }else{
-                    self.connector(add: "/bug-report", method: "POST", params: ["title" : "\(fomatter.string(from: Date()))", "content" : textField.text!], fun: {
+                    self.connector(add: "/bug-report", method: "POST", params: ["title" : "iOS 오류", "content" : textField.text!], fun: {
                         _, code in
                         if code == 201{
                             self.showToast(msg: "신고 성공")
