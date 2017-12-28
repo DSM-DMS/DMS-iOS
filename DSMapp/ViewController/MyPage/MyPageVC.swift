@@ -28,14 +28,11 @@ class MyPageVC: UIViewController {
         
         connector(add: "/mypage", method: "GET", params: [:], fun: {
             data, code in
-            
             switch code {
             case 200:
                 let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
                 self.stayStateLabel.text = "\(self.getStayStateName(decoderData.stay_value))"
-                
                 self.studyStateLabel.text = decoderData.getStudyState()
-                
             case 204, 401:
                 self.showToast(msg: "로그인이 필요합니다.")
                 self.stayStateLabel.text = "오류"
@@ -58,14 +55,14 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 1:
-            if getToken() == nil{
-                goNextViewToAuth("SignInView")
-            }else{
+            if getToken() == nil{ goNextViewToAuth("SignInView") }
+            else{
                 removeToken()
                 viewWillAppear(true)
             }
         case 2:
-            goNextViewToAuth("ChangePasswordView")
+            if getToken() == nil { showToast(msg: "로그인이 필요합니다.") }
+            else { goNextViewToAuth("ChangePasswordView") }
         case 4:
             let alert = UIAlertController.init(title: "버그신고", message: "", preferredStyle: .alert)
             alert.addTextField(configurationHandler: nil)

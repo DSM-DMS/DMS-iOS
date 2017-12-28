@@ -32,7 +32,6 @@
 		D04348EA1FBAC6D400F2AC62 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F66961F4488D400BF26D5 /* NotificationCenter.framework */; };
 		D04348ED1FBAC6D400F2AC62 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04348EC1FBAC6D400F2AC62 /* TodayViewController.swift */; };
 		D04348F01FBAC6D400F2AC62 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D04348EE1FBAC6D400F2AC62 /* MainInterface.storyboard */; };
-		D04348F41FBAC6D400F2AC62 /* MealExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D04348E91FBAC6D400F2AC62 /* MealExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D0473CFC1FB1F951002E3FE4 /* Apply.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0473CFB1FB1F951002E3FE4 /* Apply.storyboard */; };
 		D0473CFE1FB1FD43002E3FE4 /* ApplyMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0473CFD1FB1FD43002E3FE4 /* ApplyMainVC.swift */; };
 		D0473D031FB2BF1E002E3FE4 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0473D021FB2BF1E002E3FE4 /* MyPage.storyboard */; };
@@ -133,19 +132,13 @@
 		D0D986651FB1821D00CE9FD4 /* mealIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D986591FB1821C00CE9FD4 /* mealIcon@3x.png */; };
 		D0D986661FB1821D00CE9FD4 /* mealIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D9865A1FB1821D00CE9FD4 /* mealIcon.png */; };
 		D0D986671FB1821D00CE9FD4 /* applyIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D9865B1FB1821D00CE9FD4 /* applyIcon@2x.png */; };
+		D0DD331E1FEC83CB00F2E94C /* MealExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D04348E91FBAC6D400F2AC62 /* MealExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D0DF858E1FB8853B0065B2C6 /* StayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DF858D1FB8853B0065B2C6 /* StayModel.swift */; };
 		D0DF85901FB8866D0065B2C6 /* SurveyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DF858F1FB8866D0065B2C6 /* SurveyModel.swift */; };
 		D0EFAF8C1FB1BF4B0064D329 /* FacilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EFAF8B1FB1BF4B0064D329 /* FacilityVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D04348F21FBAC6D400F2AC62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D0538AB81ECB007C00C47F86 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D04348E81FBAC6D400F2AC62;
-			remoteInfo = MealExtension;
-		};
 		D0538AD51ECB007C00C47F86 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D0538AB81ECB007C00C47F86 /* Project object */;
@@ -153,20 +146,16 @@
 			remoteGlobalIDString = D0538ABF1ECB007C00C47F86;
 			remoteInfo = DSMapp;
 		};
+		D0DD331F1FEC83CB00F2E94C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0538AB81ECB007C00C47F86 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D04348E81FBAC6D400F2AC62;
+			remoteInfo = MealExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D00F66A51F4488D400BF26D5 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				D04348F41FBAC6D400F2AC62 /* MealExtension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D0A587BA1F0B940D009182BA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -175,6 +164,17 @@
 			files = (
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0DD33211FEC83CB00F2E94C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D0DD331E1FEC83CB00F2E94C /* MealExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -677,14 +677,13 @@
 				D0538ABC1ECB007C00C47F86 /* Sources */,
 				D0538ABD1ECB007C00C47F86 /* Frameworks */,
 				D0538ABE1ECB007C00C47F86 /* Resources */,
-				D0CD248B1F0B2F0C00999369 /* ShellScript */,
 				D0A587BA1F0B940D009182BA /* Embed Frameworks */,
-				D00F66A51F4488D400BF26D5 /* Embed App Extensions */,
+				D0DD33211FEC83CB00F2E94C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D04348F31FBAC6D400F2AC62 /* PBXTargetDependency */,
+				D0DD33201FEC83CB00F2E94C /* PBXTargetDependency */,
 			);
 			name = DSMapp;
 			productName = DSMapp;
@@ -721,18 +720,18 @@
 				TargetAttributes = {
 					D04348E81FBAC6D400F2AC62 = {
 						CreatedOnToolsVersion = 9.1;
-						DevelopmentTeam = W3868KR87Z;
+						DevelopmentTeam = Z25H7B85Z8;
 						ProvisioningStyle = Automatic;
 					};
 					D0538ABF1ECB007C00C47F86 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = W3868KR87Z;
+						DevelopmentTeam = Z25H7B85Z8;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					D0538AD31ECB007C00C47F86 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = W3868KR87Z;
+						DevelopmentTeam = Z25H7B85Z8;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D0538ABF1ECB007C00C47F86;
@@ -878,22 +877,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		D0CD248B1F0B2F0C00999369 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		D04348E51FBAC6D400F2AC62 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -951,15 +934,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D04348F31FBAC6D400F2AC62 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D04348E81FBAC6D400F2AC62 /* MealExtension */;
-			targetProxy = D04348F21FBAC6D400F2AC62 /* PBXContainerItemProxy */;
-		};
 		D0538AD61ECB007C00C47F86 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D0538ABF1ECB007C00C47F86 /* DSMapp */;
 			targetProxy = D0538AD51ECB007C00C47F86 /* PBXContainerItemProxy */;
+		};
+		D0DD33201FEC83CB00F2E94C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D04348E81FBAC6D400F2AC62 /* MealExtension */;
+			targetProxy = D0DD331F1FEC83CB00F2E94C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -997,13 +980,14 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W3868KR87Z;
+				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = MealExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp.MealExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = TeamDMS.Student.MealExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1017,13 +1001,14 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W3868KR87Z;
+				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = MealExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp.MealExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = TeamDMS.Student.MealExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1078,7 +1063,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1130,7 +1115,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1148,22 +1133,25 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = W3868KR87Z;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/DSMapp",
 				);
 				INFOPLIST_FILE = DSMapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp;
+				PRODUCT_BUNDLE_IDENTIFIER = TeamDMS.Student;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_REFLECTION_METADATA_LEVEL = none;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1176,21 +1164,25 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = W3868KR87Z;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/DSMapp",
 				);
 				INFOPLIST_FILE = DSMapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMapp;
+				PRODUCT_BUNDLE_IDENTIFIER = TeamDMS.Student;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_REFLECTION_METADATA_LEVEL = none;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1201,7 +1193,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = W3868KR87Z;
+				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				INFOPLIST_FILE = DSMappTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMappTests;
@@ -1217,7 +1209,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = W3868KR87Z;
+				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				INFOPLIST_FILE = DSMappTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GRAM.DSMappTests;

@@ -78,12 +78,10 @@ extension UIViewController{
             let httpRes = res as? HTTPURLResponse
 
             DispatchQueue.main.async {
-                
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 
-                print(err)
-                
-                if httpRes == nil{
+                if httpRes == nil || err != nil{
+                    NSLog("%@", "err")
                     self.showToast(msg: "네트워크 오류!")
                 }else{
                     fun(data, httpRes!.statusCode)

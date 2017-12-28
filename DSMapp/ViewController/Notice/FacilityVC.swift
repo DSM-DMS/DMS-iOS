@@ -29,7 +29,6 @@ class FacilityVC: UIViewController {
         
         cancelButton.addTarget(self, action: #selector(addAction(_:)), for: .touchUpInside)
         sendButton.addTarget(self, action: #selector(addAction(_:)), for: .touchUpInside)
-        
     }
     
     @objc func addAction(_ button: UIButton){

@@ -78,14 +78,3 @@ class TabShape: UITabBarController {
     }
     
 }
-
-class NavigationItempShape: UINavigationItem{
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        
-        
-    }
-    
-}

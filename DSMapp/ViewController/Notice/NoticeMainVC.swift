@@ -42,9 +42,11 @@ class NoticeMainVC: UIViewController {
     func getFacilityViewController(){
         let facilityView = storyboard?.instantiateViewController(withIdentifier: "FacilityView") as! FacilityVC
         facilityView.removeFunc = {
-            facilityView.view.removeFromSuperview()
+            UIView.animate(withDuration: 0.2, animations: { facilityView.view.alpha = 0.0 }, completion: { _ in facilityView.view.removeFromSuperview() })
         }
         view.addSubview(facilityView.view)
+        facilityView.view.alpha = 0.0
+        UIView.animate(withDuration: 0.3, animations: { facilityView.view.alpha = 1.0 })
     }
     
     func addAction(_ button: UIButton){
