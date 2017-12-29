@@ -356,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0g-uo-3bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2280" y="194.36619718309859"/>
+            <point key="canvasLocation" x="2428" y="194"/>
         </scene>
         <!--FacilityVC-->
         <scene sceneID="NMu-pZ-N7g">
@@ -477,9 +477,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noticeListDetailBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="FVZ-d6-IBG">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Znc-BR-02K">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znc-BR-02K">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.91764705879999997" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
@@ -489,6 +489,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.85882352939999995" green="0.91764705879999997" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2D2-38-2ZF" customClass="BackViewShape" customModule="DSMapp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="104" width="343" height="658"/>
@@ -528,13 +529,13 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.85882352939999995" green="0.91764705879999997" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MFN-qC-bEC" firstAttribute="trailing" secondItem="2D2-38-2ZF" secondAttribute="trailing" constant="16" id="0Sy-QH-hpF"/>
+                            <constraint firstAttribute="bottom" secondItem="FVZ-d6-IBG" secondAttribute="bottom" id="11K-B1-jVY"/>
                             <constraint firstItem="Znc-BR-02K" firstAttribute="leading" secondItem="MFN-qC-bEC" secondAttribute="leading" id="5Fv-bj-ZIO"/>
                             <constraint firstItem="2D2-38-2ZF" firstAttribute="top" secondItem="Znc-BR-02K" secondAttribute="bottom" constant="16" id="9UK-Jb-Mz3"/>
                             <constraint firstItem="MFN-qC-bEC" firstAttribute="bottom" secondItem="2D2-38-2ZF" secondAttribute="bottom" constant="16" id="Ebz-i7-0g0"/>
-                            <constraint firstItem="FVZ-d6-IBG" firstAttribute="bottom" secondItem="MFN-qC-bEC" secondAttribute="bottom" id="TXu-ii-daI"/>
                             <constraint firstItem="FVZ-d6-IBG" firstAttribute="top" secondItem="MFN-qC-bEC" secondAttribute="top" id="UFa-Zh-kdv"/>
                             <constraint firstItem="Znc-BR-02K" firstAttribute="trailing" secondItem="MFN-qC-bEC" secondAttribute="trailing" id="pBU-D2-IIC"/>
                             <constraint firstItem="Znc-BR-02K" firstAttribute="top" secondItem="MFN-qC-bEC" secondAttribute="top" id="rc1-Gc-1b7"/>
@@ -553,7 +554,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2j-Tm-Vgb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3373.5999999999999" y="193.85307346326837"/>
+            <point key="canvasLocation" x="3373.5999999999999" y="193.5960591133005"/>
         </scene>
     </scenes>
     <resources>

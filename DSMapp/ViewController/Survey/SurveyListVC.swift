@@ -48,9 +48,6 @@ class SurveyListVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "SurveyBaseView") as! SurveyBaseVC
-        vc.id = usingData[indexPath.row].id
-        present(vc, animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

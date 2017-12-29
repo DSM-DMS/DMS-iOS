@@ -81,7 +81,6 @@ extension UIViewController{
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 
                 if httpRes == nil || err != nil{
-                    NSLog("%@", "err")
                     self.showToast(msg: "네트워크 오류!")
                 }else{
                     fun(data, httpRes!.statusCode)
@@ -114,6 +113,12 @@ extension UIViewController{
     
     func back(){
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func goNextViewWithStoryboard(storyId: String, id: String){
+        let contentStoryboard = UIStoryboard.init(name: storyId, bundle: nil)
+        let vc = contentStoryboard.instantiateViewController(withIdentifier: id)
+        present(vc, animated: true, completion: nil)
     }
     
 }

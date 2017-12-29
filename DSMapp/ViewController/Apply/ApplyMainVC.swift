@@ -85,6 +85,10 @@ class ApplyMainVC: UIViewController{
     
     func goApplyView(_ idNum: Int){
         if getToken() != nil{
+            if idNum == 3{
+                goNextViewWithStoryboard(storyId: "Survey", id: "SurveyInfoView")
+                return
+            }
             let vcIdArr = ["ApplyStudyView", "ApplyStayView", "", "SurveyView"]
             goNextViewController(vcIdArr[idNum])
         }else{

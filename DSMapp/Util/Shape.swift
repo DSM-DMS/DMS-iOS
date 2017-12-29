@@ -30,6 +30,22 @@ class ButtonShape: UIButton {
     
 }
 
+class SurveyButtonShape: UIButton {
+    
+    func setShape(){
+        layer.cornerRadius = 32
+        backgroundColor = Color.CO3.getColor()
+        tintColor = UIColor.white
+        titleLabel?.font = UIFont.systemFont(ofSize: 16)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setShape()
+    }
+    
+}
+
 class BackViewShape: UIView{
     
     override init(frame: CGRect) {
@@ -74,7 +90,7 @@ class TabShape: UITabBarController {
     override func viewDidLoad() {
         tabBar.barTintColor = Color.CO4.getColor()
         tabBar.tintColor = UIColor.white
-        tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.7)
+        tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.5)
     }
     
 }

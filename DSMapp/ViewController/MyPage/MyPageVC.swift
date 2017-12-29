@@ -55,14 +55,14 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 1:
-            if getToken() == nil{ goNextViewToAuth("SignInView") }
+            if getToken() == nil{ goNextViewWithStoryboard(storyId: "Auth", id: "SignInView") }
             else{
                 removeToken()
                 viewWillAppear(true)
             }
         case 2:
             if getToken() == nil { showToast(msg: "로그인이 필요합니다.") }
-            else { goNextViewToAuth("ChangePasswordView") }
+            else { goNextViewWithStoryboard(storyId: "Auth", id: "ChangePasswordView") }
         case 4:
             let alert = UIAlertController.init(title: "버그신고", message: "", preferredStyle: .alert)
             alert.addTextField(configurationHandler: nil)
@@ -74,35 +74,23 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
                 }else{
                     self.connector(add: "/bug-report", method: "POST", params: ["title" : "iOS 오류", "content" : textField.text!], fun: {
                         _, code in
-                        if code == 201{
-                            self.showToast(msg: "신고 성공")
-                        }else{
-                            self.showToast(msg: "오류 : \(code)")
-                        }
-                    })
+                        if code == 201{ self.showToast(msg: "신고 성공") }
+                        else{ self.showToast(msg: "오류 : \(code)") }})
                 }
             }))
             
             alert.addAction(UIAlertAction.init(title: "취소", style: .cancel, handler: nil))
-            
             present(alert, animated: true, completion: nil)
             
         case 5:
-            let alert = UIAlertController.init(title: "멋지게 준비중입니다.", message: "조금만 기다려주세요", preferredStyle: .alert)
-            alert.addAction(UIAlertAction.init(title: "확인", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
-            
+//            let alert = UIAlertController.init(title: "멋지게 준비중입니다.", message: "조금만 기다려주세요", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction.init(title: "확인", style: .default, handler: nil))
+            present((storyboard?.instantiateViewController(withIdentifier: "IntroDeveloperListView"))!, animated: true, completion: nil)
         default:
             return
         }
         
         tableView.reloadData()
-    }
-    
-    func goNextViewToAuth(_ id: String){
-        let authStoryboard = UIStoryboard.init(name: "Auth", bundle: nil)
-        let vc = authStoryboard.instantiateViewController(withIdentifier: id)
-        present(vc, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

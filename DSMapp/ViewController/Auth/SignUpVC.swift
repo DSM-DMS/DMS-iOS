@@ -28,7 +28,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func apply(_ sender: Any) {
-        if tFSC(idTextField) || tFSC(pwTextField) || tFSC(codeTextField) || !idCheck{
+        if !(tFSC(idTextField) || tFSC(pwTextField) || tFSC(codeTextField) || !idCheck){
             connector(add: "/signup", method: "POST", params: ["uuid" : codeTextField.text!, "id" : idTextField.text!, "pw" : pwTextField.text!], fun: {
                 _, code in
                 switch code{
@@ -37,7 +37,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate{
                 case 400:
                     self.showToast(msg: "회원가입 코드를 확인하세요")
                 default:
-                    self.showToast(msg: " : \(code)")
+                    self.showToast(msg: "오류 : \(code)")
                 }
             })
         }else{

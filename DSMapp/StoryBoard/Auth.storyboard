@@ -142,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signUpBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="8sD-eq-nDh">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signUpIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="p3L-7l-BvR">
                                 <rect key="frame" x="133.66666666666666" y="120" width="108" height="108"/>
@@ -191,14 +191,13 @@
                             <constraint firstItem="CxD-3d-mVn" firstAttribute="trailing" secondItem="8sD-eq-nDh" secondAttribute="trailing" id="571-g8-Acy"/>
                             <constraint firstItem="Kxm-Av-IHJ" firstAttribute="leading" secondItem="CxD-3d-mVn" secondAttribute="leading" constant="24" id="6h6-bC-cnU"/>
                             <constraint firstItem="p3L-7l-BvR" firstAttribute="top" secondItem="CxD-3d-mVn" secondAttribute="top" constant="32" id="FLH-Nf-ZzA"/>
-                            <constraint firstItem="CxD-3d-mVn" firstAttribute="bottom" secondItem="8sD-eq-nDh" secondAttribute="bottom" id="Fnj-bw-VJM"/>
+                            <constraint firstAttribute="bottom" secondItem="8sD-eq-nDh" secondAttribute="bottom" id="GQ0-53-rGX"/>
                             <constraint firstItem="8sD-eq-nDh" firstAttribute="top" secondItem="CxD-3d-mVn" secondAttribute="top" id="RgH-Na-2jI"/>
                             <constraint firstItem="Kxm-Av-IHJ" firstAttribute="centerY" secondItem="5MJ-Qh-ZTS" secondAttribute="centerY" constant="62" id="V5T-ae-meZ"/>
                             <constraint firstItem="p3L-7l-BvR" firstAttribute="centerX" secondItem="5MJ-Qh-ZTS" secondAttribute="centerX" id="WDu-Dc-gzW"/>
                             <constraint firstItem="Kxm-Av-IHJ" firstAttribute="centerX" secondItem="5MJ-Qh-ZTS" secondAttribute="centerX" id="Znq-VB-7cZ"/>
                             <constraint firstItem="8sD-eq-nDh" firstAttribute="leading" secondItem="CxD-3d-mVn" secondAttribute="leading" id="gbi-pF-uNL"/>
                             <constraint firstItem="Gax-LL-069" firstAttribute="top" secondItem="Kxm-Av-IHJ" secondAttribute="bottom" constant="82" id="gsh-so-W4y"/>
-                            <constraint firstItem="CxD-3d-mVn" firstAttribute="trailing" secondItem="Kxm-Av-IHJ" secondAttribute="trailing" constant="24" id="qro-yQ-6bA"/>
                             <constraint firstItem="Gax-LL-069" firstAttribute="centerX" secondItem="5MJ-Qh-ZTS" secondAttribute="centerX" id="tle-DX-k9n"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CxD-3d-mVn"/>
@@ -219,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLj-Hm-wrK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2878" y="148"/>
+            <point key="canvasLocation" x="2877.5999999999999" y="147.78325123152709"/>
         </scene>
         <!--비밀번호 변경-->
         <scene sceneID="fKG-a2-dq0">
@@ -230,7 +229,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signUpBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="RtD-06-Ie1">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="changePasswordIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dee-bK-WcO">
                                 <rect key="frame" x="133.66666666666666" y="180" width="108" height="108"/>
@@ -279,6 +278,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="RtD-06-Ie1" secondAttribute="bottom" id="5dw-zg-Tmb"/>
                             <constraint firstItem="4TA-Aq-651" firstAttribute="trailing" secondItem="6st-Iv-enf" secondAttribute="trailing" constant="24" id="8V5-J6-oOT"/>
                             <constraint firstItem="4TA-Aq-651" firstAttribute="trailing" secondItem="RtD-06-Ie1" secondAttribute="trailing" id="J4m-zJ-ZwZ"/>
                             <constraint firstItem="RtD-06-Ie1" firstAttribute="leading" secondItem="4TA-Aq-651" secondAttribute="leading" id="RXQ-38-UHF"/>
@@ -289,7 +289,6 @@
                             <constraint firstItem="6st-Iv-enf" firstAttribute="leading" secondItem="4TA-Aq-651" secondAttribute="leading" constant="24" id="t2P-Bw-Cxy"/>
                             <constraint firstItem="Dee-bK-WcO" firstAttribute="centerY" secondItem="Qgw-kM-taL" secondAttribute="centerY" constant="-172" id="tie-35-3Pp"/>
                             <constraint firstItem="6st-Iv-enf" firstAttribute="centerX" secondItem="Qgw-kM-taL" secondAttribute="centerX" id="uKg-GN-t9I"/>
-                            <constraint firstItem="4TA-Aq-651" firstAttribute="bottom" secondItem="RtD-06-Ie1" secondAttribute="bottom" id="uVw-8z-fGd"/>
                             <constraint firstItem="uKi-Kh-nmT" firstAttribute="centerX" secondItem="Qgw-kM-taL" secondAttribute="centerX" id="xLv-cs-ruK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4TA-Aq-651"/>
@@ -308,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZa-Jq-WIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="1111"/>
+            <point key="canvasLocation" x="832.79999999999995" y="1110.5911330049262"/>
         </scene>
         <!--Navigation Shape-->
         <scene sceneID="Fya-I2-D8a">
