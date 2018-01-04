@@ -13,13 +13,31 @@ class SurveyNObVC: UIViewController {
     @IBOutlet weak var questionTitleLabel: UILabel!
     @IBOutlet weak var answerTextField: UITextField!
     
+    var nextFunc: (() -> ())?
+    
     @IBAction func next(_ sender: Any) {
+        nextFunc?()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        answerTextField.delegate = self
     }
 
+}
+
+extension SurveyNObVC: UITextFieldDelegate{
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.answerTextField.center.y -= 120
+        })
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.answerTextField.center.y += 120
+        })
+    }
+    
 }

@@ -86,13 +86,13 @@ class ApplyMainVC: UIViewController{
     func goApplyView(_ idNum: Int){
         if getToken() != nil{
             if idNum == 3{
-                goNextViewWithStoryboard(storyId: "Survey", id: "SurveyInfoView")
+                goNextViewWithStoryboard(storyId: "Survey", id: "SurveyListView")
                 return
             }
             let vcIdArr = ["ApplyStudyView", "ApplyStayView", "", "SurveyView"]
             goNextViewController(vcIdArr[idNum])
         }else{
-            showToast(msg: "로그인을 하세요.")
+            showToast(msg: "로그인을 하세요")
         }
     }
     
@@ -103,11 +103,11 @@ class ApplyMainVC: UIViewController{
                 if code == 201{
                     self.showToast(msg: "신청 성공")
                 }else{
-                    self.showToast(msg: "신청 실패 : \(code)")
+                    self.showToast(msg: "오류 : \(code)")
                 }
             })
         }else{
-            showToast(msg: "로그인을 하세요.")
+            showToast(msg: "로그인을 하세요")
         }
     }
     
@@ -127,18 +127,13 @@ class ApplyMainVC: UIViewController{
             switch code {
             case 200:
                 let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
-                
                 self.applyStudyLabel.text = decoderData.getStudyState()
                 self.applyStayLabel.text = "신청 : \(self.getStayStateName(decoderData.stay_value))"
-                self.applyOutSatSwitch.setOn(decoderData.goingout_sat, animated: true)
-                self.applyOutSunSwitch.setOn(decoderData.goingout_sun, animated: true)
-                
-            case 204, 401:
-                self.showToast(msg: "로그인이 필요합니다.")
+                self.applyOutSatSwitch.setOn(decoderData.goingout.sat, animated: true)
+                self.applyOutSunSwitch.setOn(decoderData.goingout.sun, animated: true)
             default:
                 self.showToast(msg: "오류 : \(code)")
             }
-            
         })
     }
 

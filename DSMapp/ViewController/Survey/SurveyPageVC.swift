@@ -8,28 +8,42 @@
 
 import UIKit
 
-class SurveyPageVC: UIPageViewController {
-
+class SurveyPageVC: UIViewController {
+    
+    var contentList = Array<SurveyModel>()
+    var contentPosition = 0
+    let tempArr = [true, false, true, false]
+    
+    let pageVC = UIPageViewController()
+    
+    @IBOutlet weak var contentView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        pageVC.view.frame.size = contentView.frame.size
+        pageVC.setViewControllers([getContentView(tempArr[contentPosition])], direction: .forward, animated: true, completion: nil)
+        contentView.addSubview(pageVC.view)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setContentView(){
+        if contentPosition == tempArr.count - 1{
+            showToast(msg: "설문조사 완료", fun: { self.dismiss(animated: true, completion: nil) })
+        }else{
+            contentPosition += 1
+            pageVC.setViewControllers([getContentView(tempArr[contentPosition])], direction: .forward, animated: true, completion: nil)
+        }
     }
-    */
+    
+    func getContentView(_ is_objective: Bool) -> UIViewController{
+        if is_objective{
+            let VC = storyboard?.instantiateViewController(withIdentifier: "SurveyObView") as! SurveyObVC
+            VC.nextFunc = setContentView
+            return VC
+        }else{
+            let VC = storyboard?.instantiateViewController(withIdentifier: "SurveyNObView") as! SurveyNObVC
+            VC.nextFunc = setContentView
+            return VC
+        }
+    }
 
 }

@@ -42,7 +42,7 @@ extension NoticeListVC: UITableViewDataSource, UITableViewDelegate{
                 dump(self.data)
                 self.tableView.reloadData()
             }else{
-                
+                self.showToast(msg: "오류 : \(code)")
             }
         })
     }

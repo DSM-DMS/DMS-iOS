@@ -22,13 +22,22 @@ class ApplyStudyVC: UIViewController  {
         back()
     }
     
+    @IBAction func cancel(_ sender: ButtonShape) {
+        connector(add: "/extension/\(selectedTime)", method: "DELETE", params: [:], fun: {
+            _, code in
+            if code == 200{
+                self.showToast(msg: "취소 성공")
+                self.getMap()
+            }else{ self.showToast(msg: "오류 : \(code)") }
+        })
+    }
     
     let roomNameArr = ["가온실", "나온실", "다온실", "라온실", "3층 독서실", "4층 독서실", "열린교실"]
     
     @IBAction func apply(_ sender: Any) {
         if selectedSeat > 0{
             print(selectedTime, selectedClass, selectedSeat)
-            connector(add: "/extension/\(selectedTime)", method: "POST", params: ["class" : "\(selectedClass)", "seat" : "\(selectedSeat)"], fun: {
+            connector(add: "/extension/\(selectedTime)", method: "POST", params: ["class_num" : "\(selectedClass)", "seat_num" : "\(selectedSeat)"], fun: {
                 _, code in
                 switch code{
                 case 201:
@@ -41,7 +50,6 @@ class ApplyStudyVC: UIViewController  {
                 }
             })
         }else{
-            
             showToast(msg: "자리를 선택하세요")
         }
     }
@@ -63,7 +71,6 @@ class ApplyStudyVC: UIViewController  {
         }else{
             selectedTime = 12
         }
-        
         getMap()
     }
     
@@ -95,7 +102,7 @@ extension ApplyStudyVC{
     func getMap(){
         selectedSeat = 0
         
-        connector(add: "/extension/map/\(selectedTime)", method: "GET", params: ["class" : "\(selectedClass)"], fun: {
+        connector(add: "/extension/map/\(selectedTime)", method: "GET", params: ["class_num" : "\(selectedClass)"], fun: {
             data, code in
             switch code{
             case 200:
@@ -160,7 +167,7 @@ extension ApplyStudyVC{
             selectedSeat = intTitle
             beforeButton = button
         }else{
-            showToast(msg: "자리가 있습니다.")
+            showToast(msg: "자리가 있습니다")
         }
     }
     

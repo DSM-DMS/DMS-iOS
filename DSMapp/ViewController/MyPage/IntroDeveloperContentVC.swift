@@ -16,7 +16,7 @@ class IntroDeveloperContentVC: UIViewController {
     
     public var position = 0
     
-    let colorArr = [Color.CO1, .CO2, .CO3, .CO4, .CO5]
+    let colorArr = [UIColor.init(red: 240/255, green: 67/255, blue: 58/255, alpha: 1), UIColor.init(red: 239/255, green: 93/255, blue: 53/255, alpha: 1), UIColor.init(red: 1, green: 223/255, blue: 79/255, alpha: 1), UIColor.init(red: 118/255, green: 191/255, blue: 114/255, alpha: 1), UIColor.init(red: 31/255, green: 156/255, blue: 139/255, alpha: 1)]
     
     func setPosition(_ position: Int) -> IntroDeveloperContentVC{
         self.position = position
@@ -29,6 +29,6 @@ class IntroDeveloperContentVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        view.backgroundColor = colorArr[position].getColor()
+        view.backgroundColor = colorArr[position]
     }
 }

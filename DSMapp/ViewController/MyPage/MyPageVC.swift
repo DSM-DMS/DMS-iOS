@@ -31,22 +31,21 @@ class MyPageVC: UIViewController {
             switch code {
             case 200:
                 let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
-                self.stayStateLabel.text = "\(self.getStayStateName(decoderData.stay_value))"
-                self.studyStateLabel.text = decoderData.getStudyState()
-            case 204, 401:
-                self.showToast(msg: "로그인이 필요합니다.")
-                self.stayStateLabel.text = "오류"
-                self.studyStateLabel.text = "오류"
+                self.setData(study: decoderData.getStudyState(), stay: decoderData.getStayState())
             default:
                 self.showToast(msg: "오류 : \(code)")
             }
-            
         })
     }
 
 }
 
 extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
+    
+    func setData(study: String, stay: String){
+        studyStateLabel.text = study
+        stayStateLabel.text = stay
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 7
@@ -72,7 +71,7 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
                 if textField.text!.isEmpty{
                     self.showToast(msg: "버그를 입력하세요")
                 }else{
-                    self.connector(add: "/bug-report", method: "POST", params: ["title" : "iOS 오류", "content" : textField.text!], fun: {
+                    self.connector(add: "/report/bug", method: "POST", params: ["title" : "iOS 오류", "content" : textField.text!], fun: {
                         _, code in
                         if code == 201{ self.showToast(msg: "신고 성공") }
                         else{ self.showToast(msg: "오류 : \(code)") }})

@@ -15,13 +15,30 @@ class SurveyInfoVC: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var questionList = Array<SurveyModel>()
+    var questionData: SurveyListModel?
+    
     @IBAction func next(_ sender: Any) {
-        
+        let surveyPageVC = storyboard?.instantiateViewController(withIdentifier: "SurveyPageView") as! SurveyPageVC
+        surveyPageVC.contentList = questionList
+        present(surveyPageVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         questionListTable.dataSource = self
+        
+        timeLabel.text = "\(questionData!.start_date) ~ \(questionData!.end_date)"
+        titleLabel.text = questionData!.title
+        infoTextView.text = questionData!.description
+        
+        connector(add: "/survey/question", method: "GET", params: ["survey_id" : questionData!.id], fun: {
+            data, code in
+            if code == 200{
+                self.questionList = try! JSONDecoder().decode(Array<SurveyModel>.self, from: data!)
+                self.questionListTable.reloadData()
+            }
+        })
     }
 
 }
@@ -29,12 +46,12 @@ class SurveyInfoVC: UIViewController {
 extension SurveyInfoVC: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return questionList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyInfoCell", for: indexPath) as! SurveyInfoCell
-        cell.contentLabel.text = "\(indexPath.row) 번째 입니다."
+        cell.contentLabel.text = questionList[indexPath.row].title
         return cell
     }
     

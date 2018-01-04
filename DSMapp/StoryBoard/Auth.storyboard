@@ -245,6 +245,9 @@
                                     <constraint firstAttribute="width" constant="130" id="yG9-pd-J7t"/>
                                 </constraints>
                                 <state key="normal" title="변경"/>
+                                <connections>
+                                    <action selector="change:" destination="C4B-Pb-hCt" eventType="touchUpInside" id="Rnx-A2-TQI"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6st-Iv-enf">
                                 <rect key="frame" x="24" y="314.33333333333331" width="327" height="151.33333333333331"/>
@@ -302,7 +305,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="curPwTextField" destination="nMS-Gr-cT4" id="IZT-jk-H72"/>
-                        <outlet property="newPwTextField" destination="RtD-06-Ie1" id="jQ6-mL-fzt"/>
+                        <outlet property="newPwTextField" destination="GBH-Mc-3Q3" id="fB7-rM-xUU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZa-Jq-WIc" userLabel="First Responder" sceneMemberID="firstResponder"/>

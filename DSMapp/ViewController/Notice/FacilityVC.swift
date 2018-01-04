@@ -36,7 +36,7 @@ class FacilityVC: UIViewController {
             if titleTextField.text!.isEmpty || roomNumTextField.text!.isEmpty || contentTextView.text.isEmpty{
                 showToast(msg: "모든 값을 입력하세요")
             }else{
-                connector(add: "/report", method: "POST", params: ["room" : roomNumTextField.text!, "title" : titleTextField.text!, "content" : contentTextView.text], fun: {
+                connector(add: "/report/facility", method: "POST", params: ["room" : roomNumTextField.text!, "title" : titleTextField.text!, "content" : contentTextView.text], fun: {
                     _, code in
                     if code == 201{
                         self.showToast(msg: "신고 성공", fun: self.removeFunc)

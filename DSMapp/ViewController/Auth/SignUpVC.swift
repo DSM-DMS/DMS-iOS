@@ -34,7 +34,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate{
                 switch code{
                 case 201:
                     self.showToast(msg: "회원가입 성공", fun: self.back)
-                case 400:
+                case 205:
                     self.showToast(msg: "회원가입 코드를 확인하세요")
                 default:
                     self.showToast(msg: "오류 : \(code)")
@@ -55,13 +55,14 @@ class SignUpVC: UIViewController, UITextFieldDelegate{
         if textField == idTextField{
             connector(add: "/verify/id", method: "POST", params: ["id" : idTextField.text!], fun: {
                 _, code in
-                if code == 201{
+                if code == 200{
                     self.idCheck = true
-                }else{
+                }else if code == 204{
                     self.idCheck = false
                     self.idTextField.text = ""
                     self.showToast(msg: "아이디 중복")
                 }
+                
             })
         }
     }

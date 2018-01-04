@@ -16,7 +16,10 @@ class SurveyObVC: UIViewController {
     @IBOutlet weak var questionTitleLabel: UILabel!
     @IBOutlet weak var answerTable: UITableView!
     
+    var nextFunc: (() -> ())?
+    
     @IBAction func next(_ sender: Any) {
+        nextFunc?()
     }
     
     override func viewDidLoad() {

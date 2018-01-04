@@ -14,5 +14,6 @@ class SurveyListModel: Codable{
     var title: String
     var start_date: String
     var end_date: String
+    var description: String
     
 }

@@ -44,7 +44,7 @@ extension UIViewController{
     }
     
     func connector(add: String, method: String, params: [String:String], fun: @escaping(Data?, Int) -> Void){
-        let url = "http://dsm2015.cafe24.com:3000"
+        let url = "http://dsm2015.cafe24.com:3001"
 
         var paramStr = ""
         for param in params{
@@ -83,7 +83,14 @@ extension UIViewController{
                 if httpRes == nil || err != nil{
                     self.showToast(msg: "네트워크 오류!")
                 }else{
-                    fun(data, httpRes!.statusCode)
+                    switch httpRes!.statusCode{
+                    case 500: self.showToast(msg: "서버 오류")
+                    case 401: self.showToast(msg: "다시 로그인 하세요")
+                              self.removeToken()
+                    case 422: self.showToast(msg: "로그인이 필요합니다.")
+                              self.removeToken()
+                    default: fun(data, httpRes!.statusCode)
+                    }
                 }
             }
 

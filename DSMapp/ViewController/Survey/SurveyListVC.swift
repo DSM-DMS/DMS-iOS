@@ -12,22 +12,14 @@ class SurveyListVC: UITableViewController {
 
     var usingData = Array<SurveyListModel>()
     
-    @IBAction func pressBack(_ sender: Any) {
-        back()
-    }
+    @IBAction func pressBack(_ sender: Any) { back() }
     
     override func viewDidLoad() {
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         connector(add: "/survey", method:
             "GET", params: [:], fun: {
                 data, code in
                 if code == 200{
-                    print(String.init(data: data!, encoding: .utf8))
                     self.usingData = try! JSONDecoder().decode(Array<SurveyListModel>.self, from: data!)
-                    print("\(self.usingData.count)")
                     self.tableView.reloadData()
                 }else{
                     self.showToast(msg: "오류 : \(code)")
@@ -37,7 +29,6 @@ class SurveyListVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyListCell", for: indexPath) as! SurveyListCell
-        
         let selectData = usingData[indexPath.row]
         
         cell.titleLabel.text = selectData.title
@@ -48,6 +39,9 @@ class SurveyListVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let contentVC = self.storyboard?.instantiateViewController(withIdentifier: "SurveyInfoView") as! SurveyInfoVC
+        contentVC.questionData = usingData[indexPath.row]
+        present(contentVC, animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

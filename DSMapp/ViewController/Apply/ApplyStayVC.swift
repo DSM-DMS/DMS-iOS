@@ -34,9 +34,9 @@ class ApplyStayVC: UIViewController  {
                 _, code in
                 switch code{
                 case 201:
-                    self.showToast(msg: "신청성공")
+                    self.showToast(msg: "신청성공", fun: self.back)
                 case 204:
-                    self.showToast(msg: "신청 가능 시간이 아닙니다.")
+                    self.showToast(msg: "신청 시간이 아닙니다")
                 default:
                     self.showToast(msg: "오류 : \(code)")
                 }
