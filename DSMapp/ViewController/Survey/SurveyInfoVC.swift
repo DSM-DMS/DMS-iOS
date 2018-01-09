@@ -21,7 +21,11 @@ class SurveyInfoVC: UIViewController {
     @IBAction func next(_ sender: Any) {
         let surveyPageVC = storyboard?.instantiateViewController(withIdentifier: "SurveyPageView") as! SurveyPageVC
         surveyPageVC.contentList = questionList
-        present(surveyPageVC, animated: true, completion: nil)
+        present(surveyPageVC, animated: true, completion: { self.performSegue(withIdentifier: "UnWind", sender: self) })
+    }
+    
+    @IBAction func setUnwind(segue: UIStoryboardSegue){
+        self.dismiss(animated: false, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -29,6 +33,7 @@ class SurveyInfoVC: UIViewController {
         questionListTable.dataSource = self
         
         timeLabel.text = "\(questionData!.start_date) ~ \(questionData!.end_date)"
+        timeLabel.textAlignment = .center
         titleLabel.text = questionData!.title
         infoTextView.text = questionData!.description
         
@@ -64,6 +69,7 @@ class SurveyInfoCell: UITableViewCell{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        dotView.backgroundColor = Color.CO2.getColor()
         dotView.layer.cornerRadius = 4
     }
     

@@ -27,7 +27,7 @@ class SurveyPageVC: UIViewController {
     
     func setContentView(){
         if contentPosition == tempArr.count - 1{
-            showToast(msg: "설문조사 완료", fun: { self.dismiss(animated: true, completion: nil) })
+            showToast(msg: "설문조사 완료", fun: self.back)
         }else{
             contentPosition += 1
             pageVC.setViewControllers([getContentView(tempArr[contentPosition])], direction: .forward, animated: true, completion: nil)

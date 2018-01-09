@@ -32,8 +32,8 @@ class IntroDeveloperListVC: UIPageViewController, UIPageViewControllerDataSource
     
     func getContentVC(position: Int) -> IntroDeveloperContentVC? {
         if position < 0 || position > 4 { return nil }
+        print(position)
         let contentVC = storyboard?.instantiateViewController(withIdentifier: "IntroDeveloperContentView") as! IntroDeveloperContentVC
-        navigationController?.navigationBar.barTintColor = contentVC.colorArr[position]
         return contentVC.setPosition(position)
     }
     

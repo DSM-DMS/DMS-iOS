@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,14 +18,14 @@
             <objects>
                 <viewController storyboardIdentifier="SurveyNObView" id="DfC-Br-MUX" customClass="SurveyNObVC" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9RM-Y9-2G4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="surveyBackgroud.png" translatesAutoresizingMaskIntoConstraints="NO" id="5D0-c7-eQb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsM-IV-IpY" customClass="SurveyButtonShape" customModule="DSMapp" customModuleProvider="target">
-                                <rect key="frame" x="155.5" y="587" width="64" height="64"/>
+                                <rect key="frame" x="155.66666666666666" y="698" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="qZ6-rf-HPr"/>
                                     <constraint firstAttribute="height" constant="64" id="vuB-WL-ffP"/>
@@ -37,17 +37,17 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0i-VG-jbt">
-                                <rect key="frame" x="0.0" y="20" width="375" height="333.5"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="406"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="surveyQuestionIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="LQG-5x-pHk">
-                                        <rect key="frame" x="124" y="55.5" width="128" height="128"/>
+                                        <rect key="frame" x="124" y="91.666666666666657" width="128" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="128" id="bYg-bM-aAc"/>
                                             <constraint firstAttribute="width" secondItem="LQG-5x-pHk" secondAttribute="height" multiplier="1:1" id="rB1-HM-gwA"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAC-Wm-Ceh">
-                                        <rect key="frame" x="32" y="199.5" width="311" height="24"/>
+                                        <rect key="frame" x="32" y="235.66666666666669" width="311" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -62,10 +62,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STl-rW-qf8">
-                                <rect key="frame" x="0.0" y="353.5" width="375" height="233.5"/>
+                                <rect key="frame" x="0.0" y="450" width="375" height="248"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ifU-Of-3LP">
-                                        <rect key="frame" x="32" y="102" width="311" height="30"/>
+                                        <rect key="frame" x="32" y="109.33333333333337" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -113,14 +113,14 @@
             <objects>
                 <viewController storyboardIdentifier="SurveyInfoView" id="G1l-PW-8MR" customClass="SurveyInfoVC" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PLE-G6-pam">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="surveyBackgroud.png" translatesAutoresizingMaskIntoConstraints="NO" id="god-CD-9kk">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsm-hC-Mjg" customClass="SurveyInfoView" customModule="DSMapp" customModuleProvider="target">
-                                <rect key="frame" x="32" y="96" width="311" height="204"/>
+                                <rect key="frame" x="32" y="104" width="311" height="268.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기간 : 2017 10 12 ~ 2017 11 12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ED4-4y-TzJ">
                                         <rect key="frame" x="32" y="36" width="247" height="21"/>
@@ -129,7 +129,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="만나서 반갑습니다." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iS2-Qu-UzK">
-                                        <rect key="frame" x="32" y="73" width="247" height="107"/>
+                                        <rect key="frame" x="16" y="72.999999999999986" width="279" height="171.66666666666663"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -137,7 +137,7 @@
                                         <rect key="frame" x="32" y="-18" width="247" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQQ-h6-UEh">
-                                                <rect key="frame" x="103" y="8" width="42.5" height="19.5"/>
+                                                <rect key="frame" x="103" y="8.0000000000000018" width="42.666666666666657" height="19.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -155,17 +155,17 @@
                                     <constraint firstItem="ED4-4y-TzJ" firstAttribute="top" secondItem="240-0s-Pie" secondAttribute="bottom" constant="18" id="4Uj-oN-CuS"/>
                                     <constraint firstItem="240-0s-Pie" firstAttribute="leading" secondItem="dsm-hC-Mjg" secondAttribute="leading" constant="32" id="6gS-jh-5D3"/>
                                     <constraint firstAttribute="trailing" secondItem="ED4-4y-TzJ" secondAttribute="trailing" constant="32" id="CxB-6y-qZi"/>
-                                    <constraint firstAttribute="trailing" secondItem="iS2-Qu-UzK" secondAttribute="trailing" constant="32" id="Nxs-no-H8E"/>
+                                    <constraint firstAttribute="trailing" secondItem="iS2-Qu-UzK" secondAttribute="trailing" constant="16" id="Nxs-no-H8E"/>
                                     <constraint firstAttribute="bottom" secondItem="iS2-Qu-UzK" secondAttribute="bottom" constant="24" id="SDH-K7-RN8"/>
                                     <constraint firstItem="iS2-Qu-UzK" firstAttribute="top" secondItem="ED4-4y-TzJ" secondAttribute="bottom" constant="16" id="XFG-LR-MfB"/>
                                     <constraint firstAttribute="trailing" secondItem="240-0s-Pie" secondAttribute="trailing" constant="32" id="l3I-I8-7ku"/>
-                                    <constraint firstItem="iS2-Qu-UzK" firstAttribute="leading" secondItem="dsm-hC-Mjg" secondAttribute="leading" constant="32" id="nyn-sZ-DZa"/>
+                                    <constraint firstItem="iS2-Qu-UzK" firstAttribute="leading" secondItem="dsm-hC-Mjg" secondAttribute="leading" constant="16" id="nyn-sZ-DZa"/>
                                     <constraint firstItem="240-0s-Pie" firstAttribute="top" secondItem="dsm-hC-Mjg" secondAttribute="top" constant="-18" id="pok-lQ-wj2"/>
                                     <constraint firstItem="ED4-4y-TzJ" firstAttribute="leading" secondItem="dsm-hC-Mjg" secondAttribute="leading" constant="32" id="x14-xB-h3J"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEF-Kl-b4D" customClass="SurveyButtonShape" customModule="DSMapp" customModuleProvider="target">
-                                <rect key="frame" x="155.5" y="587" width="64" height="64"/>
+                                <rect key="frame" x="155.66666666666666" y="698" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="1Hk-95-ej5"/>
                                     <constraint firstAttribute="width" constant="64" id="6nC-b0-KXL"/>
@@ -176,10 +176,10 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wg4-Z8-uEP">
-                                <rect key="frame" x="32" y="367" width="311" height="204"/>
+                                <rect key="frame" x="32" y="439.66666666666669" width="311" height="242.33333333333331"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SurveyInfoCell" rowHeight="40" id="iy0-lW-J2s" customClass="SurveyInfoCell" customModule="DSMapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SurveyInfoCell" rowHeight="40" id="iy0-lW-J2s" customClass="SurveyInfoCell" customModule="DSMapp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="311" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iy0-lW-J2s" id="iJc-p8-fIf">
@@ -195,7 +195,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2P-Br-Wz6">
-                                                    <rect key="frame" x="56" y="9.5" width="42" height="21"/>
+                                                    <rect key="frame" x="40" y="9.6666666666666643" width="255" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -203,9 +203,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vGL-T8-6SA" firstAttribute="centerY" secondItem="iJc-p8-fIf" secondAttribute="centerY" id="C7e-n8-2eZ"/>
-                                                <constraint firstItem="U2P-Br-Wz6" firstAttribute="leading" secondItem="vGL-T8-6SA" secondAttribute="trailing" constant="32" id="FdP-JU-ob0"/>
+                                                <constraint firstItem="U2P-Br-Wz6" firstAttribute="leading" secondItem="vGL-T8-6SA" secondAttribute="trailing" constant="16" id="FdP-JU-ob0"/>
                                                 <constraint firstItem="U2P-Br-Wz6" firstAttribute="centerY" secondItem="iJc-p8-fIf" secondAttribute="centerY" id="ZD0-04-gHa"/>
                                                 <constraint firstItem="vGL-T8-6SA" firstAttribute="leading" secondItem="iJc-p8-fIf" secondAttribute="leading" constant="16" id="o58-yO-NEj"/>
+                                                <constraint firstAttribute="trailing" secondItem="U2P-Br-Wz6" secondAttribute="trailing" constant="16" id="tBN-RR-odA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -217,10 +218,10 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ej1-Dw-pMd" customClass="SurveyInfoTitleView" customModule="DSMapp" customModuleProvider="target">
-                                <rect key="frame" x="64" y="315.5" width="247" height="36"/>
+                                <rect key="frame" x="64" y="388" width="247" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질문 미리보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOK-xQ-gX1">
-                                        <rect key="frame" x="77" y="7.5" width="93" height="21"/>
+                                        <rect key="frame" x="77" y="7.6666666666666856" width="93" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -233,11 +234,12 @@
                                     <constraint firstItem="eOK-xQ-gX1" firstAttribute="centerY" secondItem="ej1-Dw-pMd" secondAttribute="centerY" id="wP3-mQ-zxR"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbP-zX-Vaz">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbP-zX-Vaz">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="뒤로" id="epV-6k-KTf"/>
                                 </items>
+                                <color key="barTintColor" red="0.65490196079999996" green="0.78823529410000004" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.85898721218109131" green="0.91836363077163696" blue="0.94881850481033325" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -245,10 +247,10 @@
                             <constraint firstItem="Z17-nI-MNb" firstAttribute="bottom" secondItem="TEF-Kl-b4D" secondAttribute="bottom" constant="16" id="3SC-14-FhT"/>
                             <constraint firstItem="Z17-nI-MNb" firstAttribute="trailing" secondItem="ej1-Dw-pMd" secondAttribute="trailing" constant="64" id="4Ay-Iw-TRK"/>
                             <constraint firstItem="Z17-nI-MNb" firstAttribute="trailing" secondItem="god-CD-9kk" secondAttribute="trailing" id="5Ln-7K-0wa"/>
-                            <constraint firstItem="dsm-hC-Mjg" firstAttribute="top" secondItem="EbP-zX-Vaz" secondAttribute="bottom" constant="32" id="5o9-b9-SpG"/>
+                            <constraint firstItem="dsm-hC-Mjg" firstAttribute="top" secondItem="EbP-zX-Vaz" secondAttribute="bottom" constant="16" id="5o9-b9-SpG"/>
                             <constraint firstItem="ej1-Dw-pMd" firstAttribute="centerX" secondItem="PLE-G6-pam" secondAttribute="centerX" id="EYf-dV-iXt"/>
                             <constraint firstItem="ej1-Dw-pMd" firstAttribute="centerY" secondItem="PLE-G6-pam" secondAttribute="centerY" id="GQI-Ku-fyD"/>
-                            <constraint firstItem="god-CD-9kk" firstAttribute="top" secondItem="EbP-zX-Vaz" secondAttribute="top" id="GvY-cb-Zbi"/>
+                            <constraint firstItem="god-CD-9kk" firstAttribute="top" secondItem="PLE-G6-pam" secondAttribute="top" id="GvY-cb-Zbi"/>
                             <constraint firstItem="ej1-Dw-pMd" firstAttribute="top" secondItem="dsm-hC-Mjg" secondAttribute="bottom" constant="16" id="Jzf-8B-niO"/>
                             <constraint firstItem="EbP-zX-Vaz" firstAttribute="trailing" secondItem="Z17-nI-MNb" secondAttribute="trailing" id="NUn-Pc-TJr"/>
                             <constraint firstItem="Wg4-Z8-uEP" firstAttribute="top" secondItem="ej1-Dw-pMd" secondAttribute="bottom" constant="16" id="QgF-wE-qxT"/>
@@ -272,9 +274,11 @@
                         <outlet property="questionListTable" destination="Wg4-Z8-uEP" id="wr3-wf-hCN"/>
                         <outlet property="timeLabel" destination="ED4-4y-TzJ" id="29t-hL-F0x"/>
                         <outlet property="titleLabel" destination="XQQ-h6-UEh" id="MaT-p0-jkZ"/>
+                        <segue destination="m5L-1d-Rck" kind="unwind" identifier="UnWind" unwindAction="setUnwindWithSegue:" id="Gti-Xo-76P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ok-12-fmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="m5L-1d-Rck" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4312.8000000000002" y="637.6847290640394"/>
         </scene>
@@ -283,17 +287,17 @@
             <objects>
                 <viewController storyboardIdentifier="SurveyPageView" id="xep-Cb-Nxg" customClass="SurveyPageVC" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FAQ-H4-AL9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCg-Lu-6eU">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="뒤로" id="q6G-Ym-ScP"/>
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Da-ap-WKi">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -323,7 +327,7 @@
                 <navigationController storyboardIdentifier="SurveyListView" automaticallyAdjustsScrollViewInsets="NO" id="h9f-rY-Ruo" customClass="NavigationShape" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mdd-ZN-v3e">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -340,7 +344,7 @@
             <objects>
                 <tableViewController id="kpW-ES-Cck" customClass="SurveyListVC" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="chr-5C-NBs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -348,20 +352,20 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h7N-As-Ldm" id="lH8-dN-J4D">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="79.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LaL-Y7-FtA">
-                                            <rect key="frame" x="24" y="15.5" width="95.5" height="49"/>
+                                            <rect key="frame" x="23.999999999999993" y="15.666666666666668" width="95.333333333333314" height="48.666666666666657"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgY-PV-nxz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="95.5" height="26.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="95.333333333333329" height="26.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜 쓸꺼에요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5i-Rn-TuR">
-                                                    <rect key="frame" x="0.0" y="28.5" width="95.5" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="28.333333333333336" width="95.333333333333329" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -402,14 +406,14 @@
             <objects>
                 <viewController storyboardIdentifier="SurveyObView" id="QHD-A9-eli" customClass="SurveyObVC" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vXG-OI-FLa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="surveyBackgroud.png" translatesAutoresizingMaskIntoConstraints="NO" id="cT0-ul-CHK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZx-8c-vmC" customClass="SurveyButtonShape" customModule="DSMapp" customModuleProvider="target">
-                                <rect key="frame" x="155.5" y="587" width="64" height="64"/>
+                                <rect key="frame" x="155.66666666666666" y="698" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="MXP-49-dQr"/>
                                     <constraint firstAttribute="width" constant="64" id="XRW-yf-oLB"/>
@@ -421,17 +425,17 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hy-rx-eRa">
-                                <rect key="frame" x="0.0" y="20" width="375" height="333.5"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="406"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="surveyQuestionIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="O7F-B1-9kF">
-                                        <rect key="frame" x="124" y="55.5" width="128" height="128"/>
+                                        <rect key="frame" x="124" y="91.666666666666657" width="128" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="128" id="TRy-Nn-jSM"/>
                                             <constraint firstAttribute="width" secondItem="O7F-B1-9kF" secondAttribute="height" multiplier="1:1" id="dUe-sc-Ubx"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIu-Ej-nEG">
-                                        <rect key="frame" x="32" y="199.5" width="311" height="24"/>
+                                        <rect key="frame" x="32" y="235.66666666666669" width="311" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -446,7 +450,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U2e-qP-cz8">
-                                <rect key="frame" x="32" y="353.5" width="311" height="217.5"/>
+                                <rect key="frame" x="32" y="450" width="311" height="232"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SurveyObCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SurveyObCell" id="Hy7-Gl-w8y" customClass="SurveyObCell" customModule="DSMapp" customModuleProvider="target">
@@ -457,7 +461,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKM-4V-ytz">
-                                                    <rect key="frame" x="134.5" y="12" width="42" height="21"/>
+                                                    <rect key="frame" x="134.66666666666666" y="12" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
