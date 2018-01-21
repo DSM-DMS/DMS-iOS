@@ -14,7 +14,7 @@ class ButtonShape: UIButton {
     }
     
     func setShape(){
-        layer.cornerRadius = 16
+        layer.cornerRadius = frame.height / 2
         layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
         layer.shadowOpacity = 1
         layer.shadowOffset = CGSize.init(width: 1, height: 1)

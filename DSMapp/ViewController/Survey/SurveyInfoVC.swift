@@ -21,18 +21,14 @@ class SurveyInfoVC: UIViewController {
     @IBAction func next(_ sender: Any) {
         let surveyPageVC = storyboard?.instantiateViewController(withIdentifier: "SurveyPageView") as! SurveyPageVC
         surveyPageVC.contentList = questionList
-        present(surveyPageVC, animated: true, completion: { self.performSegue(withIdentifier: "UnWind", sender: self) })
-    }
-    
-    @IBAction func setUnwind(segue: UIStoryboardSegue){
-        self.dismiss(animated: false, completion: nil)
+        navigationController?.pushViewController(surveyPageVC, animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         questionListTable.dataSource = self
         
-        timeLabel.text = "\(questionData!.start_date) ~ \(questionData!.end_date)"
+        timeLabel.text = "설문 종료일 : \(questionData!.end_date)"
         timeLabel.textAlignment = .center
         titleLabel.text = questionData!.title
         infoTextView.text = questionData!.description

@@ -16,6 +16,8 @@ struct MyPageModel: Codable{
     var extension_12: Extension?
     var number: Int
     var goingout: GoingOut
+    var good_point: Int
+    var bad_point: Int
     
     func getStudyState() -> String{
         var stateStr = ""

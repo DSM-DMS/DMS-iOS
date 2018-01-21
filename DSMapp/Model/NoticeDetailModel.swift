@@ -13,7 +13,6 @@ class NoticeDetailModel: Codable{
     var title = ""
     var content = ""
     var author: String?
-    var id = ""
-    var write_date = ""
+    var write_time = ""
     
 }

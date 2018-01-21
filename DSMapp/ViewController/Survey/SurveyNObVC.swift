@@ -13,14 +13,20 @@ class SurveyNObVC: UIViewController {
     @IBOutlet weak var questionTitleLabel: UILabel!
     @IBOutlet weak var answerTextField: UITextField!
     
-    var nextFunc: (() -> ())?
+    var questionTitle = ""
+    var nextFunc: ((String) -> ())?
     
     @IBAction func next(_ sender: Any) {
-        nextFunc?()
+        if !answerTextField.text!.isEmpty{
+            nextFunc?(answerTextField.text!)
+        }else{
+            showToast(msg: "답변을 입력해주세요")
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        questionTitleLabel.text = questionTitle
         answerTextField.delegate = self
     }
 

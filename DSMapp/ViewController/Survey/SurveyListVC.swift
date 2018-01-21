@@ -20,6 +20,7 @@ class SurveyListVC: UITableViewController {
                 data, code in
                 if code == 200{
                     self.usingData = try! JSONDecoder().decode(Array<SurveyListModel>.self, from: data!)
+                    self.usingData.reverse()
                     self.tableView.reloadData()
                 }else{
                     self.showToast(msg: "오류 : \(code)")
@@ -41,7 +42,7 @@ class SurveyListVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let contentVC = self.storyboard?.instantiateViewController(withIdentifier: "SurveyInfoView") as! SurveyInfoVC
         contentVC.questionData = usingData[indexPath.row]
-        present(contentVC, animated: true, completion: nil)
+        navigationController?.pushViewController(contentVC, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

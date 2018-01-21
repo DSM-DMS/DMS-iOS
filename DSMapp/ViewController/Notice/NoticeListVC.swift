@@ -39,7 +39,7 @@ extension NoticeListVC: UITableViewDataSource, UITableViewDelegate{
             getData, code in
             if code == 200{
                 self.data = try! JSONDecoder().decode([NoticeListModel].self, from: getData!)
-                dump(self.data)
+                self.data.reverse()
                 self.tableView.reloadData()
             }else{
                 self.showToast(msg: "오류 : \(code)")
@@ -73,7 +73,7 @@ extension NoticeListVC: UITableViewDataSource, UITableViewDelegate{
         
         let selectData = data[indexPath.row]
         cell.titleLabel.text = selectData.title
-        cell.dateLabel.text = selectData.write_date
+        cell.dateLabel.text = selectData.write_time
         
         return cell
     }

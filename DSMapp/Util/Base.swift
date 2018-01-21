@@ -29,7 +29,7 @@ extension UIViewController{
         toast.autoresizingMask = [.flexibleTopMargin, .flexibleHeight, .flexibleWidth]
         view.addSubview(toast)
 
-        UIView.animate(withDuration: 0.4, delay: 0.3, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.8, options: .curveEaseOut, animations: {
             toast.alpha = 0.5
         }, completion: { _ in
             toast.removeFromSuperview()
@@ -72,7 +72,7 @@ extension UIViewController{
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        let task = URLSession.shared.dataTask(with: request!){
+        URLSession.shared.dataTask(with: request!){
             data, res, err in
 
             let httpRes = res as? HTTPURLResponse
@@ -87,16 +87,14 @@ extension UIViewController{
                     case 500: self.showToast(msg: "서버 오류")
                     case 401: self.showToast(msg: "다시 로그인 하세요")
                               self.removeToken()
-                    case 422: self.showToast(msg: "로그인이 필요합니다.")
+                    case 422: self.showToast(msg: "로그인이 필요합니다")
                               self.removeToken()
                     default: fun(data, httpRes!.statusCode)
                     }
                 }
             }
-
-        }
+        }.resume()
         
-        task.resume()
     }
     
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

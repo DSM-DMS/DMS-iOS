@@ -44,7 +44,6 @@
 		D04D8A401FB03694004DA5FD /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D04D8A3F1FB03694004DA5FD /* Auth.storyboard */; };
 		D04D8A431FB03A67004DA5FD /* MealVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D8A421FB03A67004DA5FD /* MealVC.swift */; };
 		D0538AC41ECB007C00C47F86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0538AC31ECB007C00C47F86 /* AppDelegate.swift */; };
-		D0538ACB1ECB007C00C47F86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0538ACA1ECB007C00C47F86 /* Assets.xcassets */; };
 		D0538ACE1ECB007C00C47F86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0538ACC1ECB007C00C47F86 /* LaunchScreen.storyboard */; };
 		D0538AD91ECB007C00C47F86 /* DSMappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0538AD81ECB007C00C47F86 /* DSMappTests.swift */; };
 		D05EE5F51FBD104D00C32211 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EE5F41FBD104D00C32211 /* MealModel.swift */; };
@@ -59,7 +58,6 @@
 		D06E55381FC31D9F00FD71E2 /* seatYes@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D06E552F1FC31D9F00FD71E2 /* seatYes@3x.png */; };
 		D06E55391FC31D9F00FD71E2 /* seatSelect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D06E55301FC31D9F00FD71E2 /* seatSelect@2x.png */; };
 		D06E553A1FC31D9F00FD71E2 /* seatNo.png in Resources */ = {isa = PBXBuildFile; fileRef = D06E55311FC31D9F00FD71E2 /* seatNo.png */; };
-		D06E553C1FC3C51F00FD71E2 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D06E553B1FC3C51F00FD71E2 /* logo.png */; };
 		D07CFF631FB6CD6A00CB0717 /* SurveyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07CFF621FB6CD6A00CB0717 /* SurveyListVC.swift */; };
 		D07F0F6D1FEB4D3500BAF735 /* noticeMainIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D07F0F6A1FEB4D3200BAF735 /* noticeMainIcon.png */; };
 		D07F0F6E1FEB4D3500BAF735 /* noticeMainIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D07F0F6B1FEB4D3400BAF735 /* noticeMainIcon@2x.png */; };
@@ -71,6 +69,7 @@
 		D08005D51FF5E41D006FB22C /* surveyBackgroud.png in Resources */ = {isa = PBXBuildFile; fileRef = D08005D41FF5E41D006FB22C /* surveyBackgroud.png */; };
 		D08005D71FF5E42B006FB22C /* surveyQuestionIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D08005D61FF5E42B006FB22C /* surveyQuestionIcon.png */; };
 		D08005DB1FF60B32006FB22C /* SurveyNObVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08005DA1FF60B31006FB22C /* SurveyNObVC.swift */; };
+		D082F4972013197000377259 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D082F4962013196F00377259 /* Assets.xcassets */; };
 		D09F32451F793B13006A936C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D06BBF811F79016900DD17DA /* Main.storyboard */; };
 		D0D985D01FB1813300CE9FD4 /* noticeListDetailBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D985C01FB1812900CE9FD4 /* noticeListDetailBackground.png */; };
 		D0D985D11FB1813300CE9FD4 /* signInBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D985C11FB1812900CE9FD4 /* signInBackground@2x.png */; };
@@ -230,7 +229,6 @@
 		D04D8A421FB03A67004DA5FD /* MealVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealVC.swift; sourceTree = "<group>"; };
 		D0538AC01ECB007C00C47F86 /* DSMapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSMapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0538AC31ECB007C00C47F86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D0538ACA1ECB007C00C47F86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0538ACD1ECB007C00C47F86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0538ACF1ECB007C00C47F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0538AD41ECB007C00C47F86 /* DSMappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSMappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,7 +247,6 @@
 		D06E552F1FC31D9F00FD71E2 /* seatYes@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seatYes@3x.png"; sourceTree = "<group>"; };
 		D06E55301FC31D9F00FD71E2 /* seatSelect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seatSelect@2x.png"; sourceTree = "<group>"; };
 		D06E55311FC31D9F00FD71E2 /* seatNo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seatNo.png; sourceTree = "<group>"; };
-		D06E553B1FC3C51F00FD71E2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		D07CFF621FB6CD6A00CB0717 /* SurveyListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListVC.swift; sourceTree = "<group>"; };
 		D07F0F6A1FEB4D3200BAF735 /* noticeMainIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noticeMainIcon.png; sourceTree = "<group>"; };
 		D07F0F6B1FEB4D3400BAF735 /* noticeMainIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noticeMainIcon@2x.png"; sourceTree = "<group>"; };
@@ -261,6 +258,7 @@
 		D08005D41FF5E41D006FB22C /* surveyBackgroud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surveyBackgroud.png; sourceTree = "<group>"; };
 		D08005D61FF5E42B006FB22C /* surveyQuestionIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surveyQuestionIcon.png; sourceTree = "<group>"; };
 		D08005DA1FF60B31006FB22C /* SurveyNObVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyNObVC.swift; sourceTree = "<group>"; };
+		D082F4962013196F00377259 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0D985C01FB1812900CE9FD4 /* noticeListDetailBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noticeListDetailBackground.png; sourceTree = "<group>"; };
 		D0D985C11FB1812900CE9FD4 /* signInBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signInBackground@2x.png"; sourceTree = "<group>"; };
 		D0D985C21FB1812A00CE9FD4 /* signUpBackground@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signUpBackground@3x.png"; sourceTree = "<group>"; };
@@ -519,7 +517,7 @@
 		D0538AC21ECB007C00C47F86 /* DSMapp */ = {
 			isa = PBXGroup;
 			children = (
-				D0538ACA1ECB007C00C47F86 /* Assets.xcassets */,
+				D082F4962013196F00377259 /* Assets.xcassets */,
 				D0538ACF1ECB007C00C47F86 /* Info.plist */,
 				D04D8A391FB035D5004DA5FD /* StoryBoard */,
 				D0538AC31ECB007C00C47F86 /* AppDelegate.swift */,
@@ -572,7 +570,6 @@
 			isa = PBXGroup;
 			children = (
 				D00DA4A61FFDCF74007A6431 /* IntroDeveloper */,
-				D06E553B1FC3C51F00FD71E2 /* logo.png */,
 				D06E55281FC31B0C00FD71E2 /* ApplyStudy */,
 				D0D9864F1FB1820900CE9FD4 /* TabBar */,
 				D0D9860B1FB181C900CE9FD4 /* Notice */,
@@ -753,7 +750,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "이병찬";
 				TargetAttributes = {
 					D04348E81FBAC6D400F2AC62 = {
@@ -848,6 +845,7 @@
 				D0D985D21FB1813300CE9FD4 /* signUpBackground@3x.png in Resources */,
 				D0D985D01FB1813300CE9FD4 /* noticeListDetailBackground.png in Resources */,
 				D04348DD1FBA779E00F2AC62 /* surveyIcon.png in Resources */,
+				D082F4972013197000377259 /* Assets.xcassets in Resources */,
 				D06E55351FC31D9F00FD71E2 /* seatSelect@3x.png in Resources */,
 				D0D985DD1FB1813300CE9FD4 /* myPageBackground.png in Resources */,
 				D04D8A401FB03694004DA5FD /* Auth.storyboard in Resources */,
@@ -869,7 +867,6 @@
 				D0D986071FB1817F00CE9FD4 /* signUpIcon@3x.png in Resources */,
 				D0D986241FB181E200CE9FD4 /* monster1@3x.png in Resources */,
 				D06E55341FC31D9F00FD71E2 /* seatYes.png in Resources */,
-				D0538ACB1ECB007C00C47F86 /* Assets.xcassets in Resources */,
 				D0D986601FB1821D00CE9FD4 /* noticeIcon@3x.png in Resources */,
 				D0D9865D1FB1821D00CE9FD4 /* noticeIcon.png in Resources */,
 				D0D986211FB181E200CE9FD4 /* monster3.png in Resources */,
@@ -898,7 +895,6 @@
 				D0D985D81FB1813300CE9FD4 /* applyBackground@2x.png in Resources */,
 				D0D986001FB1817F00CE9FD4 /* applyStudyIcon@2x.png in Resources */,
 				D0D9862B1FB181E200CE9FD4 /* questionIcon.png in Resources */,
-				D06E553C1FC3C51F00FD71E2 /* logo.png in Resources */,
 				D06E55371FC31D9F00FD71E2 /* seatNo@2x.png in Resources */,
 				D0D985D31FB1813300CE9FD4 /* signUpBackground.png in Resources */,
 				D0D985DC1FB1813300CE9FD4 /* applyBackground@3x.png in Resources */,
@@ -1190,7 +1186,7 @@
 					"$(PROJECT_DIR)/DSMapp",
 				);
 				INFOPLIST_FILE = DSMapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TeamDMS.Student;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1221,14 +1217,14 @@
 					"$(PROJECT_DIR)/DSMapp",
 				);
 				INFOPLIST_FILE = DSMapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TeamDMS.Student;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

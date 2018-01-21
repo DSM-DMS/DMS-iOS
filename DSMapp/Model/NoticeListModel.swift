@@ -13,6 +13,6 @@ class NoticeListModel: Codable{
     var title: String
     var author: String?
     var id: String
-    var write_date: String
+    var write_time: String
     
 }

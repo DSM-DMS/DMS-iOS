@@ -40,6 +40,8 @@ class FacilityVC: UIViewController {
                     _, code in
                     if code == 201{
                         self.showToast(msg: "신고 성공", fun: self.removeFunc)
+                    }else if code == 400{
+                        self.showToast(msg: "방 번호를 확인하세요")
                     }else{
                         self.showToast(msg: "오류 : \(code)")
                     }

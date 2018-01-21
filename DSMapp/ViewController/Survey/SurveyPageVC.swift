@@ -8,42 +8,54 @@
 
 import UIKit
 
-class SurveyPageVC: UIViewController {
+class SurveyPageVC: UIPageViewController {
     
     var contentList = Array<SurveyModel>()
-    var contentPosition = 0
-    let tempArr = [true, false, true, false]
-    
-    let pageVC = UIPageViewController()
-    
-    @IBOutlet weak var contentView: UIView!
+    var position = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageVC.view.frame.size = contentView.frame.size
-        pageVC.setViewControllers([getContentView(tempArr[contentPosition])], direction: .forward, animated: true, completion: nil)
-        contentView.addSubview(pageVC.view)
+        setViewControllers([getContentView()], direction: .forward, animated: true, completion: nil)
     }
     
-    func setContentView(){
-        if contentPosition == tempArr.count - 1{
-            showToast(msg: "설문조사 완료", fun: self.back)
+    func sendAnswer(_ id: String, answer: String, fun: (() -> ())?){
+        connector(add: "/survey/question", method: "POST", params: ["question_id" : id, "answer" : answer], fun: {
+            _, code in
+            if code == 201{ self.showToast(msg: "답변을 남겼습니다", fun: fun) }
+            else{ self.showToast(msg: "오류 : \(code)") }
+        })
+    }
+    
+    func nextFunc(_ answer: String){
+        if position == contentList.count - 1{
+            sendAnswer(contentList[position].id, answer: answer, fun: self.back)
         }else{
-            contentPosition += 1
-            pageVC.setViewControllers([getContentView(tempArr[contentPosition])], direction: .forward, animated: true, completion: nil)
+            sendAnswer(contentList[position].id, answer: answer, fun: {
+                self.position += 1
+                self.setViewControllers([self.getContentView()], direction: .forward, animated: true, completion: nil)
+            })
         }
     }
     
-    func getContentView(_ is_objective: Bool) -> UIViewController{
-        if is_objective{
+    func getContentView() -> UIViewController{
+        let currentData = contentList[position]
+        let questionTitle = currentData.title
+        let isObject = currentData.is_objective
+        let answerArr = currentData.choice_paper
+        
+        if isObject{
             let VC = storyboard?.instantiateViewController(withIdentifier: "SurveyObView") as! SurveyObVC
-            VC.nextFunc = setContentView
+            VC.questionTitle = questionTitle
+            VC.answerArr = answerArr!
+            VC.nextFunc = nextFunc
             return VC
         }else{
             let VC = storyboard?.instantiateViewController(withIdentifier: "SurveyNObView") as! SurveyNObVC
-            VC.nextFunc = setContentView
+            VC.questionTitle = questionTitle
+            VC.nextFunc = nextFunc
             return VC
         }
+        
     }
-
+    
 }

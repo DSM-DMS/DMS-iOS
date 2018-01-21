@@ -90,7 +90,7 @@ extension TodayViewController{
         let fommater = DateFormatter()
         fommater.dateFormat = "YYYY-MM-dd"
         dateLabel.text = fommater.string(from: date)
-        var request = URLRequest(url: URL(string: "http://dsm2015.cafe24.com:3000/meal/\(fommater.string(from: date))")!)
+        var request = URLRequest(url: URL(string: "http://dsm2015.cafe24.com:3001/meal/\(fommater.string(from: date))")!)
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request){

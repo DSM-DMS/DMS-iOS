@@ -175,10 +175,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gax-LL-069" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
-                                <rect key="frame" x="122.66666666666669" y="613" width="130" height="35"/>
+                                <rect key="frame" x="123.66666666666669" y="672" width="128" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="oQY-Ac-Tib"/>
-                                    <constraint firstAttribute="height" constant="35" id="pxv-4o-jqo"/>
+                                    <constraint firstAttribute="width" constant="128" id="oQY-Ac-Tib"/>
+                                    <constraint firstAttribute="height" constant="42" id="pxv-4o-jqo"/>
                                 </constraints>
                                 <state key="normal" title="회원가입"/>
                                 <connections>
@@ -196,8 +196,8 @@
                             <constraint firstItem="Kxm-Av-IHJ" firstAttribute="centerY" secondItem="5MJ-Qh-ZTS" secondAttribute="centerY" constant="62" id="V5T-ae-meZ"/>
                             <constraint firstItem="p3L-7l-BvR" firstAttribute="centerX" secondItem="5MJ-Qh-ZTS" secondAttribute="centerX" id="WDu-Dc-gzW"/>
                             <constraint firstItem="Kxm-Av-IHJ" firstAttribute="centerX" secondItem="5MJ-Qh-ZTS" secondAttribute="centerX" id="Znq-VB-7cZ"/>
+                            <constraint firstItem="CxD-3d-mVn" firstAttribute="bottom" secondItem="Gax-LL-069" secondAttribute="bottom" constant="64" id="e4j-r3-Bza"/>
                             <constraint firstItem="8sD-eq-nDh" firstAttribute="leading" secondItem="CxD-3d-mVn" secondAttribute="leading" id="gbi-pF-uNL"/>
-                            <constraint firstItem="Gax-LL-069" firstAttribute="top" secondItem="Kxm-Av-IHJ" secondAttribute="bottom" constant="82" id="gsh-so-W4y"/>
                             <constraint firstItem="Gax-LL-069" firstAttribute="centerX" secondItem="5MJ-Qh-ZTS" secondAttribute="centerX" id="tle-DX-k9n"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CxD-3d-mVn"/>
@@ -239,10 +239,10 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKi-Kh-nmT" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
-                                <rect key="frame" x="122.66666666666669" y="679" width="130" height="35"/>
+                                <rect key="frame" x="123.66666666666669" y="672" width="128" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="jAr-66-oEc"/>
-                                    <constraint firstAttribute="width" constant="130" id="yG9-pd-J7t"/>
+                                    <constraint firstAttribute="height" constant="42" id="jAr-66-oEc"/>
+                                    <constraint firstAttribute="width" constant="128" id="yG9-pd-J7t"/>
                                 </constraints>
                                 <state key="normal" title="변경"/>
                                 <connections>

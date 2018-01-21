@@ -32,6 +32,8 @@ class MyPageVC: UIViewController {
             case 200:
                 let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
                 self.setData(study: decoderData.getStudyState(), stay: decoderData.getStayState())
+                self.positiveCountLabel.text = "\(decoderData.good_point)"
+                self.negativeCountLabel.text = "\(decoderData.bad_point)"
             default:
                 self.showToast(msg: "오류 : \(code)")
             }
