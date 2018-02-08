@@ -38,6 +38,7 @@ class MyPageVC: UIViewController {
                 self.showToast(msg: "오류 : \(code)")
             }
         })
+        
     }
 
 }
@@ -59,7 +60,7 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
             if getToken() == nil{ goNextViewWithStoryboard(storyId: "Auth", id: "SignInView") }
             else{
                 removeToken()
-                viewWillAppear(true)
+                self.setData(study: "오류", stay: "오류")
             }
         case 2:
             if getToken() == nil { showToast(msg: "로그인이 필요합니다.") }

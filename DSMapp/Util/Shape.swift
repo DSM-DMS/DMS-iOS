@@ -30,6 +30,20 @@ class ButtonShape: UIButton {
     
 }
 
+class ToolBarShape: UIToolbar{
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setLayout()
+    }
+    
+    func setLayout(){
+        setShadowImage(UIImage(), forToolbarPosition: .top)
+        setShadowImage(UIImage(), forToolbarPosition: .bottom)
+    }
+    
+}
+
 class SurveyButtonShape: UIButton {
     
     func setShape(){
@@ -71,6 +85,7 @@ class NavigationShape: UINavigationController {
     override func viewDidLoad() {
         navigationBar.barTintColor = Color.CO6.getColor()
         navigationBar.backItem?.titleView?.tintColor = UIColor.white
+        navigationBar.shadowImage = UIImage()
     }
 
 }
