@@ -44,7 +44,7 @@ extension UIViewController{
     }
     
     func connector(add: String, method: String, params: [String:String], fun: @escaping(Data?, Int) -> Void){
-        let url = "http://dsm2015.cafe24.com:3001"
+        let url = "http://dsm2015.cafe24.com"
 
         var paramStr = ""
         for param in params{
