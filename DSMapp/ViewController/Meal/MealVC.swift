@@ -7,38 +7,31 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MealVC: UIViewController {
     
     @IBOutlet weak var backView: UIView!
     
-    let pageViewController = UIPageViewController.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-
-    var aDay = TimeInterval(86400)
+    private var date: Date!
+    private let pageViewController = UIPageViewController.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    private let aDay = TimeInterval(86400)
     
     override func viewDidLoad() {
-        pageViewSetUp(pageViewController.view)
-        pageViewController.dataSource = self
-        pageViewController.setViewControllers([getViewController(Date(), next: nil)], direction: .forward, animated: true, completion: nil)
+        date = Date()
+        pageViewSetUp()
     }
     
 }
 
-extension MealVC: UIPageViewControllerDataSource{
+extension MealVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate{
     
-    func pageViewSetUp(_ contentView: UIView){
-        
-        let tempView = UIView.init(frame: CGRect(x: 16, y: 32, width: backView.frame.size.width - 32, height: backView.frame.size.height - (64)))
-        tempView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        contentView.frame = CGRect(x: 2, y: 2, width: tempView.frame.size.width - 4, height: tempView.frame.size.height - 4)
-        tempView.layer.cornerRadius = 8
-        tempView.backgroundColor = UIColor.white
-        tempView.layer.shadowColor = UIColor.black.cgColor
-        tempView.layer.shadowOpacity = 0.3
-        tempView.layer.shadowOffset = CGSize.init(width: 1, height: 1)
-        tempView.addSubview(contentView)
-        backView.addSubview(tempView)
-        
+    private func pageViewSetUp(){
+        pageViewController.dataSource = self
+        pageViewController.view.bounds = backView.bounds
+        backView.addSubview(pageViewController.view)
+        pageViewController.setViewControllers([getViewController(date)!], direction: .forward, animated: true, completion: nil)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -51,15 +44,14 @@ extension MealVC: UIPageViewControllerDataSource{
         return getViewController(beforeViewController.date, next: false)
     }
     
-    func getViewController(_ date: Date?, next: Bool?) -> UIViewController {
+    func getViewController(_ date: Date, next: Bool? = nil) -> UIViewController? {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "MealContentView") as! MealContentVC
-        if next == nil{
-            viewController.date = date
-        }else if next!{
-            viewController.date = date! + self.aDay
-        }else{
-            viewController.date = date! - self.aDay
-        }
+        let contentView = viewController.view
+        contentView?.frame = CGRect(x: 16, y: 32, width: backView.frame.size.width - 32, height: backView.frame.size.height - 64)
+        contentView?.layer.cornerRadius = 8
+        if date <= self.date && next != nil{ return nil }
+        if let next = next{ viewController.date = date + (next ? aDay : -aDay) }
+        else{ viewController.date = date }
         return viewController
     }
     

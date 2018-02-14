@@ -5,16 +5,18 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class SignInVC: UIViewController{
 
     @IBOutlet weak var editBoxHeight: NSLayoutConstraint!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
-    @IBOutlet weak var autoLoginSwitch: UISwitch!
+    
+    let disposeBag = DisposeBag()
     
     @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        goBack()
     }
     
     override func viewDidLoad() {
@@ -23,16 +25,19 @@ class SignInVC: UIViewController{
     }
     
     @IBAction func login(_ sender: Any) {
-        connector(add: "/auth", method: "POST", params: ["id" : idTextField.text!, "pw" : pwTextField.text!], fun: {
-            data, code in
-            if code == 200{
-                let tokenClass = try! JSONDecoder().decode(AuthModel.self, from: data!)
-                self.saveToken(tokenClass.access_token)
-                self.showToast(msg: "로그인 성공", fun: self.back)
-            }else{
-                self.showToast(msg: "오류 : \(code)")
-            }
-        })
+        Connector.instance.request(createRequest(sub: "/auth", method: .poset, params: getParam()), vc: self)
+            .subscribe(onNext: { [unowned self] code, data in
+                switch code{
+                case 200:
+                    let data = try! JSONDecoder().decode(AuthModel.self, from: data)
+                    Token.instance.save(data.access_token)
+                    self.showToast(msg: "로그인 성공", fun: self.goBack)
+                case 401:
+                    self.showToast(msg: "로그인 실패")
+                default:
+                    self.showError(code)
+                }
+            }).disposed(by: disposeBag)
     }
     
 }
@@ -40,17 +45,45 @@ class SignInVC: UIViewController{
 extension SignInVC: UITextFieldDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
             self.editBoxHeight.constant -= 100
             self.view.layoutIfNeeded()
         })
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
             self.editBoxHeight.constant += 100
             self.view.layoutIfNeeded()
         })
+    }
+    
+    private func getParam() -> [String : String]{
+        var param = [String : String]()
+        param["id"] = idTextField.text!
+        param["pw"] = pwTextField.text!
+        return param
+    }
+    
+}
+
+class SighInTextFieldShape: UITextField{
+    
+    let disposeBag = DisposeBag()
+    
+    override func awakeFromNib() {
+        setLayout()
+    }
+    
+    private func setLayout(){
+        layer.cornerRadius = frame.width / 2
+        layer.borderWidth = 1
+        rx.observe(Bool.self, "isFocused")
+            .subscribe(onNext: { [unowned self] focus in
+                guard let focus = focus else{ return }
+                if focus{ self.layer.borderColor = Color.MINT.getColor().cgColor }
+                else{ self.layer.borderColor = UIColor.lightGray.cgColor  }
+            }).disposed(by: disposeBag)
     }
     
 }

@@ -10,15 +10,12 @@ class SignUpVC: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var editBoxHeight: NSLayoutConstraint!
     
-    var idCheck = false
-    
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
     
-    
     @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        goBack()
     }
     
     override func viewDidLoad() {
@@ -28,6 +25,8 @@ class SignUpVC: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func apply(_ sender: Any) {
+        
+        
         if !(tFSC(idTextField) || tFSC(pwTextField) || tFSC(codeTextField) || !idCheck){
             connector(add: "/signup", method: "POST", params: ["uuid" : codeTextField.text!, "id" : idTextField.text!, "pw" : pwTextField.text!], fun: {
                 _, code in
@@ -75,7 +74,10 @@ class SignUpVC: UIViewController, UITextFieldDelegate{
     }
     
     
-    func tFSC(_ textField: UITextField) -> Bool{
+    
+    
+    
+    private func ec(_ textField: UITextField) -> Bool{
         return textField.text!.isEmpty
     }
     

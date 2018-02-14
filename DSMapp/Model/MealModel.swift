@@ -10,8 +10,23 @@ import Foundation
 
 class MealModel: Codable{
     
-    var breakfast = Array<String>()
-    var lunch = Array<String>()
-    var dinner = Array<String>()
+    let breakfast: [String]
+    let lunch: [String]
+    let dinner: [String]
+    
+    func getData() -> [String]{
+        var dataArr = [String]()
+        dataArr[0] = getStr(breakfast)
+        dataArr[1] = getStr(lunch)
+        dataArr[2] = getStr(dinner)
+        return dataArr
+    }
+    
+    private func getStr(_ arr: [String]) -> String{
+        var dataStr = ""
+        for i in arr{ dataStr += i + ", " }
+        dataStr.removeLast(2)
+        return dataStr
+    }
     
 }

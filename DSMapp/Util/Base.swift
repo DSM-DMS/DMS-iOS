@@ -28,14 +28,16 @@ extension UIViewController{
         toast.clipsToBounds = true
         toast.autoresizingMask = [.flexibleTopMargin, .flexibleHeight, .flexibleWidth]
         view.addSubview(toast)
-
         UIView.animate(withDuration: 0.2, delay: 0.8, options: .curveEaseOut, animations: {
             toast.alpha = 0.5
         }, completion: { _ in
             toast.removeFromSuperview()
             fun?()
         })
-        
+    }
+    
+    func showError(_ code: Int){
+        showToast(msg: "오류 : \(code)")
     }
     
     func goNextViewController(_ id: String){
@@ -43,80 +45,11 @@ extension UIViewController{
         present(vc!, animated: true, completion: nil)
     }
     
-    func connector(add: String, method: String, params: [String:String], fun: @escaping(Data?, Int) -> Void){
-        let url = "http://dsm2015.cafe24.com"
-
-        var paramStr = ""
-        for param in params{
-            paramStr += "\(param.key)=\(param.value)"
-            paramStr += "&"
-        }
-        
-        if !paramStr.isEmpty{
-            paramStr.removeLast()
-        }
-
-        var request: URLRequest? = nil
-        if method == "GET" || method == "PUT"{
-            request = URLRequest(url: URL(string: url + add + "?" +  paramStr)!)
-        }else{
-            request = URLRequest(url: URL(string: url + add)!)
-            request?.httpBody = paramStr.data(using: .utf8)
-        }
-        
-        if let token = getToken(){
-            request?.addValue("JWT \(token)", forHTTPHeaderField: "Authorization")
-        }
-        
-        request?.httpMethod = method
-
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
-        URLSession.shared.dataTask(with: request!){
-            data, res, err in
-
-            let httpRes = res as? HTTPURLResponse
-
-            DispatchQueue.main.async {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                
-                if httpRes == nil || err != nil{
-                    self.showToast(msg: "네트워크 오류!")
-                }else{
-                    switch httpRes!.statusCode{
-                    case 500: self.showToast(msg: "서버 오류")
-                    case 401: self.showToast(msg: "다시 로그인 하세요")
-                              self.removeToken()
-                    case 422: self.showToast(msg: "로그인이 필요합니다")
-                              self.removeToken()
-                    default: fun(data, httpRes!.statusCode)
-                    }
-                }
-            }
-        }.resume()
-        
-    }
-    
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
-    func saveToken(_ token: String){
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(token, forKey: "token")
-    }
-    
-    func removeToken(){
-        let userDefaults = UserDefaults.standard
-        userDefaults.removeObject(forKey: "token")
-    }
-    
-    func getToken() -> String?{
-        let userDefaults = UserDefaults.standard
-        return userDefaults.string(forKey: "token")
-    }
-    
-    func back(){
+    func goBack(){
         self.dismiss(animated: true, completion: nil)
     }
     

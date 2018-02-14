@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class MealContentVC: UIViewController {
 
@@ -17,63 +18,51 @@ class MealContentVC: UIViewController {
     @IBOutlet weak var lunchTextView: UITextView!
     @IBOutlet weak var dinnerTextView: UITextView!
     
-    var date: Date? = nil
+    var date: Date!
+    private let disposeBag = DisposeBag()
+    let formatter = DateFormatter()
     
     override func viewDidLoad() {
         getData()
-        setDateText()
+        setDateStr()
     }
-    
-    func setDateText(){
-        let fomatter = DateFormatter()
-        fomatter.locale = Locale.init(identifier: "ko_KR")
-        fomatter.dateFormat = "YYYY"
-        yearLabel.text = fomatter.string(from: date!)
-        fomatter.dateFormat = "M월 d일"
-        weekLabel.text = fomatter.string(from: date!)
-        fomatter.dateFormat = "EEEE"
-        dayLabel.text = fomatter.string(from: date!)
-    }
-    
+
     func getData(){
-        connector(add: "/meal/\(getDateAsStr())", method: "GET", params: [:], fun: {
-            data, code in
-            switch code{
-            case 200:
-                let decodeData = try! JSONDecoder().decode(MealModel.self, from: data!)
-                self.blackTextView.text = self.getArrAsStr(arr: decodeData.breakfast)
-                self.lunchTextView.text = self.getArrAsStr(arr: decodeData.lunch)
-                self.dinnerTextView.text = self.getArrAsStr(arr: decodeData.dinner)
-            case 204:
-                self.blackTextView.text = "급식이 없습니다."
-                self.lunchTextView.text = "급식이 없습니다."
-                self.dinnerTextView.text = "급식이 없습니다."
-            default:
-                self.showToast(msg: "오류 : \(code)")
-            }
-        })
+        Connector.instance.request(createRequest(sub: "/meal/\(getDateStr())", method: .get, params: [:]))
+            .subscribe(onNext: { [unowned self] code, data in
+                switch code{
+                case 200:
+                    let decodeData = try! JSONDecoder().decode(MealModel.self, from: data)
+                    self.setData(decodeData.getData())
+                case 204:
+                    self.setData(["급식이 없습니다.", "급식이 없습니다.", "급식이 없습니다."])
+                default:
+                    self.showError(code)
+                }
+            }).disposed(by: disposeBag)
     }
 
 }
 
 extension MealContentVC{
     
-    func getDateAsStr() -> String{
-        let fomatter = DateFormatter()
-        fomatter.dateFormat = "YYYY-MM-dd"
-        return fomatter.string(from: date!)
+    private func setDateStr(){
+        formatter.dateFormat = "YYYY/M월 d일/EEEE"
+        let dateStrArr = formatter.string(from: date).split(separator: "/")
+        yearLabel.text = dateStrArr[0].description
+        weekLabel.text = dateStrArr[1].description
+        dayLabel.text = dateStrArr[2].description
     }
     
-    func getArrAsStr(arr: Array<String>) -> String{
-        var sendData = ""
-        for i in arr{
-            sendData += i
-            sendData += ", "
-        }
-        sendData.removeLast()
-        sendData.removeLast()
-        
-        return sendData
+    private func getDateStr() -> String{
+        formatter.dateFormat = "YYYY-MM-dd"
+        return formatter.string(from: date)
+    }
+    
+    private func setData(_ data: [String]){
+        blackTextView.text = data[0]
+        lunchTextView.text = data[1]
+        dinnerTextView.text = data[2]
     }
     
 }

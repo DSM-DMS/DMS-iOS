@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2281C890B66078E5D449572F /* Pods_DSMapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AF0E3F43720A9C8B3D12A2 /* Pods_DSMapp.framework */; };
 		67A9B0350C4802CBF0550340 /* NoticeMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9BED3BCBD25404EC42567 /* NoticeMainVC.swift */; };
 		67A9B137FA18D4D6299E5CE0 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9B37B35E25768AE21999B /* Base.swift */; };
 		67A9B175B8C1550CA4040278 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9BDE89202A334A87A1B26 /* SignInVC.swift */; };
@@ -17,6 +18,8 @@
 		67A9B95B2FA470A391ADC2DF /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9BFDF0B136A3683FF8180 /* ChangePasswordVC.swift */; };
 		67A9BBDA668F5A650BE32026 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9BC288625308187D3D71B /* Shape.swift */; };
 		67A9BEBCA15977CE6828FAD4 /* ApplyStayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9BA98F66BDABF1DE88F1E /* ApplyStayVC.swift */; };
+		D02845D92033EDFA00E3D3D5 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02845D82033EDFA00E3D3D5 /* Connector.swift */; };
+		D02845DB2033F32500E3D3D5 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02845DA2033F32500E3D3D5 /* Token.swift */; };
 		D02B64151FB0A80F0065AC2D /* MealContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02B64141FB0A80F0065AC2D /* MealContentVC.swift */; };
 		D033BBFC202B3F9800F4F452 /* intro_icon_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D033BBF5202B3F9700F4F452 /* intro_icon_1.png */; };
 		D033BBFD202B3F9800F4F452 /* intro_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D033BBF6202B3F9700F4F452 /* intro_icon_2.png */; };
@@ -147,6 +150,7 @@
 		D0DF858E1FB8853B0065B2C6 /* StayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DF858D1FB8853B0065B2C6 /* StayModel.swift */; };
 		D0DF85901FB8866D0065B2C6 /* SurveyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DF858F1FB8866D0065B2C6 /* SurveyModel.swift */; };
 		D0EFAF8C1FB1BF4B0064D329 /* FacilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EFAF8B1FB1BF4B0064D329 /* FacilityVC.swift */; };
+		D5CC0B9689760E4DDA98DC5D /* Pods_MealExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144D53B809933929FFCB6399 /* Pods_MealExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +195,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		144D53B809933929FFCB6399 /* Pods_MealExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MealExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29D4212D8037E36F80EC9FB3 /* Pods-DSMapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSMapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DSMapp/Pods-DSMapp.debug.xcconfig"; sourceTree = "<group>"; };
+		2B3509D3921F1BC4CACC15C7 /* Pods-MealExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-MealExtension/Pods-MealExtension.release.xcconfig"; sourceTree = "<group>"; };
 		67A9B37B35E25768AE21999B /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		67A9B63E13E41FA9FA984654 /* NoticeDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeDetailVC.swift; sourceTree = "<group>"; };
 		67A9B672F80256CA24F29B43 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -201,7 +208,11 @@
 		67A9BE519339742B7CABFF3E /* NoticeListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeListVC.swift; sourceTree = "<group>"; };
 		67A9BED3BCBD25404EC42567 /* NoticeMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeMainVC.swift; sourceTree = "<group>"; };
 		67A9BFDF0B136A3683FF8180 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		A0AF0E3F43720A9C8B3D12A2 /* Pods_DSMapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSMapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4A1EBC66AB1B29610E0C32B /* Pods-MealExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MealExtension/Pods-MealExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		D00F66961F4488D400BF26D5 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D02845D82033EDFA00E3D3D5 /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		D02845DA2033F32500E3D3D5 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		D02B64141FB0A80F0065AC2D /* MealContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealContentVC.swift; sourceTree = "<group>"; };
 		D033BBF5202B3F9700F4F452 /* intro_icon_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_icon_1.png; sourceTree = "<group>"; };
 		D033BBF6202B3F9700F4F452 /* intro_icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_icon_2.png; sourceTree = "<group>"; };
@@ -336,6 +347,7 @@
 		D0DF858D1FB8853B0065B2C6 /* StayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StayModel.swift; sourceTree = "<group>"; };
 		D0DF858F1FB8866D0065B2C6 /* SurveyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyModel.swift; sourceTree = "<group>"; };
 		D0EFAF8B1FB1BF4B0064D329 /* FacilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityVC.swift; sourceTree = "<group>"; };
+		F59261D25FD67F8A453F2E1C /* Pods-DSMapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSMapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSMapp/Pods-DSMapp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D04348EA1FBAC6D400F2AC62 /* NotificationCenter.framework in Frameworks */,
+				D5CC0B9689760E4DDA98DC5D /* Pods_MealExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +364,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2281C890B66078E5D449572F /* Pods_DSMapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +408,8 @@
 			children = (
 				67A9B37B35E25768AE21999B /* Base.swift */,
 				67A9BC288625308187D3D71B /* Shape.swift */,
+				D02845D82033EDFA00E3D3D5 /* Connector.swift */,
+				D02845DA2033F32500E3D3D5 /* Token.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -471,6 +487,8 @@
 			isa = PBXGroup;
 			children = (
 				D00F66961F4488D400BF26D5 /* NotificationCenter.framework */,
+				A0AF0E3F43720A9C8B3D12A2 /* Pods_DSMapp.framework */,
+				144D53B809933929FFCB6399 /* Pods_MealExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -507,6 +525,7 @@
 				D0538AC11ECB007C00C47F86 /* Products */,
 				D0538AD71ECB007C00C47F86 /* DSMappTests */,
 				D04C10201ED17C4900C5AE5B /* Frameworks */,
+				D11ACD221616DD45C36FBC8C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -525,8 +544,8 @@
 			children = (
 				D082F4962013196F00377259 /* Assets.xcassets */,
 				D0538ACF1ECB007C00C47F86 /* Info.plist */,
-				D04D8A391FB035D5004DA5FD /* StoryBoard */,
 				D0538AC31ECB007C00C47F86 /* AppDelegate.swift */,
+				D04D8A391FB035D5004DA5FD /* StoryBoard */,
 				67A9BE739B71CF4E6D0404C3 /* ViewController */,
 				67A9B6C87E3E13F28B9CF488 /* Model */,
 				67A9B8DC15996420299AC508 /* Util */,
@@ -691,6 +710,17 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		D11ACD221616DD45C36FBC8C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29D4212D8037E36F80EC9FB3 /* Pods-DSMapp.debug.xcconfig */,
+				F59261D25FD67F8A453F2E1C /* Pods-DSMapp.release.xcconfig */,
+				A4A1EBC66AB1B29610E0C32B /* Pods-MealExtension.debug.xcconfig */,
+				2B3509D3921F1BC4CACC15C7 /* Pods-MealExtension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -698,9 +728,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D04348F51FBAC6D400F2AC62 /* Build configuration list for PBXNativeTarget "MealExtension" */;
 			buildPhases = (
+				ECD2FB5307932C181073D40B /* [CP] Check Pods Manifest.lock */,
 				D04348E51FBAC6D400F2AC62 /* Sources */,
 				D04348E61FBAC6D400F2AC62 /* Frameworks */,
 				D04348E71FBAC6D400F2AC62 /* Resources */,
+				D4DD9957649B43B4EB9097EE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -715,11 +747,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0538ADD1ECB007C00C47F86 /* Build configuration list for PBXNativeTarget "DSMapp" */;
 			buildPhases = (
+				F1A5BE0F1CBF90B01D44FA84 /* [CP] Check Pods Manifest.lock */,
 				D0538ABC1ECB007C00C47F86 /* Sources */,
 				D0538ABD1ECB007C00C47F86 /* Frameworks */,
 				D0538ABE1ECB007C00C47F86 /* Resources */,
 				D0A587BA1F0B940D009182BA /* Embed Frameworks */,
 				D0DD33211FEC83CB00F2E94C /* Embed App Extensions */,
+				EAA4723CAF5FEE9D8592101B /* [CP] Embed Pods Frameworks */,
+				6E7D5C297C5CA4C5AC4EDD14 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -927,6 +962,101 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6E7D5C297C5CA4C5AC4EDD14 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DSMapp/Pods-DSMapp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4DD9957649B43B4EB9097EE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MealExtension/Pods-MealExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAA4723CAF5FEE9D8592101B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DSMapp/Pods-DSMapp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxKeyboard/RxKeyboard.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxKeyboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DSMapp/Pods-DSMapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECD2FB5307932C181073D40B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MealExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1A5BE0F1CBF90B01D44FA84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DSMapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D04348E51FBAC6D400F2AC62 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -959,9 +1089,11 @@
 				67A9B0350C4802CBF0550340 /* NoticeMainVC.swift in Sources */,
 				D0EFAF8C1FB1BF4B0064D329 /* FacilityVC.swift in Sources */,
 				D0473D081FB34D48002E3FE4 /* MyPageModel.swift in Sources */,
+				D02845DB2033F32500E3D3D5 /* Token.swift in Sources */,
 				D0341A0B1FB6DDFC00B50CE2 /* SurveyListModel.swift in Sources */,
 				D0341A0F1FB740C900B50CE2 /* NoticeListModel.swift in Sources */,
 				D08005CF1FF5DA42006FB22C /* SurveyInfoVC.swift in Sources */,
+				D02845D92033EDFA00E3D3D5 /* Connector.swift in Sources */,
 				D02B64151FB0A80F0065AC2D /* MealContentVC.swift in Sources */,
 				D08005CD1FF5DA1B006FB22C /* SurveyPageVC.swift in Sources */,
 				D04348D21FB9D7C600F2AC62 /* NoticeDetailModel.swift in Sources */,
@@ -1028,6 +1160,7 @@
 /* Begin XCBuildConfiguration section */
 		D04348F61FBAC6D400F2AC62 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4A1EBC66AB1B29610E0C32B /* Pods-MealExtension.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -1037,7 +1170,7 @@
 				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = MealExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TeamDMS.Student.MealExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1049,6 +1182,7 @@
 		};
 		D04348F71FBAC6D400F2AC62 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B3509D3921F1BC4CACC15C7 /* Pods-MealExtension.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -1058,7 +1192,7 @@
 				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = MealExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TeamDMS.Student.MealExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1115,7 +1249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1167,7 +1301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1180,6 +1314,7 @@
 		};
 		D0538ADE1ECB007C00C47F86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29D4212D8037E36F80EC9FB3 /* Pods-DSMapp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1194,7 +1329,7 @@
 					"$(PROJECT_DIR)/DSMapp",
 				);
 				INFOPLIST_FILE = DSMapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TeamDMS.Student;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1211,6 +1346,7 @@
 		};
 		D0538ADF1ECB007C00C47F86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F59261D25FD67F8A453F2E1C /* Pods-DSMapp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1225,7 +1361,7 @@
 					"$(PROJECT_DIR)/DSMapp",
 				);
 				INFOPLIST_FILE = DSMapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TeamDMS.Student;
 				PRODUCT_NAME = "$(TARGET_NAME)";

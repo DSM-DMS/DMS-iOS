@@ -8,8 +8,7 @@ import UIKit
 
 class ButtonShape: UIButton {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func awakeFromNib() {
         setShape()
     }
     
@@ -22,22 +21,16 @@ class ButtonShape: UIButton {
         tintColor = UIColor.white
         titleLabel?.font = UIFont.systemFont(ofSize: 16)
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setShape()
-    }
     
 }
 
 class ToolBarShape: UIToolbar{
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setLayout()
+    override func awakeFromNib() {
+        setShape()
     }
     
-    func setLayout(){
+    func setShape(){
         setShadowImage(UIImage(), forToolbarPosition: .top)
         setShadowImage(UIImage(), forToolbarPosition: .bottom)
     }
@@ -46,6 +39,10 @@ class ToolBarShape: UIToolbar{
 
 class SurveyButtonShape: UIButton {
     
+    override func awakeFromNib() {
+        setShape()
+    }
+    
     func setShape(){
         layer.cornerRadius = 32
         backgroundColor = Color.CO3.getColor()
@@ -53,17 +50,11 @@ class SurveyButtonShape: UIButton {
         titleLabel?.font = UIFont.systemFont(ofSize: 16)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setShape()
-    }
-    
 }
 
 class BackViewShape: UIView{
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func awakeFromNib() {
         setShape()
     }
     
@@ -74,10 +65,6 @@ class BackViewShape: UIView{
         layer.shadowOffset = CGSize.init(width: 1, height: 1)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setShape()
-    }
 }
 
 class NavigationShape: UINavigationController {
