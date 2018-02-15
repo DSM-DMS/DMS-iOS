@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class ApplyStayVC: UIViewController  {
 
@@ -13,41 +14,35 @@ class ApplyStayVC: UIViewController  {
     @IBOutlet weak var satOutSwitch: UISwitch!
     @IBOutlet weak var staySwitch: UISwitch!
     
-    var selectId = -1
-    var switchArr = [UISwitch]()
+    private var selectId = -1
+    private var switchArr = [UISwitch]()
+    private let disposeBag = DisposeBag()
     
-    @IBAction func pressBack(_ sender: Any) {
-        back()
+    @IBAction func back(_ sender: Any){
+        goBack()
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         switchArr = [friSwitch, satComSwitch, satOutSwitch, staySwitch]
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-         bind()
+    override func viewWillAppear(_ animated: Bool){
+         setBind()
     }
 
-    @IBAction func apply(_ sender: UIButton) {
-        if selectId > -1{
-            connector(add: "/stay", method: "POST", params: ["value" : "\(selectId + 1)"], fun: {
-                _, code in
+    @IBAction func apply(_ sender: UIButton){
+        if selectId == -1{ showToast(msg: "잔류상태를 선택하세요"); return }
+        Connector.instance.request(createRequest(sub: "/stay", method: .post, params: ["value" : "\(selectId + 1)"]), vc: self)
+            .subscribe(onNext: { [unowned self] code, _ in
                 switch code{
-                case 201:
-                    self.showToast(msg: "신청성공", fun: self.back)
-                case 204:
-                    self.showToast(msg: "신청 시간이 아닙니다")
-                default:
-                    self.showToast(msg: "오류 : \(code)")
+                case 201: self.showToast(msg: "신청 성공", fun: self.goBack)
+                case 204: self.showToast(msg: "신청 시간이 아닙니다")
+                default: self.showError(code)
                 }
-            })
-        }else{
-            showToast(msg: "잔류상태를 선택하세요.")
-        }
-        
+            }).disposed(by: disposeBag)
     }
     
-    @IBAction func stateChange(_ sender: UISwitch) {
+    @IBAction func stateChange(_ sender: UISwitch){
         let id = getSelectSwitchId(sender)
         print(id)
         if selectId > -1{
@@ -83,16 +78,14 @@ extension ApplyStayVC{
         return 0
     }
     
-    func bind(){
-        connector(add: "/stay", method: "GET", params: [:], fun: {
-            data, code in
-            if code == 200{
-                let state = try! JSONDecoder().decode(StayModel.self, from: data!)
-                self.stateChange(self.switchArr[state.value - 1])
-            }else{
-                self.showToast(msg: "오류 : \(code)")
-            }
-        })
+    func setBind(){
+        Connector.instance.request(createRequest(sub: "/stay", method: .get, params: [:]), vc: self)
+            .subscribe(onNext: { [unowned self] code, data in
+                if code == 200{ let value = try! JSONDecoder().decode(StayModel.self, from: data).value
+                    self.stateChange(self.switchArr[value - 1])
+                }
+                else{ self.showError(code) }
+            }).disposed(by: disposeBag)
     }
     
 }

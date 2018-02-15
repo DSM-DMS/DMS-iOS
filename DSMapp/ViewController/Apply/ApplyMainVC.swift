@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ApplyMainVC: UIViewController{
     
@@ -30,111 +32,96 @@ class ApplyMainVC: UIViewController{
     @IBOutlet weak var applyStayHeight: NSLayoutConstraint!
     @IBOutlet weak var applyStudyHeight: NSLayoutConstraint!
     
-    var buttonArr = [UIButton]()
-    var barArr = [UIView]()
-    var heightArr = [NSLayoutConstraint]()
+    var buttonArr: [UIButton]!
     var currentUpId = -1
     
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        buttonArr = [applyStudyButton, applyStayButton, applyOutButton, surveyButton]
-        barArr = [applyStudyBar, applyStayBar, applyOutBar, surveyBar]
-        heightArr = [applyStudyHeight, applyStayHeight, applyOutHeight, surveyHeight]
-        
-        applyStudyBar.backgroundColor = Color.CO4.getColor()
-        applyStayBar.backgroundColor = Color.CO3.getColor()
-        applyOutBar.backgroundColor = Color.CO2.getColor()
-        surveyBar.backgroundColor = Color.CO1.getColor()
-        
-        for button in buttonArr{
-            button.addTarget(self, action: #selector(addAction(_:)), for: .touchUpInside)
-        }
-        
-        addAction(applyStudyButton)
-        
+        setInit()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
     }
     
-    @objc func addAction(_ button: UIButton){
-        let id = getIdToButton(button)
-
-        UIView.animate(withDuration: 0.3, animations: {
-            if id == self.currentUpId{
-                if id == 2{
-                    self.applyOut()
+    private func goApplyView(_ id: Int){
+        if Token.instance.get().isEmpty{ showToast(msg: "로그인이 필요합니다"); return }
+        if id == 3{
+            goNextViewWithStoryboard(storyId: "Survey", id: "SurveyListView")
+            return
+        }
+        let vcIdArr = ["ApplyStudyView", "ApplyStayView", "", "SurveyView"]
+        goNextViewController(vcIdArr[id])
+    }
+    
+    private func applyOut(){
+        if Token.instance.get().isEmpty{ showToast(msg: "로그인이 필요합니다"); return }
+        Connector.instance.request(createRequest(sub: "/goingout", method: .post, params: getOutParam()), vc: self)
+            .subscribe(onNext: { [unowned self] code, _ in
+                if code == 201{ self.showToast(msg: "신청 성공") }else{ self.showError(code) }
+            }).disposed(by: disposeBag)
+    }
+    
+    private func loadData(){
+        Connector.instance.request(createRequest(sub: "/mypage", method: .get, params: [:]), vc: self)
+            .subscribe(onNext: { [unowned self] code, data in
+                if code == 200{
+                    let data = try! JSONDecoder().decode(MyPageModel.self, from: data)
+                    self.bind(data: data)
                 }else{
-                    self.goApplyView(id)
+                    self.showError(code)
                 }
-            }else{
-                if self.currentUpId > -1{
-                    self.heightArr[self.currentUpId].constant -= 123
-                    self.buttonArr[self.currentUpId].setTitle("열기", for: .normal)
-                }
-                self.heightArr[id].constant += 123
-                self.buttonArr[id].setTitle("신청", for: .normal)
-                self.view.layoutIfNeeded()
-            }
-        })
-        
-        currentUpId = id
-    }
-    
-    func goApplyView(_ idNum: Int){
-        if getToken() != nil{
-            if idNum == 3{
-                goNextViewWithStoryboard(storyId: "Survey", id: "SurveyListView")
-                return
-            }
-            let vcIdArr = ["ApplyStudyView", "ApplyStayView", "", "SurveyView"]
-            goNextViewController(vcIdArr[idNum])
-        }else{
-            showToast(msg: "로그인을 하세요")
-        }
-    }
-    
-    func applyOut(){
-        if getToken() != nil{
-            connector(add: "/goingout", method: "POST", params: ["sat":"\(applyOutSatSwitch.isOn)", "sun":"\(applyOutSunSwitch.isOn)"], fun: {
-                _, code in
-                if code == 201{
-                    self.showToast(msg: "신청 성공")
-                }else{
-                    self.showToast(msg: "오류 : \(code)")
-                }
-            })
-        }else{
-            showToast(msg: "로그인을 하세요")
-        }
-    }
-    
-    func getIdToButton(_ button: UIButton) -> Int{
-        for i in 0..<buttonArr.count{
-            if buttonArr[i] == button{
-                return i
-            }
-        }
-        return 0
-    }
-    
-    func loadData(){
-        connector(add: "/mypage", method: "GET", params: [:], fun: {
-            data, code in
-            
-            switch code {
-            case 200:
-                let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
-                self.applyStudyLabel.text = decoderData.getStudyState()
-                self.applyStayLabel.text = "신청 : \(self.getStayStateName(decoderData.stay_value))"
-                self.applyOutSatSwitch.setOn(decoderData.goingout.sat, animated: true)
-                self.applyOutSunSwitch.setOn(decoderData.goingout.sun, animated: true)
-            default:
-                self.showToast(msg: "오류 : \(code)")
-            }
-        })
+            }).disposed(by: disposeBag)
     }
 
 }
+
+extension ApplyMainVC{
+    
+    private func setInit(){
+        buttonArr = [applyStudyButton, applyStayButton, applyOutButton, surveyButton]
+        applyStudyBar.backgroundColor = Color.CO4.getColor()
+        applyStayBar.backgroundColor = Color.CO3.getColor()
+        applyOutBar.backgroundColor = Color.CO2.getColor()
+        surveyBar.backgroundColor = Color.CO1.getColor()
+        for buttonId in 0..<buttonArr.count{ setButton(id: buttonId) }
+    }
+    
+    private func bind(data: MyPageModel){
+        applyStudyLabel.text = data.getStudyState()
+        applyStayLabel.text = data.getStayState()
+        applyOutSatSwitch.isOn = data.goingout.sat
+        applyOutSunSwitch.isOn = data.goingout.sun
+    }
+    
+    private func setButton(id: Int){
+        buttonArr[id].rx.controlEvent(.touchUpOutside)
+            .asObservable().subscribe(onNext: { [unowned self]  _ in
+                UIView.animate(withDuration: 0.3){
+                    if id == self.currentUpId{
+                        if id == 2{ self.applyOut() }else{ self.goApplyView(id) }
+                    }else{
+                        let up = self.currentUpId > -1
+                        self.setBarUpDown(up ? self.currentUpId : id, up: up)
+                    }
+                    self.currentUpId = id
+                }}).disposed(by: disposeBag)
+    }
+    
+    private func setBarUpDown(_ id: Int, up: Bool){
+        let heightArr: [NSLayoutConstraint] = [applyStudyHeight, applyStayHeight, applyOutHeight, surveyHeight]
+        heightArr[id].constant += up ? -123 : 123
+        buttonArr[id].setTitle(up ? "열기" : "신청", for: .normal)
+        view.layoutIfNeeded()
+    }
+    
+    private func getOutParam() -> [String : String]{
+        var param = [String : String]()
+        param["sat"] = applyOutSatSwitch.isOn.description
+        param["sun"] = applyOutSunSwitch.isOn.description
+        return param
+    }
+    
+}
+

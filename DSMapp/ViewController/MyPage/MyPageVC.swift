@@ -23,31 +23,27 @@ class MyPageVC: UIViewController {
         studyStateLabel.numberOfLines = 2
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool){
         tableView.reloadData()
-        
-        connector(add: "/mypage", method: "GET", params: [:], fun: {
-            data, code in
-            switch code {
-            case 200:
-                let decoderData = try! JSONDecoder().decode(MyPageModel.self, from: data!)
-                self.setData(study: decoderData.getStudyState(), stay: decoderData.getStayState())
-                self.positiveCountLabel.text = "\(decoderData.good_point)"
-                self.negativeCountLabel.text = "\(decoderData.bad_point)"
-            default:
-                self.showToast(msg: "오류 : \(code)")
-            }
-        })
-        
+        Connector.instance.request(createRequest(sub: "/mypage", method: .get, params: [:]), vc: self)
+            .subscribe(onNext: { [unowned self] code, data in
+                if code == 200{
+                    let data = try! JSONDecoder().decode(MyPageModel.self, from: data)
+                    self.setBind(data)
+                }
+                else{ self.showError(code) }
+            })
     }
 
 }
 
 extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
     
-    func setData(study: String, stay: String){
-        studyStateLabel.text = study
-        stayStateLabel.text = stay
+    private func setBind(_ data: MyPageModel){
+        studyStateLabel.text = data.getStudyState()
+        stayStateLabel.text = data.getStayState()
+        positiveCountLabel.text = data.good_point.description
+        negativeCountLabel.text = data.bad_point.description
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

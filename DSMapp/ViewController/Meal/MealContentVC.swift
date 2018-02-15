@@ -28,7 +28,7 @@ class MealContentVC: UIViewController {
     }
 
     func getData(){
-        Connector.instance.request(createRequest(sub: "/meal/\(getDateStr())", method: .get, params: [:]))
+        Connector.instance.request(createRequest(sub: "/meal/\(getDateStr())", method: .get, params: [:]), vc: self)
             .subscribe(onNext: { [unowned self] code, data in
                 switch code{
                 case 200:

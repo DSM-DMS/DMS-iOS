@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -404,7 +403,7 @@
                     <navigationItem key="navigationItem" title="연장신청" id="Aum-71-tu4">
                         <barButtonItem key="leftBarButtonItem" title="뒤로" id="Ijq-0Q-eFZ">
                             <connections>
-                                <action selector="pressBack:" destination="zKV-cw-IYt" id="Se2-Vl-cqi"/>
+                                <action selector="back:" destination="zKV-cw-IYt" id="NFW-i1-yyn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -529,7 +528,7 @@
                     <navigationItem key="navigationItem" title="잔류신청" id="Yqt-tv-bNe">
                         <barButtonItem key="leftBarButtonItem" title="뒤로" id="FuC-tK-tsD">
                             <connections>
-                                <action selector="pressBack:" destination="i7D-fV-qY4" id="gY4-dz-pgw"/>
+                                <action selector="back:" destination="i7D-fV-qY4" id="c38-nQ-GtG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

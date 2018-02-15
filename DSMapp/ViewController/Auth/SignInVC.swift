@@ -25,7 +25,8 @@ class SignInVC: UIViewController{
     }
     
     @IBAction func login(_ sender: Any) {
-        Connector.instance.request(createRequest(sub: "/auth", method: .poset, params: getParam()), vc: self)
+        if !vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
+        Connector.instance.request(createRequest(sub: "/auth", method: .post, params: getParam()), vc: self)
             .subscribe(onNext: { [unowned self] code, data in
                 switch code{
                 case 200:
@@ -63,6 +64,10 @@ extension SignInVC: UITextFieldDelegate{
         param["id"] = idTextField.text!
         param["pw"] = pwTextField.text!
         return param
+    }
+    
+    private func vaild() -> Bool{
+        return idTextField.text!.isEmpty && pwTextField.text!.isEmpty
     }
     
 }

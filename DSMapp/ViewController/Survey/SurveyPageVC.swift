@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import RxSwift
 
 class SurveyPageVC: UIPageViewController {
     
     var contentList = Array<SurveyModel>()
     var position = 0
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,16 +21,16 @@ class SurveyPageVC: UIPageViewController {
     }
     
     func sendAnswer(_ id: String, answer: String, fun: (() -> ())?){
-        connector(add: "/survey/question", method: "POST", params: ["question_id" : id, "answer" : answer], fun: {
-            _, code in
-            if code == 201{ self.showToast(msg: "답변을 남겼습니다", fun: fun) }
-            else{ self.showToast(msg: "오류 : \(code)") }
-        })
+        Connector.instance.request(createRequest(sub: "/survey/question", method: .post, params: ["question_id" : id, "answer" : answer]), vc: self)
+            .subscribe(onNext: { [unowned self] code, _ in
+                if code == 201{ self.showToast(msg: "답변을 남겼습니다", fun: fun) }
+                else{ self.showError(code) }
+            }).disposed(by: disposeBag)
     }
     
     func nextFunc(_ answer: String){
         if position == contentList.count - 1{
-            sendAnswer(contentList[position].id, answer: answer, fun: self.back)
+            sendAnswer(contentList[position].id, answer: answer, fun: self.goBack)
         }else{
             sendAnswer(contentList[position].id, answer: answer, fun: {
                 self.position += 1
@@ -42,7 +44,6 @@ class SurveyPageVC: UIPageViewController {
         let questionTitle = currentData.title
         let isObject = currentData.is_objective
         let answerArr = currentData.choice_paper
-        
         if isObject{
             let VC = storyboard?.instantiateViewController(withIdentifier: "SurveyObView") as! SurveyObVC
             VC.questionTitle = questionTitle
@@ -55,7 +56,6 @@ class SurveyPageVC: UIPageViewController {
             VC.nextFunc = nextFunc
             return VC
         }
-        
     }
     
 }

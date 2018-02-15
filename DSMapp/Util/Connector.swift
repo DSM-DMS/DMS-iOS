@@ -60,6 +60,7 @@ extension UIViewController{
 enum RequestMethod: String{
     
     case get = "GET"
-    case poset = "Post"
+    case post = "POST"
+    case delete = "DELETE"
     
 }
