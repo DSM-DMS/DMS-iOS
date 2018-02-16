@@ -15,7 +15,7 @@ class MealModel: Codable{
     let dinner: [String]
     
     func getData() -> [String]{
-        var dataArr = [String]()
+        var dataArr = ["", "", ""]
         dataArr[0] = getStr(breakfast)
         dataArr[1] = getStr(lunch)
         dataArr[2] = getStr(dinner)

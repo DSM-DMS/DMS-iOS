@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class NoticeListVC: UIViewController {
     
@@ -12,9 +13,11 @@ class NoticeListVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var monsterImageView: UIImageView!
     
+    private let disposeBag = DisposeBag()
+    
     var id: Int = 0
     var url = ""
-    var data = [NoticeListModel]()
+    private var data = [NoticeListModel]()
     
     override func viewDidLoad() {
         setData()
@@ -23,11 +26,11 @@ class NoticeListVC: UIViewController {
     }
     
     @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.goBack()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        loadData()
     }
     
 }
@@ -35,16 +38,13 @@ class NoticeListVC: UIViewController {
 extension NoticeListVC: UITableViewDataSource, UITableViewDelegate{
     
     func loadData(){
-        connector(add: url, method: "GET", params: [:], fun: {
-            getData, code in
-            if code == 200{
-                self.data = try! JSONDecoder().decode([NoticeListModel].self, from: getData!)
-                self.data.reverse()
-                self.tableView.reloadData()
-            }else{
-                self.showToast(msg: "오류 : \(code)")
-            }
-        })
+        Connector.instance.request(createRequest(sub: url, method: .get, params: [:]), vc: self)
+            .subscribe(onNext: { [unowned self] code, data in
+                if code == 200{
+                    self.data = try! JSONDecoder().decode([NoticeListModel].self, from: data).reversed()
+                    self.tableView.reloadData()
+                }else{ self.showError(code) }
+            }).disposed(by: disposeBag)
     }
     
     func setData(){
@@ -54,7 +54,6 @@ extension NoticeListVC: UITableViewDataSource, UITableViewDelegate{
         titleLabel.text = titleTextArr[id]
         url = urlArr[id]
         monsterImageView.image = UIImage(named: imageStrArr[id])
-        loadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

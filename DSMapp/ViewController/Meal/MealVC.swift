@@ -27,17 +27,17 @@ extension MealVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate{
     
     private func pageViewSetUp(){
         pageViewController.dataSource = self
-        pageViewController.view.bounds = backView.bounds
+        pageViewController.view.frame = backView.bounds
         backView.addSubview(pageViewController.view)
         pageViewController.setViewControllers([getViewController(date)!], direction: .forward, animated: true, completion: nil)
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?{
         let beforeViewController = viewController as! MealContentVC
         return getViewController(beforeViewController.date, next: true)
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?{
         let beforeViewController = viewController as! MealContentVC
         return getViewController(beforeViewController.date, next: false)
     }
@@ -45,9 +45,10 @@ extension MealVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate{
     func getViewController(_ date: Date, next: Bool? = nil) -> UIViewController? {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "MealContentView") as! MealContentVC
         let contentView = viewController.view
-        contentView?.frame = CGRect(x: 16, y: 32, width: backView.frame.size.width - 32, height: backView.frame.size.height - 64)
+        contentView?.layer.borderWidth = 3
+        contentView?.layer.borderColor = UIColor.blue.cgColor
         contentView?.layer.cornerRadius = 8
-        if date <= self.date && next != nil{ return nil }
+        if date <= self.date && next == false{ return nil }
         if let next = next{ viewController.date = date + (next ? aDay : -aDay) }
         else{ viewController.date = date }
         return viewController

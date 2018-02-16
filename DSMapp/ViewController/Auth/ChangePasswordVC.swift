@@ -19,7 +19,7 @@ class ChangePasswordVC: UIViewController{
     }
     
     @IBAction func change(_ sender: ButtonShape) {
-        if !vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
+        if vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
         Connector.instance.request(createRequest(sub: "/change/pw", method: .post, params: getParam()), vc: self)
             .subscribe(onNext: { [unowned self] code, _ in
                 switch code{
@@ -39,7 +39,7 @@ class ChangePasswordVC: UIViewController{
     }
     
     private func vaild() -> Bool{
-        return curPwTextField.text!.isEmpty && newPwTextField.text!.isEmpty
+        return curPwTextField.text!.isEmpty || newPwTextField.text!.isEmpty
     }
     
 }

@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="efb-Zk-UQu">
-                                <rect key="frame" x="24" y="404.33333333333331" width="327" height="143.33333333333331"/>
+                                <rect key="frame" x="24" y="400" width="327" height="153.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mof-OH-Jmb">
-                                        <rect key="frame" x="0.0" y="0.0" width="327" height="59.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="64.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6YV-Iz-XQJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="21.666666666666668"/>
@@ -32,16 +32,19 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EBM-5L-eqB" customClass="SighInTextFieldShape" customModule="DSMapp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="29.666666666666686" width="327" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="EBM-5L-eqB" customClass="SighInTextFieldShape" customModule="DSMapp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="29.666666666666686" width="327" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="Hll-vN-CNK"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="go8-ZD-hW4">
-                                        <rect key="frame" x="0.0" y="83.666666666666686" width="327" height="59.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="88.666666666666686" width="327" height="64.666666666666686"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wp-Eh-L9j">
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="21.666666666666668"/>
@@ -49,10 +52,13 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bh7-hd-cdV" customClass="SighInTextFieldShape" customModule="DSMapp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="29.666666666666629" width="327" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Bh7-hd-cdV" customClass="SighInTextFieldShape" customModule="DSMapp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="29.666666666666686" width="327" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="oF0-b2-jY3"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
@@ -60,7 +66,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RMb-eg-WCI">
-                                <rect key="frame" x="23.999999999999993" y="579.66666666666663" width="112.33333333333331" height="31"/>
+                                <rect key="frame" x="23.999999999999993" y="585.33333333333337" width="112.33333333333331" height="31"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mhd-3d-scr">
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
@@ -74,7 +80,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pL-g6-w22" customClass="ButtonShape" customModule="DSMapp" customModuleProvider="target">
-                                <rect key="frame" x="221" y="579.66666666666663" width="130" height="35"/>
+                                <rect key="frame" x="221" y="585.33333333333337" width="130" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="P0I-gc-bTs"/>
                                     <constraint firstAttribute="height" constant="35" id="YyB-pv-vVy"/>
@@ -85,7 +91,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="216-F0-HTa">
-                                <rect key="frame" x="163" y="655.66666666666663" width="49" height="29"/>
+                                <rect key="frame" x="163" y="661.33333333333337" width="49" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <state key="normal" title="회원가입">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

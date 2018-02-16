@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class MyPageVC: UIViewController {
 
@@ -16,15 +17,28 @@ class MyPageVC: UIViewController {
     @IBOutlet weak var negativeCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    private let token = Token.instance
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        setInit()
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        loadData()
+    }
+
+}
+
+extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
+    
+    private func setInit(){
         tableView.delegate = self
         tableView.dataSource = self
         studyStateLabel.numberOfLines = 2
     }
     
-    override func viewWillAppear(_ animated: Bool){
-        tableView.reloadData()
+    private func loadData(){
         Connector.instance.request(createRequest(sub: "/mypage", method: .get, params: [:]), vc: self)
             .subscribe(onNext: { [unowned self] code, data in
                 if code == 200{
@@ -32,18 +46,22 @@ class MyPageVC: UIViewController {
                     self.setBind(data)
                 }
                 else{ self.showError(code) }
-            })
+            }).disposed(by: disposeBag)
     }
-
-}
-
-extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
     
     private func setBind(_ data: MyPageModel){
-        studyStateLabel.text = data.getStudyState()
-        stayStateLabel.text = data.getStayState()
-        positiveCountLabel.text = data.good_point.description
-        negativeCountLabel.text = data.bad_point.description
+        setData(study: data.getStudyState(), stay: data.getStayState(), good: data.good_point, bad: data.bad_point)
+    }
+    
+    private func uploadBug(_ textField: UITextField){
+        
+    }
+    
+    private func setData(study: String = "연장상태", stay: String = "잔류상태", good: Int = 0, bad: Int = 0){
+        studyStateLabel.text = study
+        stayStateLabel.text = stay
+        positiveCountLabel.text = good.description
+        negativeCountLabel.text = bad.description
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,59 +69,33 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 1:
-            if getToken() == nil{ goNextViewWithStoryboard(storyId: "Auth", id: "SignInView") }
-            else{
-                removeToken()
-                self.setData(study: "오류", stay: "오류")
-            }
+            if token.get().isEmpty{ goNextViewWithStoryboard(storyId: "Auth", id: "SignInView") }
+            else{ token.remove(); tableView.reloadData(); setData() }
         case 2:
-            if getToken() == nil { showToast(msg: "로그인이 필요합니다.") }
+            if token.get().isEmpty{ showToast(msg: "로그인이 필요합니다") }
             else { goNextViewWithStoryboard(storyId: "Auth", id: "ChangePasswordView") }
         case 4:
-            let alert = UIAlertController.init(title: "버그신고", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "버그신고", message: nil, preferredStyle: .alert)
             alert.addTextField(configurationHandler: nil)
-            alert.addAction(UIAlertAction.init(title: "전송", style: .default, handler: {
-                _ in
-                let textField = alert.textFields![0]
-                if textField.text!.isEmpty{
-                    self.showToast(msg: "버그를 입력하세요")
-                }else{
-                    self.connector(add: "/report/bug", method: "POST", params: ["title" : "iOS 오류", "content" : textField.text!], fun: {
-                        _, code in
-                        if code == 201{ self.showToast(msg: "신고 성공") }
-                        else{ self.showToast(msg: "오류 : \(code)") }})
-                }
-            }))
-            
-            alert.addAction(UIAlertAction.init(title: "취소", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "전송", style: .default){ _ in self.uploadBug(alert.textFields![0]) } )
+            alert.addAction(UIAlertAction.init(title: "취소", style: .cancel))
             present(alert, animated: true, completion: nil)
-            
-        case 5:
-//            let alert = UIAlertController.init(title: "멋지게 준비중입니다.", message: "조금만 기다려주세요", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction.init(title: "확인", style: .default, handler: nil))
-            present((storyboard?.instantiateViewController(withIdentifier: "IntroDeveloperListView"))!, animated: true, completion: nil)
-        default:
-            return
+        case 5: goNextViewController("IntroDeveloperListView")
+        default: return
         }
-        
-        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let titleStrArr = ["", "", "비밀번호 변경","", "버그 신고", "개발자 소개"]
         switch indexPath.row {
         case 0, 3, 6:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
-            return cell
+            return tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell", for: indexPath) as! ContentCell
-            if getToken() == nil{
-                cell.titleLabel.text = "로그인"
-            }else{
-                cell.titleLabel.text = "로그아웃"
-            }
+            cell.titleLabel.text = token.get().isEmpty ? "로그인" : "로그아웃"
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell", for: indexPath) as! ContentCell

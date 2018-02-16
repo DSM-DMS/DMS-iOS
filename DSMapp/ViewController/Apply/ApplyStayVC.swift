@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import RxCocoa
 
 class ApplyStayVC: UIViewController  {
 
@@ -14,16 +15,17 @@ class ApplyStayVC: UIViewController  {
     @IBOutlet weak var satOutSwitch: UISwitch!
     @IBOutlet weak var staySwitch: UISwitch!
     
-    private var selectId = -1
-    private var switchArr = [UISwitch]()
     private let disposeBag = DisposeBag()
+    private var selectedSwitch: UISwitch?
+    private var selectedId = -1
+    private var switchArr: [UISwitch]!
     
     @IBAction func back(_ sender: Any){
         goBack()
     }
     
     override func viewDidLoad(){
-        switchArr = [friSwitch, satComSwitch, satOutSwitch, staySwitch]
+        setInit()
     }
     
     override func viewWillAppear(_ animated: Bool){
@@ -31,58 +33,47 @@ class ApplyStayVC: UIViewController  {
     }
 
     @IBAction func apply(_ sender: UIButton){
-        if selectId == -1{ showToast(msg: "잔류상태를 선택하세요"); return }
-        Connector.instance.request(createRequest(sub: "/stay", method: .post, params: ["value" : "\(selectId + 1)"]), vc: self)
+        if selectedId == -1{ showToast(msg: "잔류상태를 선택하세요"); return }
+        Connector.instance.request(createRequest(sub: "/stay", method: .post, params: ["value" : "\(selectedId)"]), vc: self)
             .subscribe(onNext: { [unowned self] code, _ in
                 switch code{
                 case 201: self.showToast(msg: "신청 성공", fun: self.goBack)
                 case 204: self.showToast(msg: "신청 시간이 아닙니다")
                 default: self.showError(code)
                 }
-            }).disposed(by: disposeBag)
-    }
-    
-    @IBAction func stateChange(_ sender: UISwitch){
-        let id = getSelectSwitchId(sender)
-        print(id)
-        if selectId > -1{
-            if sender.isOn{
-                switchArr[selectId].setOn(false, animated: true)
-            }else{
-                if id == 3{
-                    selectId = -1
-                    return
-                }else{
-                    staySwitch.setOn(true, animated: true)
-                    selectId = 3
-                    return
-                }
-            }
-        }else{
-            switchArr[id].setOn(true, animated: true)
-        }
-        
-        selectId = id
+            }).dispose()
     }
     
 }
 
 extension ApplyStayVC{
     
-    func getSelectSwitchId(_ sender: UISwitch) -> Int{
-        for i in 0..<switchArr.count{
-            if switchArr[i] == sender{
-                return i
-            }
-        }
-        return 0
+    private func setInit(){
+        switchArr = [friSwitch, satComSwitch, satOutSwitch, staySwitch]
+        for id in 0..<switchArr.count{ setSwitch(id) }
     }
     
-    func setBind(){
+    private func setSwitch(_ id: Int){
+        let sw = switchArr[id]
+        sw.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { [unowned self] _ in self.valueChange(id, value: sw.isOn) })
+            .disposed(by: disposeBag)
+    }
+    
+    private func valueChange(_ id: Int, value: Bool){
+        if value{
+            selectedId = id + 1
+            selectedSwitch?.setOn(false, animated: true)
+            selectedSwitch = switchArr[id]
+        }else{ friSwitch.setOn(true, animated: true) }
+    }
+    
+    private func setBind(){
         Connector.instance.request(createRequest(sub: "/stay", method: .get, params: [:]), vc: self)
             .subscribe(onNext: { [unowned self] code, data in
-                if code == 200{ let value = try! JSONDecoder().decode(StayModel.self, from: data).value
-                    self.stateChange(self.switchArr[value - 1])
+                if code == 200{
+                    let data = try! JSONDecoder().decode(StayModel.self, from: data)
+                    self.switchArr[data.value - 1].setOn(true, animated: true)
                 }
                 else{ self.showError(code) }
             }).disposed(by: disposeBag)

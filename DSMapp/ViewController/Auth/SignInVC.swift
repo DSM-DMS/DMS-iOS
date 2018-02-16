@@ -10,8 +10,8 @@ import RxSwift
 class SignInVC: UIViewController{
 
     @IBOutlet weak var editBoxHeight: NSLayoutConstraint!
-    @IBOutlet weak var idTextField: UITextField!
-    @IBOutlet weak var pwTextField: UITextField!
+    @IBOutlet weak var idTextField: SighInTextFieldShape!
+    @IBOutlet weak var pwTextField: SighInTextFieldShape!
     
     let disposeBag = DisposeBag()
     
@@ -25,7 +25,7 @@ class SignInVC: UIViewController{
     }
     
     @IBAction func login(_ sender: Any) {
-        if !vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
+        if vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
         Connector.instance.request(createRequest(sub: "/auth", method: .post, params: getParam()), vc: self)
             .subscribe(onNext: { [unowned self] code, data in
                 switch code{
@@ -67,7 +67,7 @@ extension SignInVC: UITextFieldDelegate{
     }
     
     private func vaild() -> Bool{
-        return idTextField.text!.isEmpty && pwTextField.text!.isEmpty
+        return idTextField.text!.isEmpty || pwTextField.text!.isEmpty
     }
     
 }
@@ -81,13 +81,17 @@ class SighInTextFieldShape: UITextField{
     }
     
     private func setLayout(){
-        layer.cornerRadius = frame.width / 2
-        layer.borderWidth = 1
-        rx.observe(Bool.self, "isFocused")
-            .subscribe(onNext: { [unowned self] focus in
-                guard let focus = focus else{ return }
-                if focus{ self.layer.borderColor = Color.MINT.getColor().cgColor }
-                else{ self.layer.borderColor = UIColor.lightGray.cgColor  }
+        clipsToBounds = true
+        layer.cornerRadius = frame.height / 2
+        layer.borderWidth = 1.5
+        layer.borderColor = UIColor.clear.cgColor
+        rx.controlEvent(.editingDidBegin)
+            .subscribe(onNext: { [unowned self] _ in
+                self.layer.borderColor = Color.MINT.getColor().cgColor
+            }).disposed(by: disposeBag)
+        rx.controlEvent(.editingDidEnd)
+            .subscribe(onNext: { [unowned self] _ in
+                self.layer.borderColor = UIColor.clear.cgColor
             }).disposed(by: disposeBag)
     }
     

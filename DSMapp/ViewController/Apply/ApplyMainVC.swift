@@ -35,7 +35,7 @@ class ApplyMainVC: UIViewController{
     var buttonArr: [UIButton]!
     var currentUpId = -1
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         setInit()
@@ -43,6 +43,10 @@ class ApplyMainVC: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if currentUpId == -1{ UIView.animate(withDuration: 0.3){ self.setBarUpDown(0, up: false) }; currentUpId = 0 }
     }
     
     private func goApplyView(_ id: Int){
@@ -85,28 +89,27 @@ extension ApplyMainVC{
         applyStayBar.backgroundColor = Color.CO3.getColor()
         applyOutBar.backgroundColor = Color.CO2.getColor()
         surveyBar.backgroundColor = Color.CO1.getColor()
-        for buttonId in 0..<buttonArr.count{ setButton(id: buttonId) }
+        for buttonId in 0...3{ setButton(id: buttonId) }
     }
     
     private func bind(data: MyPageModel){
         applyStudyLabel.text = data.getStudyState()
-        applyStayLabel.text = data.getStayState()
+        applyStayLabel.text = "상태 : " + data.getStayState()
         applyOutSatSwitch.isOn = data.goingout.sat
         applyOutSunSwitch.isOn = data.goingout.sun
     }
     
     private func setButton(id: Int){
-        buttonArr[id].rx.controlEvent(.touchUpOutside)
+        buttonArr[id].rx.controlEvent(.touchUpInside)
             .asObservable().subscribe(onNext: { [unowned self]  _ in
-                UIView.animate(withDuration: 0.3){
-                    if id == self.currentUpId{
-                        if id == 2{ self.applyOut() }else{ self.goApplyView(id) }
-                    }else{
-                        let up = self.currentUpId > -1
-                        self.setBarUpDown(up ? self.currentUpId : id, up: up)
-                    }
-                    self.currentUpId = id
-                }}).disposed(by: disposeBag)
+                if id == self.currentUpId{ if id == 2{ self.applyOut() }else{ self.goApplyView(id) } }
+                else{
+                    UIView.animate(withDuration: 0.3){
+                        self.setBarUpDown(self.currentUpId, up: true)
+                        self.setBarUpDown(id, up: false)
+                    }}
+                self.currentUpId = id
+            }).disposed(by: disposeBag)
     }
     
     private func setBarUpDown(_ id: Int, up: Bool){

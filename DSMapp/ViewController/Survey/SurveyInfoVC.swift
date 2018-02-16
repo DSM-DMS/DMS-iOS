@@ -16,7 +16,7 @@ class SurveyInfoVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
     var questionList = Array<SurveyModel>()
-    var questionData: SurveyListModel?
+    var questionData: SurveyListModel!
     
     @IBAction func next(_ sender: Any) {
         let surveyPageVC = storyboard?.instantiateViewController(withIdentifier: "SurveyPageView") as! SurveyPageVC
@@ -25,26 +25,38 @@ class SurveyInfoVC: UIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        questionListTable.dataSource = self
-        
-        timeLabel.text = "설문 종료일 : \(questionData!.end_date)"
-        timeLabel.textAlignment = .center
-        titleLabel.text = questionData!.title
-        infoTextView.text = questionData!.description
-        
-        connector(add: "/survey/question", method: "GET", params: ["survey_id" : questionData!.id], fun: {
-            data, code in
-            if code == 200{
-                self.questionList = try! JSONDecoder().decode(Array<SurveyModel>.self, from: data!)
-                self.questionListTable.reloadData()
-            }
-        })
+        setInit()
+        getData()
     }
 
 }
 
 extension SurveyInfoVC: UITableViewDataSource{
+    
+    private func setInit(){
+        questionListTable.dataSource = self
+        timeLabel.text = "설문 종료일 : \(questionData!.end_date)"
+        timeLabel.textAlignment = .center
+        titleLabel.text = questionData!.title
+        infoTextView.text = questionData!.description
+    }
+    
+    private func getData(){
+        Connector.instance.request(createRequest(sub: "/survey/question", method: .get, params: getParam()), vc: self)
+            .subscribe(onNext: { [unowned self] code, data in
+                if code == 200{
+                    self.questionList = try! JSONDecoder().decode([SurveyModel].self, from: data)
+                    self.questionListTable.reloadData()
+                }
+                else{ self.showError(code) }
+            }).dispose()
+    }
+    
+    private func getParam() -> [String : String]{
+        var param = [String : String]()
+        param["survey_id"] = questionData.id
+        return param
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return questionList.count
@@ -64,7 +76,6 @@ class SurveyInfoCell: UITableViewCell{
     @IBOutlet weak var contentLabel: UILabel!
     
     override func awakeFromNib() {
-        super.awakeFromNib()
         dotView.backgroundColor = Color.CO2.getColor()
         dotView.layer.cornerRadius = 4
     }
@@ -73,8 +84,7 @@ class SurveyInfoCell: UITableViewCell{
 
 class SurveyInfoTitleView: UIView{
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override func awakeFromNib() {
         backgroundColor = Color.CO2.getColor()
         layer.cornerRadius = 18
     }
@@ -83,8 +93,7 @@ class SurveyInfoTitleView: UIView{
 
 class SurveyInfoView: UIView{
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override func awakeFromNib() {
         layer.cornerRadius = 8
         layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
         layer.shadowOpacity = 1

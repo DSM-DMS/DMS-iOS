@@ -19,12 +19,12 @@ class MealContentVC: UIViewController {
     @IBOutlet weak var dinnerTextView: UITextView!
     
     var date: Date!
-    private let disposeBag = DisposeBag()
     let formatter = DateFormatter()
+    private let disposeBag = DisposeBag()
     
-    override func viewDidLoad() {
-        getData()
+    override func viewWillAppear(_ animated: Bool) {
         setDateStr()
+        getData()
     }
 
     func getData(){
@@ -56,6 +56,7 @@ extension MealContentVC{
     
     private func getDateStr() -> String{
         formatter.dateFormat = "YYYY-MM-dd"
+        print(date)
         return formatter.string(from: date)
     }
     

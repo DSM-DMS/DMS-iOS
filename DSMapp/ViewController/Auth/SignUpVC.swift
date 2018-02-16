@@ -32,7 +32,7 @@ class SignUpVC: UIViewController{
     }
     
     @IBAction func apply(_ sender: Any) {
-        if !vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
+        if vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
         Connector.instance.request(createRequest(sub: "/signup", method: .post, params: getParam()), vc: self)
             .subscribe(onNext: { [unowned self] code, _ in
                 switch code{
@@ -50,10 +50,11 @@ extension SignUpVC: UITextFieldDelegate{
     fileprivate func setVaild(_ textField: UITextField, id: VeryfiId){
         textField.rx.controlEvent(.editingDidEnd)
             .asObservable()
+            .filter({ _ in return !textField.text!.isEmpty })
             .flatMapLatest{ [unowned self] _ in
                 return Connector.instance.request(self.createRequest(sub: "/verify/\(id.rawValue)", method: .post, params: ["\(id.rawValue)" : textField.text!]), vc: self)
             }.subscribe(onNext: { [unowned self] code, _ in
-                if code == 201{ print("call") }
+                if code == 200{ print("call") }
                 else if code == 204{
                     self.showToast(msg: id.getErrStr())
                     textField.text = ""
@@ -71,11 +72,11 @@ extension SignUpVC: UITextFieldDelegate{
     }
     
     fileprivate func vaild() -> Bool{
-        return ec(idTextField) && ec(pwTextField) && ec(codeTextField)
+        return ec(idTextField) || ec(pwTextField) || ec(codeTextField)
     }
     
     private func ec(_ textField: UITextField) -> Bool{
-        return !textField.text!.isEmpty
+        return textField.text!.isEmpty
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

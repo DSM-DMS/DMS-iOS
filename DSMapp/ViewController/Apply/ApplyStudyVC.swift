@@ -12,12 +12,13 @@ class ApplyStudyVC: UIViewController  {
     @IBOutlet weak var backScrollView: UIScrollView!
     @IBOutlet weak var changeRoomButton: UIButton!
     
-    private let disposeBag = DisposeBag()
-    private let roomNameArr = ["가온실", "나온실", "다온실", "라온실", "3층 독서실", "4층 독서실", "열린교실"]
+    private let roomNameDic = ["가온실" : 1, "나온실" : 2, "다온실" : 3, "라온실" : 4, "3층 독서실" : 5, "4층 독서실" : 6, "열린교실" : 7]
     
     private var selectedTime = 11
     private var selectedClass = 1
     private var selectedSeat = 0
+    
+    private let disposeBag = DisposeBag()
     
     var beforeButton: UIButton? = nil
     var contentView: UIView? = nil
@@ -38,7 +39,7 @@ class ApplyStudyVC: UIViewController  {
     }
     
     @IBAction func apply(_ sender: Any) {
-        if selectedSeat == 0{ showToast(msg: "자리를 선택하세요") }
+        if selectedSeat == 0{ showToast(msg: "자리를 선택하세요"); return }
         Connector.instance.request(createRequest(sub: "/extension/\(selectedTime)", method: .post, params: ["class_num" : "\(selectedClass)", "seat_num" : "\(selectedSeat)"]), vc: self)
             .subscribe(onNext: { [unowned self] code, _ in
                 switch code{
@@ -70,25 +71,21 @@ extension ApplyStudyVC{
     
     @objc func changeRoom(_ button: UIButton){
         let alert = UIAlertController(title: "방을 선택하세요.", message: nil, preferredStyle: .actionSheet)
-        for i in roomNameArr{
-            alert.addAction(UIAlertAction(title: i, style: .default, handler: alertClick(_:)))
+        for i in roomNameDic{
+            alert.addAction(UIAlertAction(title: i.key, style: .default, handler: alertClick(_:)))
         }
         alert.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
-    func alertClick(_ action: UIAlertAction){
-        for i in 0..<roomNameArr.count{
-            if action.title == roomNameArr[i]{
-                changeRoomButton.setTitle(action.title, for: .normal)
-                selectedClass = i+1
-                getMap()
-                return
-            }
-        }
+    private func alertClick(_ action: UIAlertAction){
+        let title = action.title!
+        changeRoomButton.setTitle(title, for: .normal)
+        selectedClass = roomNameDic[title]!
+        getMap()
     }
     
-    func getMap(){
+    private func getMap(){
         selectedSeat = 0
         Connector.instance.request(createRequest(sub: "/extension/map/\(selectedTime)", method: .get, params: ["class_num" : "\(selectedClass)"]), vc: self)
             .subscribe(onNext: { [unowned self] code, data in
@@ -99,7 +96,7 @@ extension ApplyStudyVC{
             }).disposed(by: disposeBag)
     }
     
-    func bindData(_ dataArr: [[Any]]){
+    private func bindData(_ dataArr: [[Any]]){
         let width = dataArr[0].count * 65
         let height = dataArr.count * 65
         contentView?.removeFromSuperview()

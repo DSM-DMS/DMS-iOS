@@ -5,12 +5,15 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class NoticeDetailVC: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
+    
+    private let disposeBag = DisposeBag()
     
     var id = 0
     var url = ""
@@ -22,21 +25,22 @@ class NoticeDetailVC: UIViewController {
     override func viewDidLoad() {
         let imageIdArr = ["ruleIcon","notificationIcon", "questionIcon"]
         logoImageView.image = UIImage.init(named: imageIdArr[id])
-        
-        bind()
+        getData()
     }
     
-    func bind(){
-        connector(add: url, method: "GET", params: [:], fun: {
-            data, code in
-            if code == 200{
-                let setData = try! JSONDecoder().decode(NoticeDetailModel.self, from: data!)
-                self.titleLabel.text = setData.title
-                self.webView.loadHTMLString(setData.content, baseURL: nil)
-            }else{
-                self.showToast(msg: "오류 : \(code)")
-            }
-        })
+    private func getData(){
+        Connector.instance.request(createRequest(sub: url, method: .get, params: [:]), vc: self)
+            .subscribe(onNext: { [unowned self] code, data in
+                if code == 200{
+                    let data = try! JSONDecoder().decode(NoticeDetailModel.self, from: data)
+                    self.setBind(data)
+                }else{ self.showError(code) }
+            }).disposed(by: disposeBag)
+    }
+    
+    private func setBind(_ data : NoticeDetailModel){
+        titleLabel.text = data.title
+        webView.loadHTMLString(data.content, baseURL: nil)
     }
 
 }

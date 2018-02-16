@@ -13,33 +13,29 @@ class NoticeMainVC: UIViewController {
     @IBOutlet weak var notice3Button: UIButton!
     @IBOutlet weak var notice4Button: UIButton!
     
-    var buttonArr = [UIButton]()
+    var buttonArr: [UIButton : Int]!
     
     override func viewDidLoad() {
         view.backgroundColor = Color.CO6.getColor()
-        buttonArr = [notice1Button, notice2Button, notice3Button, notice4Button]
+        buttonArr = [notice1Button : 0, notice2Button : 1, notice3Button : 2, notice4Button : 3]
         
-        for i in buttonArr{
-            i.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
+        for button in buttonArr.keys{
+            button.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
         }
     }
     
     @objc func onClick(_ button: UIButton){
-        if notice4Button == button{
-            getFacilityViewController()
-        }else{
-            for i in 0..<buttonArr.count - 1{
-                if buttonArr[i] == button{
-                    let listView = self.storyboard?.instantiateViewController(withIdentifier: "NoticeListView") as! NoticeListVC
-                    listView.id = i
-                    present(listView, animated: true, completion: nil)
-                    return
-                }
-            }
+        if Token.instance.get().isEmpty{ showToast(msg: "로그인이 필요합니다"); return }
+        let value = buttonArr[button]!
+        if value == 3{ getFacilityViewController() }
+        else{
+            let listView = self.storyboard?.instantiateViewController(withIdentifier: "NoticeListView") as! NoticeListVC
+            listView.id = value
+            present(listView, animated: true, completion: nil)
         }
     }
     
-    func getFacilityViewController(){
+    private func getFacilityViewController(){
         let facilityView = storyboard?.instantiateViewController(withIdentifier: "FacilityView") as! FacilityVC
         facilityView.removeFunc = {
             UIView.animate(withDuration: 0.2, animations: { facilityView.view.alpha = 0.0 }, completion: { _ in facilityView.view.removeFromSuperview() })
@@ -47,11 +43,6 @@ class NoticeMainVC: UIViewController {
         view.addSubview(facilityView.view)
         facilityView.view.alpha = 0.0
         UIView.animate(withDuration: 0.3, animations: { facilityView.view.alpha = 1.0 })
-    }
-    
-    func addAction(_ button: UIButton){
-        button.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-        button.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
     }
 
 }
