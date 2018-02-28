@@ -51,7 +51,6 @@
 		D0538AC41ECB007C00C47F86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0538AC31ECB007C00C47F86 /* AppDelegate.swift */; };
 		D0538ACE1ECB007C00C47F86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0538ACC1ECB007C00C47F86 /* LaunchScreen.storyboard */; };
 		D0538AD91ECB007C00C47F86 /* DSMappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0538AD81ECB007C00C47F86 /* DSMappTests.swift */; };
-		D05EE5F51FBD104D00C32211 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EE5F41FBD104D00C32211 /* MealModel.swift */; };
 		D067BE5D1FF4FC9E0054BBCD /* IntroDeveloperListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D067BE5C1FF4FC9E0054BBCD /* IntroDeveloperListVC.swift */; };
 		D067BE5F1FF4FE080054BBCD /* IntroDeveloperContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D067BE5E1FF4FE080054BBCD /* IntroDeveloperContentVC.swift */; };
 		D06E55321FC31D9F00FD71E2 /* seatYes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D06E55291FC31D9E00FD71E2 /* seatYes@2x.png */; };
@@ -249,7 +248,6 @@
 		D0538AD41ECB007C00C47F86 /* DSMappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSMappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0538AD81ECB007C00C47F86 /* DSMappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSMappTests.swift; sourceTree = "<group>"; };
 		D0538ADA1ECB007C00C47F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D05EE5F41FBD104D00C32211 /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
 		D067BE5C1FF4FC9E0054BBCD /* IntroDeveloperListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroDeveloperListVC.swift; sourceTree = "<group>"; };
 		D067BE5E1FF4FE080054BBCD /* IntroDeveloperContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroDeveloperContentVC.swift; sourceTree = "<group>"; };
 		D06BBF821F79016900DD17DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -346,6 +344,9 @@
 		D0D9865B1FB1821D00CE9FD4 /* applyIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "applyIcon@2x.png"; sourceTree = "<group>"; };
 		D0DF858D1FB8853B0065B2C6 /* StayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StayModel.swift; sourceTree = "<group>"; };
 		D0DF858F1FB8866D0065B2C6 /* SurveyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyModel.swift; sourceTree = "<group>"; };
+		D0EC8F882041A66B00859312 /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "ko-KR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D0EC8F892041A66B00859312 /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "ko-KR.lproj/Main.strings"; sourceTree = "<group>"; };
+		D0EC8F8A2041A66B00859312 /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "ko-KR.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		D0EFAF8B1FB1BF4B0064D329 /* FacilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityVC.swift; sourceTree = "<group>"; };
 		F59261D25FD67F8A453F2E1C /* Pods-DSMapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSMapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSMapp/Pods-DSMapp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -381,8 +382,8 @@
 		67A9B6C87E3E13F28B9CF488 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D0473D071FB34D48002E3FE4 /* MyPageModel.swift */,
 				D0473D091FB34EEA002E3FE4 /* MealModel.swift */,
+				D0473D071FB34D48002E3FE4 /* MyPageModel.swift */,
 				D0341A0A1FB6DDFC00B50CE2 /* SurveyListModel.swift */,
 				D0341A0C1FB70C1A00B50CE2 /* AuthModel.swift */,
 				D0341A0E1FB740C900B50CE2 /* NoticeListModel.swift */,
@@ -468,7 +469,6 @@
 				D04348EC1FBAC6D400F2AC62 /* TodayViewController.swift */,
 				D04348EE1FBAC6D400F2AC62 /* MainInterface.storyboard */,
 				D04348F11FBAC6D400F2AC62 /* Info.plist */,
-				D05EE5F41FBD104D00C32211 /* MealModel.swift */,
 			);
 			path = MealExtension;
 			sourceTree = "<group>";
@@ -1062,7 +1062,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D05EE5F51FBD104D00C32211 /* MealModel.swift in Sources */,
 				D04348ED1FBAC6D400F2AC62 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1135,6 +1134,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D04348EF1FBAC6D400F2AC62 /* Base */,
+				D0EC8F8A2041A66B00859312 /* ko-KR */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1143,6 +1143,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D0538ACD1ECB007C00C47F86 /* Base */,
+				D0EC8F882041A66B00859312 /* ko-KR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1151,6 +1152,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D06BBF821F79016900DD17DA /* Base */,
+				D0EC8F892041A66B00859312 /* ko-KR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1206,6 +1208,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1264,6 +1267,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

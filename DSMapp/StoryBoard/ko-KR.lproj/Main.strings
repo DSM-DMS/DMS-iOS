@@ -1,0 +1,27 @@
+
+/* Class = "UITextView"; text = "설문 조사 1입니다."; ObjectID = "6AU-H8-HH2"; */
+"6AU-H8-HH2.text" = "설문 조사 1입니다.";
+
+/* Class = "UILabel"; text = "문항 1"; ObjectID = "7uF-Jc-5ax"; */
+"7uF-Jc-5ax.text" = "문항 1";
+
+/* Class = "UILabel"; text = "문항 1"; ObjectID = "eAj-0j-UfD"; */
+"eAj-0j-UfD.text" = "문항 1";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "eGN-nG-ghR"; */
+"eGN-nG-ghR.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "kAv-GP-m4l"; */
+"kAv-GP-m4l.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "lSe-AV-mOn"; */
+"lSe-AV-mOn.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "nne-ok-z0g"; */
+"nne-ok-z0g.title" = "Item";
+
+/* Class = "UITextView"; text = "hello world\\nnice\\nto\\n"; ObjectID = "rUP-vR-daR"; */
+"rUP-vR-daR.text" = "hello world\\nnice\\nto\\n";
+
+/* Class = "UITextField"; placeholder = "답변을 입력하세요"; ObjectID = "ul9-Yr-xpw"; */
+"ul9-Yr-xpw.placeholder" = "답변을 입력하세요";

@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxAlamofire
 
-class Connector{
+public class Connector{
     
     static let instance = Connector()
     
@@ -18,7 +18,7 @@ class Connector{
     
     func request(_ req: URLRequest, vc: UIViewController) -> Observable<(Int, Data)>{
         return requestData(req)
-            .flatMapLatest{ return Observable.just(($0.0.statusCode, $0.1)) }
+            .flatMap{ return Observable.just(($0.0.statusCode, $0.1)) }
             .filter{ code, _ in
                 switch code{
                 case 500:
@@ -26,9 +26,11 @@ class Connector{
                     return false
                 case 422:
                     vc.showToast(msg: "다시 로그인 하세요")
+                    Token.instance.remove()
                     return false
                 case 401:
                     vc.showToast(msg: "로그인이 필요합니다")
+                    Token.instance.remove()
                     return false
                 default:
                     return true
@@ -39,7 +41,7 @@ class Connector{
     
 }
 
-extension UIViewController{
+public extension UIViewController{
     
     func createRequest(sub: String, method: RequestMethod, params: [String : String]) -> URLRequest{
         var urlStr = "http://dsm2015.cafe24.com" + sub
@@ -57,7 +59,7 @@ extension UIViewController{
     
 }
 
-enum RequestMethod: String{
+public enum RequestMethod: String{
     
     case get = "GET"
     case post = "POST"

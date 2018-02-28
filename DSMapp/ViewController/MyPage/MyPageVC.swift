@@ -26,6 +26,7 @@ class MyPageVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool){
         loadData()
+        tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
     }
 
 }
@@ -50,11 +51,16 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
     }
     
     private func setBind(_ data: MyPageModel){
+        if data.name == "박지은"{ showToast(msg: "지은씨 고마워요^^ 사랑해요!") }
         setData(study: data.getStudyState(), stay: data.getStayState(), good: data.good_point, bad: data.bad_point)
     }
     
     private func uploadBug(_ textField: UITextField){
-        
+        Connector.instance.request(createRequest(sub: "/report/bug", method: .post, params: ["title" : "iOS 오류", "content" : textField.text!]), vc: self)
+            .subscribe(onNext: { [unowned self] code, _ in
+                if code == 201{ self.showToast(msg: "버그 신청 성공") }
+                else{ self.showError(code) }
+            }).disposed(by: disposeBag)
     }
     
     private func setData(study: String = "연장상태", stay: String = "잔류상태", good: Int = 0, bad: Int = 0){

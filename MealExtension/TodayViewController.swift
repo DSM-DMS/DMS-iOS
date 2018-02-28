@@ -8,6 +8,7 @@
 
 import UIKit
 import NotificationCenter
+import RxSwift
 
 class TodayViewController: UIViewController, NCWidgetProviding {
         
@@ -15,17 +16,19 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var dataTextView: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
     
-    var date = Date()
-    var aDay = TimeInterval(86400)
+    private let formatter = DateFormatter()
+    private let disposeBag = DisposeBag()
     
-    var dataArr = ["","",""]
-    var timeArr = ["아침", "점심", "저녁"]
+    private var date = Date()
+    private let aDay = TimeInterval(86400)
     
-    var curTime = 0
+    private var dataArr = ["","",""]
+    private var timeStrArr = ["아침", "점심", "저녁"]
+    
+    private var curTime = 0
     
     override func viewDidLoad() {
-        setCurTime()
-        getData()
+        setInit()
     }
     
     @IBAction func before(_ sender: Any) {
@@ -35,24 +38,32 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBAction func after(_ sender: Any) {
         curTime += 1
-        print(curTime)
         setData()
     }
     
-    func setCurTime(){
-        let fomatter = DateFormatter()
-        fomatter.dateFormat = "h"
-        let curIntTime = Int(fomatter.string(from: Date()))!
-        if curIntTime > 8 && curIntTime <= 12{
-            curTime = 2
-        }else if curIntTime > 12 && curIntTime <= 18{
-            curTime = 3
-        }else{
-            curTime = 1
-        }
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        completionHandler(NCUpdateResult.newData)
     }
     
-    func setData(){
+}
+
+extension TodayViewController{
+    
+    private func setInit(){
+        formatter.dateFormat = "h"
+        guard let curIntTime = Int(formatter.string(from: date)) else{ return }
+        switch curIntTime {
+        case 9...12:
+            curTime = 2
+        case 13...18:
+            curTime = 3
+        default:
+            curTime = 1
+        }
+        getData()
+    }
+    
+    private func setData(){
         switch curTime {
         case 0:
             date -= aDay
@@ -67,70 +78,54 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    func bind(){
-        timeLabel.text = timeArr[curTime - 1]
-        dataTextView.text = dataArr[curTime - 1]
+    private func getData(){
+        formatter.dateFormat = "YYYY-MM-dd"
+        dateLabel.text = formatter.string(from: date)
+        var request = URLRequest(url: URL(string: "http://dsm2015.cafe24.com/meal/\(formatter.string(from: date))")!)
+        request.httpMethod = "GET"
+        URLSession.shared.dataTask(with: request){
+            data, res, err in
+            if err != nil{ return }
+            let code = (res as! HTTPURLResponse).statusCode
+            switch code{
+            case 200:
+                let decodeData = try! JSONDecoder().decode(MealModel.self, from: data!)
+                self.dataArr = decodeData.getData()
+            case 204:
+                self.dataArr = ["급식이 없습니다", "급식이 없습니다", "급식이 없습니다"]
+            default:
+                self.dataArr = ["오류 : \(code)", "오류 : \(code)", "오류 : \(code)"]
+            }
+            DispatchQueue.main.async { self.bind() }
+        }.resume()
     }
     
-    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
-        completionHandler(NCUpdateResult.newData)
+    func bind(){
+        timeLabel.text = timeStrArr[curTime - 1]
+        dataTextView.text = dataArr[curTime - 1]
     }
     
 }
 
-extension TodayViewController{
+class MealModel: Codable{
     
-    func getData(){
-        let fommater = DateFormatter()
-        fommater.dateFormat = "YYYY-MM-dd"
-        dateLabel.text = fommater.string(from: date)
-        var request = URLRequest(url: URL(string: "http://dsm2015.cafe24.com/meal/\(fommater.string(from: date))")!)
-        request.httpMethod = "GET"
-        
-        URLSession.shared.dataTask(with: request){
-            data, res, err in
-            
-            print(fommater.string(from: self.date))
-            
-            guard let httpRes = res as? HTTPURLResponse, err != nil else{
-                return
-            }
-            
-            switch httpRes.statusCode{
-            case 200:
-                let decodeData = try! JSONDecoder().decode(MealModel.self, from: data!)
-                self.dataArr[0] = self.arrToStr(decodeData.breakfast)
-                self.dataArr[1] = self.arrToStr(decodeData.lunch)
-                self.dataArr[2] = self.arrToStr(decodeData.dinner)
-            case 204:
-                self.dataArr = ["급식이 없습니다", "급식이 없습니다", "급식이 없습니다"]
-            default:
-                self.dataArr = ["오류 : \(httpRes.statusCode)", "오류 : \(httpRes.statusCode)", "오류 : \(httpRes.statusCode)"]
-            }
-            
-            DispatchQueue.main.async {
-                self.bind()
-            }
-            
-        }.resume()
-        
+    let breakfast: [String]
+    let lunch: [String]
+    let dinner: [String]
+    
+    func getData() -> [String]{
+        var dataArr = ["", "", ""]
+        dataArr[0] = getStr(breakfast)
+        dataArr[1] = getStr(lunch)
+        dataArr[2] = getStr(dinner)
+        return dataArr
     }
     
-    func arrToStr(_ data: [String]) -> String{
-        var sendStr = ""
-        for i in data{
-            sendStr += (i + ", ")
-        }
-        sendStr.removeLast()
-        sendStr.removeLast()
-        
-        return sendStr
+    private func getStr(_ arr: [String]) -> String{
+        var dataStr = ""
+        for i in arr{ dataStr += i + ", " }
+        dataStr.removeLast(2)
+        return dataStr
     }
     
 }

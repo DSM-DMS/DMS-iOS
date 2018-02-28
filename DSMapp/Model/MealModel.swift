@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MealModel: Codable{
+public class MealModel: Codable{
     
     let breakfast: [String]
     let lunch: [String]

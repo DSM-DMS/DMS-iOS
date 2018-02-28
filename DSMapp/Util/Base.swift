@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 extension UIViewController{
     
@@ -59,6 +60,26 @@ extension UIViewController{
         present(vc, animated: true, completion: nil)
     }
     
+    func versionCheck() -> Disposable{
+        let version = "1.0.1"
+        return Connector.instance.request(createRequest(sub: "/version", method: .get, params: ["platform":"ios"]), vc: self)
+            .debug()
+            .subscribe(onNext: { [unowned self] code, data in
+                print(code)
+                if code == 200{
+                    let data = try! JSONDecoder().decode(VersionModel.self, from: data)
+                    print(data.newest_version)
+                    if data.newest_version != version{ self.showAlert() }
+                }
+            })
+    }
+    
+    private func showAlert(){
+        let alert = UIAlertController(title: "업데이트가 필요합니다.", message: "DMS의 새로운 업데이트가 준비되었습니다.\n지금 업데이트 하세요.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 enum Color{
@@ -86,5 +107,11 @@ enum Color{
             return UIColor(red: 184/255, green: 232/255, blue: 215/255, alpha: 1)
         }
     }
+    
+}
+
+class VersionModel: Codable{
+    
+    let newest_version: String
     
 }

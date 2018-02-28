@@ -1,0 +1,15 @@
+
+/* Class = "UITextView"; text = "값은?"; ObjectID = "3vm-Rb-tvX"; */
+"3vm-Rb-tvX.text" = "값은?";
+
+/* Class = "UILabel"; text = "아침"; ObjectID = "EAZ-Q3-sk4"; */
+"EAZ-Q3-sk4.text" = "아침";
+
+/* Class = "UIButton"; normalTitle = "다음"; ObjectID = "RfE-BD-zpn"; */
+"RfE-BD-zpn.normalTitle" = "다음";
+
+/* Class = "UIButton"; normalTitle = "이전"; ObjectID = "alO-1X-xaS"; */
+"alO-1X-xaS.normalTitle" = "이전";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cZe-Le-9DT"; */
+"cZe-Le-9DT.text" = "Label";

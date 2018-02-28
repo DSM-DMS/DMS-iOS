@@ -17,7 +17,7 @@ class ApplyStayVC: UIViewController  {
     
     private let disposeBag = DisposeBag()
     private var selectedSwitch: UISwitch?
-    private var selectedId = -1
+    private var selectedId = 0
     private var switchArr: [UISwitch]!
     
     @IBAction func back(_ sender: Any){
@@ -33,7 +33,7 @@ class ApplyStayVC: UIViewController  {
     }
 
     @IBAction func apply(_ sender: UIButton){
-        if selectedId == -1{ showToast(msg: "잔류상태를 선택하세요"); return }
+        if selectedId == 0{ showToast(msg: "잔류상태를 선택하세요"); return }
         Connector.instance.request(createRequest(sub: "/stay", method: .post, params: ["value" : "\(selectedId)"]), vc: self)
             .subscribe(onNext: { [unowned self] code, _ in
                 switch code{
@@ -41,7 +41,7 @@ class ApplyStayVC: UIViewController  {
                 case 204: self.showToast(msg: "신청 시간이 아닙니다")
                 default: self.showError(code)
                 }
-            }).dispose()
+            }).disposed(by: disposeBag)
     }
     
 }
@@ -61,11 +61,19 @@ extension ApplyStayVC{
     }
     
     private func valueChange(_ id: Int, value: Bool){
+        if id == 3 && !value{ selectedId = 0; selectedSwitch = nil; return }
         if value{
-            selectedId = id + 1
             selectedSwitch?.setOn(false, animated: true)
-            selectedSwitch = switchArr[id]
-        }else{ friSwitch.setOn(true, animated: true) }
+            selected(id)
+        }else{
+            staySwitch.setOn(true, animated: true)
+            selected(3)
+        }
+    }
+    
+    private func selected(_ id: Int){
+        selectedSwitch = switchArr[id]
+        selectedId = id + 1
     }
     
     private func setBind(){
@@ -74,6 +82,7 @@ extension ApplyStayVC{
                 if code == 200{
                     let data = try! JSONDecoder().decode(StayModel.self, from: data)
                     self.switchArr[data.value - 1].setOn(true, animated: true)
+                    self.selected(data.value - 1)
                 }
                 else{ self.showError(code) }
             }).disposed(by: disposeBag)

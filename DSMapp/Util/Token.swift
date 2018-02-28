@@ -12,7 +12,7 @@ class Token{
     
     static let instance = Token()
     private let repo = UserDefaults.standard
-    private let tokenID = "token"
+    private let tokenID = "0903"
     
     private init(){}
     
