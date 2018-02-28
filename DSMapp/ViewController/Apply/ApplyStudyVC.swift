@@ -13,6 +13,7 @@ class ApplyStudyVC: UIViewController  {
     @IBOutlet weak var changeRoomButton: UIButton!
     
     private let roomNameDic = ["가온실" : 1, "나온실" : 2, "다온실" : 3, "라온실" : 4, "3층 독서실" : 5, "4층 독서실" : 6, "열린교실" : 7]
+    private let roomNameArr = ["가온실", "나온실", "다온실", "라온실", "3층 독서실", "4층 독서실", "열린교실"]
     
     private var selectedTime = 11
     private var selectedClass = 1
@@ -71,8 +72,8 @@ extension ApplyStudyVC{
     
     @objc func changeRoom(_ button: UIButton){
         let alert = UIAlertController(title: "방을 선택하세요.", message: nil, preferredStyle: .actionSheet)
-        for i in roomNameDic{
-            alert.addAction(UIAlertAction(title: i.key, style: .default, handler: alertClick(_:)))
+        for roomName in roomNameArr{
+            alert.addAction(UIAlertAction(title: roomName, style: .default, handler: alertClick(_:)))
         }
         alert.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
