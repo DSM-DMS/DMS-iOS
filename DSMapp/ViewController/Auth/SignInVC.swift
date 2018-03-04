@@ -26,7 +26,7 @@ class SignInVC: UIViewController{
     
     @IBAction func login(_ sender: Any) {
         if vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
-        Connector.instance.request(createRequest(sub: "/auth", method: .post, params: getParam()), vc: self)
+        Connector.instance.request(createRequest(sub: "/auth", method: .post, params: getParam()), vc: self, check401: false)
             .subscribe(onNext: { [unowned self] code, data in
                 switch code{
                 case 200:
@@ -82,16 +82,17 @@ class SighInTextFieldShape: UITextField{
     
     private func setLayout(){
         clipsToBounds = true
+        let noneColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1).cgColor
         layer.cornerRadius = frame.height / 2
         layer.borderWidth = 1.5
-        layer.borderColor = UIColor.clear.cgColor
+        layer.borderColor = noneColor
         rx.controlEvent(.editingDidBegin)
             .subscribe(onNext: { [unowned self] _ in
                 self.layer.borderColor = Color.MINT.getColor().cgColor
             }).disposed(by: disposeBag)
         rx.controlEvent(.editingDidEnd)
             .subscribe(onNext: { [unowned self] _ in
-                self.layer.borderColor = UIColor.clear.cgColor
+                self.layer.borderColor = noneColor
             }).disposed(by: disposeBag)
     }
     

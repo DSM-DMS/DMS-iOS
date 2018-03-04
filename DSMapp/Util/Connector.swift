@@ -16,20 +16,23 @@ public class Connector{
     
     private init(){ }
     
-    func request(_ req: URLRequest, vc: UIViewController) -> Observable<(Int, Data)>{
+    func request(_ req: URLRequest, vc: UIViewController, check401: Bool = true) -> Observable<(Int, Data)>{
         return requestData(req)
             .flatMap{ return Observable.just(($0.0.statusCode, $0.1)) }
             .filter{ code, _ in
+                if code == 401 && check401{
+                    vc.showToast(msg: "로그인이 필요합니다")
+                    Token.instance.remove()
+                    return false
+                }
                 switch code{
                 case 500:
                     vc.showToast(msg: "서버 오류")
                     return false
+                case 403: vc.showToast(msg: "권한이 없습니다")
+                    return false
                 case 422:
                     vc.showToast(msg: "다시 로그인 하세요")
-                    Token.instance.remove()
-                    return false
-                case 401:
-                    vc.showToast(msg: "로그인이 필요합니다")
                     Token.instance.remove()
                     return false
                 default:

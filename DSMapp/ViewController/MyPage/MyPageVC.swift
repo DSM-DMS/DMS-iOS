@@ -51,7 +51,6 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
     }
     
     private func setBind(_ data: MyPageModel){
-        if data.name == "박지은"{ showToast(msg: "지은씨 고마워요^^ 사랑해요!") }
         setData(study: data.getStudyState(), stay: data.getStayState(), good: data.good_point, bad: data.bad_point)
     }
     

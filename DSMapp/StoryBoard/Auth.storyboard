@@ -34,6 +34,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="EBM-5L-eqB" customClass="SighInTextFieldShape" customModule="DSMapp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="29.666666666666686" width="327" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="Hll-vN-CNK"/>
                                                 </constraints>
@@ -54,6 +55,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Bh7-hd-cdV" customClass="SighInTextFieldShape" customModule="DSMapp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="29.666666666666686" width="327" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="oF0-b2-jY3"/>
                                                 </constraints>
