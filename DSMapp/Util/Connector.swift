@@ -46,7 +46,7 @@ public class Connector{
 
 public extension UIViewController{
     
-    func createRequest(sub: String, method: RequestMethod, params: [String : String]) -> URLRequest{
+    func createRequest(sub: String, method: RequestMethod, params: [String : String], isAccess: Bool = true) -> URLRequest{
         var urlStr = "http://dsm2015.cafe24.com" + sub
         var dataStr = ""
         for param in params{ dataStr += param.key + "=" + param.value + "&" }
@@ -55,8 +55,9 @@ public extension UIViewController{
         var request = URLRequest(url: URL(string: urlStr)!)
         if method != .get{ request.httpBody = dataStr.data(using: .utf8) }
         request.httpMethod = method.rawValue
-        let token = Token.instance
-        if !token.get().isEmpty{ request.addValue("JWT \(token.get())", forHTTPHeaderField: "Authorization") }
+        let tokenInstance = Token.instance
+        let token = isAccess ? tokenInstance.get() : tokenInstance.get(isAccess: false)
+        if !token.isEmpty{ request.addValue("JWT \(token)", forHTTPHeaderField: "Authorization") }
         return request
     }
     

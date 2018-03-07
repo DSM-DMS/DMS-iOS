@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class ButtonShape: UIButton {
     
@@ -89,10 +90,24 @@ class BackApplyContentView: UIView{
 
 class TabShape: UITabBarController {
     
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         tabBar.barTintColor = Color.CO4.getColor()
         tabBar.tintColor = UIColor.white
         tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.5)
+        getAccessToken()
+    }
+    
+    private func getAccessToken(){
+        Connector.instance.request(createRequest(sub: "/refresh", method: .post, params: [:], isAccess: false), vc: self)
+            .subscribe(onNext: { [unowned self] code, data in
+                if code == 200{
+                    let data = try! JSONDecoder().decode(AuthModel.self, from: data)
+                    Token.instance.save(data.access_token)
+                }
+                else if code == 205{ self.showToast(msg: "다시 로그인 해주세요") }
+            }).disposed(by: disposeBag)
     }
     
 }

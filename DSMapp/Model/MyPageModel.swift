@@ -10,14 +10,14 @@ import Foundation
 
 struct MyPageModel: Codable{
     
-    var stay_value: Int
-    var name: String
-    var extension_11: Extension?
-    var extension_12: Extension?
-    var number: Int
-    var goingout: GoingOut
-    var good_point: Int
-    var bad_point: Int
+    let stay_value: Int
+    let name: String
+    let extension_11: Extension?
+    let extension_12: Extension?
+    let number: Int
+    let goingout: GoingOut
+    let good_point: Int
+    let bad_point: Int
     
     func getStudyState() -> String{
         var stateStr = ""

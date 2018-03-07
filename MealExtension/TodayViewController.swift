@@ -19,7 +19,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     private let formatter = DateFormatter()
     private let disposeBag = DisposeBag()
     
-    private var date = Date()
+    private var date: Date = Date()
     private let aDay = TimeInterval(86400)
     
     private var dataArr = ["","",""]
@@ -28,6 +28,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     private var curTime = 0
     
     override func viewDidAppear(_ animated: Bool) {
+        date = Date()
         setInit()
     }
     
@@ -50,14 +51,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 extension TodayViewController{
     
     private func setInit(){
-        formatter.dateFormat = "h"
+        formatter.dateFormat = "H"
         guard let curIntTime = Int(formatter.string(from: date)) else{ return }
         switch curIntTime {
+        case 0...8:
+            curTime = 1
         case 9...12:
             curTime = 2
-        case 13...18:
+        case 13...17:
             curTime = 3
         default:
+            date += aDay
             curTime = 1
         }
         getData()

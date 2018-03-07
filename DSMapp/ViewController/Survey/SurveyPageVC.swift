@@ -21,6 +21,7 @@ class SurveyPageVC: UIPageViewController {
     }
     
     func sendAnswer(_ id: String, answer: String, fun: (() -> ())?){
+        print(answer)
         Connector.instance.request(createRequest(sub: "/survey/question", method: .post, params: ["question_id" : id, "answer" : answer]), vc: self)
             .subscribe(onNext: { [unowned self] code, _ in
                 if code == 201{ self.showToast(msg: "답변을 남겼습니다", fun: fun) }

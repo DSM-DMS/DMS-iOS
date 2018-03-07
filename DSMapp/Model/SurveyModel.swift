@@ -10,9 +10,9 @@ import Foundation
 
 class SurveyModel: Codable{
     
-    var title: String
-    var is_objective: Bool
-    var choice_paper: Array<String>?
-    var id: String
+    let title: String
+    let is_objective: Bool
+    let choice_paper: Array<String>?
+    let id: String
     
 }

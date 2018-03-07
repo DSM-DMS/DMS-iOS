@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class SurveyInfoVC: UIViewController {
     
@@ -15,10 +16,13 @@ class SurveyInfoVC: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
+    private let disposeBag = DisposeBag()
+    
     var questionList = Array<SurveyModel>()
     var questionData: SurveyListModel!
     
     @IBAction func next(_ sender: Any) {
+        if questionList.count <= 0 { navigationController?.popViewController(animated: true); return }
         let surveyPageVC = storyboard?.instantiateViewController(withIdentifier: "SurveyPageView") as! SurveyPageVC
         surveyPageVC.contentList = questionList
         navigationController?.pushViewController(surveyPageVC, animated: true)
@@ -49,7 +53,7 @@ extension SurveyInfoVC: UITableViewDataSource{
                     self.questionListTable.reloadData()
                 }
                 else{ self.showError(code) }
-            }).dispose()
+            }).disposed(by: disposeBag)
     }
     
     private func getParam() -> [String : String]{

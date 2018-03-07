@@ -9,5 +9,6 @@
 import Foundation
 
 class AuthModel: Codable{
-    var access_token: String
+    let access_token: String
+    let refresh_token: String?
 }

@@ -10,9 +10,9 @@ import Foundation
 
 class NoticeDetailModel: Codable{
     
-    var title = ""
-    var content = ""
-    var author: String?
-    var write_time = ""
+    let title: String
+    let content: String
+    let author: String?
+    let write_time: String
     
 }

@@ -10,10 +10,10 @@ import Foundation
 
 class SurveyListModel: Codable{
     
-    var id: String
-    var title: String
-    var start_date: String
-    var end_date: String
-    var description: String
+    let id: String
+    let title: String
+    let start_date: String
+    let end_date: String
+    let description: String
     
 }

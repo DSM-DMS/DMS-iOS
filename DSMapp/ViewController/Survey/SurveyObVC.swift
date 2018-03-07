@@ -58,8 +58,8 @@ extension SurveyObVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! SurveyObCell
-        cell.contentLabel.textColor = selectColor
         beforeCell?.contentLabel.textColor = Color.CO3.getColor()
+        cell.contentLabel.textColor = selectColor
         beforeCell = cell
     }
     
