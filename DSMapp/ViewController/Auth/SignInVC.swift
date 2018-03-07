@@ -31,7 +31,9 @@ class SignInVC: UIViewController{
                 switch code{
                 case 200:
                     let data = try! JSONDecoder().decode(AuthModel.self, from: data)
-                    print(data.access_token + "//" + data.refresh_token!)
+                    let token = Token.instance
+                    token.save(data.access_token)
+                    token.save(data.refresh_token!, access: false)
                     self.showToast(msg: "로그인 성공", fun: self.goBack)
                 case 401:
                     self.showToast(msg: "로그인 실패")

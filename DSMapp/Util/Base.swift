@@ -63,12 +63,10 @@ extension UIViewController{
     func versionCheck() -> Disposable{
         let version = "1.0.1"
         return Connector.instance.request(createRequest(sub: "/version", method: .get, params: ["platform":"ios"]), vc: self)
-            .debug()
             .subscribe(onNext: { [unowned self] code, data in
                 print(code)
                 if code == 200{
                     let data = try! JSONDecoder().decode(VersionModel.self, from: data)
-                    print(data.newest_version)
                     if data.newest_version != version{ self.showAlert() }
                 }
             })

@@ -97,6 +97,7 @@ class TabShape: UITabBarController {
         tabBar.tintColor = UIColor.white
         tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.5)
         getAccessToken()
+        versionCheck().disposed(by: disposeBag)
     }
     
     private func getAccessToken(){

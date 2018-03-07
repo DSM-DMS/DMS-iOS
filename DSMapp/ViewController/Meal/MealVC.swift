@@ -21,7 +21,6 @@ class MealVC: UIViewController {
     override func viewDidLoad() {
         date = Date()
         pageViewSetUp()
-        versionCheck().disposed(by: disposeBag)
     }
     
 }

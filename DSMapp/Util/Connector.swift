@@ -56,7 +56,7 @@ public extension UIViewController{
         if method != .get{ request.httpBody = dataStr.data(using: .utf8) }
         request.httpMethod = method.rawValue
         let tokenInstance = Token.instance
-        let token = isAccess ? tokenInstance.get() : tokenInstance.get(isAccess: false)
+        let token = tokenInstance.get(isAccess: isAccess)
         if !token.isEmpty{ request.addValue("JWT \(token)", forHTTPHeaderField: "Authorization") }
         return request
     }
