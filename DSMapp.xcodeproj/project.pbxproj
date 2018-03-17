@@ -75,6 +75,8 @@
 		D08005DB1FF60B32006FB22C /* SurveyNObVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08005DA1FF60B31006FB22C /* SurveyNObVC.swift */; };
 		D082F4972013197000377259 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D082F4962013196F00377259 /* Assets.xcassets */; };
 		D09F32451F793B13006A936C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D06BBF811F79016900DD17DA /* Main.storyboard */; };
+		D0D67E80205623D40056A18B /* pointGoodIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D67E7E205623D30056A18B /* pointGoodIcon.png */; };
+		D0D67E81205623D40056A18B /* pointBadIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D67E7F205623D30056A18B /* pointBadIcon.png */; };
 		D0D985D01FB1813300CE9FD4 /* noticeListDetailBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D985C01FB1812900CE9FD4 /* noticeListDetailBackground.png */; };
 		D0D985D11FB1813300CE9FD4 /* signInBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D985C11FB1812900CE9FD4 /* signInBackground@2x.png */; };
 		D0D985D21FB1813300CE9FD4 /* signUpBackground@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D985C21FB1812A00CE9FD4 /* signUpBackground@3x.png */; };
@@ -148,6 +150,8 @@
 		D0DD331E1FEC83CB00F2E94C /* MealExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D04348E91FBAC6D400F2AC62 /* MealExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D0DF858E1FB8853B0065B2C6 /* StayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DF858D1FB8853B0065B2C6 /* StayModel.swift */; };
 		D0DF85901FB8866D0065B2C6 /* SurveyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DF858F1FB8866D0065B2C6 /* SurveyModel.swift */; };
+		D0EAC91B205411000075543B /* PointListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EAC91A205411000075543B /* PointListVC.swift */; };
+		D0EAC91D2054172E0075543B /* PointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EAC91C2054172E0075543B /* PointModel.swift */; };
 		D0EFAF8C1FB1BF4B0064D329 /* FacilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EFAF8B1FB1BF4B0064D329 /* FacilityVC.swift */; };
 		D5CC0B9689760E4DDA98DC5D /* Pods_MealExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144D53B809933929FFCB6399 /* Pods_MealExtension.framework */; };
 /* End PBXBuildFile section */
@@ -272,6 +276,8 @@
 		D08005D61FF5E42B006FB22C /* surveyQuestionIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surveyQuestionIcon.png; sourceTree = "<group>"; };
 		D08005DA1FF60B31006FB22C /* SurveyNObVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyNObVC.swift; sourceTree = "<group>"; };
 		D082F4962013196F00377259 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0D67E7E205623D30056A18B /* pointGoodIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointGoodIcon.png; sourceTree = "<group>"; };
+		D0D67E7F205623D30056A18B /* pointBadIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointBadIcon.png; sourceTree = "<group>"; };
 		D0D985C01FB1812900CE9FD4 /* noticeListDetailBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noticeListDetailBackground.png; sourceTree = "<group>"; };
 		D0D985C11FB1812900CE9FD4 /* signInBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signInBackground@2x.png"; sourceTree = "<group>"; };
 		D0D985C21FB1812A00CE9FD4 /* signUpBackground@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signUpBackground@3x.png"; sourceTree = "<group>"; };
@@ -344,6 +350,8 @@
 		D0D9865B1FB1821D00CE9FD4 /* applyIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "applyIcon@2x.png"; sourceTree = "<group>"; };
 		D0DF858D1FB8853B0065B2C6 /* StayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StayModel.swift; sourceTree = "<group>"; };
 		D0DF858F1FB8866D0065B2C6 /* SurveyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyModel.swift; sourceTree = "<group>"; };
+		D0EAC91A205411000075543B /* PointListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointListVC.swift; sourceTree = "<group>"; };
+		D0EAC91C2054172E0075543B /* PointModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointModel.swift; sourceTree = "<group>"; };
 		D0EC8F882041A66B00859312 /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "ko-KR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D0EC8F892041A66B00859312 /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "ko-KR.lproj/Main.strings"; sourceTree = "<group>"; };
 		D0EC8F8A2041A66B00859312 /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "ko-KR.lproj/MainInterface.strings"; sourceTree = "<group>"; };
@@ -390,6 +398,7 @@
 				D0DF858D1FB8853B0065B2C6 /* StayModel.swift */,
 				D0DF858F1FB8866D0065B2C6 /* SurveyModel.swift */,
 				D04348D11FB9D7C600F2AC62 /* NoticeDetailModel.swift */,
+				D0EAC91C2054172E0075543B /* PointModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -479,6 +488,7 @@
 				D0473D051FB33CF0002E3FE4 /* MyPageVC.swift */,
 				D067BE5C1FF4FC9E0054BBCD /* IntroDeveloperListVC.swift */,
 				D067BE5E1FF4FE080054BBCD /* IntroDeveloperContentVC.swift */,
+				D0EAC91A205411000075543B /* PointListVC.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -631,6 +641,8 @@
 		D0D985E01FB1815E00CE9FD4 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				D0D67E7F205623D30056A18B /* pointBadIcon.png */,
+				D0D67E7E205623D30056A18B /* pointGoodIcon.png */,
 				D08005D61FF5E42B006FB22C /* surveyQuestionIcon.png */,
 				D04348DA1FBA779C00F2AC62 /* surveyIcon.png */,
 				D04348DB1FBA779D00F2AC62 /* surveyIcon@2x.png */,
@@ -892,6 +904,7 @@
 				D0D985DD1FB1813300CE9FD4 /* myPageBackground.png in Resources */,
 				D04D8A401FB03694004DA5FD /* Auth.storyboard in Resources */,
 				D0538ACE1ECB007C00C47F86 /* LaunchScreen.storyboard in Resources */,
+				D0D67E81205623D40056A18B /* pointBadIcon.png in Resources */,
 				D0D985FE1FB1817F00CE9FD4 /* myStayIcon@2x.png in Resources */,
 				D0D985FA1FB1817F00CE9FD4 /* applyStudyIcon.png in Resources */,
 				D0D9860A1FB1817F00CE9FD4 /* applyOutIcon@2x.png in Resources */,
@@ -911,6 +924,7 @@
 				D0D9865D1FB1821D00CE9FD4 /* noticeIcon.png in Resources */,
 				D0D986211FB181E200CE9FD4 /* monster3.png in Resources */,
 				D0D986081FB1817F00CE9FD4 /* myStayIcon.png in Resources */,
+				D0D67E80205623D40056A18B /* pointGoodIcon.png in Resources */,
 				D0D986671FB1821D00CE9FD4 /* applyIcon@2x.png in Resources */,
 				D0D986351FB181E200CE9FD4 /* monster3@3x.png in Resources */,
 				D0D986311FB181E200CE9FD4 /* monster2.png in Resources */,
@@ -1077,12 +1091,14 @@
 				67A9B137FA18D4D6299E5CE0 /* Base.swift in Sources */,
 				67A9BBDA668F5A650BE32026 /* Shape.swift in Sources */,
 				67A9B95B2FA470A391ADC2DF /* ChangePasswordVC.swift in Sources */,
+				D0EAC91B205411000075543B /* PointListVC.swift in Sources */,
 				D0473D061FB33CF0002E3FE4 /* MyPageVC.swift in Sources */,
 				67A9B175B8C1550CA4040278 /* SignInVC.swift in Sources */,
 				67A9B5B875AFD0C769CB229E /* SignUpVC.swift in Sources */,
 				D067BE5D1FF4FC9E0054BBCD /* IntroDeveloperListVC.swift in Sources */,
 				67A9B57F5DB6364E16D00137 /* ApplyStudyVC.swift in Sources */,
 				67A9BEBCA15977CE6828FAD4 /* ApplyStayVC.swift in Sources */,
+				D0EAC91D2054172E0075543B /* PointModel.swift in Sources */,
 				D04D8A431FB03A67004DA5FD /* MealVC.swift in Sources */,
 				D07CFF631FB6CD6A00CB0717 /* SurveyListVC.swift in Sources */,
 				67A9B0350C4802CBF0550340 /* NoticeMainVC.swift in Sources */,

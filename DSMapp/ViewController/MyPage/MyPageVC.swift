@@ -81,22 +81,25 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
             else{ token.remove(); tableView.reloadData(); setData() }
         case 2:
             if token.get().isEmpty{ showToast(msg: "로그인이 필요합니다") }
-            else { goNextViewWithStoryboard(storyId: "Auth", id: "ChangePasswordView") }
-        case 4:
+            else{ goNextViewWithStoryboard(storyId: "Auth", id: "ChangePasswordView") }
+        case 3:
+            if token.get().isEmpty{ showToast(msg: "로그인이 필요합니다") }
+            else{ goNextViewController("PointListView") }
+        case 5:
             let alert = UIAlertController(title: "버그신고", message: nil, preferredStyle: .alert)
             alert.addTextField(configurationHandler: nil)
             alert.addAction(UIAlertAction(title: "전송", style: .default){ _ in self.uploadBug(alert.textFields![0]) } )
             alert.addAction(UIAlertAction.init(title: "취소", style: .cancel))
             present(alert, animated: true, completion: nil)
-        case 5: goNextViewController("IntroDeveloperListView")
+        case 6: goNextViewController("IntroDeveloperListView")
         default: return
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let titleStrArr = ["", "", "비밀번호 변경","", "버그 신고", "개발자 소개"]
+        let titleStrArr = ["", "", "비밀번호 변경","상벌점 내역 조회", "", "버그 신고", "개발자 소개"]
         switch indexPath.row {
-        case 0, 3, 6:
+        case 0, 4:
             return tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell", for: indexPath) as! ContentCell
@@ -111,7 +114,7 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case 0, 3, 6:
+        case 0, 4:
             return 20
         default:
             return 60
