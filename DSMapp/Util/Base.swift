@@ -61,7 +61,7 @@ extension UIViewController{
     }
     
     func versionCheck() -> Disposable{
-        let version = "1.0.1"
+//        let version = "1.0.5"
         return Connector.instance.request(createRequest(sub: "/version", method: .get, params: ["platform":"ios"]), vc: self)
             .subscribe(onNext: { [unowned self] code, data in
                 print(code)

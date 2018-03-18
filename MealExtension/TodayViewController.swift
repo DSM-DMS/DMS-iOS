@@ -27,7 +27,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     private var curTime = 0
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidLoad() {
         date = Date()
         setInit()
     }
