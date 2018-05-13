@@ -18,7 +18,7 @@ public class Connector{
     
     func request(_ req: URLRequest, vc: UIViewController, check401: Bool = true) -> Observable<(Int, Data)>{
         return requestData(req)
-            .flatMap{ return Observable.just(($0.0.statusCode, $0.1)) }
+            .map{ ($0.0.statusCode, $0.1) }
             .filter{ code, _ in
                 if code == 401 && check401{
                     vc.showToast(msg: "로그인이 필요합니다")

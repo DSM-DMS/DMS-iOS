@@ -153,6 +153,7 @@
 		D0EAC91B205411000075543B /* PointListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EAC91A205411000075543B /* PointListVC.swift */; };
 		D0EAC91D2054172E0075543B /* PointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EAC91C2054172E0075543B /* PointModel.swift */; };
 		D0EFAF8C1FB1BF4B0064D329 /* FacilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EFAF8B1FB1BF4B0064D329 /* FacilityVC.swift */; };
+		D0FE52DA20919A55004C559E /* MealVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE52D920919A55004C559E /* MealVM.swift */; };
 		D5CC0B9689760E4DDA98DC5D /* Pods_MealExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144D53B809933929FFCB6399 /* Pods_MealExtension.framework */; };
 /* End PBXBuildFile section */
 
@@ -356,6 +357,7 @@
 		D0EC8F892041A66B00859312 /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "ko-KR.lproj/Main.strings"; sourceTree = "<group>"; };
 		D0EC8F8A2041A66B00859312 /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "ko-KR.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		D0EFAF8B1FB1BF4B0064D329 /* FacilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityVC.swift; sourceTree = "<group>"; };
+		D0FE52D920919A55004C559E /* MealVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealVM.swift; sourceTree = "<group>"; };
 		F59261D25FD67F8A453F2E1C /* Pods-DSMapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSMapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSMapp/Pods-DSMapp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -439,7 +441,6 @@
 			children = (
 				D07CFF611FB6CD4400CB0717 /* Survey */,
 				D0473D041FB33CD8002E3FE4 /* MyPage */,
-				D04D8A411FB03A4A004DA5FD /* Meal */,
 				67A9BB0862F9A6BF4E695F6B /* Auth */,
 				67A9B898EEE7547FEE93E07B /* Apply */,
 				67A9BF29051B84BF5B824B84 /* Notice */,
@@ -518,15 +519,6 @@
 			path = StoryBoard;
 			sourceTree = "<group>";
 		};
-		D04D8A411FB03A4A004DA5FD /* Meal */ = {
-			isa = PBXGroup;
-			children = (
-				D04D8A421FB03A67004DA5FD /* MealVC.swift */,
-				D02B64141FB0A80F0065AC2D /* MealContentVC.swift */,
-			);
-			path = Meal;
-			sourceTree = "<group>";
-		};
 		D0538AB71ECB007C00C47F86 = {
 			isa = PBXGroup;
 			children = (
@@ -552,6 +544,7 @@
 		D0538AC21ECB007C00C47F86 /* DSMapp */ = {
 			isa = PBXGroup;
 			children = (
+				D0FE52D6209199F2004C559E /* Meal */,
 				D082F4962013196F00377259 /* Assets.xcassets */,
 				D0538ACF1ECB007C00C47F86 /* Info.plist */,
 				D0538AC31ECB007C00C47F86 /* AppDelegate.swift */,
@@ -720,6 +713,32 @@
 				D0D986501FB1821500CE9FD4 /* userIcon@3x.png */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		D0FE52D6209199F2004C559E /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				D0FE52D820919A10004C559E /* VC */,
+				D0FE52D720919A09004C559E /* VM */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
+		D0FE52D720919A09004C559E /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				D0FE52D920919A55004C559E /* MealVM.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		D0FE52D820919A10004C559E /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				D04D8A421FB03A67004DA5FD /* MealVC.swift */,
+				D02B64141FB0A80F0065AC2D /* MealContentVC.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 		D11ACD221616DD45C36FBC8C /* Pods */ = {
@@ -1113,6 +1132,7 @@
 				D08005CD1FF5DA1B006FB22C /* SurveyPageVC.swift in Sources */,
 				D04348D21FB9D7C600F2AC62 /* NoticeDetailModel.swift in Sources */,
 				D0DF85901FB8866D0065B2C6 /* SurveyModel.swift in Sources */,
+				D0FE52DA20919A55004C559E /* MealVM.swift in Sources */,
 				D08005DB1FF60B32006FB22C /* SurveyNObVC.swift in Sources */,
 				D0DF858E1FB8853B0065B2C6 /* StayModel.swift in Sources */,
 				67A9B7AA5DFA7F3D0D3210AA /* NoticeListVC.swift in Sources */,

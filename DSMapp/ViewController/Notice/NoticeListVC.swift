@@ -14,6 +14,7 @@ class NoticeListVC: UIViewController {
     @IBOutlet weak var monsterImageView: UIImageView!
     
     private let disposeBag = DisposeBag()
+    private let titleTextArr = ["기숙사 규정", "공지사항", "자주 하는 질문"]
     
     var id: Int = 0
     var url = ""
@@ -42,13 +43,19 @@ extension NoticeListVC: UITableViewDataSource, UITableViewDelegate{
             .subscribe(onNext: { [unowned self] code, data in
                 if code == 200{
                     self.data = try! JSONDecoder().decode([NoticeListModel].self, from: data).reversed()
-                    self.tableView.reloadData()
+                    if self.data.count > 0 { self.tableView.reloadData() }
+                    else{ self.showAlert() }
                 }else{ self.showError(code) }
             }).disposed(by: disposeBag)
     }
     
+    private func showAlert(){
+        let alert = UIAlertController(title: "\(titleTextArr[id])이 없습니다.", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in self.goBack() }))
+        present(alert, animated: true, completion: nil)
+    }
+    
     func setData(){
-        let titleTextArr = ["기숙사 규정", "공지사항", "자주 하는 질문"]
         let imageStrArr = ["monster1", "monster2", "monster3"]
         let urlArr = ["/rule", "/notice", "/faq"]
         titleLabel.text = titleTextArr[id]

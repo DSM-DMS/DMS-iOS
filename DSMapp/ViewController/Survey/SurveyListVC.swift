@@ -21,7 +21,8 @@ class SurveyListVC: UITableViewController {
             .subscribe(onNext: { [unowned self] code, data in
                 if code == 200{
                     self.data = try! JSONDecoder().decode(Array<SurveyListModel>.self, from: data).reversed()
-                    self.tableView.reloadData()
+                    if self.data.count > 0{ self.tableView.reloadData() }
+                    else{ self.showAlert() }
                 }
                 else{ self.showError(code) }
             }).disposed(by: disposeBag)
@@ -50,6 +51,12 @@ class SurveyListVC: UITableViewController {
         return 80
     }
 
+    private func showAlert(){
+        let alert = UIAlertController(title: "설문조사가 없습니다.", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in self.goBack() }))
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 class SurveyListCell: UITableViewCell{

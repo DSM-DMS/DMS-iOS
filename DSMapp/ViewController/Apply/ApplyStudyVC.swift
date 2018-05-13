@@ -12,8 +12,8 @@ class ApplyStudyVC: UIViewController  {
     @IBOutlet weak var backScrollView: UIScrollView!
     @IBOutlet weak var changeRoomButton: UIButton!
     
-    private let roomNameDic = ["가온실" : 1, "나온실" : 2, "다온실" : 3, "라온실" : 4, "3층 독서실" : 5, "4층 독서실" : 6, "열린교실" : 7]
-    private let roomNameArr = ["가온실", "나온실", "다온실", "라온실", "3층 독서실", "4층 독서실", "열린교실"]
+    private let roomNameDic = ["가온실" : 1, "나온실" : 2, "다온실" : 3, "라온실" : 4, "3층 독서실" : 5, "4층 독서실" : 6, "열린교실" : 7, "여자 자습실" : 8]
+    private let roomNameArr = ["가온실", "나온실", "다온실", "라온실", "3층 독서실", "4층 독서실", "열린교실", "여자 자습실"]
     
     private var selectedTime = 11
     private var selectedClass = 1

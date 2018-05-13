@@ -32,8 +32,8 @@ class PointListVC: UIViewController {
             .subscribe(onNext: { [unowned self] code, data in
                 if code == 200{
                     self.dataArr = try! JSONDecoder().decode([PointModel].self, from: data).reversed()
-                    print(self.dataArr.count)
-                    self.tableView.reloadData()
+                    if self.dataArr.count > 0{ self.tableView.reloadData() }
+                    else{ self.showAlert() }
                 }
                 else{ self.showError(code) }
             }).disposed(by: disposeBag)
@@ -58,6 +58,12 @@ extension PointListVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    private func showAlert(){
+        let alert = UIAlertController(title: "상벌점 내역이 없습니다.", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in self.goBack() }))
+        present(alert, animated: true, completion: nil)
     }
     
 }

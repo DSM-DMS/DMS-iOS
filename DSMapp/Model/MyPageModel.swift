@@ -21,7 +21,7 @@ struct MyPageModel: Codable{
     
     func getStudyState() -> String{
         var stateStr = ""
-        let roomNameArr = ["가온실", "나온실", "다온실", "라온실", "3층 독서실", "4층 독서실", "열린교실"]
+        let roomNameArr = ["가온실", "나온실", "다온실", "라온실", "3층 독서실", "4층 독서실", "열린교실", "여자 자습실"]
         if extension_11 != nil{
             stateStr = "11 : \(roomNameArr[extension_11!.class_num - 1])"
         }else{

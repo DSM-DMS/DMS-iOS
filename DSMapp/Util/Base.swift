@@ -10,7 +10,7 @@ import RxSwift
 extension UIViewController{
     
     func getClassName(_ num: Int) -> String{
-        let classNameArr = ["가온실", "나온실", "다온실", "라온실", "3층 독서실", "4층 독서실", "열린교실"]
+        let classNameArr = ["가온실", "나온실", "다온실", "라온실", "3층 독서실", "4층 독서실", "열린교실", "여자 자습실"]
         return classNameArr[num - 1]
     }
     
@@ -61,7 +61,7 @@ extension UIViewController{
     }
     
     func versionCheck() -> Disposable{
-//        let version = "1.0.5"
+        let version = "1.0.7"
         return Connector.instance.request(createRequest(sub: "/version", method: .get, params: ["platform":"ios"]), vc: self)
             .subscribe(onNext: { [unowned self] code, data in
                 print(code)
