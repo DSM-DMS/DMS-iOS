@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AuthModel: Codable{
-    let access_token: String
-    let refresh_token: String?
+struct AuthModel: Codable{
+    let accessToken: String
+    let refreshToken: String
 }

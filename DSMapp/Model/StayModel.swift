@@ -8,8 +8,8 @@
 
 import Foundation
 
-class StayModel: Codable{
+struct StayModel: Codable{
     
-    var value: Int
+    let value: Int
     
 }

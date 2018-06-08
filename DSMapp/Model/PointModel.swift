@@ -11,7 +11,7 @@ import Foundation
 struct PointModel: Codable{
     
     let point: Int
-    let point_type: Bool
+    let pointType: Bool
     let reason: String
     let time: String
     
