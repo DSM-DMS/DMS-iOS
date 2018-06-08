@@ -12,22 +12,20 @@ class Token{
     
     static let instance = Token()
     private let repo = UserDefaults.standard
-    private let accessKey = "access"
-    private let refreshKey = "refresh"
+    private let key = "token"
     
     private init(){}
     
-    func save(_ token: String, access: Bool = true){
-        repo.set(token, forKey: access ? accessKey : refreshKey)
+    func save(_ token: AuthModel){
+        repo.set(token, forKey: key)
     }
     
-    func remove(isAccess: Bool = true){
-        repo.removeObject(forKey: isAccess ? accessKey : refreshKey)
+    func remove(){
+        repo.removeObject(forKey: key)
     }
     
-    func get(isAccess: Bool = true) -> String{
-        guard let token = repo.string(forKey: isAccess ? accessKey : refreshKey) else{ return "" }
-        return token
+    func get(isAccess: Bool = true) -> AuthModel?{
+        return repo.object(forKey: key) as? AuthModel
     }
     
 }
