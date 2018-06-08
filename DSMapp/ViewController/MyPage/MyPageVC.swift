@@ -31,7 +31,7 @@ class MyPageVC: UIViewController {
 
 }
 
-extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
+extension MyPageVC {
     
     private func setInit(){
         tableView.delegate = self
@@ -40,14 +40,13 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
     }
     
     private func loadData(){
-        Connector.instance.request(createRequest(sub: "/mypage", method: .get, params: [:]), vc: self)
-            .subscribe(onNext: { [unowned self] code, data in
-                if code == 200{
-                    let data = try! JSONDecoder().decode(MyPageModel.self, from: data)
-                    self.setBind(data)
-                }
-                else{ self.showError(code) }
-            }).disposed(by: disposeBag)
+        _ = Connector.instance
+            .getRequest(InfoAPI.getMypageInfo, method: .get)
+            .decodeData(MyPageModel.self, vc: self)
+            .subscribe(onNext: { [weak self] code, data in
+                if code == 200{ self?.setBind(data!) }
+                else{ self?.showError(code) }
+            })
     }
     
     private func setBind(_ data: MyPageModel){
@@ -55,11 +54,13 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
     }
     
     private func uploadBug(_ textField: UITextField){
-        Connector.instance.request(createRequest(sub: "/report/bug", method: .post, params: ["title" : "iOS 오류", "content" : textField.text!]), vc: self)
-            .subscribe(onNext: { [unowned self] code, _ in
-                if code == 201{ self.showToast(msg: "버그 신청 성공") }
-                else{ self.showError(code) }
-            }).disposed(by: disposeBag)
+        _ = Connector.instance
+            .getRequest(ReportAPI.reportBug, method: .post, params: ["platform" : "3", "content" : textField.text!])
+            .decodeData(vc: self)
+            .subscribe(onNext: { [weak self] code in
+                if code == 201 { self?.showToast(msg: "버그 신청 성공") }
+                else{ self?.showError(code) }
+            })
     }
     
     private func setData(study: String = "연장상태", stay: String = "잔류상태", good: Int = 0, bad: Int = 0){
@@ -69,6 +70,10 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
         negativeCountLabel.text = bad.description
     }
     
+}
+
+extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 7
     }
@@ -77,18 +82,18 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 1:
-            if token.get().isEmpty{ goNextViewWithStoryboard(storyId: "Auth", id: "SignInView") }
+            if token.get() == nil { goNextViewWithStoryboard(storyId: "Auth", id: "SignInView") }
             else{ token.remove(); tableView.reloadData(); setData() }
         case 2:
-            if token.get().isEmpty{ showToast(msg: "로그인이 필요합니다") }
+            if token.get() == nil { showToast(msg: "로그인이 필요합니다") }
             else{ goNextViewWithStoryboard(storyId: "Auth", id: "ChangePasswordView") }
         case 3:
-            if token.get().isEmpty{ showToast(msg: "로그인이 필요합니다") }
+            if token.get() == nil { showToast(msg: "로그인이 필요합니다") }
             else{ goNextViewController("PointListView") }
         case 5:
             let alert = UIAlertController(title: "버그신고", message: nil, preferredStyle: .alert)
-            alert.addTextField(configurationHandler: nil)
-            alert.addAction(UIAlertAction(title: "전송", style: .default){ _ in self.uploadBug(alert.textFields![0]) } )
+            alert.addTextField()
+            alert.addAction(UIAlertAction(title: "전송", style: .default){ [unowned self] _ in self.uploadBug(alert.textFields![0]) } )
             alert.addAction(UIAlertAction.init(title: "취소", style: .cancel))
             present(alert, animated: true, completion: nil)
         case 6: goNextViewController("IntroDeveloperListView")
@@ -101,13 +106,10 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
         switch indexPath.row {
         case 0, 4:
             return tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell", for: indexPath) as! ContentCell
-            cell.titleLabel.text = token.get().isEmpty ? "로그인" : "로그아웃"
-            return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell", for: indexPath) as! ContentCell
-            cell.titleLabel.text = titleStrArr[indexPath.row]
+            if indexPath.row == 1{ cell.titleLabel.text = token.get() == nil ? "로그인" : "로그아웃" }
+            else { cell.titleLabel.text = titleStrArr[indexPath.row] }
             return cell
         }
     }

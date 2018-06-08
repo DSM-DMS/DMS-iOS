@@ -33,37 +33,35 @@ class SignUpVC: UIViewController{
     
     @IBAction func apply(_ sender: Any) {
         if vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
-        Connector.instance.request(createRequest(sub: "/signup", method: .post, params: getParam()), vc: self)
-            .subscribe(onNext: { [unowned self] code, _ in
+        _ = Connector.instance
+            .getRequest(AuthAPI.signUp, method: .post, params: getParam())
+            .decodeData(vc: self)
+            .subscribe(onNext: { [weak self] code in
+                guard let strongSelf = self else { return }
                 switch code{
-                case 201: self.showToast(msg: "회원가입 성공", fun: self.goBack)
-                case 205: self.showToast(msg: "회원가입 코드를 확인하세요")
-                default: self.showError(code)
+                case 201: strongSelf.showToast(msg: "회원가입 성공", fun: self.goBack)
+                case 205: strongSelf.showToast(msg: "회원가입 코드를 확인하세요")
+                default: strongSelf.showError(code)
                 }
-            }).disposed(by: disposeBag)
+            })
     }
     
 }
 
 extension SignUpVC: UITextFieldDelegate{
     
-    fileprivate func setVaild(_ textField: UITextField, id: VeryfiId){
-        textField.rx.controlEvent(.editingDidEnd)
-            .asObservable()
-            .filter({ _ in return !textField.text!.isEmpty })
-            .flatMapLatest{ [unowned self] _ in
-                return Connector.instance.request(self.createRequest(sub: "/verify/\(id.rawValue)", method: .post, params: ["\(id.rawValue)" : textField.text!]), vc: self)
+    private func setVaild(_ textField: UITextField, id: VeryfiId){
+        textField.rx.text.orEmpty.filter{ !$0.isEmpty }
+            .flatMapLatest{ [unowned self] str in
+                Connector.instance.getRequest(AuthAPI.verifyID, method: .post, params: [id.rawValue : str])
+                    .decodeData(vc: self)
             }.subscribe(onNext: { [unowned self] code, _ in
-                if code == 200{ print("call") }
-                else if code == 204{
-                    self.showToast(msg: id.getErrStr())
-                    textField.text = ""
-                }
-                else{ self.showError(code) }
+                if code == 204{ self.showToast(msg: id.getErrStr()) }
+                else if code != 200{ self.showError(code) }
             }).disposed(by: disposeBag)
     }
     
-    fileprivate func getParam() -> [String : String]{
+    private func getParam() -> [String : String]{
         var param = [String : String]()
         param["uuid"] = codeTextField.text!
         param["id"] = idTextField.text!
@@ -71,7 +69,7 @@ extension SignUpVC: UITextFieldDelegate{
         return param
     }
     
-    fileprivate func vaild() -> Bool{
+    private func vaild() -> Bool{
         return ec(idTextField) || ec(pwTextField) || ec(codeTextField)
     }
     

@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import RxAlamofire
 
 class ApplyStudyVC: UIViewController  {
 
@@ -13,7 +14,6 @@ class ApplyStudyVC: UIViewController  {
     @IBOutlet weak var changeRoomButton: UIButton!
     
     private let roomNameDic = ["가온실" : 1, "나온실" : 2, "다온실" : 3, "라온실" : 4, "3층 독서실" : 5, "4층 독서실" : 6, "열린교실" : 7, "여자 자습실" : 8]
-    private let roomNameArr = ["가온실", "나온실", "다온실", "라온실", "3층 독서실", "4층 독서실", "열린교실", "여자 자습실"]
     
     private var selectedTime = 11
     private var selectedClass = 1
@@ -41,24 +41,28 @@ class ApplyStudyVC: UIViewController  {
     
     @IBAction func apply(_ sender: Any) {
         if selectedSeat == 0{ showToast(msg: "자리를 선택하세요"); return }
-        Connector.instance.request(createRequest(sub: "/extension/\(selectedTime)", method: .post, params: ["class_num" : "\(selectedClass)", "seat_num" : "\(selectedSeat)"]), vc: self)
-            .subscribe(onNext: { [unowned self] code, _ in
+        _ = Connector.instance
+            .getRequest(ApplyAPI.applyOrCancelExtensionInfo(time: selectedTime), method: .post, params: <#T##[String : String]?#>)
+            .decodeData(vc: self)
+            .subscribe(onNext: { [weak self] code, _ in
+                guard let strongSelf = self else { return }
                 switch code{
-                case 201: self.getMap(); self.showToast(msg: "신청 성공")
-                case 204: self.showToast(msg: "신청 시간이 아닙니다")
-                default: self.showError(code)
+                case 201: strongSelf.getMap(); strongSelf.showToast(msg: "신청 성공")
+                case 204: strongSelf.showToast(msg: "신청 시간이 아닙니다")
+                default: strongSelf.showError(code)
                 }
-            }).disposed(by: disposeBag)
+            })
     }
     
     @IBAction func cancel(_ sender: ButtonShape) {
-        Connector.instance.request(createRequest(sub: "/extension/\(selectedTime)", method: .delete, params: [:]), vc: self)
-            .subscribe(onNext: { [unowned self] code, _ in
-                if code == 200{
-                    self.getMap()
-                    self.showToast(msg: "취소 성공")
-                }else{ self.showError(code) }
-            }).disposed(by: disposeBag)
+        _ = Connector.instance
+            .getRequest(ApplyAPI.applyOrCancelExtensionInfo(time: selectedTime), method: .delete)
+            .decodeData(vc: self)
+            .subscribe(onNext: { [weak self] code in
+                guard let strongSelf = self else { return }
+                if code == 200{ strongSelf.getMap(); strongSelf.showToast(msg: "취소 성공") }
+                else{ self.showError(code) }
+            })
     }
     
     @IBAction func timeChange(_ sender: UISegmentedControl) {
@@ -72,8 +76,8 @@ extension ApplyStudyVC{
     
     @objc func changeRoom(_ button: UIButton){
         let alert = UIAlertController(title: "방을 선택하세요.", message: nil, preferredStyle: .actionSheet)
-        for roomName in roomNameArr{
-            alert.addAction(UIAlertAction(title: roomName, style: .default, handler: alertClick(_:)))
+        ApplyModel.roomNameArr.forEach{
+            alert.addAction(UIAlertAction(title: $0, style: .default, handler: alertClick(_:)))
         }
         alert.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
@@ -82,19 +86,22 @@ extension ApplyStudyVC{
     private func alertClick(_ action: UIAlertAction){
         let title = action.title!
         changeRoomButton.setTitle(title, for: .normal)
-        selectedClass = roomNameDic[title]!
+        for i in ApplyModel.roomNameArr.indices{
+            if ApplyModel.roomNameArr[i] == title{ selectedClass = i + 1 }
+        }
         getMap()
     }
     
     private func getMap(){
         selectedSeat = 0
-        Connector.instance.request(createRequest(sub: "/extension/map/\(selectedTime)", method: .get, params: ["class_num" : "\(selectedClass)"]), vc: self)
-            .subscribe(onNext: { [unowned self] code, data in
-                if code == 200{
-                    let data = try! JSONSerialization.jsonObject(with: data, options: []) as! [[Any]]
-                    self.bindData(data)
-                }else{ self.showError(code) }
-            }).disposed(by: disposeBag)
+        _ = Connector.instance
+            .getRequest(ApplyAPI.getExtensionMapInfo(time: selectedTime), method: .get, params: <#T##[String : String]?#>)
+            .decodeData([[Any]].self, vc: self)
+            .subscribe(onNext: { [weak self] code, data in
+                guard let strongSelf = self else { return }
+                if code == 200{ strongSelf.bindData(data!) }
+                else{ self?.showError(code) }
+            })
     }
     
     private func bindData(_ dataArr: [[Any]]){

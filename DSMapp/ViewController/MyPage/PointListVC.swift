@@ -28,15 +28,18 @@ class PointListVC: UIViewController {
     }
     
     private func getData(){
-        Connector.instance.request(createRequest(sub: "/point/history", method: .get, params: [:]), vc: self)
-            .subscribe(onNext: { [unowned self] code, data in
+        _ = Connector.instance
+            .getRequest(InfoAPI.getPointInfo, method: .get)
+            .decodeData([PointModel].self, vc: self)
+            .subscribe(onNext: { [weak self] code, data in
+                guard let strongSelf = self else { return }
                 if code == 200{
-                    self.dataArr = try! JSONDecoder().decode([PointModel].self, from: data).reversed()
-                    if self.dataArr.count > 0{ self.tableView.reloadData() }
-                    else{ self.showAlert() }
+                    if data!.count > 0 { strongSelf.showAlert(); return }
+                    strongSelf.dataArr = data!.reversed()
+                    strongSelf.tableView.reloadData()
                 }
-                else{ self.showError(code) }
-            }).disposed(by: disposeBag)
+                else { strongSelf.showError(code) }
+            })
     }
 
 }
@@ -50,7 +53,7 @@ extension PointListVC: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = dataArr[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "PointContentCell", for: indexPath) as! PointContentCell
-        cell.setPoint(data.point, type: data.point_type)
+        cell.setPoint(data.point, type: data.pointType)
         cell.dateLabel.text = data.time
         cell.titleLabel.text = data.reason
         return cell

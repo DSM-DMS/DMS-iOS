@@ -20,15 +20,18 @@ class ChangePasswordVC: UIViewController{
     
     @IBAction func change(_ sender: ButtonShape) {
         if vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
-        Connector.instance.request(createRequest(sub: "/change/pw", method: .post, params: getParam()), vc: self)
-            .subscribe(onNext: { [unowned self] code, _ in
+        _ = Connector.instance
+            .getRequest(AuthAPI.changePassWord, method: .post, params: getParam())
+            .decodeData(vc: self)
+            .subscribe(onNext: { [weak self] code in
+                guard let strongSelf = self else { return }
                 switch code{
-                case 200: self.showToast(msg: "변경 성공", fun: self.goBack)
-                case 403: self.showToast(msg: "비밀번호를 다시 입력하세요")
-                    self.curPwTextField.text = ""
-                default: self.showError(code)
+                case 200: strongSelf.showToast(msg: "변경 성공", fun: self?.goBack)
+                case 403: strongSelf.showToast(msg: "현재 비밀번호가 틀렸습니다.")
+                        strongSelf.curPwTextField.text = ""
+                default: strongSelf.showError(code)
                 }
-            }).disposed(by: disposeBag)
+            })
     }
     
     private func getParam() -> [String : String]{

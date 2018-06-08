@@ -20,7 +20,6 @@ class MealContentVC: UIViewController {
     
     var date: Date!
     let formatter = DateFormatter()
-    private let disposeBag = DisposeBag()
     
     override func viewWillAppear(_ animated: Bool) {
         setDateStr()
@@ -28,18 +27,16 @@ class MealContentVC: UIViewController {
     }
 
     func getData(){
-        Connector.instance.request(createRequest(sub: "/meal/\(getDateStr())", method: .get, params: [:]), vc: self)
-            .subscribe(onNext: { [unowned self] code, data in
-                switch code{
-                case 200:
-                    let decodeData = try! JSONDecoder().decode(MealModel.self, from: data)
-                    self.setData(decodeData.getData())
-                case 204:
-                    self.setData(["급식이 없습니다.", "급식이 없습니다.", "급식이 없습니다."])
-                default:
-                    self.showError(code)
-                }
-            }).disposed(by: disposeBag)
+        _ = Connector.instance
+                .getRequest(InfoAPI.getMealInfo(date: getDateStr()), method: .get)
+                .decodeData(MealModel.self, vc: self)
+                .subscribe(onNext: { [weak self] code, data in
+                    switch code{
+                    case 200: self?.setData(data!.getData())
+                    case 204: self?.setData(("급식이 없습니다.", "급식이 없습니다.", "급식이 없습니다."))
+                    default: self?.showError(code)
+                    }
+                })
     }
 
 }
@@ -56,14 +53,13 @@ extension MealContentVC{
     
     private func getDateStr() -> String{
         formatter.dateFormat = "YYYY-MM-dd"
-        print(date)
         return formatter.string(from: date)
     }
     
-    private func setData(_ data: [String]){
-        blackTextView.text = data[0]
-        lunchTextView.text = data[1]
-        dinnerTextView.text = data[2]
+    private func setData(_ data: MealTuple){
+        blackTextView.text = data.breakfast
+        lunchTextView.text = data.lunch
+        dinnerTextView.text = data.dinner
     }
     
 }

@@ -26,21 +26,16 @@ class SignInVC: UIViewController{
     
     @IBAction func login(_ sender: Any) {
         if vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
-        Connector.instance.request(createRequest(sub: "/auth", method: .post, params: getParam()), vc: self, check401: false)
-            .subscribe(onNext: { [unowned self] code, data in
+        _ = Connector.instance
+            .getRequest(AuthAPI.signIn, method: .post, params: getParam())
+            .decodeData(AuthModel.self, vc: self)
+            .subscribe(onNext: { [weak self] code, data in
                 switch code{
-                case 200:
-                    let data = try! JSONDecoder().decode(AuthModel.self, from: data)
-                    let token = Token.instance
-                    token.save(data.access_token)
-                    token.save(data.refresh_token!, access: false)
-                    self.showToast(msg: "로그인 성공", fun: self.goBack)
-                case 401:
-                    self.showToast(msg: "로그인 실패")
-                default:
-                    self.showError(code)
+                case 200: Token.instance.save(data!)
+                case 401: self?.showToast(msg: "로그인 실패", fun: self?.goBack)
+                default: self?.showError(code)
                 }
-            }).disposed(by: disposeBag)
+            })
     }
     
 }
@@ -74,28 +69,29 @@ extension SignInVC: UITextFieldDelegate{
     
 }
 
-class SighInTextFieldShape: UITextField{
+public class SighInTextFieldShape: UITextField{
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
+    private let noneColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1).cgColor
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         setLayout()
     }
     
     private func setLayout(){
         clipsToBounds = true
-        let noneColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1).cgColor
         layer.cornerRadius = frame.height / 2
         layer.borderWidth = 1.5
         layer.borderColor = noneColor
-        rx.controlEvent(.editingDidBegin)
-            .subscribe(onNext: { [unowned self] _ in
-                self.layer.borderColor = Color.MINT.getColor().cgColor
+        
+        Observable
+            .merge([ rx.controlEvent(.editingDidBegin).asObservable().map{ return "begin" },
+                     rx.controlEvent(.editingDidEnd).asObservable().map{ return "end" } ])
+            .subscribe(onNext: { [unowned self] str in
+                if str == "begin"{ self.layer.borderColor = Color.MINT.getColor().cgColor }
+                else{ self.layer.borderColor = self.noneColor }
             }).disposed(by: disposeBag)
-        rx.controlEvent(.editingDidEnd)
-            .subscribe(onNext: { [unowned self] _ in
-                self.layer.borderColor = noneColor
-            }).disposed(by: disposeBag)
+        
     }
     
 }

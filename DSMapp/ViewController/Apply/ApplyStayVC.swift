@@ -34,14 +34,17 @@ class ApplyStayVC: UIViewController  {
 
     @IBAction func apply(_ sender: UIButton){
         if selectedId == 0{ showToast(msg: "잔류상태를 선택하세요"); return }
-        Connector.instance.request(createRequest(sub: "/stay", method: .post, params: ["value" : "\(selectedId)"]), vc: self)
-            .subscribe(onNext: { [unowned self] code, _ in
+        _ = Connector.instance
+            .getRequest(ApplyAPI.applyOrGetStayInfo, method: .post, params: ["value" : "\(selectedId + 1)"])
+            .decodeData(vc: self)
+            .subscribe(onNext: { [weak self] code in
+                guard let strongSelf = self else { return }
                 switch code{
-                case 201: self.showToast(msg: "신청 성공", fun: self.goBack)
-                case 204: self.showToast(msg: "신청 시간이 아닙니다")
-                default: self.showError(code)
+                case 201: strongSelf.showToast(msg: "신청 성공", fun: strongSelf.goBack)
+                case 204: strongSelf.showToast(msg: "신청 시간이 아닙니다")
+                default: strongSelf.showError(code)
                 }
-            }).disposed(by: disposeBag)
+            })
     }
     
 }
@@ -77,15 +80,15 @@ extension ApplyStayVC{
     }
     
     private func setBind(){
-        Connector.instance.request(createRequest(sub: "/stay", method: .get, params: [:]), vc: self)
-            .subscribe(onNext: { [unowned self] code, data in
+        _ = Connector.instance.getRequest(ApplyAPI.applyOrGetStayInfo, method: .get)
+            .decodeData(StayModel.self, vc: self)
+            .subscribe(onNext: { [weak self] code, data in
+                guard let strongSelf = self else { return }
                 if code == 200{
-                    let data = try! JSONDecoder().decode(StayModel.self, from: data)
-                    self.switchArr[data.value - 1].setOn(true, animated: true)
-                    self.selected(data.value - 1)
-                }
-                else{ self.showError(code) }
-            }).disposed(by: disposeBag)
+                    strongSelf.switchArr[data!.value - 1].setOn(true, animated: true)
+                    strongSelf.selected(data!.value - 1)
+                }else{ strongSelf.showError(code) }
+            })
     }
     
 }
