@@ -16,6 +16,7 @@ class ApplyStayVC: UIViewController  {
     @IBOutlet weak var staySwitch: UISwitch!
     
     private let disposeBag = DisposeBag()
+    
     private var selectedSwitch: UISwitch?
     private var selectedId = 0
     private var switchArr: [UISwitch]!
@@ -36,7 +37,7 @@ class ApplyStayVC: UIViewController  {
         if selectedId == 0{ showToast(msg: "잔류상태를 선택하세요"); return }
         _ = Connector.instance
             .getRequest(ApplyAPI.applyOrGetStayInfo, method: .post, params: ["value" : "\(selectedId + 1)"])
-            .decodeData(vc: self)
+            .emptyData(vc: self)
             .subscribe(onNext: { [weak self] code in
                 guard let strongSelf = self else { return }
                 switch code{

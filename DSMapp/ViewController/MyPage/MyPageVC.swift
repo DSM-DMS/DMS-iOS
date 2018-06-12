@@ -18,7 +18,6 @@ class MyPageVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private let token = Token.instance
-    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         setInit()
@@ -40,6 +39,7 @@ extension MyPageVC {
     }
     
     private func loadData(){
+        if !loginCheck() { return }
         _ = Connector.instance
             .getRequest(InfoAPI.getMypageInfo, method: .get)
             .decodeData(MyPageModel.self, vc: self)
@@ -56,7 +56,7 @@ extension MyPageVC {
     private func uploadBug(_ textField: UITextField){
         _ = Connector.instance
             .getRequest(ReportAPI.reportBug, method: .post, params: ["platform" : "3", "content" : textField.text!])
-            .decodeData(vc: self)
+            .emptyData(vc: self)
             .subscribe(onNext: { [weak self] code in
                 if code == 201 { self?.showToast(msg: "버그 신청 성공") }
                 else{ self?.showError(code) }
@@ -88,9 +88,9 @@ extension MyPageVC: UITableViewDataSource, UITableViewDelegate{
             if token.get() == nil { showToast(msg: "로그인이 필요합니다") }
             else{ goNextViewWithStoryboard(storyId: "Auth", id: "ChangePasswordView") }
         case 3:
-            if token.get() == nil { showToast(msg: "로그인이 필요합니다") }
-            else{ goNextViewController("PointListView") }
+            if loginCheck() { goNextViewController("PointListView") }
         case 5:
+            if !loginCheck() { return }
             let alert = UIAlertController(title: "버그신고", message: nil, preferredStyle: .alert)
             alert.addTextField()
             alert.addAction(UIAlertAction(title: "전송", style: .default){ [unowned self] _ in self.uploadBug(alert.textFields![0]) } )

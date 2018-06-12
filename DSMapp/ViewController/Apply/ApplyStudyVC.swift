@@ -19,8 +19,6 @@ class ApplyStudyVC: UIViewController  {
     private var selectedClass = 1
     private var selectedSeat = 0
     
-    private let disposeBag = DisposeBag()
-    
     var beforeButton: UIButton? = nil
     var contentView: UIView? = nil
     
@@ -42,9 +40,10 @@ class ApplyStudyVC: UIViewController  {
     @IBAction func apply(_ sender: Any) {
         if selectedSeat == 0{ showToast(msg: "자리를 선택하세요"); return }
         _ = Connector.instance
-            .getRequest(ApplyAPI.applyOrCancelExtensionInfo(time: selectedTime), method: .post, params: <#T##[String : String]?#>)
-            .decodeData(vc: self)
-            .subscribe(onNext: { [weak self] code, _ in
+            .getRequest(ApplyAPI.applyOrCancelExtensionInfo(time: selectedTime), method: .post,
+                        params: ["classNum" : "\(selectedClass)", "seatNum" : "\(selectedSeat)"])
+            .emptyData(vc: self)
+            .subscribe(onNext: { [weak self] code in
                 guard let strongSelf = self else { return }
                 switch code{
                 case 201: strongSelf.getMap(); strongSelf.showToast(msg: "신청 성공")
@@ -57,11 +56,11 @@ class ApplyStudyVC: UIViewController  {
     @IBAction func cancel(_ sender: ButtonShape) {
         _ = Connector.instance
             .getRequest(ApplyAPI.applyOrCancelExtensionInfo(time: selectedTime), method: .delete)
-            .decodeData(vc: self)
+            .emptyData(vc: self)
             .subscribe(onNext: { [weak self] code in
                 guard let strongSelf = self else { return }
                 if code == 200{ strongSelf.getMap(); strongSelf.showToast(msg: "취소 성공") }
-                else{ self.showError(code) }
+                else{ strongSelf.showError(code) }
             })
     }
     
@@ -95,12 +94,12 @@ extension ApplyStudyVC{
     private func getMap(){
         selectedSeat = 0
         _ = Connector.instance
-            .getRequest(ApplyAPI.getExtensionMapInfo(time: selectedTime), method: .get, params: <#T##[String : String]?#>)
-            .decodeData([[Any]].self, vc: self)
+            .getRequest(ApplyAPI.getExtensionMapInfo(time: selectedTime), method: .get, params: ["classNum" : "\(selectedClass)"])
+            .getDataForMap(vc: self)
             .subscribe(onNext: { [weak self] code, data in
                 guard let strongSelf = self else { return }
-                if code == 200{ strongSelf.bindData(data!) }
-                else{ self?.showError(code) }
+                if code == 200{ strongSelf.bindData(data! as! [[Any]]) }
+                else{ strongSelf.showError(code) }
             })
     }
     

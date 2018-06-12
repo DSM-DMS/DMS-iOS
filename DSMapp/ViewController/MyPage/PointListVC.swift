@@ -14,7 +14,6 @@ class PointListVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private let disposeBag = DisposeBag()
     private var dataArr = [PointModel]()
     
     @IBAction func goBack(_ sender: Any) {

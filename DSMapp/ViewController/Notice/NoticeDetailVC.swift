@@ -13,13 +13,11 @@ class NoticeDetailVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
     
-    private let disposeBag = DisposeBag()
-    
     var id = 0
-    var url = ""
+    var postID = ""
     
     @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.goBack()
     }
     
     override func viewDidLoad() {
@@ -29,13 +27,14 @@ class NoticeDetailVC: UIViewController {
     }
     
     private func getData(){
-        Connector.instance.request(createRequest(sub: url, method: .get, params: [:]), vc: self)
-            .subscribe(onNext: { [unowned self] code, data in
-                if code == 200{
-                    let data = try! JSONDecoder().decode(NoticeDetailModel.self, from: data)
-                    self.setBind(data)
-                }else{ self.showError(code) }
-            }).disposed(by: disposeBag)
+        _ = Connector.instance
+                .getRequest(NoticeAPI.getNoticeContent(category: NoticeUtil.urlArr[id], postID: postID), method: .get)
+                .decodeData(NoticeDetailModel.self, vc: self)
+            .subscribe(onNext: { [weak self] code, data in
+                guard let strongSelf = self else { return }
+                if code == 200{ strongSelf.setBind(data!) }
+                else { strongSelf.showError(code) }
+            })
     }
     
     private func setBind(_ data : NoticeDetailModel){

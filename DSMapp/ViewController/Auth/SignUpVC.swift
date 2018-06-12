@@ -17,7 +17,6 @@ class SignUpVC: UIViewController{
     @IBOutlet weak var pwTextField: UITextField!
     
     private let disposeBag = DisposeBag()
-    private var vaildChecker = [String : Bool]()
     
     @IBAction func back(_ sender: Any) {
         goBack()
@@ -35,11 +34,11 @@ class SignUpVC: UIViewController{
         if vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
         _ = Connector.instance
             .getRequest(AuthAPI.signUp, method: .post, params: getParam())
-            .decodeData(vc: self)
+            .emptyData(vc: self)
             .subscribe(onNext: { [weak self] code in
                 guard let strongSelf = self else { return }
                 switch code{
-                case 201: strongSelf.showToast(msg: "회원가입 성공", fun: self.goBack)
+                case 201: strongSelf.showToast(msg: "회원가입 성공", fun: strongSelf.goBack)
                 case 205: strongSelf.showToast(msg: "회원가입 코드를 확인하세요")
                 default: strongSelf.showError(code)
                 }
@@ -52,10 +51,13 @@ extension SignUpVC: UITextFieldDelegate{
     
     private func setVaild(_ textField: UITextField, id: VeryfiId){
         textField.rx.text.orEmpty.filter{ !$0.isEmpty }
+            .debounce(0.5, scheduler: MainScheduler.instance)
             .flatMapLatest{ [unowned self] str in
-                Connector.instance.getRequest(AuthAPI.verifyID, method: .post, params: [id.rawValue : str])
-                    .decodeData(vc: self)
-            }.subscribe(onNext: { [unowned self] code, _ in
+                Connector.instance
+                    .getRequest(AuthAPI.verifyID, method: .post, params: [id.rawValue : str])
+                    .emptyData(vc: self)
+            }.do(onDispose: { print("disposed") })
+            .subscribe(onNext: { [unowned self] code in
                 if code == 204{ self.showToast(msg: id.getErrStr()) }
                 else if code != 200{ self.showError(code) }
             }).disposed(by: disposeBag)

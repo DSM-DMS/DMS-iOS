@@ -34,14 +34,16 @@ class FacilityVC: UIViewController {
     @objc func addAction(_ button: UIButton){
         if button == cancelButton{ removeFunc?(); return }
         if vaild(){ showToast(msg: "모든 값을 확인하세요"); return }
-        Connector.instance.request(createRequest(sub: "/report/facility", method: .post, params: getParam()), vc: self)
-            .subscribe(onNext: { [unowned self] code, _ in
-                switch code{
-                case 201: self.showToast(msg: "신고 성공", fun: self.removeFunc)
-                case 400: self.showToast(msg: "방 번호를 확인하세요")
-                default: self.showError(code)
-                }
-            }).disposed(by: disposeBag)
+        _ = Connector.instance
+                .getRequest(ReportAPI.reportFacility, method: .post, params: getParam())
+                .emptyData(vc: self)
+                .subscribe(onNext: { [weak self] code in
+                    guard let strongSelf = self else { return }
+                    switch code {
+                    case 201: strongSelf.showToast(msg: "신고 성공", fun: strongSelf.removeFunc)
+                    default: strongSelf.showError(code)
+                    }
+                })
     }
 
 }
@@ -54,7 +56,6 @@ extension FacilityVC{
     
     private func getParam() -> [String : String]{
         var param = [String : String]()
-        param["title"] = titleTextField.text!
         param["room"] = roomNumTextField.text!
         param["content"] = contentTextView.text!
         return param

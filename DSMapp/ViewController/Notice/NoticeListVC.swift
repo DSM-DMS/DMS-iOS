@@ -13,7 +13,6 @@ class NoticeListVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var monsterImageView: UIImageView!
     
-    private let disposeBag = DisposeBag()
     private let titleTextArr = ["기숙사 규정", "공지사항", "자주 하는 질문"]
     
     var id: Int = 0
@@ -39,28 +38,27 @@ class NoticeListVC: UIViewController {
 extension NoticeListVC: UITableViewDataSource, UITableViewDelegate{
     
     func loadData(){
-        Connector.instance.request(createRequest(sub: url, method: .get, params: [:]), vc: self)
-            .subscribe(onNext: { [unowned self] code, data in
-                if code == 200{
-                    self.data = try! JSONDecoder().decode([NoticeListModel].self, from: data).reversed()
-                    if self.data.count > 0 { self.tableView.reloadData() }
-                    else{ self.showAlert() }
-                }else{ self.showError(code) }
-            }).disposed(by: disposeBag)
+        _ = Connector.instance
+                .getRequest(NoticeAPI.getNoticeList(category: NoticeUtil.urlArr[id]), method: .get)
+                .decodeData([NoticeListModel].self, vc: self)
+                .subscribe(onNext: { [weak self] code, data in
+                    guard let strongSelf = self else { return }
+                    if code == 200{
+                        if data!.count > 0 { strongSelf.data = data!; strongSelf.tableView.reloadData() }
+                        else{ strongSelf.showAlert() }
+                    }else{ strongSelf.showError(code) }
+                })
     }
     
     private func showAlert(){
-        let alert = UIAlertController(title: "\(titleTextArr[id])이 없습니다.", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "\(NoticeUtil.titleTextArr[id])가 없습니다.", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in self.goBack() }))
         present(alert, animated: true, completion: nil)
     }
     
     func setData(){
-        let imageStrArr = ["monster1", "monster2", "monster3"]
-        let urlArr = ["/rule", "/notice", "/faq"]
-        titleLabel.text = titleTextArr[id]
-        url = urlArr[id]
-        monsterImageView.image = UIImage(named: imageStrArr[id])
+        titleLabel.text = NoticeUtil.titleTextArr[id]
+        monsterImageView.image = UIImage(named: NoticeUtil.listImageIdArr[id])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -69,18 +67,15 @@ extension NoticeListVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "NoticeDetailView") as! NoticeDetailVC
-        vc.url = "\(url)/\(data[indexPath.row].id)"
         vc.id = id
         present(vc, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoticeListCell", for: indexPath) as! NoticeListCell
-        
         let selectData = data[indexPath.row]
         cell.titleLabel.text = selectData.title
         cell.dateLabel.text = selectData.write_time
-        
         return cell
     }
     

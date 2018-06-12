@@ -32,13 +32,13 @@ class ApplyMainVC: UIViewController{
     @IBOutlet weak var applyStayHeight: NSLayoutConstraint!
     @IBOutlet weak var applyStudyHeight: NSLayoutConstraint!
     
+    private let disposeBag = DisposeBag()
+    
     private let vcIdArr =
         ["ApplyStudyView", "ApplyStayView", "", "SurveyListView"]
     
     private var buttonArr: [UIButton]!
     private var currentUpId = -1
-    
-    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         setInit()
@@ -56,32 +56,33 @@ class ApplyMainVC: UIViewController{
     }
     
     private func goApplyView(_ id: Int){
-        if Token.instance.get() == nil {
-            showToast(msg: "로그인이 필요합니다")
-        }else{ goNextViewController(vcIdArr[id]) }
+        if loginCheck() { goNextViewController(vcIdArr[id]) }
     }
     
     private func applyOut(){
-        if Token.instance.get() == nil { showToast(msg: "로그인이 필요합니다") }
-        else{
-            _ = Connector.instance.request(createRequest(sub: "/student/apply/goingout", method: .post, params: getOutParam()), vc: self)
-                .subscribe(onNext: { [unowned self] code, _ in
-                    if code == 201{ self.showToast(msg: "신청 성공") }
-                    else{ self.showError(code) }
+        if loginCheck() {
+            _ = Connector.instance
+                .getRequest(ApplyAPI.applyOrGetGoingOutInfo, method: .post, params: getOutParam())
+                .emptyData(vc: self)
+                .subscribe(onNext: { [weak self] code in
+                    guard let strongSelf = self else { return }
+                    if code == 201{ strongSelf.showToast(msg: "신청 성공") }
+                    else if code == 204{ strongSelf.showToast(msg: "신청 시간이 아닙니다.") }
+                    else{ strongSelf.showError(code) }
                 })
         }
     }
     
     private func loadData(){
-        Connector.instance.request(createRequest(sub: "/student/info/apply", method: .get, params: [:]), vc: self)
-            .subscribe(onNext: { [unowned self] code, data in
-                if code == 200{
-                    let data = try! JSONDecoder().decode(ApplyModel.self, from: data)
-                    self.bind(data: data)
-                }else{
-                    self.showError(code)
-                }
-            }).disposed(by: disposeBag)
+        if !loginCheck() { return }
+        _ = Connector.instance
+                .getRequest(InfoAPI.getApplyInfo, method: .get)
+                .decodeData(ApplyModel.self, vc: self)
+                .subscribe(onNext: { [weak self] code, data in
+                    guard let strongSelf = self else { return }
+                    if code == 200{ strongSelf.bind(data: data!) }
+                    else{ strongSelf.showError(code) }
+                })
     }
 
 }

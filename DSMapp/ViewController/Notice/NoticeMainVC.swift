@@ -25,8 +25,8 @@ class NoticeMainVC: UIViewController {
     }
     
     @objc func onClick(_ button: UIButton){
-        if Token.instance.get().isEmpty{ showToast(msg: "로그인이 필요합니다"); return }
-        let value = buttonArr[button]!
+        if Token.instance.get() == nil { showToast(msg: "로그인이 필요합니다"); return }
+        let value = buttonIdDic[button]!
         if value == 3{ getFacilityViewController() }
         else{
             let listView = self.storyboard?.instantiateViewController(withIdentifier: "NoticeListView") as! NoticeListVC

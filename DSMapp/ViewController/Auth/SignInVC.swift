@@ -13,8 +13,6 @@ class SignInVC: UIViewController{
     @IBOutlet weak var idTextField: SighInTextFieldShape!
     @IBOutlet weak var pwTextField: SighInTextFieldShape!
     
-    let disposeBag = DisposeBag()
-    
     @IBAction func back(_ sender: Any) {
         goBack()
     }
@@ -31,8 +29,8 @@ class SignInVC: UIViewController{
             .decodeData(AuthModel.self, vc: self)
             .subscribe(onNext: { [weak self] code, data in
                 switch code{
-                case 200: Token.instance.save(data!)
-                case 401: self?.showToast(msg: "로그인 실패", fun: self?.goBack)
+                case 201: Token.instance.save(data!); self?.showToast(msg: "로그인 성공", fun: self?.goBack)
+                case 401: self?.showToast(msg: "로그인 실패")
                 default: self?.showError(code)
                 }
             })
@@ -59,7 +57,7 @@ extension SignInVC: UITextFieldDelegate{
     private func getParam() -> [String : String]{
         var param = [String : String]()
         param["id"] = idTextField.text!
-        param["pw"] = pwTextField.text!
+        param["password"] = pwTextField.text!
         return param
     }
     
@@ -83,7 +81,6 @@ public class SighInTextFieldShape: UITextField{
         layer.cornerRadius = frame.height / 2
         layer.borderWidth = 1.5
         layer.borderColor = noneColor
-        
         Observable
             .merge([ rx.controlEvent(.editingDidBegin).asObservable().map{ return "begin" },
                      rx.controlEvent(.editingDidEnd).asObservable().map{ return "end" } ])
@@ -91,7 +88,6 @@ public class SighInTextFieldShape: UITextField{
                 if str == "begin"{ self.layer.borderColor = Color.MINT.getColor().cgColor }
                 else{ self.layer.borderColor = self.noneColor }
             }).disposed(by: disposeBag)
-        
     }
     
 }
