@@ -77,6 +77,7 @@ extension UIViewController{
     }
     
     private func showAlert(){
+    private func showUpdateAlert(){
         let alert = UIAlertController(title: "업데이트가 필요합니다.", message: "DMS의 새로운 업데이트가 준비되었습니다.\n지금 업데이트 하세요.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
