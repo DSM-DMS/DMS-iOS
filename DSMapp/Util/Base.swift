@@ -70,6 +70,10 @@ extension UIViewController{
                     if data.newest_version != version{ self.showAlert() }
                 }
             })
+    public func loginCheck() -> Bool{
+        let isLogin = Token.instance.get() != nil
+        if !isLogin { showToast(msg: "로그인이 필요합니다") }
+        return isLogin
     }
     
     private func showAlert(){
