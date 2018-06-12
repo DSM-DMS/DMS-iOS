@@ -15,7 +15,7 @@ public class Connector{
     
     public static let instance = Connector()
     
-    private let basePath = "http://dsm2015.cafe24.com/v2"
+    private let basePath = "http://dsm2015.cafe24.com/v2/"
     private init(){ }
     
     func getRequest(_ subPath: API, method: RequestMethod, params: [String : String]? = nil) -> URLRequest{
@@ -29,13 +29,14 @@ public class Connector{
         var request = URLRequest(url: URL(string: urlStr)!)
         request.httpMethod = method.rawValue
         
-        if method != .get{
-            let jsonData = try? JSONSerialization.data(withJSONObject: data)
+        if method != .get, params != nil{
+            let jsonData = try? JSONSerialization.data(withJSONObject: params!)
             request.httpBody = jsonData
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
-        if !Token.instance.get() != nil{
-            request.addValue(Token.instance.get()?.accessToken, forHTTPHeaderField: "authorization")
+        if let token = Token.instance.get() {
+            request.addValue(token.accessToken, forHTTPHeaderField: "authorization")
         }
         
         return request
@@ -45,8 +46,17 @@ public class Connector{
 
 public extension URLRequest{
     
-    func decodeData(vc: UIViewController) -> Observable<Int>{
-        decodeData(String.self, vc: vc).map{ $0.0 }
+    func getDataForMap(vc: UIViewController) -> Observable<(Int, Any?)>{
+        return requestData(self)
+            .map{ ($0.0.statusCode, $0.1) }
+            .map{ (code, data) in
+                let decodeData = try? JSONSerialization.jsonObject(with: data, options: [])
+                return (code, decodeData)
+            }
+    }
+    
+    func emptyData(vc: UIViewController) -> Observable<Int>{
+        return decodeData(String.self, vc: vc).map{ $0.0 }
     }
     
     func decodeData<T>(_ type: T.Type ,vc: UIViewController) -> Observable<(Int, T?)> where T: Decodable{
@@ -54,8 +64,7 @@ public extension URLRequest{
             .single()
             .map{ ($0.0.statusCode, $0.1) }
             .map{ (code, data) in
-                guard let dataType = type else { return (code, data) }
-                let decodeData = try? JSONDecoder().decode(dataType, from: data)
+                let decodeData = try? JSONDecoder().decode(type, from: data)
                 return (code, decodeData)
             }
             .filter{ (code, _) in
