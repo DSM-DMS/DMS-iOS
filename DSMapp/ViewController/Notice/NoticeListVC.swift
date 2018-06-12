@@ -13,10 +13,7 @@ class NoticeListVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var monsterImageView: UIImageView!
     
-    private let titleTextArr = ["기숙사 규정", "공지사항", "자주 하는 질문"]
-    
     var id: Int = 0
-    var url = ""
     private var data = [NoticeListModel]()
     
     override func viewDidLoad() {

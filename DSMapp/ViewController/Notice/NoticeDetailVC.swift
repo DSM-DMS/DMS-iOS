@@ -21,8 +21,7 @@ class NoticeDetailVC: UIViewController {
     }
     
     override func viewDidLoad() {
-        let imageIdArr = ["ruleIcon","notificationIcon", "questionIcon"]
-        logoImageView.image = UIImage.init(named: imageIdArr[id])
+        logoImageView.image = UIImage.init(named: NoticeUtil.detailImageIdArr[id])
         getData()
     }
     

@@ -13,13 +13,13 @@ class NoticeMainVC: UIViewController {
     @IBOutlet weak var notice3Button: UIButton!
     @IBOutlet weak var notice4Button: UIButton!
     
-    var buttonArr: [UIButton : Int]!
+    private var buttonIdDic: [UIButton : Int]!
     
     override func viewDidLoad() {
         view.backgroundColor = Color.CO6.getColor()
-        buttonArr = [notice1Button : 0, notice2Button : 1, notice3Button : 2, notice4Button : 3]
+        buttonIdDic = [notice1Button : 0, notice2Button : 1, notice3Button : 2, notice4Button : 3]
         
-        for button in buttonArr.keys{
+        for button in buttonIdDic.keys{
             button.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
         }
     }
