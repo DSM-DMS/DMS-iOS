@@ -36,7 +36,7 @@ class ApplyStayVC: UIViewController  {
     @IBAction func apply(_ sender: UIButton){
         if selectedId == 0{ showToast(msg: "잔류상태를 선택하세요"); return }
         _ = Connector.instance
-            .getRequest(ApplyAPI.applyOrGetStayInfo, method: .post, params: ["value" : "\(selectedId + 1)"])
+            .getRequest(ApplyAPI.applyOrGetStayInfo, method: .post, params: ["value" : selectedId])
             .emptyData(vc: self)
             .subscribe(onNext: { [weak self] code in
                 guard let strongSelf = self else { return }

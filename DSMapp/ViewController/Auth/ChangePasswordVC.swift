@@ -34,8 +34,8 @@ class ChangePasswordVC: UIViewController{
     
     private func getParam() -> [String : String]{
         var param = [String : String]()
-        param["current_pw"] = curPwTextField.text!
-        param["new_pw"] = newPwTextField.text!
+        param["currentPassword"] = curPwTextField.text!
+        param["newPassword"] = newPwTextField.text!
         return param
     }
     

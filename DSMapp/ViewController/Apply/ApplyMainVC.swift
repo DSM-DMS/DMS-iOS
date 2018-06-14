@@ -35,7 +35,7 @@ class ApplyMainVC: UIViewController{
     private let disposeBag = DisposeBag()
     
     private let vcIdArr =
-        ["ApplyStudyView", "ApplyStayView", "", "SurveyListView"]
+        ["ApplyStudyView", "ApplyStayView", "", ""]
     
     private var buttonArr: [UIButton]!
     private var currentUpId = -1
@@ -56,6 +56,7 @@ class ApplyMainVC: UIViewController{
     }
     
     private func goApplyView(_ id: Int){
+        if id == 3 { showTempAlert(); return }
         if loginCheck() { goNextViewController(vcIdArr[id]) }
     }
     
@@ -126,11 +127,22 @@ extension ApplyMainVC{
         view.layoutIfNeeded()
     }
     
-    private func getOutParam() -> [String : String]{
-        var param = [String : String]()
-        param["sat"] = applyOutSatSwitch.isOn.description
-        param["sun"] = applyOutSunSwitch.isOn.description
+    private func getOutParam() -> [String : Bool]{
+        var param = [String : Bool]()
+        param["sat"] = applyOutSatSwitch.isOn
+        param["sun"] = applyOutSunSwitch.isOn
         return param
+    }
+    
+    private func showTempAlert(){
+        let alertMessage = """
+            DMS 페이스북 메신저를 통해 알려주세요.
+            DMS가 의견을 참고하여 개발하겠습니다.
+            감사합니다.
+        """
+        let alert = UIAlertController(title: "당신이 원하는 DMS의 새로운 기능", message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        present(alert, animated: true)
     }
     
 }
