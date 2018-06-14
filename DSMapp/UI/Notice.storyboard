@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c9u-Cr-Hxv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c9u-Cr-Hxv">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--알림-->
+        <!--공지-->
         <scene sceneID="5hN-RY-6XV">
             <objects>
                 <viewController id="c9u-Cr-Hxv" customClass="NoticeMainVC" customModule="DSMapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +31,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="284.66666666666669"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ruleIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="bab-9U-I0B">
-                                                                <rect key="frame" x="58" y="118.66666666666666" width="48" height="48"/>
+                                                                <rect key="frame" x="58" y="118.33333333333334" width="48" height="48"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="48" id="MDC-7d-mjG"/>
                                                                     <constraint firstAttribute="height" constant="48" id="jrg-09-rvA"/>
@@ -123,14 +122,14 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="163.33333333333334" height="284.66666666666669"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Np3-Ri-Efi">
-                                                                <rect key="frame" x="58" y="118.66666666666666" width="48" height="48"/>
+                                                                <rect key="frame" x="58" y="118.33333333333334" width="48" height="48"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="48" id="WKL-iO-m06"/>
                                                                     <constraint firstAttribute="height" constant="48" id="cj3-Qg-zFC"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지사항" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWB-21-Wkc">
-                                                                <rect key="frame" x="53" y="242.33333333333331" width="59" height="20.333333333333314"/>
+                                                                <rect key="frame" x="52" y="242.33333333333331" width="59" height="20.333333333333314"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -173,7 +172,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시설 고장 신고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqV-Xc-S29">
-                                                                <rect key="frame" x="33.333333333333336" y="242.66666666666669" width="97.333333333333314" height="20.333333333333314"/>
+                                                                <rect key="frame" x="32.999999999999993" y="242.66666666666669" width="97.333333333333314" height="20.333333333333314"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -216,7 +215,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cfQ-Gu-y0E"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="알림" image="noticeIcon.png" id="67K-jP-5NS"/>
+                    <tabBarItem key="tabBarItem" title="공지" image="noticeIcon.png" id="Bb9-Va-fVS"/>
+                    <navigationItem key="navigationItem" id="09j-kH-SLE"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="notice1Button" destination="IKN-Lp-Xtq" id="IZ2-GG-Occ"/>
@@ -227,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4o-Kj-aoJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="816.79999999999995" y="194.75262368815595"/>
+            <point key="canvasLocation" x="1759.2" y="194.33497536945814"/>
         </scene>
         <!--FacilityVC-->
         <scene sceneID="NMu-pZ-N7g">
@@ -397,16 +397,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="T01-cg-Qql">
-                                                    <rect key="frame" x="19" y="18" width="337" height="45"/>
+                                                    <rect key="frame" x="19" y="18" width="376" height="45"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목이 들어가요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1x-HI-7zL">
-                                                            <rect key="frame" x="0.0" y="0.0" width="337" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="376" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-08-07" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0et-xl-mjk">
-                                                            <rect key="frame" x="0.0" y="28" width="337" height="17"/>
+                                                            <rect key="frame" x="0.0" y="28" width="376" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -466,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0K-xW-UbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902" y="194"/>
+            <point key="canvasLocation" x="2844" y="193.5960591133005"/>
         </scene>
         <!--Notice DetailVC-->
         <scene sceneID="xdu-qf-cPg">
@@ -554,7 +554,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g2X-uB-cKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2782" y="194"/>
+            <point key="canvasLocation" x="3724" y="193.5960591133005"/>
         </scene>
     </scenes>
     <resources>

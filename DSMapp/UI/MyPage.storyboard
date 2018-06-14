@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oEh-2O-4gg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oEh-2O-4gg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -482,7 +482,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cob-fE-aTK" firstAttribute="leading" secondItem="SVt-5m-QZz" secondAttribute="leading" id="O2E-5K-gYv"/>
-                            <constraint firstItem="SVt-5m-QZz" firstAttribute="bottom" secondItem="cob-fE-aTK" secondAttribute="bottom" id="kl7-sQ-bkI"/>
+                            <constraint firstAttribute="bottom" secondItem="cob-fE-aTK" secondAttribute="bottom" id="kl7-sQ-bkI"/>
                             <constraint firstItem="cob-fE-aTK" firstAttribute="top" secondItem="SVt-5m-QZz" secondAttribute="top" id="lbo-Jt-Hm3"/>
                             <constraint firstItem="SVt-5m-QZz" firstAttribute="trailing" secondItem="cob-fE-aTK" secondAttribute="trailing" id="zXf-Da-Gdi"/>
                         </constraints>
