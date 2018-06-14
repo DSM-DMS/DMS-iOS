@@ -20,6 +20,10 @@ public struct MealModel: Codable{
         return (getStr(breakfast), getStr(lunch), getStr(dinner))
     }
     
+    func getDataForExtension() -> [String]{
+        return [getStr(breakfast), getStr(lunch), getStr(dinner)]
+    }
+    
     private func getStr(_ arr: [String]) -> String{
         var data = arr.map{ $0 + ", " }.reduce(""){ $0 + $1 }
         data.removeLast(2)
