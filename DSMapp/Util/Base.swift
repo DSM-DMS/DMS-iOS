@@ -60,23 +60,23 @@ extension UIViewController{
         present(vc, animated: true, completion: nil)
     }
     
-    func versionCheck() -> Disposable{
-        let version = "1.0.7"
-        return Connector.instance.request(createRequest(sub: "/version", method: .get, params: ["platform":"ios"]), vc: self)
-            .subscribe(onNext: { [unowned self] code, data in
-                print(code)
-                if code == 200{
-                    let data = try! JSONDecoder().decode(VersionModel.self, from: data)
-                    if data.newest_version != version{ self.showAlert() }
-                }
+    func versionCheck(_ version: String){
+        _ = Connector.instance
+            .getRequest(InfoAPI.getVersionInfo, method: .get)
+            .decodeData(VersionModel.self, vc: self)
+            .subscribe(onNext: { [weak self] code, data in
+                guard let strongSelf = self else { return }
+                if code == 200, data!.version != version{ strongSelf.showUpdateAlert() }
+                else if code != 200{ strongSelf.showError(code) }
             })
+    }
+    
     public func loginCheck() -> Bool{
         let isLogin = Token.instance.get() != nil
         if !isLogin { showToast(msg: "로그인이 필요합니다") }
         return isLogin
     }
     
-    private func showAlert(){
     private func showUpdateAlert(){
         let alert = UIAlertController(title: "업데이트가 필요합니다.", message: "DMS의 새로운 업데이트가 준비되었습니다.\n지금 업데이트 하세요.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
@@ -115,6 +115,6 @@ enum Color{
 
 class VersionModel: Codable{
     
-    let newest_version: String
+    let version: String
     
 }

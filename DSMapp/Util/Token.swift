@@ -19,7 +19,11 @@ class Token{
     
     func save(_ token: AuthModel){
         repo.set(token.accessToken, forKey: accessKey)
-        repo.set(token.refreshToken, forKey: refreshKey)
+        repo.set(token.refreshToken!, forKey: refreshKey)
+    }
+    
+    func changeAccessToken(_ token: String){
+        repo.set(token, forKey: accessKey)
     }
     
     func remove(){
@@ -27,7 +31,7 @@ class Token{
         repo.removeObject(forKey: refreshKey)
     }
     
-    func get(isAccess: Bool = true) -> AuthModel?{
+    func get() -> AuthModel?{
         let accessToken = repo.string(forKey: accessKey)
         let refreshToken = repo.string(forKey: refreshKey)
         if let at = accessToken, refreshToken != nil{ return AuthModel(accessToken: "JWT " + at, refreshToken: "JWT " + refreshToken!) }

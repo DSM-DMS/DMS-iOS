@@ -18,7 +18,7 @@ public class Connector{
     private let basePath = "http://dsm2015.cafe24.com/v2/"
     private init(){ }
     
-    func getRequest(_ subPath: API, method: RequestMethod, params: [String : String]? = nil) -> URLRequest{
+    func getRequest(_ subPath: API, method: RequestMethod, params: [String : Any]? = nil) -> URLRequest{
         var urlStr = basePath + subPath.getPath()
         
         if method == .get{
@@ -36,7 +36,7 @@ public class Connector{
         }
         
         if let token = Token.instance.get() {
-            request.addValue(token.accessToken, forHTTPHeaderField: "authorization")
+            request.addValue(token.accessToken, forHTTPHeaderField: "Authorization")
         }
         
         return request
@@ -59,7 +59,13 @@ public extension URLRequest{
         return decodeData(String.self, vc: vc).map{ $0.0 }
     }
     
-    func decodeData<T>(_ type: T.Type ,vc: UIViewController) -> Observable<(Int, T?)> where T: Decodable{
+    mutating func setRefreshToken() -> URLRequest{
+        guard let refreshToken = Token.instance.get()?.refreshToken else { return self }
+        self.setValue(refreshToken, forHTTPHeaderField: "Authorization")
+        return self
+    }
+    
+    func decodeData<T>(_ type: T.Type, vc: UIViewController? = nil) -> Observable<(Int, T?)> where T: Decodable{
         return requestData(self)
             .single()
             .map{ ($0.0.statusCode, $0.1) }
@@ -68,6 +74,7 @@ public extension URLRequest{
                 return (code, decodeData)
             }
             .filter{ (code, _) in
+                guard let vc = vc else { return true }
                 if code == 500{ vc.showToast(msg: "서버 오류") }
                 return code != 500
             }

@@ -100,18 +100,24 @@ class TabShape: UITabBarController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        versionCheck().disposed(by: disposeBag)
+        versionCheck("1.0.7")
     }
     
     private func getAccessToken(){
-        Connector.instance.request(createRequest(sub: "/refresh", method: .post, params: [:], isAccess: false), vc: self)
-            .subscribe(onNext: { [unowned self] code, data in
-                if code == 200{
-                    let data = try! JSONDecoder().decode(AuthModel.self, from: data)
-                    Token.instance.save(data.access_token)
-                }
-                else if code == 205{ self.showToast(msg: "다시 로그인 해주세요") }
-            }).disposed(by: disposeBag)
+        if Token.instance.get() == nil { return }
+        
+        var request = Connector.instance
+            .getRequest(AuthAPI.refreshAccessToken, method: .get)
+            
+        _ = request.setRefreshToken()
+            .decodeData(AuthModel.self, vc: self)
+            .subscribe(onNext: { [weak self] code, data in
+                guard let strongSelf = self else { return }
+                let token = Token.instance
+                if code == 200 { token.changeAccessToken(data!.accessToken) }
+                else if (code == 205) || (401 == code) { token.remove(); strongSelf.showToast(msg: "다시 로그인 해주세요.") }
+                else{ strongSelf.showError(code) }
+            })
     }
     
 }
