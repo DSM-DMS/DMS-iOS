@@ -41,7 +41,7 @@ class ApplyStudyVC: UIViewController  {
         if selectedSeat == 0{ showToast(msg: "자리를 선택하세요"); return }
         _ = Connector.instance
             .getRequest(ApplyAPI.applyOrCancelExtensionInfo(time: selectedTime), method: .post,
-                        params: ["classNum" : "\(selectedClass)", "seatNum" : "\(selectedSeat)"])
+                        params: ["classNum" : selectedClass, "seatNum" : selectedSeat])
             .emptyData(vc: self)
             .subscribe(onNext: { [weak self] code in
                 guard let strongSelf = self else { return }
@@ -60,6 +60,7 @@ class ApplyStudyVC: UIViewController  {
             .subscribe(onNext: { [weak self] code in
                 guard let strongSelf = self else { return }
                 if code == 200{ strongSelf.getMap(); strongSelf.showToast(msg: "취소 성공") }
+                else if code == 204{ strongSelf.showToast(msg: "취소 시간이 아닙니다.") }
                 else{ strongSelf.showError(code) }
             })
     }
@@ -93,14 +94,15 @@ extension ApplyStudyVC{
     
     private func getMap(){
         selectedSeat = 0
-        _ = Connector.instance
-            .getRequest(ApplyAPI.getExtensionMapInfo(time: selectedTime), method: .get, params: ["classNum" : "\(selectedClass)"])
-            .getDataForMap(vc: self)
-            .subscribe(onNext: { [weak self] code, data in
-                guard let strongSelf = self else { return }
-                if code == 200{ strongSelf.bindData(data! as! [[Any]]) }
-                else{ strongSelf.showError(code) }
-            })
+        self.bindData([[1,2,3,4,5,6,7,8,9],[0,0,0,1,2,3,0,0,1], ["1", "2"]])
+//        _ = Connector.instance
+//            .getRequest(ApplyAPI.getExtensionMapInfo(time: selectedTime), method: .get, params: ["classNum" : "\(selectedClass)"])
+//            .getDataForMap(vc: self)
+//            .subscribe(onNext: { [weak self] code, data in
+//                guard let strongSelf = self else { return }
+//                if code == 200{ strongSelf.bindData(data! as! [[Any]]) }
+//                else{ strongSelf.showError(code) }
+//            })
     }
     
     private func bindData(_ dataArr: [[Any]]){
@@ -116,14 +118,8 @@ extension ApplyStudyVC{
         for seatArr in dataArr{
             for seat in seatArr{
                 if let titleInt = seat as? Int{
-                    if titleInt > 0{
-                        let button = getButton(x: x, y: y, title: "\(titleInt)")
-                        button.setBackgroundImage(UIImage(named: "seatNo"), for: .normal)
-                    }
-                }else{
-                    let button = getButton(x: x, y: y, title: seat as! String)
-                    button.setBackgroundImage(UIImage(named: "seatYes"), for: .normal)
-                }
+                    if titleInt > 0{ getButton(x: x, y: y, title: "\(titleInt)").setShape(state: .empty) }
+                }else{ getButton(x: x, y: y, title: seat as! String).setShape(state: .exist) }
                 x += 65
             }
             x = 0
@@ -133,23 +129,47 @@ extension ApplyStudyVC{
         backScrollView.addSubview(contentView!)
     }
     
-    func getButton(x: Int, y: Int, title: String) -> UIButton{
+    private func getButton(x: Int, y: Int, title: String) -> UIButton{
         let button = UIButton.init(frame: CGRect.init(x: x, y: y, width: 55, height: 55))
         button.setTitle(title, for: .normal)
         button.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
+        button.layer.cornerRadius = 55 / 2
+        beforeButton?.layer.borderWidth = 2
         contentView?.addSubview(button)
         return button
     }
     
     @objc func onClick(_ button: UIButton){
-        if let intTitle = Int(button.title(for: .normal)!){
-            beforeButton?.setBackgroundImage(UIImage.init(named: "seatNo"), for: .normal)
-            button.setBackgroundImage(UIImage.init(named: "seatSelect"), for: .normal)
-            selectedSeat = intTitle
+        if let seatNum = Int(button.title(for: .normal)!){
+            beforeButton?.setShape(state: .empty)
+            button.setShape(state: .select)
+            selectedSeat = seatNum
             beforeButton = button
         }else{
             showToast(msg: "자리가 있습니다")
         }
     }
     
+}
+
+extension UIButton{
+    
+    fileprivate func setShape(state: SeatState){
+        switch state {
+        case .empty:
+            backgroundColor = UIColor.lightGray
+            layer.borderWidth = 0
+        case .select:
+            layer.borderWidth = 4
+            layer.borderColor = UIColor.yellow.cgColor
+            backgroundColor = UIColor.lightGray
+        case .exist:
+            backgroundColor = Color.MINT.getColor()
+        }
+    }
+    
+}
+
+fileprivate enum SeatState{
+    case empty, select, exist
 }
