@@ -8,11 +8,11 @@
 
 import Foundation
 
-class NoticeListModel: Codable{
+struct NoticeModel: Codable{
     
-    var title: String
-    var author: String?
-    var id: String
-    var write_time: String
+    let title: String
+    let writeTime: String
+    let id: String?
+    let content: String?
     
 }

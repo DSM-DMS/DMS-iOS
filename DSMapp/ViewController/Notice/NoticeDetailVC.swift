@@ -28,7 +28,7 @@ class NoticeDetailVC: UIViewController {
     private func getData(){
         _ = Connector.instance
                 .getRequest(NoticeAPI.getNoticeContent(category: NoticeUtil.urlArr[id], postID: postID), method: .get)
-                .decodeData(NoticeDetailModel.self, vc: self)
+                .decodeData(NoticeModel.self, vc: self)
             .subscribe(onNext: { [weak self] code, data in
                 guard let strongSelf = self else { return }
                 if code == 200{ strongSelf.setBind(data!) }
@@ -36,9 +36,9 @@ class NoticeDetailVC: UIViewController {
             })
     }
     
-    private func setBind(_ data : NoticeDetailModel){
+    private func setBind(_ data : NoticeModel){
         titleLabel.text = data.title
-        webView.loadHTMLString(data.content, baseURL: nil)
+        webView.loadHTMLString(data.content!, baseURL: nil)
     }
 
 }

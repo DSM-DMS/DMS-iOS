@@ -14,7 +14,7 @@ class NoticeListVC: UIViewController {
     @IBOutlet weak var monsterImageView: UIImageView!
     
     var id: Int = 0
-    private var data = [NoticeListModel]()
+    private var data = [NoticeModel]()
     
     override func viewDidLoad() {
         setData()
@@ -37,7 +37,7 @@ extension NoticeListVC: UITableViewDataSource, UITableViewDelegate{
     func loadData(){
         _ = Connector.instance
                 .getRequest(NoticeAPI.getNoticeList(category: NoticeUtil.urlArr[id]), method: .get)
-                .decodeData([NoticeListModel].self, vc: self)
+                .decodeData([NoticeModel].self, vc: self)
                 .subscribe(onNext: { [weak self] code, data in
                     guard let strongSelf = self else { return }
                     if code == 200{
@@ -64,7 +64,7 @@ extension NoticeListVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "NoticeDetailView") as! NoticeDetailVC
-        vc.id = id
+        vc.id = id; vc.postID = data[indexPath.row].id!
         present(vc, animated: true, completion: nil)
     }
     
@@ -72,7 +72,7 @@ extension NoticeListVC: UITableViewDataSource, UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoticeListCell", for: indexPath) as! NoticeListCell
         let selectData = data[indexPath.row]
         cell.titleLabel.text = selectData.title
-        cell.dateLabel.text = selectData.write_time
+        cell.dateLabel.text = selectData.writeTime
         return cell
     }
     
