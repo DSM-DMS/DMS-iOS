@@ -33,7 +33,7 @@ class PointListVC: UIViewController {
             .subscribe(onNext: { [weak self] code, data in
                 guard let strongSelf = self else { return }
                 if code == 200{
-                    if data!.count > 0 { strongSelf.showAlert(); return }
+                    if data!.count == 0 { strongSelf.showAlert(); return }
                     strongSelf.dataArr = data!.reversed()
                     strongSelf.tableView.reloadData()
                 }
